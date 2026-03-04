@@ -1,0 +1,41 @@
+.card-container {
+    position: relative;
+    width: 100%
+}
+
+.card-image {
+    position: absolute;
+    width: 100%;
+    /* z-index is essentially the layering order */
+    z-index: -1;
+}
+
+.card-body {
+    position: absolute;
+    width: 100%;
+    background: black;
+    opacity: 0.6;
+    color: white;
+    top: 8rem;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: Roboto;
+}
+
+.card-heading {
+    position: absolute;
+}
+
+/* For rel-parent and abs-child */
+.rel-parent {
+    position: relative;
+    position: left;
+    /* Play with this variable for effect */
+    left: 10pt;
+}
+
+.abs-child {
+    position: absolute;
+    /* Notice that this doesn't do anything */
+    position: bottom;
+}
