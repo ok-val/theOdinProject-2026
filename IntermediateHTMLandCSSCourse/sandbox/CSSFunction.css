@@ -16,7 +16,8 @@ body {
 	height: 100vh;
 	color: white;
 }
-#container > * {
+
+#container>* {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -26,13 +27,36 @@ body {
 	height: var(--header);
 	background: #111111;
 }
+
 #mainContent {
 	height: var(--main);
 	background: #343434;
 	margin-right: auto;
 	margin-left: auto;
 }
+
 #footer {
 	height: var(--footer);
 	background: #232323;
+}
+
+#container1 {
+	display: flex;
+	box-sizing: border-box;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 6px solid black;
+	resize: both;
+	overflow: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#iconHolder {
+	/* Scales to 80% of the container, cap at 150px */
+	width: min(150px, 80%);
+	height: min(150px, 80%);
+	box-sizing: border-box;
+	border: 6px solid blue;
 }
