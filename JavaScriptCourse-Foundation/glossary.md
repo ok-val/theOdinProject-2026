@@ -41,7 +41,7 @@ Client-side code is code that is executed in the user's browser, while server-si
 Server-side code is run on the server before sending results to the client. Its results are downloaded and displayed in the browser. Examples of popular server-side web languages are ~={blue}PHP, Python, Ruby, C#, and even JavaScript=~. The popular ~={blue}Node.js=~ environment runs on the server-side and enables the execution of JavaScript code on the server.
 
 ---
-## Dynamic vs Static JS
+## Dynamic vs Static in JS
 
 The term dynamic refers to the ability to update the display of a webpage. Server-side code *dynamically* generates new content on the server, *such as pulling data from a database*. Client-side JS *dynamically* generates new content inside the browser on the client, *such as creating a new HTML table and applying the data requested from the server*.
 
@@ -77,6 +77,3 @@ node -v
 ```
 
 ---
-## JS Data Types and Conditionals
-
-

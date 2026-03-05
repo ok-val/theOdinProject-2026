@@ -14,13 +14,44 @@
         // Your JavaScript goes here!
         console.log("Hello, World!")
     </script>
-    
+
     <!-- This is how you would embed an external script to HTML -->
     <!-- The running order matters -->
     <!-- A button element needs to be created first -->
     <button>Player 1: Chris</button>
+
     <!-- For a script that uses that button to call it -->
-    <script src="variablesAndOperators.js"></script>
+    <!-- <script src="variablesAndOperators.js"></script> -->
+
+    <!-- Loading a simple script from file -->
+    <script src="string.js"></script>
+
+    <!-- But can you run a script directly in html? -->
+    <!-- Yes, BUT this is bad practice -->
+    <!-- <script>
+        const name = "Val";
+        const greeting = `Hello ${name}`;
+        console.log(greeting);
+    </script> -->
+
+    <button class="greet-button">Press to greet</button>
+    <div id="greeting"></div>
+
+    <button class="random">Do the thing</button>
+
+    <div>
+        <label for="donate_choice">
+            Would you like to donate?
+        </label>
+        <select id="donate_choice">
+            <option value="yes">Yes, I would like to donate.</option>
+            <option value="no">No, not right now.</option>
+            <option value="maybe">Maybe, I haven't decided..</option>
+        </select>
+    </div>
+    <p id="donate_display">Your choice</p>
+    <script src="concatenation.js"></script>
+
 </body>
 
 </html>
