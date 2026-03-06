@@ -6,7 +6,7 @@ APIs are ready-made code blocks that allow dev to implement programs that would 
 
 **Browser APIs**: Comes prebuilt into the browser, allowing dev to work with data surrounding the computer environment. These are a few sub-types: 
 
-+ DOM (Document Object Model) for manipualting HTML and CSS plus other inspection + console + user prompting features
++ DOM (Document Object Model) for manipulating HTML and CSS plus other inspection + console + user prompting features
 + Geolocation for geographical information
 + Canvas and WebGL for creating 2D and 3D animations
 + Audio and Video APIs and WebRTC for hardware interaction (webcam, microphone)

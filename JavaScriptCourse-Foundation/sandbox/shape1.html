@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape1</title>
+    <style>
+        body {
+            background: #457b9d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            --borderColor: #cdb4db;
+        }
+        div {
+            background: #ffc8dd;
+            position: absolute;
+            width: 230px;
+            height: 180px;
+            border: solid var(--borderColor);
+            border-width: 0 0 30px 30px;
+        }
+        div::after {
+            content: "";
+            position: absolute;
+            background: var(--borderColor);
+            width: 230px;
+            height: 180px;
+            border: solid var(--borderColor);
+            border-width: 30px 30px 0 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

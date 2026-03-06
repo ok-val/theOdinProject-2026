@@ -1,0 +1,24 @@
+:root {
+    --theme-bg: rgb(179, 179, 179);
+    background-color: var(--theme-bg);
+    font-size: 24px;
+}
+
+label {
+    display: inline-block;
+    padding: 10px;
+}
+
+label::first-letter {
+    font-size: 4rem;
+}
+
+#switch-theme {
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.apply-theme {
+    font-size: calc(3rem + 2vw);
+    line-height: calc(2.75rem + 2vw);
+}
