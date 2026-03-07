@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flexbox Review</title>
     <link rel="stylesheet" href="flexbox.css">
+    <style>
+        & {
+            background-color: #457b9d;
+        }
+    </style>
 </head>
 <body>
     <script>
         const rootStyles = getComputedStyle(document.documentElement);
-        console.log(rootStyles);
+        // console.log(rootStyles);
         const themeBg = rootStyles.getPropertyValue('display');
         // console.log(themeBg);
     </script>
 
-    <div class="box">
+    <!-- <div class="box">
         <div>1</div>
-        <div>2</div>
+        <div id="moveable-box">2. <br>moveable</div>
         <div>3. <br>has <br>extra <br>texts</div>
-    </div>
+    </div> -->
 
 
 </body>

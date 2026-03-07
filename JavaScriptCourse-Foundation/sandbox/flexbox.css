@@ -12,18 +12,36 @@ body {
 .box {
     border: 2px dotted #1d3557;
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     height: 96vh;
+    gap: 10%; /* shorthand combining row- and column-gap */
+
 }
 
-/*  */
-.box > * {
+/* Select all under div.box */
+.box>* {
     border: 2px dotted #1d3557;
     border-radius: 5px;
     background: #73acc6;
-    padding: 1rem;
+
+    flex: 1 1 auto;
+    
+    padding: 1rem 2rem;
     height: min(90px, 100%);
     width: min(90px, 100%);
-    text-align: center;
+            
+    /* respectively sets both align-content: and justify-content: center all once */
+    place-content: end center;  /* shorthand is expanded below */
+    /* align-content: end; */
+    /* justify-content: center; */
+
+
+}
+
+/* Grab the specified box for reordering */
+.box>#moveable-box {
+    order: -1;
+    border-color: #d62828;
 }
