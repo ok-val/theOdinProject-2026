@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Review</title>
+    <link rel="stylesheet" href="flexbox.css">
+</head>
+<body>
+    <script>
+        const rootStyles = getComputedStyle(document.documentElement);
+        console.log(rootStyles);
+        const themeBg = rootStyles.getPropertyValue('display');
+        // console.log(themeBg);
+    </script>
+
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3. <br>has <br>extra <br>texts</div>
+    </div>
+
+
+</body>
+</html>
