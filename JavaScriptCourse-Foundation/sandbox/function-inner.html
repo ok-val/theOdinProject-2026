@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Functions</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /**
+         * To understand how inner function works to store variables, 
+         * let's image an outer function as a master, and the inner function as an apprentice
+         * the local variables are tools on a workbench.
+         * 
+         * When the master (function) finishes, she wraps the tools and put them away (discarded)
+         * However, if she brings in an apprentice to use and carry the tools,
+         * he will continue to hold on to the tools once the workshop finishes.
+         * 
+         * Below is how a CLOSURE FUNCTION is declared:
+        */
+        function master() {
+            let count = 0;
+            return function toolkit() {
+                // The reassignment below is the code that prevents JS from discarding local vars
+                count++; // i.e., count += 1; 
+                console.log(count);
+            };
+        debugger;
+        }
+        const apprentice = master(); // apprentice is the function that carries the closure environment with the referenced toolkit
+        debugger;
+        apprentice();
+        apprentice();
+    </script>
+</body>
+
+</html>

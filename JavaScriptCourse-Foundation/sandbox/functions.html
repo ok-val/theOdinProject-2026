@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Functions</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /** The anatomy of a JS function:
+        * Function declaration starting with `function` followed by function name in camelCase
+        * Parameter or keyword declaration follows fn name without space, declaring that these are the parameters it should be expecting.
+        * Parameter declarations are essentially placeholders for telling how the function should operationalize the parameters.
+        */
+        function favAnimals(animal) {
+            debugger; // Pause here to log the animal argument being passed into this function
+            console.log(`${animal} is my fav animal!`);
+            debugger; // Local parameters are DISCARDED AFTER THE FUNCTION FINISHES. 
+        }
+        /** Calling a function
+         * We have now constructed a function that requires one parameter
+         * This means that in order to call this function, we must provide one parameter as an ARGUMENT.
+         * An ARGUMENT simply creates assignments to parameters 
+         */
+        favAnimals('Tiger')
+    </script>
+</body>
+
+</html>

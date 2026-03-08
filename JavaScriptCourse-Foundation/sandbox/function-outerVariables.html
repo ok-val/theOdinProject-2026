@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outer Variables</title>
+</head>
+
+<body>
+    <script>
+        let favName = "Chupi";
+
+        function showFav() {
+            // Similar to python, a function can fully alter globally scoped variables if not specified otherwise
+            let message = `${favName} is my favorite person.`;
+            console.log(message);
+            // Safely modify using locally scope vars
+            let alteredName = `${favName}-chup`;
+            console.log(`${alteredName} is also my favorite person.`);
+            debugger;
+        }
+    </script>
+</body>
+
+</html>
