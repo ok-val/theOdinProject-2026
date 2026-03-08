@@ -1,4 +1,4 @@
-
+********
 > [!info] Flexbox
 > In the flex layout model, *the children of a flex container can be laid out in any direction (or axis), and can flex their sizes*, either growing to fill unused space or shrinking to prevent overflowing from the parent. 
 
