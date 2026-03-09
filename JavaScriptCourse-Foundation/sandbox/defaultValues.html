@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Values</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * SOME FUNCTION-AL KEY TERMS (XD)
+         * Parameters are for declaration; 
+         * Arguments are for call;
+         * 
+         * When a function is called, any expected arguments that are not provided will be called as undefined.
+         * We can define default values like this:
+        */
+        function sayMyName(yourName, yourOps = 'Some Cartel guy') {
+            const opening = 'Sayy my name';
+            const middle = `\n${yourOps}: ...${yourName}.`;
+            const closing = "\nYou're goddamn right.";
+            const closing_alt = `\n${yourOps}: Who?`;
+            let message = (yourName === 'Heisenberg') ? `${opening}${middle}${closing}` : `${opening}${closing_alt}`;
+            return (message);
+        }
+
+        console.log(sayMyName());
+        /** Sayy my name
+         * Some Cartel guy: ...undefined.
+         * Some Cartel guy: Who?
+        */
+        console.log(sayMyName('Heisenberg'));
+        /**
+         * You: Sayy my name
+         * Some Cartel guy: ...Heisenberg.
+         * You're goddamn right.
+        */
+    </script>
+</body>
+
+</html>

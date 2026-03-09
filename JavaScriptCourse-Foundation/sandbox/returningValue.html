@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returning Values</title>
+</head>
+
+<body>
+    <script>
+        /** NAMING FUNCTIONS: 2 RULES
+         * 1. Functions are actions: Use active verbs
+         * 2. One function - One action (AS SPECIFIED)
+         * 
+         * Examples:
+         * showMessage(..)     // shows a message
+         * getAge(..)          // returns the age (gets it somehow)
+         * calcSum(..)         // calculates a sum and returns the result
+         * createForm(..)      // creates a form (and usually returns it)
+         * checkPermission(..) // checks a permission, returns true/false
+        */
+        
+        function checkAge(age) {
+            if (age >= 16) {
+                return true; // booleans should NOT be Title cased
+            } else {
+                return confirm('Do you have permission from your parents?');
+            }
+        }
+
+        let age = prompt('What is your age?');
+
+        if (checkAge(age)) {
+            alert('Access granted.');
+        } else {
+            alert('Access denied.');
+        }
+
+    </script>
+</body>
+
+</html>

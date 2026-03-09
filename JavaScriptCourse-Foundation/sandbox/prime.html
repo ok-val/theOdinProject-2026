@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Primes</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Create two functions: showPrimes() and isPrime()
+        */
+        function showPrimes(n) {
+            /**
+             * Displays all primes up to n
+             * @param {number} n - the upper limit
+             * @alert user of each prime as the program counts
+            */
+            for (let i = 2; i < n; i++) {
+                if (!isPrime(i)) continue; // if this evaluation is false, proceed to the next line
+                alert(i);
+            }
+        }
+
+        function isPrime(n) {
+            /**
+             * Evaluates if a n is prime
+             * @param {number} n - the number to evaluate 
+             * @returns {boolean} Whhether the number is prime or not
+            */
+            for (let i = 2; i < n; i++) {
+                if (n % i == 0) return false; // returns false if any i is divisible
+            }
+            return true; // finish the loop and return true if all division fails to return false
+        }
+    </script>
+</body>
+
+</html>
