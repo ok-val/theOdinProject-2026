@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Functions (or Method cuz Strings are objects)</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Functions that are part of any objects are called METHOD. 
+         * For the full list of built-in functions,
+         * as well as objects and their corresponding methods
+         * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+        */ 
+
+        // Replace method
+        const myStr = "I'm a string.";
+        console.log(myStr)
+        const replaceStr = myStr.replace("string", "sausage");
+        console.log(replaceStr);
+
+        // Join method
+        const strArray = ["I", "would", "like", "biscuits"];
+        const join_strArray = strArray.join(" ");
+        console.log(join_strArray);
+        
+        // Unrelated but was put here for fun
+        const myNum = Math.random(); // returns a random float between 0 and 1
+        console.log(myNum);
+    </script>
+</body>
+
+</html>

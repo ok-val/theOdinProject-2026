@@ -4,14 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Function</title>
+    <title>Exponent Calculator</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+            font-size: 24px;
+        }
+        button, input {
+            font-size: inherit;
+            font-family: inherit;
+        }
+    </style>
 </head>
 
 <body>
+    <h2>Eyyyy</h2>
+    <div>
+        <label for="x">Enter the base:</label>
+        <input id="x" type="number">
+    </div>
+    <div>
+        <label for="e">Enter the exponent:</label>
+        <input id="e" type="number">
+    </div>
+    <div>
+        <button id="calc_pow">Calculate</button>
+    </div>
     <script>
-        function pow(x, n) {
-            return x ** n;
+        // The template for calculating power
+        // function pow(x, n) {
+        //     return x ** n;
+        // }
+        const calcBtn = document.getElementById("calc_pow");
+        
+        function calcPow() {
+            const base = document.getElementById("x").value;
+            const exp = document.getElementById("e").value;
+            const res = base ** exp;
+            alert(res);
         }
+
+        calcBtn.addEventListener("click", calcPow);
+
     </script>
 </body>
 
