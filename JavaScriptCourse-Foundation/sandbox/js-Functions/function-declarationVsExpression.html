@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Expression vs Declaration</title>
+</head>
+
+<body>
+    <script>
+        // Function Declaration and Expression BEHAVES DIFFERENTLY AT INITIALIZATION
+        /**
+         * An expression follows the ORDER OF EXECUTION
+         * A declaration is declared at INITIALIZATION
+        */
+
+        // Function Declaration
+        sum(2, 5); // This would work because JS looks for all function declarations at INITIALIZATION
+
+        function sum(a, b) {
+            return a + b;
+        }
+
+        // Function Expression
+        sum(2, 5); // This wouldn't work (it's working now because it's referencing the declaration above)
+
+        let sum = function (a, b) {
+            return a + b;
+        };
+
+        // Function Declaration within Flow Control
+        /**
+         * Initially, we have seen JS looking for function declarations at INITIALIZATION
+         * These functions have to be provided as a GLOBALLY SCOPED variable (remember function is still a datatype)
+         * Similar to every other datatype created within a Flow Control block (if, while, for, etc.)
+         * Functions declarations within a flow control block is limited to being visible only in that block.
+        */
+
+        let age = 16; // take 16 as an example
+
+        if (age < 18) {
+            welcome();               // \   (runs)
+            //  |
+            function welcome() {     //  |
+                alert("Hello!");       //  |  Function Declaration is available
+            }                        //  |  everywhere in the block where it's declared
+            //  |
+            welcome();               // /   (runs)
+
+        } else {
+
+            function welcome() {
+                alert("Greetings!");
+            }
+        }
+
+        // Here we're out of curly braces,
+        // so we can not see Function Declarations made inside of them.
+
+        welcome(); // Error: welcome is not defined (we would have to initialize this var if we don't want to see error)
+
+
+        // As a rule of thumb, use Function Declaration whenever possible, it's easier to organize and predict.
+        // When project gets so larger that function call might impede performance, consider Function Expression. 
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Functions</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function ask(ques, yes_fn, no_fn) {
+            /**
+             * Confirm a y/n question for user, alert messages depending on choice (true/false)
+             * 
+             * @param {string} ques - Question for user
+             * @param {function} yes_fn - Function call if true
+             * @param {function} no_fn - Function call if false
+            */
+            if (confirm(ques)) yes_fn()
+            else no_fn();
+        }
+
+        function yes_fn() {
+            alert("You agreed.");
+        }
+
+        function no_fn() {
+            alert("You disagreed.");
+        }
+
+        // ask("Do you agree?", yes_fn, no_fn);
+
+    </script>
+    <script>
+        // More realisitically, if the function is this simple, we could just write using inline invoke
+        // Note that creating inline function requires us to WRAP THE FUNCTION with () to invoke it inline!!
+        function ask1(ques) {
+            /**
+             * @param {string} ques - Confirm with user, return true/false
+            */
+            if (confirm(ques)) (() => { alert("You agreed."); })() 
+            else (() => { alert("You disagreed."); })();
+        }
+        // ask1("You agree????");
+
+    </script>
+    <script>
+        // Or we can use Anonymous Functions to shorten the callback syntax...
+        function ask2(ques, yes, no) {
+            if (confirm(ques)) yes()
+            else no();
+        }
+        ask2("You agree, right?",
+            () => { alert("You agreed.")},
+            () => { alert("You disagreed.")}
+        );
+        // But I mean, who would want to invoke a function this way... 
+        // This defeats the utility in reducing verbosity of function declaration 
+        
+    </script>
+</body>
+
+</html>

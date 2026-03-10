@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Expression</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /**
+         * FUNCTION EXPRESSIONS 
+         * From [[JSDatatypes.md]], function is an object.
+         * And objects can be stored without variables like this
+        */
+        let ourFunction = () => {
+            alert("What a beautiful day!");
+        };
+        ourFunction();
+        /**
+         * WHY? 
+         * As we have see in [[function-inner.html]], this is one way we can create inner functions with persistent variables
+         * To review, here's the template for creating inner functions using anonymous inner functions
+        */
+       
+        function outer() { // This construction is called a function statement,... 
+            let count = 0;
+            return () => {
+                count++;
+                console.log(count);
+            }
+        } // ... and doesn't need a semicolon at the end
+
+        const inner_call = outer(); // this last line is essentially a function expression that stores an anonymous function
+        /**
+         * The variable inner_call is getting assigned with the return value of the function outer()
+         * 
+         * In essence, because we call the outer() function, what we get is its function value.
+         * That is, without the parentheses () which instructs JS to execute the function, inner_call would be assigned with the code that create the function.
+         * 
+         * inner_call = outer()
+         * inner_call = () => {
+         *      count++;
+         *      console.log(count);
+         * }
+         * 
+         * inner_call = outer
+         * ƒ outer() {
+         *      let count = 0;
+         *      return () => {
+         *      count++;
+         *      console.log(count);
+         *     }    
+         * }
+         * 
+        */
+    </script>
+
+</body>
+
+</html>
