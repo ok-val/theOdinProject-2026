@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Scope</title>
+</head>
+
+<body>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Functions">Link to mdn doc for this module</a>
+    <script>
+        const name = "Chris";
+        function greeting() {
+            alert(`Hello ${name}: welcome to our company.`);
+        }
+    </script>
+    <!-- <script>
+        const name = "Zaptec"; 
+        /**
+         * Uncaught SyntaxError: Identifier 'name' has already been declared
+         * This is primarily the reason why we should minimize using globally scoped vars
+         * EXCEPT for variables that should be IMMUTABLE
+        */
+        function greeting() {
+            alert(`Our company is called ${name}.`);
+        }
+    </script> -->
+    <script>
+        // Vars inside Flow Statements such as If and For are also LOCALLY scoped
+        let x = 1;
+        if (x === 1) {
+            const c = 4;
+            let d = 5;
+        }
+
+        for (let i = 0; i <= 1; i++) {
+            const e = 6;
+            let f = 7;
+        }
+        console.log(d); // Uncaught ReferenceError: d is not defined
+    </script>
+</body>
+
+</html>

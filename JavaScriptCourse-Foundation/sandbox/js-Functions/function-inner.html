@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <script>
+    <!-- <script>
         /**
          * To understand how inner function works to store variables, 
          * let's image an outer function as a master, and the inner function as an apprentice
@@ -29,7 +29,7 @@
             let count = 0;
             return function toolkit() {
                 // The reassignment below is the code that prevents JS from discarding local vars
-                count++; // i.e., count += 1; 
+                count++; // i.e., count += 1 whenever toolkit() is invoked; 
                 console.log(count);
             };
         debugger;
@@ -38,6 +38,20 @@
         debugger;
         apprentice();
         apprentice();
+    </script> -->
+    <script>
+        function master1() {
+            let count = 0;
+            return () => {
+                count++;
+                console.log(count);
+            }
+        }
+        // debugger;
+        const apprentice1 = master1();
+        apprentice1();
+        apprentice1();
+
     </script>
 </body>
 

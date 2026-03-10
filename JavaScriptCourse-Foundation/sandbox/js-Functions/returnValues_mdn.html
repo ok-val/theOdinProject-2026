@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Values</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * RETURN VALUES
+         * are values that a ffunction returns when it completes. For example,
+        */
+        const str1 = "It is cold.";
+        const str2 = str1.replace("cold", "warm");
+        console.log(str2);
+        /**
+         * In this sense, we can say that: 
+         * The return value of the function (or method to be more precise) of the str1.replace()
+         * is stored in the variable str2. 
+        */ 
+        function returnSomething() {
+            const str3 = str2.concat("\nBut it's not too bad...");
+            return str3;
+        }
+        /**
+         * The return value of our returnSomething() is str3, which is not stored anywhere globally for access.
+        */
+        console.log(returnSomething());
+        // Here we can say that the returned value of the function returnSomething() is passed into another function.
+        // We can see this pattern in many places
+        
+    </script>
+</body>
+
+</html>
