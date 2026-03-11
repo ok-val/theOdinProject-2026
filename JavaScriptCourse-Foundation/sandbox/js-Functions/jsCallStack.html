@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Call Stack</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * JS CALLSTACK
+         * a call stack is a way for the JS engine to do the following: 
+         * 
+         * (1)
+         * to keep track of its place in code that calls multiple functions.
+         * It has information on what function is being run
+         * and what functions are invoked from within that function.
+         * 
+         * (2)
+         * to manage execution contexts: Global execution context + Function execution contexts
+         * 
+         * A call stack works based on a principle called Last-In-First-Out (LIFO). Here's how it works:
+         *      When a script is executed, JS engine creates a GLOBAL EXECUTION CONTEXT
+         *          This is pushed on top of the call stack.
+         *      When a function is called, JS engine create a FUNCTION EXECUTION CONTEXT
+         *          This is then pushed on top of the call stack. The function then runs.
+         *          If within this function another function is called,
+         *          JS engine will create a new function execution context, putting it on top of the call stack
+         *          When that function finishes, JS engine pops it off the call stack and resumes the execution where it left off
+         *      The script will stop when the call stack is empty.
+         * 
+         * ---
+         * 
+         * Below is an example of how the call stack works
+        */
+
+        function add(a, b) {
+            debugger;
+            return a + b;
+        }
+
+        function average(a, b) {
+            debugger;
+            return add(a, b) / 2;
+        }
+
+        let x = average(9, 7);
+        debugger;
+        console.log(x);
+
+        /**
+         * When we inspect the call stack using DevTools, here's how the full stack looks like:
+         * 
+         * ➜ add // currently executing add()
+         *    average
+         *    (anonymous) // where the function was called globally---This is otherwise known as main() or global()
+         * 
+         * We can see that when add() finishes, its context disappears.
+         * 
+         * ➜ average // we're now back to average() context
+         *    (anonymous) // where the function was called globally
+        */
+
+    </script>
+</body>
+
+</html>
