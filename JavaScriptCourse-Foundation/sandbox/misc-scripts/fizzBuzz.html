@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+            font-size: 24pt;
+            font-family: sans-serif;
+        }
+
+        body input,
+        div,
+        button {
+            font-size: inherit;
+            font-family: inherit;
+            margin: 0.75rem 0rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="input">What number would you like to count to?</label>
+        <br>
+        <input id="input" type="number">
+    </div>
+    <res></res>
+
+
+    <script>
+        // 1. Use inputs to initiate vars
+        // Where to find input
+        const input = document.querySelector("#input");
+        // Where to display input
+        const result = document.querySelector("res");
+
+
+        // 2. Declare function for clearing and concate to ret
+        function fizzBuzz(startN = 1, endN = input.value) {
+            /**
+             * @param {number} startN - Start count, 1 by default
+             * @param {number} endN - End count (inclusive) - pulled from #input
+             * @returns {string} - a string as returned value
+            */
+
+            // 2.1. Initialize string
+            let ret = '';
+
+            // 2.2. Concate new string values
+            for (let i = startN; i <= endN; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    ret += i + ". FizzBuzz" + "<br>";
+                } else if (i % 3 == 0) {
+                    ret += i + ". Fizz" + "<br>";
+                } else if (i % 5 == 0) {
+                    ret += i + ". Buzz" + "<br>";
+                } else {
+                    ret += i + "<br>";
+                };
+            };
+
+            // 2.3 Return new string
+            return ret;
+        }
+
+        // 3. Automatically update res div with ret
+        input.addEventListener("change", () => {
+            const ret = fizzBuzz(); // returns a new string every time the function is callled 
+            result.innerHTML = ret;
+            // Do not use .textContent here since that is FOR LITERAL STRINGS 
+            // It won't register <br> or /n as line breaks
+        });
+
+    </script>
+</body>
+
+</html>
