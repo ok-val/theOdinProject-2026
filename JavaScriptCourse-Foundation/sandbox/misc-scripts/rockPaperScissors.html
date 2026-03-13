@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<style>
+    :root {
+        background-color: #a8dadc;
+        font-size: 24pt;
+        font-family: sans-serif;
+    }
+
+    button,
+    p {
+        font-size: inherit;
+        margin: 12px 0px 0px 12px;
+    }
+
+    #scoreDisplay {
+        border: 1px solid;
+        padding: 8px;
+        display: inline-block;
+    }
+</style>
+
+<body>
+    <p id="scoreDisplay">You: 0 | Com: 0</p>
+    <p>Your Choice:</p>
+    <button id="rockBtn">Rock</button>
+    <button id="paperBtn">Paper</button>
+    <button id="scissorsBtn">Scissors</button>
+    <br>
+    <p id="winnerDisplay"></p>
+    <script>
+        /** README
+         * VAR:
+         * choice dict { k : v }: 1 : rock, 2 : paper, or 3 : scissors  
+         * computer choice: random choice k 
+         * 
+         * INPUT:
+         * user choice: 1, 2, or 3 (corresponding with keys)  
+         * 
+         * DECIDE WINNER:
+         * condition for draw: computer choice == user choice
+         * condition for computer win:
+         *      computer == 1 && user == 3;
+         *      computer == 2 && user == 1;
+         *      computer == 3 && user == 2;
+         * else: 
+         *      human wins
+         * 
+         * SEQUENCE:
+         * 1. Computer makes decision when program starts (mainly for debugging)
+         * 2. User enter and submit input thru an input field and submit button
+         * 3. Winner is displayed; Restart button appear
+         * 4. When restart button is pressed, game resets along with all conditions. 
+        */
+
+        // 0. Declare components
+        const rockBtn = document.querySelector("#rockBtn");
+        const paperBtn = document.querySelector("#paperBtn");
+        const scissorsBtn = document.querySelector("#scissorsBtn");
+        const userChoiceField = document.querySelector("#userChoiceField");
+        const winnerDisplay = document.querySelector("#winnerDisplay");
+        const scoreDisplay = document.querySelector("#scoreDisplay");
+
+        let userScore = 0;
+        let comScore = 0;
+
+        // 1. Declare the choice map
+        const choiceDict = new Map(); // It's recommended to use map, has more built-in features :)
+        choiceDict.set(1, "rock");
+        choiceDict.set(2, "paper");
+        choiceDict.set(3, "scissors");
+
+        function randomChoice1to3() {
+            /**
+             * @returns an int between 1 and 3 (inclusive)
+            */
+            return Math.floor((Math.random() * 3) + 1); // I think this math is less biased 
+            // return Math.round((Math.random() * 2) + 1); // than this one because 0.5 would round up, not down
+        }
+
+        // 2. Human choose
+        rockBtn.addEventListener("click", () => { decideWinner(1) });
+        paperBtn.addEventListener("click", () => { decideWinner(2) });
+        scissorsBtn.addEventListener("click", () => { decideWinner(3) });
+
+        // 3. Calculate winner and score 
+        function decideWinner(userChoice) {
+            /**
+             * @param {number} userChoice - user choice corresponding to k number in choiceDict
+            */
+
+            // 1. Computer choose 
+            let comChoice = randomChoice1to3();
+
+            // 2. Run conditional statement to decide winner
+            // 2.1. Display winner via displayWinner()
+            // 2.2. Update score and run updateScore()
+            if (userChoice == comChoice) {
+                displayWinner("It's a draw.", userChoice, comChoice);
+            } else if (
+                (comChoice == 1 && userChoice == 3) ||
+                (comChoice == 2 && userChoice == 1) ||
+                (comChoice == 3 && userChoice == 2)) {
+                comScore += 1;
+                displayWinner('Computer wins.', userChoice, comChoice);
+                updateScore(userScore, comScore);
+            } else {
+                userScore += 1;
+                displayWinner("Human wins.", userChoice, comChoice);
+                updateScore(userScore, comScore);
+            };
+
+            // 3. Update comChoice
+            comChoice = randomChoice1to3();
+        }
+
+        // 4. Display winner and score
+        function displayWinner(string, userChoice, comChoice) {
+            winnerDisplay.innerHTML = `You chose ${choiceDict.get(userChoice)}.` + "<br>" + `Computer chose ${choiceDict.get(comChoice)}.` + "<br>" + `${string}`;
+        }
+
+        function updateScore(userChoice, comScore) {
+            scoreDisplay.innerHTML = `You: ${userChoice} | Com: ${comScore}`;
+        }
+
+    </script>
+</body>
+
+</html>
