@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Errors</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Run this script to see the Reference Error in action
+        const a = 1;
+        const b = 2;
+        // console.log(c);
+        // We would catch a bug that says
+        /**
+         * understandingErrors.html:13
+         * Uncaught ReferenceError: c is not defined
+         * at understandingErrors.html:13:21
+        */
+    </script>
+    <script>
+        // Here's how to catch an error using try--catch statement
+        // We can also call the error's parameters
+        try {
+            let a = dfhasodfih;
+        } catch (e) {
+            console.log(e instanceof ReferenceError); // instanceof is an operator, basically asking is this a child of (?)
+            console.log(e.message); 
+            console.log(e.name);
+            console.log(e.stack);
+        }
+    </script>
+    <script>
+        // Here's how to create a Reference Error instance
+        try {
+            throw new ReferenceError("Hello"); // the operator `new` is optional
+        } catch (e) {
+            console.log(e instanceof ReferenceError);
+            // etc.
+        }
+    </script>
+    <script>
+        // YOOO, you can also create CUSTOM ERRORS
+        const customErr = new Error("Invalid user"); 
+        customErr.name = "Invalid user"; // This error is called Invalid user
+        customErr.userId = 38;
+        customErr.badness = "very bad :("
+        console.log(customErr.name);
+        console.log(customErr.badness);
+        console.log(customErr instanceof Error); // true
+        console.log(customErr instanceof ReferenceError); // false
+    </script>
+    <!-- DIFFERENCE BETWEEN SYNTAX AND REFERENCE ERRORS -->
+    <script>
+        try {
+            eval("asdf sadf");
+        } catch (e) {
+            console.log(e.name); // SyntaxError 
+        } // But why is this a syntax error ...
+        // So here's the reason 
+        /**
+         * JS parser see both `asdf` and `sadf` as var names
+         * but there are no operators between them => illegal grammar
+         * therefore JS parser cannot parse the code => never reaches execution
+         * illegal syntax => no execution
+        */
+
+        try {
+            eval("ergoij");
+        } catch (e) {
+            console.log(e.name); // ReferenceError
+        } // While this is a Reference error ?
+        /**
+         * `ergoij` can be parsed as a var => legal syntax
+         * but there's no definition for this var 
+         * legal syntax => reaches execution => fails reference => fails execution
+        */
+    </script>
+    <script>
+        // Checkout the TYPE ERROR
+        try {
+            null.f();
+        } catch (e) {
+            console.log(e.name); // TypeError
+            console.log(e.track);
+        }
+    </script>
+    <!-- For practice, there go to misc-scripts folder and look for the html file
+     number-game-errors.html and have the crack. -->
+</body>
+</html>

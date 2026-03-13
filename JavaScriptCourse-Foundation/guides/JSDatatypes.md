@@ -16,16 +16,16 @@ For a more statically typed alternative, ~={blue}TypeScript (TS)=~ is a superset
 *These are the eight data types in JS.*
 Some of these data types are similar to ones that I've already encountered in Python, such as integers, strings, booleans, and objects. The ones that seems a little strange here nulls (this must be like None), undefined, symbols, and bigInts (int ?). 
 
-| Type        | Category      | Essential Meaning / Why It Matters                                                                       |
-| ----------- | ------------- | -------------------------------------------------------------------------------------------------------- |
-| *Number*    | Primitive     | Represents all numeric values (integers + floats); used for math and counters.                           |
-| *String*    | Primitive     | Textual data; core for UI, messages, identifiers, and serialization.                                     |
-| *Boolean*   | Primitive     | Logical true/false; drives conditionals and control flow.                                                |
-| *Null*      | Primitive     | Intentional “no value”; used to signal emptiness on purpose.                                             |
-| *Undefined* | Primitive     | Variable declared but not assigned; signals “not yet set.”                                               |
-| *Symbol*    | Primitive     | Unique identifiers; avoids naming collisions in objects.                                                 |
-| *BigInt*    | Primitive     | Arbitrarily large integers; needed for high‑precision integer math.                                      |
-| *Object*    | Non‑primitive | Collections of key–value pairs; foundation for arrays, functions, classes, and nearly all JS structures. |
+| Type        | Category      | Essential Meaning / Why It Matters                                                                               |
+| ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
+| *Number*    | Primitive     | Represents all numeric values (integers + floats); used for math and counters.                                   |
+| *String*    | Primitive     | Textual data; core for UI, messages, identifiers, and serialization.                                             |
+| *Boolean*   | Primitive     | Logical true/false; drives conditionals and control flow.                                                        |
+| *Null*      | Primitive     | Intentional “no value”; used to signal emptiness on purpose.                                                     |
+| *Undefined* | Primitive     | Variable declared but not assigned; signals “not yet set.”                                                       |
+| *Symbol*    | Primitive     | Unique identifiers; avoids naming collisions in objects.                                                         |
+| *BigInt*    | Primitive     | Arbitrarily large integers; needed for high‑precision integer math.                                              |
+| *Object*    | Non‑primitive | Collections of key–value pairs; foundation for arrays, functions, classes, errors, and nearly all JS structures. |
 ### Comparison with Python data types
 
 Recall that *everything is an object in Python*. But which is not the case in JS.

@@ -45,15 +45,25 @@ Here's how I would approach decomposing FizzBuzz using pseudocode.
 > * count += 1;
 > * program stops when count == user input int;
 
-
-### Pseudocode
+---
+**Below are some tools I use a lot:**
+#### Pseudocode
 
 *Pseudocode are just plain language, waiting to be translated into the destination language that you would be using.* 
 It should help build the outline of what your script is doing in terms of the plan you've laid out.
 
+#### Constant testing
 
-## Use pseudocode to model problem solving
+*Reduce the problem into its simplest form* to figure out larger, more complex patterns.
+Test this simplified pattern in a separate, isolated file to reduce noise.
 
+#### Deeply understand the bugs
 
-## Break down the problem into subproblems
+*Bugs are my friends.* They allow me to understand and appreciate the language more deeply every time a genuine bug is created (Not silly syntax errors).
+
+If I'm unsure what the Error message is telling me, I can isolate (or quarantine, if you will) the chunk of buggy code into a separate file, make some hypotheses about how the bug works.
+
+#### Use toy variables or data 
+
+If the issue is not about the data and the error is most likely linked to the programming syntax or logic, reduce that data into simple variables and toy datasets to support troubleshooting.
 
