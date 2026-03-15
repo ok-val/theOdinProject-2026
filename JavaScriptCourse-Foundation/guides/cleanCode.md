@@ -1,0 +1,1 @@
+**Clean code** is important because it allows us and other people to understand what's going on in at a later time. The code can be more easily debugged because one can better scan the code to find potential issues. 
