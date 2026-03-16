@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+</head>
+
+<body>
+    <script>
+        let prime = [];
+        for (let i = 10; i >= 2; i--) {
+            // when in doubt, use buffer conditionals
+            let isPrime = true;
+            for (let n = i - 1; n >= 2; n--) {
+                if (i % n == 0) isPrime = false; 
+            }
+            if (isPrime) prime.push(i); 
+        }
+    </script>
+    <script>
+        let prime1 = [];
+        next: for (let i = 10; i >= 2; i--) {
+            for (let n = i - 1; n >= 2; n--) {
+                if (i % n == 0) continue next; 
+                // break next will break out of the loop
+                // continue next will continue the loop, starting from top loop
+            }
+            prime1.push(i);
+        }
+    </script>
+</body>
+
+</html>

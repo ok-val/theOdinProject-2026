@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+    <!-- <script>
+        let i = 3;
+
+        // Both blocks below are the same
+        while (i) {
+            console.log(i--);
+        }
+
+        while (i > 0) {
+            console.log(i);
+            i--;
+        }
+    </script> -->
+    <script>
+        let i = 0;
+        while (i++ < 4) console.log(i); // this loop prints first, then increments
+
+        /**
+         * This is the same as writing
+         * while (i < 4) {
+         *     console.log(i);
+         *     i++;
+         * }
+        */
+
+        i = 0;
+        while (++i < 4) console.log(i); // this loop increments first, print second
+
+        /**
+         * This is the same as writing
+         * while (i < 4) {
+         *     i++;
+         *     console.log(i);
+         * }
+        */
+
+        // we should be very careful when using such shorthands
+        // because the increment is dependent on the condition
+    </script>
+    <script>
+        for (let i = 0; i < 4; i++) console.log(i);
+        for (let i = 0; i < 4; ++i) console.log(i);
+        // with for loops, we can expect the same answer from both 
+        // because the increment is independent from the condition
+    </script>
+</body>
+</html>

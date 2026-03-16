@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Counterdown</title>
+    <style>
+        :root {
+            background-color: #a8dadc;
+        }
+
+        body * {
+            font-family: sans-serif;
+            font-size: 20pt;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="beginForBtn">Begin! (for)</button>
+    <button id="beginWhileBtn">Begin! (while)</button>
+    <button id="beginDoWhileBtn">Begin! (do-while)</button>
+    <div id="countdown"></div>
+
+    <script>
+        const countdownDiv = document.querySelector("#countdown");
+        const beginBtn = document.querySelector("#beginForBtn");
+        const beginWhileBtn = document.querySelector("#beginWhileBtn");
+        const beginDoWhileBtn = document.querySelector("#beginDoWhileBtn");
+
+        function countdownFor() {
+            countdownDiv.textContent = "";
+            for (let i = 10; i >= 0; i--) {
+                const para = document.createElement('p');
+                para.textContent = i;
+                countdownDiv.appendChild(para);
+            }
+        }
+
+        function countdownWhile() {
+            countdownDiv.textContent = "";
+            let i = 10;
+            while (i >= 0) {
+                const para = document.createElement('p');
+                para.textContent = i;
+                countdownDiv.appendChild(para);
+                i--;
+            }
+        }
+
+        function countdownDoWhile() {
+            countdownDiv.textContent = "";
+            let i = 10;
+            do {
+                const para = document.createElement('p');
+                para.textContent = i;
+                countdownDiv.appendChild(para);
+                i--;
+            } while (i >= 0)
+            
+            
+        }
+        
+        beginForBtn.addEventListener("click", countdownFor);
+        beginWhileBtn.addEventListener("click", countdownWhile);
+        beginDoWhileBtn.addEventListener("click", countdownDoWhile);
+
+    </script>
+</body>
+
+</html>
