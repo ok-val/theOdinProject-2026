@@ -11,7 +11,7 @@
     <script>
         let prime = [];
         for (let i = 10; i >= 2; i--) {
-            // when in doubt, use buffer conditionals
+            // when in doubt, use stand-in conditionals
             let isPrime = true;
             for (let n = i - 1; n >= 2; n--) {
                 if (i % n == 0) isPrime = false; 
@@ -20,13 +20,16 @@
         }
     </script>
     <script>
-        let prime1 = [];
-        next: for (let i = 10; i >= 2; i--) {
-            for (let n = i - 1; n >= 2; n--) {
-                if (i % n == 0) continue next; 
-                // break next will break out of the loop
-                // continue next will continue the loop, starting from top loop
+        let prime1 = []; 
+
+        // create a counter for every number starting from 2
+        outer: for (let i = 2; i <= 20; i++) {
+            // create an inner incremental checker for divisibility
+            for (let n = 2; n < i; n++) {   // condition returns False at first iteration
+                // if we find a divisible condition, skip current iteration of n and i
+                if (i % n == 0) continue outer;
             }
+            // after no divisibility found, add to prime
             prime1.push(i);
         }
     </script>
