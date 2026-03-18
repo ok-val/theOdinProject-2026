@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reduce / reduceRight</title>
+</head>
+
+<body>
+    <!-- <script>
+        // reduce is pretty close to forEach (iterate with side-effects), map (pure tranform, no side-effects), and let's not talk about for loops here since that can do everything.
+
+        // Again, choose your method based on intents and readability (syntax).
+        // Reduce is to show that you are calculating a single value based on the array
+
+        // Here's its syntax:
+        let value = arr.reduce(function (accumulator, item, index, array) {
+            // ...
+        }, [initial]); // returns a SINGLE VALUE
+
+    </script> -->
+
+    <script>
+        // Here's an example. See the guides for a diagram on how it works
+
+        let arr = [1, 2, 3, 4, 5];
+
+        let sumOfArr = arr.reduce((sum, currentValue) => sum + currentValue, 0);
+
+        console.log(sumOfArr);
+
+    </script>
+</body>
+
+</html>

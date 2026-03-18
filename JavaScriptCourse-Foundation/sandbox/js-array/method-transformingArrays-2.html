@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split / join / trim</title>
+</head>
+
+<body>
+    <script>
+        // Most of the times, users will be providing inputs like this
+        // Our job is to transform this into discrete data blocks
+        let userInput = 'Bilbo, Gandalf, Nazgul';
+
+        // let namesSplit = userInput.split(',');
+
+        // If we know that split returns an array, we can use map on it
+        let names = userInput.split(',').map(value => value.trim());
+
+    </script>
+</body>
+
+</html>

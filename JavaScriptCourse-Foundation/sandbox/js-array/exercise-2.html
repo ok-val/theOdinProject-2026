@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+
+<body>
+    <!-- https://javascript.info/array-methods -->
+    <script>
+        // camelCase function (mine)
+        // This is function is 70% solid
+        // Demonstrates lower-level element walk (more like C than JS)
+        // Risky because of using splicing in a loop 
+
+        function camelize(str) {
+            let chars = str.trim().split('');
+            let cammeled = "";
+
+            for (let i = 0; i < chars.length; i++) {
+                if (chars[i] === '-') {
+                    chars[i + 1] = chars[i + 1].toUpperCase(); // assumes the next char exists
+                    chars.splice(i, 1); // this was is fragile and requires more robust handling
+                    // index mutation inside a loop is always riskier. This may cause:
+                    /**
+                     * skipped chars
+                     * return undefined if '-' is the last char 
+                    */
+                }
+                cammeled += chars[i];
+            }
+            return cammeled;
+        }
+
+        // let res = camelize("background-color-very-good");
+
+    </script>
+
+    <script>
+        // camelCase function (using more idiomatic syntax)
+        // This is more JS-idiomatic because of using the standard split-> map-> join 
+
+        function camelize1(str) {
+            return str
+                .split('-')
+                .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+                .join('');
+        }
+
+        let res = camelize1("background-color-very-good");
+
+    </script>
+
+
+</body>
+
+</html>
