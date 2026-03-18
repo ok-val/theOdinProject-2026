@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find / findIndex / findLastIndex</title>
+</head>
+
+<body>
+    <script>
+
+        let users = [
+            { id: 1, name: "John" }, // includes 3 objects with 2 parameters each
+            { id: 2, name: "Pete" },
+            { id: 3, name: "Mary" },
+            { id: 4, name: "John" },
+            NaN, // includes a NaN to test the includes method
+        ];
+
+        let userFind = users.find(value => value.id == 1); // returns found object
+        console.log(userFind.name); // prints the object's name
+
+        let userFindIndex = users.findIndex(value => value.name == 'John');
+        console.log(userFindIndex); // returns the index where the result was FIRST found
+        
+        let userFindLastIndex = users.findLastIndex(value => value.id == 2);
+        console.log(userFindLastIndex); // returns the index where result was LAST found
+        
+        let usersNamedJohn = users.filter(value => value.name == 'John');
+        console.log(usersNamedJohn); // returns ALL objects with the same name  
+
+        
+        // While able to handle NaN, includes cannot handle Object like this 
+        console.log(users.includes({ id: 3, name: "Mary" })); // false
+        console.log(users.includes(NaN)); // true
+        
+
+    </script>
+</body>
+
+</html>

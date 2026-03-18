@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach vs Map</title>
+</head>
+<body>
+    <script>
+        let arr = ["Bilbo", "Gandalf", "Nazgul"];
+
+        // WTF IS THE DIFFERENCE BETWEEN MAP AND FOREACH?
+        // Okay, let's get this straight...
+        let arrLength = arr.slice(0);
+        arrLength.forEach((value, index, array) => {array[index] = value.length});
+        
+        let arrLength2 = arr.slice(0);
+        arrLength2.map((value, index, array) => {array[index] = value.length}); 
+        
+        // Both of these will allow mutation, and while it's super strange to do, it's possible. 
+        
+        
+        // SO, everything comes down to 80% INTENT... and 20% SYNTAX 
+
+        // If I want to communicate that I'm transforming this array to a NEW one, USE MAP.
+        let arrLength3 = arr.map(item => item.length); // this is more readable
+        // MAP returns a new list
+
+        // If I want to communicate that I'm doing something with each of the elem, USE FOREACH.
+        arr.forEach((value) => {console.log(value)});
+        // FOREACH performs this function, doesn't return a list
+        
+
+
+
+    </script>
+</body>
+</html>

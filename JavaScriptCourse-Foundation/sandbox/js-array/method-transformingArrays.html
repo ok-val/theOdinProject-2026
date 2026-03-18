@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map / sort</title>
+</head>
+
+<body>
+    <script>
+        // Map allows us to create a new list based on some other list
+        // It's purely for transformation and very useful and many scenarios
+        // Map does not modify the original array (if not explicitly specified) 
+
+        let names = ["Bilbo", "Gandalf", "Nazgul"];
+
+        let namesLength = names.map(value => value.length);
+        console.log(namesLength);
+
+
+        // Sort sorts the array in place
+        // Meaning it MODIFIES the original array --- be careful when using it
+
+        let nums = [3, 2, 1];
+        let nums2 = nums.sort(); 
+
+        console.log(nums); 
+        console.log(nums == nums2); // true --- it indeed refers back to the OG array
+
+    </script>
+</body>
+
+</html>
