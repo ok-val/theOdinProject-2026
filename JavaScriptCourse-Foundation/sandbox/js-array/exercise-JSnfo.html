@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        // Create an array styles with items “Jazz” and “Blues”.
+        let styles = ['Jazz', 'Blues'];
+        // Append “Rock-n-Roll” to the end.
+        styles.push('Rock-n-roll');
+        // Replace the value in the middle with “Classics”. Your code for finding the middle value should work for any arrays with odd length.
+        styles[(styles.length - 1)/2] = 'Classics';
+        // Strip off the first value of the array and show it.
+        styles.shift();
+        // Prepend Rap and Reggae to the array.
+        styles.unshift('Rap', 'Reggae');
+        console.log(styles);
+    </script> -->
+    <script>
+        function sumInput() {
+            let ints = [];
+            while (true) {
+                let int = prompt('Input value to sum:', '');
+                // if (int == null || isNaN(int) || int.trim() === '') break;
+                if (int == null || !isFinite(int) || int.trim() === '') break;
+                ints.push(int);
+            };
+            return listSum(ints);
+        }
+        function listSum(list) {
+            let sum = 0;
+            for (const l of list) {
+                sum += Number(l);
+            }
+            return sum;
+        }
+    </script>
+
+</body>
+
+</html>

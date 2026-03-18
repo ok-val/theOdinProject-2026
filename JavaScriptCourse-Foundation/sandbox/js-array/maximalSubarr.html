@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximal Subarray</title>
+</head>
+
+<body>
+    <script>
+        arr = [1, -2, 3, 4, -9, 6];
+
+        function getMaxSubSum(list) {
+            let sum = 0;
+            for (const l of list) {
+                if (l <= 0) continue;  
+                sum += Number(l);
+            }
+            return sum;
+        }
+
+        console.log(getMaxSubSum(arr));
+    </script>
+</body>
+
+</html>

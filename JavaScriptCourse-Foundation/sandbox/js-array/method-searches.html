@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>at / indexOf / lastIndexOf / includes</title>
+</head>
+<body>
+    <script>
+        
+        // indexOf is the reverse of .at
+        // indexOf uses strict equality, so false !== 0;
+        let arr = [1, 0 , false, Object];
+
+        console.log(arr.indexOf(1)); // 0
+        console.log(arr.indexOf(0)); // 1
+        console.log(arr.indexOf(false)); // 2
+        console.log(arr.indexOf(Object)); // 3
+
+        console.log(arr.at(0)); // 1
+        console.log(arr.at(1)); // 0
+        console.log(arr.at(2)); // false
+        console.log(arr.at(3)); // f Object
+
+    </script>
+
+
+    <script>
+        
+        // lastIndexOf does exactly what you think it does
+        let arrRep = ['Japan', 'Vietnam', 'Uganda', 'Uganda', 'Brazil', 'Vietnam'];
+
+        console.log(arrRep.lastIndexOf('Vietnam')); // 5
+        console.log(arrRep.lastIndexOf('Uganda')); // 3
+
+    </script>
+
+
+    <script>
+        
+        // includes is used to check if an item exists in the array
+        let fruits = ['Apple', 'Orange', 'Apple'];
+
+        console.log(fruits.includes('Orange')); //  true
+        console.log(fruits.includes('Apple')); //  true
+        console.log(fruits.includes('Candy')); //  false
+
+        
+        // Note that we ever have to deal with NaN (not a number), we should use includes
+        let nan = [NaN, 0, NaN];
+
+        console.log(nan.indexOf(NaN)); // -1
+        console.log(nan.lastIndexOf(NaN)); // -1
+        console.log(nan.includes(NaN)); // true
+
+    </script>
+</body>
+</html>

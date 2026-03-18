@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack and Queue</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * An array can be used as a QUEUE
+         * A queue is a data structure that uses the principle FIFO (first-in-first-out)
+         * A queue supports two operations: SHIFT and PUSH 
+        */
+
+        /**
+         * An array can also be used as a STACK
+         * A stack is a data structure that uses the principle LIFO (last-in-first-out)
+         * A stack supports two operations: PUSH and POP
+        */
+
+        // -------------------------------------------------------------  //
+        // Array can support all of these operations
+        // It is important to treat these WITH restraints (like semantic markup)
+
+
+        // If treating array like a STACK that uses PUSH and POP
+        let stack = ['s1', 's2', 's3'];    // and treating each element a stack
+
+        stack.push('s4');
+        console.log(stack);
+
+        stack.pop();    // pop and return the removed element - 1 at a time
+        console.log(stack);
+        
+        stack.splice(2);    // for mutiple pops, we can use splice
+        console.log(stack);
+
+        // If treating array like a QUEUE that uses SHIFT AND PUSH
+        let queue = ['q1', 'q2', 'q3'];
+
+        queue.push('q4', 'q5');
+        console.log(queue);
+        
+        queue.shift();  // shifts the queue and return the removed item - 1 at a time
+        console.log(queue);
+        
+        queue.unshift('q0', 'q1');
+        console.log(queue);
+
+        // Notice that push and an unshift can deal with multiple elements at once
+
+        /* Note that arrays are in fact objects, 
+        Built with optimizations for speed allowing for ordered items to be stored in contiguous area in the memory 
+        You CAN do this kind of thing:
+        
+        const arr = [];
+        arr[99] = 99;
+        arr.you = "can";
+
+        If you do, this continguous area is encumbered by larger space and restructured in a way that cancels the optimization of arrays   
+        */
+
+    </script>
+</body>
+
+</html>

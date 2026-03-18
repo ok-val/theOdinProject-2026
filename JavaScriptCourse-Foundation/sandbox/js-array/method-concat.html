@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concat Method</title>
+</head>
+<body>
+    <script>
+        /**
+         * CONCAT allows us to concatenate elements from arrays
+         * It creates a new object altogether so we don't have to worry about overlapping address
+        */
+
+        let arr1 = ['a','b','c'];
+
+        let arr2 = ['d', 'e', 'f'];
+
+        let arr3 = arr1.concat(arr2);
+
+        console.log(arr1 == arr3); // => false
+
+    </script>
+</body>
+</html>

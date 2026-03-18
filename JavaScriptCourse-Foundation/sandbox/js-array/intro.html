@@ -8,6 +8,39 @@
 </head>
 
 <body>
+    <script>
+        /**
+         * JS Array is an ordered list
+         * Here are some basic methods of arrays
+        */
+
+        const shoppingList = ["apple", 'banana', 'cherry'];
+        
+        // Slice --- does not modify the original
+        console.log(shoppingList[0]);   // Get
+        console.log(shoppingList.slice(0,1));   // Slice
+
+        // Splice --- modifies the original
+        shoppingList.splice(2); // spliced from 2nd position onwards
+        console.log(shoppingList);
+        
+        // Adding items --- modifies
+        shoppingList[2] = 'cherry';
+        console.log(shoppingList);
+
+        // Length
+        shoppingList[3] = 'durian';
+        console.log(shoppingList.length);   // expect 4 items: 0,1,2,3
+
+        // Storing objects in inside arrays
+        let functionArray = [function() {alert("Yeepie")}, function() {alert("Nah")}];
+        functionArray[0]();
+
+        // Get 
+        console.log(shoppingList[-1]) // because we cannot get items this way; returns undefined
+        console.log(shoppingList.at(-1)); // mf doesn't work like python :|
+
+        </script>
 
 </body>
 
