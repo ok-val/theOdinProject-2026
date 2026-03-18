@@ -18,16 +18,56 @@
         let namesLength = names.map(value => value.length);
         console.log(namesLength);
 
+    </script>
 
+
+    <script>
         // Sort sorts the array in place
         // Meaning it MODIFIES the original array --- be careful when using it
 
         let nums = [3, 2, 1];
-        let nums2 = nums.sort(); 
+        let nums2 = nums.sort();
 
-        console.log(nums); 
+        console.log(nums);
         console.log(nums == nums2); // true --- it indeed refers back to the OG array
 
+
+        // But there are still some funky shit with sort()
+        // Check this out:
+        let nums3 = [1, 15, 2]; // returns 1, 15, 2 => mf is comparing UTF strings in ascending order (fuck you)! So here's what happening:
+
+        'a' > '1';
+
+        // why the fuck would someone name a function sort then, proceed to compare strings??? 
+        console.log(nums3.sort());
+
+        // ... so we gotta supply our own sorting function
+        function compareNumerics(a, b) {
+            if (a > b) return 1;
+            if (a == b) return 0;
+            if (a < b) return -1;
+        }
+
+        nums3.sort(compareNumerics);
+        console.log(nums3); // now it works as intended
+
+
+        // A comparison may return any number
+        // We can manipulate the return value to control our sorting algo 
+        let arr = [1, 20, 15];
+        arr.sort((a, b) => a - b);
+        // if a - b > 0 => positive num (a should come after b)
+        // if a - b == 0 => 0 (a and b stay put)
+        // if a - b < 0 => negative num (a should come before b)
+
+        console.log(arr);
+
+        // .reverse flips the comparison order
+        arr.reverse();
+        console.log(arr);
+        arr.reverse((a, b) => b - a);
+        console.log(arr);   // which doesn't stop us from fking around with it
+        
     </script>
 </body>
 
