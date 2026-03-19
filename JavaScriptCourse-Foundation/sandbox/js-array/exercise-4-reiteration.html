@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter range in place</title>
+</head>
+
+<body>
+    <script>
+        function filterRangeInPlace(arr, min, max) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > max || arr[i] < min) {
+                    arr.splice(i, 1); // after splicing, the arr's length/index has changed 
+                    i--;   // Therefore, we must reiterate at the current index
+                }
+            }
+        }
+
+        let arr = [5, 5, 3, 8, 1];
+
+    </script>
+</body>
+
+</html>

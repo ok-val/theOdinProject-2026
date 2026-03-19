@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Function Constructor</title>
+</head>
+
+<body>
+    <script>
+
+        // My solution used an object and that broke the exercise rule
+        // const Calculator = {
+        //     calculate(str) {
+        //         let strSplit = str.split(' ');
+        //         if (strSplit[1] === '+') {
+        //             return Number(strSplit[0]) + Number(strSplit[2]);
+        //         } else if (strSplit[1] === '-') {
+        //             return Number(strSplit[0]) - Number(strSplit[2]);
+        //         }
+        //     }
+        // }
+
+        let calc = new Calculator; // if the object above is used, returns Calculator is not a constructor... and I don't know how to create a constructor
+
+        // This is how you would create a Function Constructor 
+        function Calculator() {
+            this.methods = {
+                '+': (a, b) => a + b,
+                '-': (a, b) => a - b,
+            };
+            this.calculate = (str) => {
+                const parts = str.split(' ');
+                const a = +parts[0];
+                const op = parts[1];
+                const b = +parts[2];
+
+                return this.methods[op](a, b);
+            };
+            this.addMethod = (str, fn) => {
+                this.methods[str] = fn;
+            };
+        }
+
+
+        console.log(calc.calculate("3 + 7")); // 10
+        calc.addMethod("*", (a, b) => a * b);
+
+
+    </script>
+
+</body>
+
+</html>

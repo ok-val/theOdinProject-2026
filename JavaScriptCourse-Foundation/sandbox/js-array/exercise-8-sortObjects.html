@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort by Age</title>
+</head>
+
+<body>
+    <script>
+        // Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+        let john = { name: "John", age: 25 };
+        let pete = { name: "Pete", age: 30 };
+        let mary = { name: "Mary", age: 28 };
+
+        let users = [pete, john, mary];
+
+
+        // My solution --- basically used forEach like enumerate() in python 
+
+        function sortByAge(arr) {
+            let ages = arr.map(user => user.age).sort((a, b) => a - b);
+
+            ages.forEach((age) => {
+                users.push(users.find(value => value.age == age));
+            })
+            users.forEach(value => users.shift());
+        }
+
+        
+        // The solution I thought was not possible
+        
+        function sortByAge1(arr) {
+            arr.sort((a, b) => a.age - b.age);
+        }
+        
+        
+        sortByAge1(users);
+        console.log(users);
+        
+        // good try me :)
+    </script>
+</body>
+
+</html>

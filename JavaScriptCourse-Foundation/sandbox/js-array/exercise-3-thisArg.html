@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Range This Arg</title>
+</head>
+
+<body>
+    <script>
+        let filterRangeConfig = {
+            min: 1,
+            max: 4,
+            filterRange(num) { // this filter function should return CONDITIONS for the filter that would call it
+                return num <= this.max && num >= this.min;
+            }
+        };
+
+        let arr = [5, 3, 8, 1];
+
+        let res = arr.filter(filterRangeConfig.filterRange, filterRangeConfig);
+
+    </script>
+</body>
+
+</html>
