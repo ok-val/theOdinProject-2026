@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shuffling an Array</title>
 </head>
+
 <body>
-    
+    <script>
+        /**
+         * Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+         * All element orders should have an equal probability. For instance, [1,2,3] can be reordered as [1,2,3] or [1,3,2] or [3,1,2] etc, with equal probability of each case.
+         * This is a fascinating problem, so we should return to it some time.
+         * https://javascript.info/array-methods
+        */
+        let arr1 = [1, 2, 3];
+
+
+        // My solution using permutation + array reconstruction
+
+        function shuffle(arr) { // using permutation rule
+            const ITER = arr.length;
+            let buffer = arr.splice(0); // using splice then a loop is O(n^2) :|
+
+            for (let i = 0; i < ITER; i++) {
+                let randInt = Math.floor(Math.random() * buffer.length);
+                arr.push(+buffer.splice(randInt, 1));
+            }
+        }
+
+        shuffle(arr1);
+        console.log(arr1);
+
+        // JSInfo offers the following solutions
+
+        function shuffleSort(arr) {
+            arr.sort(() => Math.random - 0.5); // we assume 0.5 is the accumulative mean of this random distribution
+            // This one results in some biases... so it's not truly random.
+        }
+
+
+        // Fischer-Yates Shuffle --- this is essentially shuffling the array (length - 1) times, one pair of elements at a time
+        // More reliable, no sort() black box
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+
+                // swap elements array[i] and array[j]
+                // we use "destructuring assignment" syntax to achieve that
+                // you'll find more details about that syntax in later chapters
+                // same can be written as:
+                // let t = array[i]; array[i] = array[j]; array[j] = t
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+    </script>
 </body>
+
 </html>
