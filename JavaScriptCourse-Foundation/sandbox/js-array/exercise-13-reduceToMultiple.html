@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Reduce to return multiple objects to a single object</title>
+</head>
+
+<body>
+    <script>
+        // Since the exercise required us to do this using reduce 
+        // just to learn the idiomatic ways
+
+        function groupById(arr) {
+            return arr.reduce(
+                (accumulator, currentVal) => {                 // for each currentVal
+                    accumulator[currentVal.id] = currentVal;   // create an object
+                    return accumulator                         // return that object to accumulate
+                },                                             
+                {},                                            // provide an outer object to boot
+            )
+        }
+    </script>
+</body>
+
+</html>

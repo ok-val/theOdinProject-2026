@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter unique array members</title>
+</head>
+
+<body>
+    <script>
+        // Create a function unique(arr) that should return an array with unique items of arr.
+
+        let strings = ["Hare", "Krishna", "Hare", "Krishna",
+            "Krishna", "Krishna", "Hare", "Hare", ":-O"
+        ];
+
+
+        // Alright, I'm sure there is some idiomatic way using filter(fn),
+        // But first Imma do this python style
+
+        function unique1(arr) {
+            let uniqueArr = [];
+            for (const a of arr) {
+                if (!uniqueArr.includes(a)) {
+                    uniqueArr.push(a);
+                } else uniqueArr.splice(uniqueArr.indexOf(a), 1);
+            };
+            return uniqueArr;
+        }
+
+
+        // Oh shit, I misinterpret the assignment
+        // Rewriting unique2
+
+        function unique2(arr) {
+            let uniqueArr = [];
+            for (const a of arr) {
+                if (!uniqueArr.includes(a)) uniqueArr.push(a);
+            }
+            return uniqueArr;
+        }
+
+
+        console.log(unique2(strings));
+
+        // okay! So there is a REALLY CLEVER filter trick
+        // using the currentValue and currentIndex
+
+        function removeDuplicates(arr) {
+            let res = arr.filter((currentValue, currentIndex) => arr.indexOf(currentValue) === currentIndex);
+            return res;
+        }
+
+        // Alternatively, we can just make a SET (because set do not allow duplicates by default)
+        let stringsSet = Array.from(new Set(strings));
+
+    </script>
+</body>
+
+</html>
