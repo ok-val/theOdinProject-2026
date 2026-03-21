@@ -2,7 +2,7 @@ Here's the [link](https://www.javascripttutorial.net/javascript-call-stack/) to 
 
 ## JS Call Stack
 
-We have seen the call stack in action in [[DOMDebugging]]. Here is more context about how it works.
+We have seen the call stack in action in [[DOM-debugging]]. Here is more context about how it works.
 
 A *Call Stack* is a way for the ~={blue}JS engine=~ to:
 

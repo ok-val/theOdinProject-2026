@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Element</title>
+</head>
+<body>
+    <script>
+        // Add and manipulate elements using only JS
+        const body = document.querySelector("body");
+
+        const container = document.createElement('div');
+        container.setAttribute("id", "container");
+        
+        const par = document.createElement("p");
+        par.setAttribute("style", "color: red;");
+        par.textContent = "Hey I'm red";
+        container.appendChild(par);
+
+        const header3 = document.createElement("h3");
+        header3.setAttribute("style", "color: red;");
+        header3.textContent = "I'm a blue h3";
+        container.appendChild(header3);
+
+        const divBlackBorder = document.createElement("div");
+        divBlackBorder.setAttribute("border", "1px, solid, black");
+        divBlackBorder.setAttribute("background", "pink");
+
+        const header1 = document.createElement("h1");
+        header1.textContent = "I'm h1 in a div";
+        divBlackBorder.appendChild(header1);
+
+        const meTooPar = document.createElement('p');
+        meTooPar.textContent = "ME TOO!";
+        divBlackBorder.appendChild(meTooPar);
+
+        container.appendChild(divBlackBorder);
+        body.appendChild(container);
+    </script>
+</body>
+</html>
