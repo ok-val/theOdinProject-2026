@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard events</title>
+</head>
+
+<body>
+    <label for="input" style="display: block;">Click to see keylogs</label>
+    <input id="input" style="display: block;"></input>
+    <script>
+        const input = document.querySelector('#input');
+
+        input.addEventListener('keydown', (e) => {
+            console.log(`key=${event.key},code=${event.code}`);
+        })
+    </script>
+</body>
+
+</html>

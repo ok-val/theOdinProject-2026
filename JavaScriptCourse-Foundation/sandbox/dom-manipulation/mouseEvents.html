@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+</head>
+
+<body>
+    <button id="btn">Click to log mouse event!</button>
+    <script>
+        const btn = document.querySelector('#btn');
+
+        // optional, but I can disable default right click default 'contextmenu' popup:
+        // without this, the event handler would still bubble, but with the context menu
+        btn.addEventListener('contextmenu', (e) => {
+            e.preventDefault(); // i.e., for contextmenu, prevent that default
+        });
+
+        // log the mouse event message, there are usually 3 cases:
+        btn.addEventListener('mouseup', (e) => {
+            switch (e.button) {
+                case 0: console.log('LMB'); break;
+                case 1: console.log('MMB'); break;
+                case 2: console.log('RMB'); break;
+                case 3: console.log('mouse 4 - forward'); break;
+                case 4: console.log('mouse 5 - backward'); break;
+                default: console.log('Not identified');
+            }
+        });
+
+        // log modifier keys on click (shift, ctrl, alt), this is cool
+
+        btn.addEventListener('click', (e) => {
+            let keys = [];
+
+            if (e.shiftKey) keys.push('shift');
+            if (e.altKey) keys.push('alt');
+            if (e.ctrlKey) keys.push('ctrl');
+            if (e.metaKey) keys.push('meta');
+
+            console.log(keys.join('+'));
+        });
+
+        // Visit the guide for more event types and properties
+
+    </script>
+</body>
+
+</html>
