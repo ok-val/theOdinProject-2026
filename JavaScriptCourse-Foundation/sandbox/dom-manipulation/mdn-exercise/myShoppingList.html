@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shopping List</title>
+</head>
+
+<body>
+    <h2>My shopping list</h2>
+    <label for="input">Enter a new item: </label>
+    <input type="text" id="input">
+    <button id="add-btn">Add item</button>
+    <ul id="shopping-list"></ul>
+
+    <script>
+        const button = document.querySelector('#add-btn');
+
+        function addItem() {
+            // every object we extract value from should be access WITHIN the function that accesses it
+            const input = document.querySelector('#input');
+            const shoppingList = document.querySelector('#shopping-list');
+
+            const newItem = document.createElement('li');
+
+            const itemLabel = document.createElement('label');
+            itemLabel.textContent = input.value + ' ';
+            input.value = '';
+
+            // Attach an event listener to the itemButton when it's created
+            // This process is like assigning id and textContent to the button
+            const itemButton = document.createElement('button');
+            itemButton.id = 'item-btn';
+            itemButton.textContent = 'Delete';
+            itemButton.addEventListener('click', () => {
+                newItem.remove();
+            });
+
+            // Final appending
+            newItem.appendChild(itemLabel);
+            newItem.appendChild(itemButton);
+            shoppingList.appendChild(newItem);
+            
+        }
+
+        button.addEventListener('click', addItem);
+
+    </script>
+</body>
+
+</html>
