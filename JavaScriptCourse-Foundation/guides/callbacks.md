@@ -31,6 +31,3 @@ const addedArray = myMap([1, 2, 3], (arrayNum) => arrayNum + 2)
 ```
 
 
-
-
-

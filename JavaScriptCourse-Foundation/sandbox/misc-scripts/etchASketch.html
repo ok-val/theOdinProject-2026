@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-sketch</title>
+    <style>
+        #grid-container {
+            width: 960px;
+            height: 960px;
+            display: flex;
+            gap: 0px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background-color: #ffe8d6;
+        }
+
+        button {
+            font-size: 24px;
+            margin: 2rem;
+        }
+        
+        .pix {
+            width: 60px;
+            height: 60px;
+            box-sizing: border-box;
+            outline: 1px solid #e7cfbf;
+        }
+
+        .pix:hover {
+            background-color: #f0d3bf;
+        }
+
+        .pix-selected {
+            background-color: #a5a58d;
+        }
+        
+        .pix-selected:hover {
+            background-color: #6b705c;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="grid-container"></div>
+    <button id="reset-btn">Reset</button>
+
+    <script>
+        const gridContainer = document.querySelector('#grid-container');
+        const resetButton = document.querySelector('#reset-btn');
+        
+        squaresPerSide = 16;
+        
+        for (let i = 0; i < squaresPerSide**2; i++) {
+            const pix = document.createElement('div');
+            pix.classList.add('pix');
+            pix.addEventListener('click', () => pix.classList.toggle('pix-selected'));
+            pix.addEventListener('mouseover', () => {
+                if (isDrawing) pix.classList.add('pix-selected');
+            });
+            gridContainer.appendChild(pix);
+        };
+
+        resetButton.addEventListener('click', () => {
+            const pixList = document.querySelectorAll('.pix');
+            pixList.forEach(item => item.classList.remove('pix-selected'));
+        });
+
+
+        isDrawing = false;
+        gridContainer.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            e.preventDefault()
+        });
+        gridContainer.addEventListener('mouseup', () => {
+            isDrawing = false;
+        });
+    </script>
+
+</body>
+
+</html>
