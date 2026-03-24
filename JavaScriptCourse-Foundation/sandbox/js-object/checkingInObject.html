@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property existence test</title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            name: 'Tran',
+            age: 21,
+        }
+
+        console.log('name' in user);
+        console.log('height' in user);
+
+        
+        // The main advantage of using 'in' operator is that it checks strictly for property existence
+        let obj = {
+            test: undefined
+        };
+
+        console.log(obj.test); // => undefined, so - no such property?
+        console.log("test" in obj); // true, the property does exist!
+    </script>
+</body>
+
+</html>

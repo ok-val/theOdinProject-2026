@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For-in loop</title>
+</head>
+
+<body>
+    <script>
+        // For-in loop iterates through each of an object's key.
+
+        let user = {
+            name: 'Ari',
+            age: 13,
+        }
+
+        for (let k in user) {
+            console.log(k);    // all keys
+            console.log(user[k]);  // all values
+        }
+    </script>
+</body>
+
+</html>

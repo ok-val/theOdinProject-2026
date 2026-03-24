@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are object's properties ordered?</title>
+</head>
+
+<body>
+    <script>
+        // Integer properties are ordered by increasing magnitude
+        // Non-integer properties are ordered by creation order.  
+
+        let codes = {
+            '81': 'Japan',
+            '49': 'Germany',
+        };
+        
+        for (let key in codes) console.log(key); // 49, 81
+        for (let key in codes) console.log(codes[key]); // Germany, Japan
+        
+        
+        let nations = {
+            'Japan': '81',
+            'Germany': '49',
+        };
+        
+        for (let key in nations) console.log(key); // Japan, Germany
+        
+    </script>
+
+    <h3>What's an Integer Property?</h3>
+    <p>
+        Means that a string can be converted to and from an Integer without any change.
+        For example, `52` is an integer property name, and `+52` or `52.0` is not.
+    </p>
+</body>
+
+</html>

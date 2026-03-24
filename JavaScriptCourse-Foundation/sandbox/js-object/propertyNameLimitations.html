@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Objects</title>
+</head>
+
+<body>
+    <script>
+        // Property name limitations
+        let reserves = {};
+
+        reserves['for'] = 0;
+        reserves['if'] = 1;
+        reserves['except'] = 2;
+        reserves['break'] = 3;
+
+        reserves['__proto__'] = 5;
+
+        console.log(reserves['for']); // returns 0
+        console.log(reserves['__proto__']); // returns object
+    </script>
+</body>
+
+</html>
