@@ -1,8 +1,8 @@
-********
+
 > [!info] Flexbox
 > In the flex layout model, *the children of a flex container can be laid out in any direction (or axis), and can flex their sizes*, either growing to fill unused space or shrinking to prevent overflowing from the parent. 
 
-Whenever a container block is set to `display: flex;`, all children items become *flex items* (i.e., their sizes become unknown or dynamic). 
+Whenever a container block is set to `display: flex;`, **all children items become *flex items*** (i.e., their sizes become unknown or dynamic). 
 
 ~={yellow}The main idea of a flexbox is give the container the ability to alter its items width/height to best fill the available space.=~ That is, the flexbox (container) layout is **direction-agnostic** as opposed to the regular layouts (*block which vertically-based* and *inline which is horizontally-based*). Here are some more differences between them.
 
@@ -17,5 +17,6 @@ Whenever a container block is set to `display: flex;`, all children items become
 ```css
 justify-content: space-between;
 align-items: stretch;
+flex-wrap: nowrap;
 ```
 
