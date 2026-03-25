@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is object empty?</title>
+</head>
+
+<body>
+    <script>
+        let user = {};
+        // user['name'] = 'John';
+        // user['surname'] = 'Smith';
+
+        function isEmpty(obj) {
+            let keyCount = false;
+            for (let key in user) {
+                keyCount = true; 
+                if (keyCount) break;
+            }
+            return !Boolean(keyCount);
+        }
+
+        function isEmpty1(obj) {
+            for (let key in user) {
+                return false; // if there is no key in object, this loop will not start
+            }
+            return true;
+        }
+
+        console.log(isEmpty1(user));
+    </script>
+</body>
+
+</html>

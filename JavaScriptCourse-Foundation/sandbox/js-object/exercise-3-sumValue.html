@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum object value</title>
+</head>
+
+<body>
+    <script>
+        let salaries = {
+            John: 100,
+            Ann: 160,
+            Pete: 130,
+        }
+
+        let salarySum = 0;
+
+        for (let key in salaries) {
+            salarySum += +salaries[key];
+        }
+
+        console.log(salarySum);
+    </script>
+</body>
+
+</html>
