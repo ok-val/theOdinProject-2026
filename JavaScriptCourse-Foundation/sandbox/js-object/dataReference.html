@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data References</title>
+</head>
+
+<body>
+    <script>
+        let DATA = 32;
+
+        let data1 = DATA;    // any change made to DATA will affect data1 
+        console.log(DATA === data1); // true
+        
+        data1 = 13;          // However, any change made to data1 will NOT affect DATA
+        console.log(DATA === data1); // false
+        
+    </script>
+</body>
+
+</html>
