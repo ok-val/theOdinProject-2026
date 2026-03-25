@@ -1,10 +1,19 @@
+^[Sources: https://javascript.info/object + https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Object_basics]
 
 > [!definition] Objects
 > **Objects are associative arrays with special features.**
-> As opposed to primitives which contains only one thing, an object is a collection of key-value pairs, where every key stands for the property name of the object.
+> As opposed to primitives which contains only one thing, an object is a collection of key-value pairs. functions, or inner-objects, where every key stands for the property name of the object.
+
+## Characteristics
 
 If we may recall from [[JSDatatypes]], there are eight data types. 
 Objects is the only data type that is not primitive (e.g., containing only a single value).
+
+**Objects can contain other primitives, objects, and functions/methods.** Each of these thing is called a *member*.
+
+**Why associative?** 
+Objects are considered associate arrays because of how they map strings to value (e.g., `name.first === name['first']`) similar to how arrays map indexes to values (e.g., `arr[0]`)
+
 
 ```js
 // To create object:

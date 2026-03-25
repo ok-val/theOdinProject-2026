@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What can object accept?</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            name: ["Carl", "ShBob"], // an array 
+            age: 32, // a primitive
+            bio: function () { // a function/method
+                console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+            },
+            bag: { // an object
+                apple: 5,
+            },
+            showBag() { // even simpler function declaration syntax are accepted
+                console.log(`Hi! I have ${this.bag['apple']} apples`);
+            },
+        };
+    </script>
+</body>
+
+</html>

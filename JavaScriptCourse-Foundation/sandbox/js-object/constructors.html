@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to constructors</title>
+</head>
+
+<body>
+    <script>
+        // Creating one object is all fun and games, but what if you want to created multiple objects?
+        // Introducing Constructors! You can create object PROGRAMMATICALLY (not to be confused with FUNCTION constructors)
+
+        // We can always use a function call to return an object
+        function createPerson(name) {
+            let obj = {};
+            obj['name'] = name;
+            obj.introduceSelf = () => {
+                console.log(`Hi! My name is ${this['name']}.`);
+            };
+            return obj;
+        }
+        
+        // But a constructor easier to read and more efficient.
+        // This is an Object constructor.
+        // When constructed (e.g., let person1 = createPerson(name)),
+        // it returns a new object
+        function Person(name) {    // By convention, a constructor name is Title-cased.
+            this.name = name;
+            this.introduceSelf = () => {
+                console.log(`Hi! My name is ${this['name']}.`);
+            };
+        }
+
+        let anna = new Person('Anna');
+        anna.introduceSelf(); // Hi! My name is Anna.
+
+        
+
+    </script>
+</body>
+
+</html>
