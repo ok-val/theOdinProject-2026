@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>findIndex vs indexOf</title>
+</head>
+
+<body>
+    <script>
+        let nums = [1, 2, 3, 4, 5];
+
+        let objs = [
+            { name: 'a', id: 1 },
+            { name: 'b', id: 2 },
+            { name: 'c', id: 3 },
+        ];
+
+        // indexOf is to find the value index using a specific, known value
+        console.log(nums.indexOf(2));
+
+        // findIndex is to find the value index using a complex condition via callback
+        console.log(objs.findIndex(obj => obj.name = 'a'));
+
+    </script>
+</body>
+
+</html>

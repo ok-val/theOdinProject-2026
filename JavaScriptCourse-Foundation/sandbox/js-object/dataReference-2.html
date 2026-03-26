@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data References 2</title>
+</head>
+
+<body>
+    <script>
+        // Array.prototype.find()
+        // Find is like filter, but instead returns just the one you are looking for
+        // find the comment with the ID of 823423
+        let searchRes = comments.find((comment) => comment.id === 823423);
+        console.log(searchRes);
+        console.log(searchRes === comments[1]); // => true, meaning that find() creates a reference to the original. Do alterations affect data both ways? Answer: Yes! See below
+
+        comments[1].id = 123456; // changes made to original
+        console.log(searchRes);
+        console.log(searchRes === comments[1]); // => true, both objects' ids have been updated, the reference is still live
+
+        searchRes.id = 456789;   // changes made to reference
+        console.log(searchRes);
+        console.log(searchRes === comments[1]); // => true, making changes to the referencer has also updated the original
+    </script>
+</body>
+
+</html>

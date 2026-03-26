@@ -33,6 +33,8 @@
         
         // While able to handle NaN, includes cannot handle Object like this 
         console.log(users.includes({ id: 3, name: "Mary" })); // false
+        
+        // But includes can handle NaN 
         console.log(users.includes(NaN)); // true
         
 
