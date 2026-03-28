@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        :root {
+            --container-width: 280px;
+            font-size: 24px;
+        }
+
+        .container {
+            width: var(--container-width);
+            height: 200px;
+            background-color: antiquewhite;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #display {
+            background: rgb(200, 229, 200);
+        }
+
+        button {
+            width: calc(var(--container-width) / 4);
+            height: 50px;
+            font-size: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="display">
+            asdasd
+        </div>
+        <div class="operators">
+            <button id="add">+</button>
+            <button id="subtract">-</button>
+            <button id="divide">/</button>
+            <button id="multiply">*</button>
+            <button id="dot">.</button>
+            <button id="equal">=</button>
+        </div>
+        <div class="numbers">
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+            <button id="4">4</button>
+            <button id="5">5</button>
+            <button id="6">6</button>
+            <button id="7">7</button>
+            <button id="8">8</button>
+            <button id="9">9</button>
+            <button id="0">0</button>
+        </div>
+    </div>
+
+    <script>
+        const numbersButtons = document.querySelectorAll('.numbers button');
+
+        for (let button of numbersButtons) {
+            const display = document.querySelector('#display');
+
+            console.log(display.textContent);
+            button.addEventListener('click', () => {
+                display.textContent += button.textContent;
+            })
+        }
+    </script>
+</body>
+
+</html>
