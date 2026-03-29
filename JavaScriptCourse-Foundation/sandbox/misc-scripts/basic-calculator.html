@@ -27,6 +27,9 @@
 
         #display {
             background: rgb(200, 229, 200);
+            display: block;
+            height: 50px;
+            width: auto;
         }
 
         button {
@@ -40,15 +43,13 @@
 <body>
     <div class="container">
         <div id="display">
-            asdasd
+
         </div>
         <div class="operators">
             <button id="add">+</button>
             <button id="subtract">-</button>
             <button id="divide">/</button>
             <button id="multiply">*</button>
-            <button id="dot">.</button>
-            <button id="equal">=</button>
         </div>
         <div class="numbers">
             <button id="1">1</button>
@@ -61,19 +62,58 @@
             <button id="8">8</button>
             <button id="9">9</button>
             <button id="0">0</button>
+            <button id="dot">.</button>
         </div>
+        <button id="equal">=</button>
     </div>
 
     <script>
         const numbersButtons = document.querySelectorAll('.numbers button');
+        const operatorButtons = document.querySelectorAll('.operators button');
+
+        let n1;
+        let op;
+        let n2;
+
+        let isN1Assigned = false;
+        let isOpSelected = false;
+
+        const operations = {
+            'add': (a, b) => a + b, 
+            'substract': (a, b) => a - b, 
+            'multiply': (a, b) => a * b, 
+            'divide': (a, b) => a / b, 
+        }
+
+        for (let button of operatorButtons) {
+            const display = document.querySelector('#display');
+
+            button.addEventListener('click', () => {
+                if (!isN1Assigned) {
+                    n1 = (display.textContent) ? +display.textContent : 0;
+                    op = button.id;
+                    isN1Assigned = true;
+                    isOpSelected = true;
+                } else {
+                    n2 = (display.textContent) ? +display.textContent : 0;
+                    res = operations[op](n1, n2);
+                    n1 = res;
+                    display.textContent = res;
+                    isOpSelected = true;
+                }
+            });
+        }
 
         for (let button of numbersButtons) {
             const display = document.querySelector('#display');
 
-            console.log(display.textContent);
             button.addEventListener('click', () => {
+                if (isOpSelected) {
+                    display.textContent = '';
+                    isOpSelected = false;
+                }
                 display.textContent += button.textContent;
-            })
+            });
         }
     </script>
 </body>

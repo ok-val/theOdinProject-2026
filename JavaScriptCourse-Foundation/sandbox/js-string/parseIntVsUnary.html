@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parseInt/parseFloat vs + unary operator</title>
+</head>
+<body>
+    
+    <script>
+        let str = '1_2a';
+
+        // parseInt returns an int if the first values of the str are integers
+        console.log(parseInt(str));  // 1
+
+        // + unary operator cannot handle other characters and will return NaN
+        console.log(+str); // NaN
+        
+    </script>
+</body>
+</html>
