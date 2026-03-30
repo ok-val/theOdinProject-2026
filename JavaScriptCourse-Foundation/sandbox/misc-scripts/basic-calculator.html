@@ -70,6 +70,7 @@
     <script>
         const numbersButtons = document.querySelectorAll('.numbers button');
         const operatorButtons = document.querySelectorAll('.operators button');
+        const equalButton = document.querySelector('#equal');
 
         let n1;
         let op;
@@ -79,27 +80,48 @@
         let isOpSelected = false;
 
         const operations = {
-            'add': (a, b) => a + b, 
-            'substract': (a, b) => a - b, 
-            'multiply': (a, b) => a * b, 
-            'divide': (a, b) => a / b, 
+            'add': (a, b) => +a + +b,
+            'substract': (a, b) => +a - +b,
+            'multiply': (a, b) => +a * +b,
+            'divide': (a, b) => +a / +b,
         }
+
+        equalButton.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            if (!isOpSelected) {
+                if (!isN1Assigned) {
+                    n1 = 0;
+                    isN1Assigned = true;
+                    display.textContent = n1;
+                    console.log('reached1');
+                } else {
+                    display.textContent = n1;
+                }
+            } else {
+
+            }
+        });
 
         for (let button of operatorButtons) {
             const display = document.querySelector('#display');
 
             button.addEventListener('click', () => {
-                if (!isN1Assigned) {
-                    n1 = (display.textContent) ? +display.textContent : 0;
-                    op = button.id;
-                    isN1Assigned = true;
-                    isOpSelected = true;
+                if (!isOpSelected) {
+                    if (!isN1Assigned) {
+                        n1 = (display.textContent.trim()) ? +display.textContent : 0;
+                        op = button.id;
+                        isN1Assigned = true;
+                        isOpSelected = true;
+                    } else {
+                        n2 = (display.textContent.trim()) ? +display.textContent : 0;
+                        res = operations[op](n1, n2);
+                        op = button.id;
+                        n1 = res;
+                        display.textContent = res;
+                        isOpSelected = true;
+                    }
                 } else {
-                    n2 = (display.textContent) ? +display.textContent : 0;
-                    res = operations[op](n1, n2);
-                    n1 = res;
-                    display.textContent = res;
-                    isOpSelected = true;
+                    op = button.id;
                 }
             });
         }
