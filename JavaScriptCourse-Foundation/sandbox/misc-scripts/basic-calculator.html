@@ -62,8 +62,8 @@
             <button id="8">8</button>
             <button id="9">9</button>
             <button id="0">0</button>
-            <button id="dot">.</button>
         </div>
+        <button id="dot">.</button>
         <button id="equal">=</button>
     </div>
 
@@ -75,64 +75,83 @@
         let n1;
         let op;
         let n2;
+        let res;
 
         let isN1Assigned = false;
-        let isOpSelected = false;
+        let isN2Assigned = false;
+        let isOpToggled = false;
 
         const operations = {
             'add': (a, b) => +a + +b,
-            'substract': (a, b) => +a - +b,
+            'subtract': (a, b) => +a - +b,
             'multiply': (a, b) => +a * +b,
             'divide': (a, b) => +a / +b,
         }
 
+        function calculateAndDisplay(display) {
+            res = operations[op](n1, n2);
+            console.log(n1, n2);
+            n1 = res;
+            display.textContent = res;
+        }
+
+        function checkVars() {
+            console.log(n1);
+            console.log(op);
+            console.log(n2);
+        }
+
         equalButton.addEventListener('click', () => {
             const display = document.querySelector('#display');
-            if (!isOpSelected) {
-                if (!isN1Assigned) {
-                    n1 = 0;
-                    isN1Assigned = true;
-                    display.textContent = n1;
-                    console.log('reached1');
-                } else {
-                    display.textContent = n1;
-                }
-            } else {
-
+            if (!isN1Assigned && Boolean(display.textContent.trim())) {
+                n1 = parseFloat(display.textContent);
+                isN1Assigned = true;
+            } else if (isN1Assigned && !isN2Assigned && Boolean(display.textContent.trim())) {
+                n2 = parseFloat(display.textContent);
+                isN2Assigned = true;
+                calculateAndDisplay(display);
+            } else if (isN1Assigned && isN2Assigned && isOpToggled) {
+                n2 = parseFloat(display.textContent);
+                calculateAndDisplay(display);
+            } else if (isN1Assigned && isN2Assigned && !isOpToggled) {
+                calculateAndDisplay(display);
             }
         });
 
+
+
         for (let button of operatorButtons) {
             const display = document.querySelector('#display');
-
+            
             button.addEventListener('click', () => {
-                if (!isOpSelected) {
-                    if (!isN1Assigned) {
-                        n1 = (display.textContent.trim()) ? +display.textContent : 0;
-                        op = button.id;
-                        isN1Assigned = true;
-                        isOpSelected = true;
-                    } else {
-                        n2 = (display.textContent.trim()) ? +display.textContent : 0;
-                        res = operations[op](n1, n2);
-                        op = button.id;
-                        n1 = res;
-                        display.textContent = res;
-                        isOpSelected = true;
-                    }
-                } else {
-                    op = button.id;
+                if (!isN1Assigned && Boolean(display.textContent.trim())) {
+                    n1 = parseFloat(display.textContent);
+                    isN1Assigned = true;
+                } else if (isN1Assigned && !isN2Assigned && Boolean(display.textContent.trim())) {
+                    n2 = parseFloat(display.textContent);
+                    isN2Assigned = true;
+                    calculateAndDisplay(display);
+                    console.log('echo1');
+                } else if (isN1Assigned && isN2Assigned && !isOpToggled) {
+                    n2 = parseFloat(display.textContent);
+                    calculateAndDisplay(display);
+                    console.log('echo2');
+                } else if (isN1Assigned && isN2Assigned && isOpToggled) {
+                    // calculateAndDisplay(display);
+                    console.log('echo3');
                 }
-            });
+                op = button.id;
+                isOpToggled = true;
+            }
+            );
         }
 
         for (let button of numbersButtons) {
             const display = document.querySelector('#display');
-
             button.addEventListener('click', () => {
-                if (isOpSelected) {
+                if (isOpToggled) {
                     display.textContent = '';
-                    isOpSelected = false;
+                    isOpToggled = false;
                 }
                 display.textContent += button.textContent;
             });
