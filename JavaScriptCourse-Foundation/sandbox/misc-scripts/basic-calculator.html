@@ -8,34 +8,61 @@
     <style>
         :root {
             --container-width: 280px;
-            font-size: 24px;
+            --btn-height: 40px;
+            font-size: 20px;
         }
 
         .container {
             width: var(--container-width);
-            height: 200px;
             background-color: antiquewhite;
             display: flex;
             flex-direction: column;
+            gap: 0;
         }
 
         .controls {
             display: flex;
             flex-direction: row;
+        }
+
+        .operators {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .numbers {
+            display: flex;
+            flex-direction: row;
             flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .numbers button {
+            width: calc(100% / 3);
         }
 
         #display {
             background: rgb(200, 229, 200);
             display: block;
-            height: 50px;
+            height: var(--btn-height);
             width: auto;
+            box-sizing: border-box;
+            padding: 0 8px;
+            line-height: var(--btn-height);
+            text-align: right;
         }
 
         button {
             width: calc(var(--container-width) / 4);
-            height: 50px;
+            height: var(--btn-height);
             font-size: inherit;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        button#equal {
+            width: 100%;
         }
     </style>
 </head>
@@ -45,32 +72,37 @@
         <div id="display">
 
         </div>
-        <div class="operators">
-            <button id="add">+</button>
-            <button id="subtract">-</button>
-            <button id="divide">/</button>
-            <button id="multiply">*</button>
+        <div class="controls">
+            <div class="operators">
+                <button id="multiply">*</button>
+                <button id="subtract">-</button>
+                <button id="add">+</button>
+                <button id="divide">/</button>
+            </div>
+            <div class="numbers">
+                <button id="number">7</button>
+                <button id="number">8</button>
+                <button id="number">9</button>
+                <button id="number">4</button>
+                <button id="number">5</button>
+                <button id="number">6</button>
+                <button id="number">1</button>
+                <button id="number">2</button>
+                <button id="number">3</button>
+                <button id="dot">.</button>
+                <button id="number">0</button>
+                <button id="del">del</button>
+            </div>
         </div>
-        <div class="numbers">
-            <button id="1">1</button>
-            <button id="2">2</button>
-            <button id="3">3</button>
-            <button id="4">4</button>
-            <button id="5">5</button>
-            <button id="6">6</button>
-            <button id="7">7</button>
-            <button id="8">8</button>
-            <button id="9">9</button>
-            <button id="0">0</button>
-        </div>
-        <button id="dot">.</button>
         <button id="equal">=</button>
     </div>
 
     <script>
-        const numbersButtons = document.querySelectorAll('.numbers button');
+        const numbersButtons = document.querySelectorAll('.numbers #number');
         const operatorButtons = document.querySelectorAll('.operators button');
         const equalButton = document.querySelector('#equal');
+        const deleteButton = document.querySelector('#del');
+        const dotButton = document.querySelector('#dot');
 
         let n1;
         let op;
@@ -167,6 +199,37 @@
                 display.textContent += button.textContent;
             });
         }
+
+        deleteButton.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            if (display.textContent.trim()) {
+                let text = display.textContent.trim().split('');
+                text.splice(-1, 1);
+                display.textContent = text.join('');
+            }
+        })
+
+        dotButton.addEventListener('click', () => {
+            const display = document.querySelector('#display');
+            if (isResToggled) {
+                display.textContent = '';
+                n1 = undefined;
+                n2 = undefined;
+                isN1Assigned = false;
+                isN2Assigned = false;
+                console.log('reset');
+            }
+            isResToggled = false;
+            let text = display.textContent.trim();
+
+            if (!text) {
+                display.textContent = 0 + '.';
+                console.log('dot1');
+            } else if (text.includes('.') === false) {
+                display.textContent += '.';
+                console.log('dot2');
+            }
+        })
     </script>
 </body>
 
