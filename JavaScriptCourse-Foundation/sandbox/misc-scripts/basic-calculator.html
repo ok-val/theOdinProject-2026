@@ -80,6 +80,7 @@
         let isN1Assigned = false;
         let isN2Assigned = false;
         let isOpToggled = false;
+        let isResToggled = false;
 
         const operations = {
             'add': (a, b) => +a + +b,
@@ -95,34 +96,34 @@
             display.textContent = res;
         }
 
-        function checkVars() {
-            console.log(n1);
-            console.log(op);
-            console.log(n2);
-        }
 
         equalButton.addEventListener('click', () => {
             const display = document.querySelector('#display');
-            if (!isN1Assigned && Boolean(display.textContent.trim())) {
-                n1 = parseFloat(display.textContent);
-                isN1Assigned = true;
-            } else if (isN1Assigned && !isN2Assigned && Boolean(display.textContent.trim())) {
+            if (isN1Assigned && !isN2Assigned && !isOpToggled) {
                 n2 = parseFloat(display.textContent);
                 isN2Assigned = true;
                 calculateAndDisplay(display);
+                console.log('eq1');
             } else if (isN1Assigned && isN2Assigned && isOpToggled) {
+                calculateAndDisplay(display);
+                console.log('eq2');
+            } else if (isN1Assigned && isN2Assigned && !isOpToggled && !isResToggled) {
                 n2 = parseFloat(display.textContent);
                 calculateAndDisplay(display);
-            } else if (isN1Assigned && isN2Assigned && !isOpToggled) {
-                calculateAndDisplay(display);
+                console.log('eq3');
+            } else if (isN1Assigned && isN2Assigned && isOpToggled && !isResToggled) {
+                console.log('eq4');
+            } else if (isN1Assigned && isN2Assigned && !isOpToggled && isResToggled) {
+                console.log('eq5');
             }
+            isResToggled = true;
         });
 
 
 
         for (let button of operatorButtons) {
             const display = document.querySelector('#display');
-            
+
             button.addEventListener('click', () => {
                 if (!isN1Assigned && Boolean(display.textContent.trim())) {
                     n1 = parseFloat(display.textContent);
@@ -131,14 +132,16 @@
                     n2 = parseFloat(display.textContent);
                     isN2Assigned = true;
                     calculateAndDisplay(display);
-                    console.log('echo1');
-                } else if (isN1Assigned && isN2Assigned && !isOpToggled) {
+                    console.log('op1');
+
+                } else if (isN1Assigned && isN2Assigned && !isOpToggled && !isResToggled) {
                     n2 = parseFloat(display.textContent);
                     calculateAndDisplay(display);
-                    console.log('echo2');
-                } else if (isN1Assigned && isN2Assigned && isOpToggled) {
-                    // calculateAndDisplay(display);
-                    console.log('echo3');
+                    console.log('op2');
+                } else if (isN1Assigned && isN2Assigned && isOpToggled && isResToggled) {
+                    console.log('op3');
+                } else if (isN1Assigned && isN2Assigned && !isOpToggled && isResToggled) {
+                    console.log('op4');
                 }
                 op = button.id;
                 isOpToggled = true;
@@ -152,7 +155,15 @@
                 if (isOpToggled) {
                     display.textContent = '';
                     isOpToggled = false;
+                } else if (isResToggled) {
+                    display.textContent = '';
+                    n1 = undefined;
+                    n2 = undefined;
+                    isN1Assigned = false;
+                    isN2Assigned = false;
+                    console.log('reset');
                 }
+                isResToggled = false;
                 display.textContent += button.textContent;
             });
         }
