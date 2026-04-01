@@ -10,3 +10,4 @@ Don't just make your text element bold. This is because `bold` is NOT as semanti
 
 `Em` is for italicizing. Again, helps with emphasis in semantic markup. 
 
+

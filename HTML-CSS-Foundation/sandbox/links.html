@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+        :root {
+            font-size: 24px;
+            line-height: 1.33rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Links</h2>
+    <p>A link can be nested within a paragraph with an anchor tag</p>
+    <p>For a simple example, follow this link to <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories">MDN Content Category</a>.
+    </p>
+
+    <h3>Link attributes</h3>
+    <p>Here's an example that uses the `target` and `rel` attributes:</p>
+    <a href="https://www.theodinproject.com/about" target="_blank" rel="noreferrer">About The Odin Project</a>
+
+    <ul>
+        <li>`Target` attribute to specify where the link will be opened.</li>
+        <ul>
+            <li>`_self` is assigned by default, which opens the link in the same tab.</li>
+            <li> `_blank` opens the link in a new tab.</li>
+        </ul>
+        <li>`Rel` attribute describes the relation between the current page and the linked source.</li>
+        <ul>
+            <li>`noopener` prevents the new tab from accessing the original page. This is mainly for security reasons. Most modern browsers would automatically for any links that would open a new tab.</li>
+            <li>`noreferrer` is the same noopener. Sometimes it is desireable to share information about the original page, sometimes it's not so I can use this option if needed.</li>
+        </ul>
+    </ul>
+
+    <h3>Absolute links</h3>
+    <p>Yes, there are absolute and relative links.</p>
+    <p><strong>Absolute links</strong> are links to pages on other websites. I have seen instances of these links everywhere: https://www.theodinproject.com -- in which http is the scheme/protocol, www... is the domain name, /anything that follows is the path.</p>
+    <p>Absolute links can also just be from your own computer, starting from the root drive C://, for example.</p>
+
+    <h3>Relative links</h3>
+    <p><strong>Relative links</strong> are links to other pages within my own website. They do not contain domain name; it just assumes that the same domain for all pages in our website, unless otherwise specified.</p>
+    <p>For example, here's the link to the <a href="lists.html">list page</a>.</p>
+
+</body>
+
+</html>
