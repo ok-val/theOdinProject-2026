@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout mode</title>
+</head>
+
+<body>
+    <h3>Layout mode</h3>
+    <p>This is a fascinating concept about CSS layout algorithms.</p>
+    <p>CSS is comprised of different layout algorithms, known as layout modes.</p>
+    <p>The default mode is <strong>Flow layout</strong>. This mode defines the normal layouts of elements (e.g., p to
+        block, span to inline, button to inline-block).</p>
+    <p>If a display type of an element is changed, we simply switch display algos. </p>
+    <p>The divs below are declared with the <em>same length</em>. But because they use different layout modes, they behave differently. </p>
+
+    <style>
+        :root {
+            font-size: 24px;
+        }
+
+        .flex-wrapper {
+            display: flex;
+        }
+
+        .item {
+            width: 2000px;
+        }
+
+        .row {
+            list-style-type: none;
+            padding: 16px;
+        }
+
+        .item {
+            height: 50px;
+            border: 2px solid;
+            border-radius: 4px;
+            background: hotpink;
+            margin: 16px;
+
+            align-content: center;
+
+        }
+    </style>
+
+    <div class="item">This div follows the default <strong>Flow layout</strong>.</div>
+
+    <div class="flex-wrapper">
+        <div class="item">This div follow the assigned <strong>Flex layout</strong>.</div>
+    </div>
+
+    <p>Josh Comeau provides some excellent <a href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/">explanations</a> for this.</p>
+</body>
+
+</html>
