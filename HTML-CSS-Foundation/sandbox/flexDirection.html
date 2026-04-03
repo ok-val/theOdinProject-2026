@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-direction property</title>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: column; /*forward order (first-to-last, ttb), laid horizontally */
+            /* flex-direction: row; forward order (first-to-last, ltr), laid horizontally */
+            /* flex-direction: column-reverse; reverse order (last-to-first, btt), laid vertically */
+            /* flex-direction: row-reverse; reverse order (last-to-first, rtl), laid horizontally */
+
+            /* Universal values: */
+            /* flex-direction: inherit; */
+            /* flex-direction: initial; */
+            /* flex-direction: revert; */
+            /* flex-direction: revert-layer; */
+            /* flex-direction: unset; */
+        }
+
+        /* this selector selects all divs inside of .flex-container */
+        .flex-container div {
+            background: peachpuff;
+            border: 4px solid brown;
+            height: 80px;
+            flex: 1;
+            flex: 1 1 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Flexbox axes</h2>
+    <p>In a flex container, there are two axes that flex items can align with:</p>
+    <ul>
+        <li>row: for horizontal stack, either forward or reverse</li>
+        <li>column: for vertical stack, either forward or reverse</li>
+    </ul>
+
+    <h3>Demo</h3>
+    <div class="flex-container">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+
+    <p>Per usual, revisit the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex-direction">MDN docs</a>.</p>
+</body>
+
+</html>

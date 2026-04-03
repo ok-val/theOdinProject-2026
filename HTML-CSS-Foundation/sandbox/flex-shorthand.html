@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex shorthand</title>
+    <style>
+        .flex-container {
+            display: flex;
+        }
+
+        /* this selector selects all divs inside of .flex-container */
+        .flex-container div {
+            background: peachpuff;
+            border: 4px solid brown;
+            height: 100px;
+            /* flex is a shorthand for 3 settings */
+            /* flex-grow specs the share of leftover space */
+            /* flex-grow: 0 specs do not grow */
+            /* flex-grow: 1 specs equal share */
+            /* flex-grow: 2 specs double share for any element */
+            /* flex-shrink specs the shrink 'plasticity'; 0 no shrink, 1 is more supple, so on */
+            /* flex-basis specs the ideal starting size; 0 for no preferred size*/
+            /* e.g., flex: 1 1 0; means grow equal, shrink equal, no preferred size*/
+            flex: 0 1 100px;
+
+            /* A few caveat: */
+            /* flex: auto; expands to 1 1 auto */
+            /* flex-basis: auto means start at content size, grow to fill if needed */
+
+            /* flex: 1; expands to 1 1 0 */
+            /* flex-basis: 0 means ignore content size, start at 0 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Flexbox has such a few knobs to play with -->
+
+    <h3>Flex property shorthand</h3>
+    <p>Flex properties are applied to flex items</p>
+    <div class="flex-container">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+    </div>
+    <p>Go try out some more settings over at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex">MDN doc</a>.</p>
+</body>
+
+</html>
