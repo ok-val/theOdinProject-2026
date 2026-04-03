@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Collapsing</title>
+    <style>
+        :root {
+            font-size: 24px;
+        }
+        /* Consider the following margin declarations*/
+        /* It should make sense to expect that we are creating a 30px vertical margin between these elements */
+        h2 {
+            margin: 0 0 20px 0;
+        }
+
+        p {
+            margin: 10px 0 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- But this is not the case -->
+    <!-- It will never be the total of the two margins -->
+    <!-- Only the highest margin (between 20px and 10px) is applied -->
+    <!-- Explanations are provide below -->
+    <h2>Collapsing Margins</h2>
+    <p>Example text.</p>
+
+    <h3>Explanation</h3>
+    <p>Depending on whether two elements whose margins touch have positive or negative margins, the results will be different:</p>
+    <ul>
+        <li>Two positive margins will collapse into the largest value of the two.</li>
+        <li>Two negative margins will collapse into the smallest.</li>
+        <li>One negative and one positive margin will collapse into the sum of both.</li>
+    </ul>
+    <h3>Purpose</h3>
+    <p>Simple: Consider a header like h3 that would be used for multiple pages.</p>
+    <p>Now consider that following this h3 can be any element from a p to a custom div. These elements could just have different margin-tops. <strong>Adding h3's margin-bottom to these different margin-tops would ultimately cause too may variations.</strong></p>
+    <p>Consider this a blessing :)</p>
+</body>
+
+</html>

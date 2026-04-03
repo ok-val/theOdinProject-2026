@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The box model</title>
+    <style>
+        :root {
+            font-size: 24px;
+        }
+
+        * {
+            outline: 2px red solid;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>I'm a box</h1>
+    <p>Everything on the webpage is a box. To differentiate between padding, border, and margin:</p>
+    <ul>
+        <li>`padding` --- between the border and content</li>
+        <li>`border` --- between the margin and padding</li>
+        <li>`margin` --- between self's and adjacent's borders </li>
+    </ul>
+    <img src="../images/boxModel.webp" alt="Box model image from dev.to">
+
+    <h3>Practical tips</h3>
+    <ol>
+        <li>Use `box-sizing: border-box` for predictable sizing behavior. See <a href="boxModel.html">box model</a>.</li>
+        <li>Use <em>Margin</em> for spacing between elements.</li>
+        <li>Use <em>Padding</em> for spacing within an element.</li>
+        <li>`Ctrl+Shift+C` to inspect elements</li>
+    </ol>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display types</title>
+    <style>
+        :root {
+            font-size: 24px;
+        }
+        .inline-h3,
+        .inline-p {
+            display: inline;
+        }
+
+        .inline-flex-ul {
+            display: inline-flex;
+        }
+
+        .block-span {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Default display types</h3>
+    <p>I'm a paragraph. I use `block` by default</p>
+    <ul>
+        <li>I'm a child of an unordered list. It uses `block` by default. </li>
+        <li>I'm a list item. I use list-item by default. </li>
+    </ul>
+    <p>Another paragraph with a <span>span</span> element. My span child uses `inline` by default.</p>
+
+    <h3 class="inline-h3">Reassigned display types</h3>
+    <p class="inline-p">All of this can be changed of course. p and h3 are now displayed using `inline`.</p>
+    <ul class="inline-flex-ul">
+        <li>My parent's display has been changed to `inline-flex`.</li>
+        <li>And I now contain a <span class="block-span">span</span> that is displayed as a block.</li>
+    </ul>
+    <p>It's all getting very confusing. But all is possible.</p>
+    <p>Check out more neetos over at <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#inner_and_outer_display_types">MDN's long-winded article</a>.</p>
+</body>
+
+</html>

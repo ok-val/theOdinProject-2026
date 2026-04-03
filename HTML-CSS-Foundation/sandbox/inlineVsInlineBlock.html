@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline vs Inline-block</title>
+    <style>
+        :root {
+            font-size: 40px;
+        }
+
+        .inline-span {
+            display: inline;
+            padding: 50px;
+        }
+        
+        .inline-block-span {
+            display: inline-block;
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>See how inline and inline-block differ here:</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minus eaque dolore, consectetur officia nesciunt! Iusto et eius vel labore maiores at sit, quisquam rem cum nisi atque soluta vitae? Laboriosam, <span class="inline-span">INLINE SPAN</span>. Cumque quas tempora, voluptas maiores, dignissimos enim totam praesentium assumenda quaerat quis, iure aut nesciunt. <span class="inline-block-span">INLINE-BLOCK SPAN</span> fuga molestias sunt amet perspiciatis, rem nisi omnis iste ut odio unde!</p>
+    <p>As you can see, the vertical spacing of the `inline` element is ignored, while that of the `inline-block` is not.</p>
+</body>
+
+</html>
