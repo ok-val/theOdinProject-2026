@@ -1,11 +1,8 @@
-# The Odin Project 2026
+## Status
 
-Description:
+- [x] Complete Foundation course - 04062026
+- [ ] Start Intermediate HTML and CSS course - 04062026
 
-## Resources
 
-- [MDN Ref](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements)
-
-- [HTML/CSS/JS Cheat Sheet](https://htmlcheatsheet.com/css/)
 
 
