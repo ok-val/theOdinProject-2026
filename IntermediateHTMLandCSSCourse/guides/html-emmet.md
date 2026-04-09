@@ -10,4 +10,4 @@ The `Ctrl + K` shortcut helps remove tags efficiently using the caret's position
 
 ---
 
-[Next](2-svg.md)
+[Next](svg.md)

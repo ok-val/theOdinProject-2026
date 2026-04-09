@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG with JoshWComeau.com</title>
+    <style>
+        body {
+            font-size: 24pt;
+            margin: 0;
+            padding: 0;
+            background: hsl(210deg 15% 6%);
+            color: white;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            height: 100vh;
+        }
+
+        svg {
+            display: block;
+            outline: 1px solid hsl(210deg 15% 30%);
+        }
+
+        circle {
+            fill: hotpink;
+            transition: r 400ms, cy 600ms;
+        }
+
+        circle:hover {
+            r: 100px;
+            cy: 200px;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <p>Yes, you could animate SVGs. Check this out:</p>
+
+        <svg width="200" height="200">
+            <circle r="70" cx="100" cy="100" />
+        </svg>
+
+        <p>What's so powerful about inline SVG?</p>
+        <p>You can animate individual elements!</p>
+    </div>
+</body>
+
+</html>

@@ -20,4 +20,4 @@ As usually, iterations are wrapped by row:
 
 ---
 
-[Prev](2-svg.md) | [Next](3-tables.md)
+[Prev](svg.md) | [Next](3-tables.md)
