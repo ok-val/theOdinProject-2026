@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG viewbox attribute</title>
+    <style>
+        body {
+            height: auto;
+            font-size: 24pt;
+            background: hsl(210deg 15% 6%);
+            color: white;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            height: 100vh;
+        }
+
+        p {
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        svg {
+            /* display: block; */
+            fill: transparent;
+            stroke: hotpink;
+            stroke-width: 5px;
+            outline: 1px solid hsl(210deg 15% 30%);
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Viewbox attribute</h3>
+    <div class="wrapper">
+        <p>The viewBox attribute defines an internal coordinate system.
+            <br>
+            When it's provided, elements nested inside will follow this <em>local layout mode</em> (if you will).
+        </p>
+        <p>The viewbox is like a viewport. You can select which part you want to look at.
+            <br>
+            It takes two pairs of values: 0 0 300 300.
+            <ul>
+                <li>0 0 pair decides where the top-left corner of the viewport stays.</li>
+                <li>300 300 pair is the zoom level</li>
+            </ul>
+        </p>
+        <svg width="300" height="220" viewBox="0 0 360 150">
+            <rect x="20" y="30" width="200" height="300"/>
+        </svg>
+    </div>
+</body>
+
+</html>

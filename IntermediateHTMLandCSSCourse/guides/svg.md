@@ -59,6 +59,11 @@ React, a front-end JS library, can help mitigate this issue down the line.
 
 Head to the sandbox folder. There, I follow Josh Comeau's tutorials. (Excited!)
 
+**Takeaways**
+* `xmlns` means Extensible Markup Language namespace. Defines the current version of XML being used.
+* Got anything photorealisitic or using rich colors? Don't use SVG.
+* Inlining SVG unlocks full SVG potential, but it encumbers *loading time, cachability, and readability*. => Simply put, inlined SVGs should be relatively simple graphics.
+
 ---
 
 [Prev](html-emmet.md) | [Next](3-tables.md)
