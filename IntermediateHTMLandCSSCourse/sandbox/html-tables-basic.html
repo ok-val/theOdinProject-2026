@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML tables basic</title>
+    <style>
+        body {
+            font-size: 24pt;
+        }
+
+        .green-col {
+            background-color: greenyellow;
+        }
+
+        .blue-col {
+            background-color: skyblue;
+        }
+
+        .pink-col {
+            color: hotpink; 
+            /* <col> does not support text color. It only supports a few properties:
+            background-color, width, border, and visibility */
+        }
+
+        /* So we have to target column/row text using pseudo-class */
+        td:nth-child(6) {
+            color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Basic tables</h2>
+    <p>Tabular data needs to be displayed using tables. YUP!</p>
+    <p>HTML tables are fully supported for screen readers and other assessibility features.</p>
+    <p><strong>DO NOT USE TABLES FOR LAYING OUT ELEMENTS.</strong> Strange human behaviors, but I guess you would see
+        this a lot in older websites.</p>
+    <p>You cannot sematically mark elements as easily and layout modes often harder to config.</p>
+    <p>To create a basic table:</p>
+    <table>
+        <tr>
+            <th colspan="2">I'm theader col 1 & 2.</td>
+            <th>I'm theader col 3.</td>
+        </tr>
+        <tr>
+            <td>I'm the first cell.</td>
+            <td>I'm the second cell.</td>
+            <td rowspan="2">I'm the third cell.</td>
+        </tr>
+        <tr>
+            <td>I'm the on row 2.</td>
+            <td>I'm the on row 2.</td>
+        </tr>
+    </table>
+
+    <p>This exercise is from <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics">MDN Table basics</a></p>
+    <p>Practice targeting the columns using colgroup</p>
+
+    <table>
+        <colgroup>
+            <col span="2">
+            <col class="green-col">
+            <col span="2" class="blue-col">
+            <col span="3" class="pink-col">
+        </colgroup>
+        <tr>
+            <td>&nbsp;</td>
+            <th>Mon</th>
+            <th>Tues</th>
+            <th>Wed</th>
+            <th>Thurs</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+        </tr>
+        <tr>
+            <th>1st period</th>
+            <td>English</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>German</td>
+            <td>Dutch</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <th>2nd period</th>
+            <td>English</td>
+            <td>English</td>
+            <td>&nbsp;</td>
+            <td>German</td>
+            <td>Dutch</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <th>3rd period</th>
+            <td>&nbsp;</td>
+            <td>German</td>
+            <td>&nbsp;</td>
+            <td>German</td>
+            <td>Dutch</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <th>4th period</th>
+            <td>&nbsp;</td>
+            <td>English</td>
+            <td>&nbsp;</td>
+            <td>English</td>
+            <td>Dutch</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</body>
+
+</html>
