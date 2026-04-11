@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some more tips for HTML tables</title>
+    <style>
+        :root {
+            font-size: 24pt;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Let's review a few more things I can do with a table following <a href="https://css-tricks.com/complete-guide-table-element/">this CSS tricks tut</a>.</p>
+    <ul>
+        <li>tfoot <em>used to go after thead and before tbody (Surprise MF!)</em>. Now tfoot order amont thead
+            and tbody is flexible. It goes after tbody now, but goes in the middle when having a very tall table. But nah, we can use display: sticky if this doesn't concern accessibility.</li>
+        <li>Here are the properties that I can use for a table
+            <br>
+            <ul>
+                <li>vertical-align: align contents in a cell</li>
+                <li>white-space: controls how text is wrapped in a cell, combine with `&amp;shy;`</li>
+                <li>border-collapse: determines if cells' border collapse among themselves, applies an order of prevalence, from most: row, rowgroup, column, columngroup, table.</li>
+                <li>border-spacing: specs the `margins` of cells.</li>
+                <li>padding: controls white-space around content per cell</li>
+                <li>width, border: iykyk</li>
+                <li>table-layout (auto | fixed): auto for content-defined width, fixed for anchoring or fixing to table width or first row's width, whichever is present.</li>
+                <li>I can make normal semantic elements display like a table using table's native display modes. Vice versa, I can also break table's default display style to something like inline if I desire. </li>
+                <li>And many more... Revisit <a href="https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-tables">this site</a> when needed.</li>
+            </ul>
+        </li>
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Favorite Color</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Favorite Color</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>Jim</td>
+                <td>00001</td>
+                <td>Blue</td>
+            </tr>
+            <tr>
+                <td>Sue</td>
+                <td>00002</td>
+                <td>Red</td>
+            </tr>
+            <tr>
+                <td>Barb</td>
+                <td>00003</td>
+                <td>Green</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
