@@ -2,13 +2,22 @@
 
 This is the style when no CSS is applied. This doesn't mean that the stylesheet is empty. It just contains the default arguments for rendering. 
 
-Each browser has unique *user-agent stylessheet* so defaults could *look different on different browsers*. 
+Each browser has unique **user-agent stylesheet** so defaults could *look different on different browsers*. 
 
->When you add a button element onto a page, Chrome applies padding: 2px 6px 3px; – Firefox applies padding: 0 8px. 
+>For example, when you add a button element onto a page; 
+>* Chrome applies padding: 2px 6px 3px; 
+>* Firefox applies padding: 0 8px. 
 
+**But what if I don't like the defaults**
 The CSS declarations have higher precedence (similar to specificity) than the user-agent stylesheets so they overwrite the defaults. 
 
-<br>
+**Here's how to differentiate between reset and normalize:**
+
+| Approach      | Philosophy                                                                    | What it does                 |
+| ------------- | ----------------------------------------------------------------------------- | ---------------------------- |
+| **Reset**     | “Erase everything so I can build from scratch.”                               | Removes all defaults         |
+| **Normalize** | “Keep defaults but make them consistent.”                                     | Harmonizes across browsers   |
+| **Hybrid**    | “Keep the good defaults, remove the bad defaults, add modern best practices.” | Curates defaults + adds enha |
 
 ### Why do we need CSS resets?
 
