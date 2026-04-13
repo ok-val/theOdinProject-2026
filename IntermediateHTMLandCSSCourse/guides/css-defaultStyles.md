@@ -13,11 +13,11 @@ The CSS declarations have higher precedence (similar to specificity) than the us
 
 **Here's how to differentiate between reset and normalize:**
 
-| Approach      | Philosophy                                                                    | What it does                 |
-| ------------- | ----------------------------------------------------------------------------- | ---------------------------- |
-| **Reset**     | “Erase everything so I can build from scratch.”                               | Removes all defaults         |
-| **Normalize** | “Keep defaults but make them consistent.”                                     | Harmonizes across browsers   |
-| **Hybrid**    | “Keep the good defaults, remove the bad defaults, add modern best practices.” | Curates defaults + adds enha |
+| Approach      | Philosophy                                                                    | What it does                                 |
+| ------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
+| **Reset**     | “Erase everything so I can build from scratch.”                               | Removes all defaults                         |
+| **Normalize** | “Keep defaults but make them consistent.”                                     | Harmonizes across browsers                   |
+| **Hybrid**    | “Keep the good defaults, remove the bad defaults, add modern best practices.” | Curates defaults + adds enhancement features |
 
 ### Why do we need CSS resets?
 
