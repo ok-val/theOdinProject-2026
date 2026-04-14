@@ -28,6 +28,8 @@ These are useful if I want to *size something relative to the size of the viewpo
 
 ## How to choose a unit though?
 
+Why would you want to use absolute or relative units? Well, think accessibility.
+
 - [c] Try not to follow strict rules or situations for using units.
 - [p] Think about HOW you want something to behave, then look for specific instructions/units to achieve that end.
 
@@ -48,12 +50,7 @@ Below is an example of using `rem` (left) and `px` (right) for padding/margins. 
 
 > [!question] Takeaway - A hybrid approach
 > Do you want the element to scale? Y ➜ use `rem`
+> If `rem` scales too steeply, just use more gradual gradient with a y-intercept.
+> See [[css-defaultStyles-modernReset]] and [[css-defaultStyles-modernNormalize]] for a few reasonable gradient usage. 
 > Otherwise, use `px`. 
-
-
-
-
-
-
-
 

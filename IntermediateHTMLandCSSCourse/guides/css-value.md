@@ -43,8 +43,23 @@ Nested font-sizes using em are **compounded**.
 
 ## Color 
 
-Color take a few acceptable data type.
+`<color>` take a few acceptable data type.
 
-First is `<name-color>` or **color keywords**. 
+For `<name-color>`, I can use **color keywords**. 
 These are a collection of finite color values that are assigned English names. 
 It's accessible and easier to verbally communicate. 
+
+`<color>` also accepts:
+* Hex code (e.g., `#ffc9cb`)
+* `rgb()` function -- red, green, blue / transparency channels
+* `hwb()` function --- hue, whiteness, blackness channels
+* `hsl()` function --- hue, saturation, lightness channels
+
+Read more about `<color>` [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value).
+
+
+## Position
+
+`<position>` value type represents a set of 2D coords.
+It's used to position items, using positional keywords such as top, left, right, bottom, center (e.g., `align-content: center`)
+
