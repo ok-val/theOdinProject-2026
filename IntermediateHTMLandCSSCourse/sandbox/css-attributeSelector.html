@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute selector</title>
+</head>
+
+<body>
+    <p>These are helpful to target elements with specifc attributes.</p>
+    <p>For example, if we want to consistently target anchor element with the attribute href="www.ladudu.com" or images with scr="picture.jpg", we can do that.</p>
+
+    <p>Attribute selectors have the same specific system as classes and pseudo-classes (0,0,1,0).</p>
+    <ul>
+        <li>[attribute] -- targets anything that has attribute (href, src) indiscrimantly.</li>
+        <li>selector[attribute] -- targets only the selected class or element type with that speicifc attribute</li>
+        <li>[attribute="value"] -- targets only elements or classes with that specific attribute and the corresponding value.</li>
+    </ul>
+
+    <p>Because attributes take string as value, we can use <strong>Regular Expression</strong> to match specific string conditions. Here are three generic string conditions:</p>
+    <ul>
+        <li>[attribute^="starting-value"] -- targets attributes with the specified starting value</li>
+        <li>[attribute$="ending-value"] -- targets attributes with the spec-ed ending value</li>
+        <li>[attribute*="anywhere-value"] -- targets attributes with found value anywhere inside</li>
+    </ul>
+
+    <p><em>Remember the matching string conditions are case-sensitive. </em>Best way is to find out through practice.</p>
+</body>
+
+</html>

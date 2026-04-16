@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo classes</title>
+</head>
+
+<body>
+    <p>There are two types of pseudo-classes: Dynamic/user-action and Structural pseudo-classes.</p>
+    <h3>Dynamic / user-action pseudo-classes</h3>
+    <p>These ones activate elements for interactive appearance features:</p>
+    <ul>
+        <li>:focus -- element that is currently SELECTED the user with either the cursor or keyboard</li>
+        <li>:hover -- element that the cursor is hovering over.</li>
+        <li>:active -- element that is currently BEING CLICKED (mouse-down)</li>
+        <li>:link -- element that are wrapped by the anchor tag</li>
+        <li>:visited -- element(s), most likely links, that users have already clicked on.</li>
+    </ul>
+
+    <h3>Structural pseudo-classes</h3>
+    <p>These ones selects elements based on the placement or positioning the DOM.</p>
+    <ul>
+        <li>:root -- represents the top level of the document. As a class selector, it's more specific than the element selector html</li>
+        <li>:first-child and :last-child -- selects, respectively, the first and the last sibling.</li>
+        <li>:empty -- selects elements that have no children at all.</li>
+        <li>:only-child -- selects elements that have no sibings.</li>
+        <li>:nth-child(even | odd | 3 | 3n | 2n + 2) -- selects, respectively, every even element of the given class, next, every odd element, the third element, every thrid element, and, finally, every second element starting with the second element.</li>
+        
+    </ul>
+</body>
+
+</html>
