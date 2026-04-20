@@ -1,3 +1,7 @@
+---
+doc-type: wiki-page
+sources: https://web.dev/articles/min-max-clamp
+---
 ## What is a CSS function? 
 
 It is similar to a programming language, where blocks are reusable to perform different task. Similar to Python, CSS constructs a function quite similarly, passing in positional arguments. CSS function allows making responsive elements before touching JavaScript.
@@ -18,6 +22,8 @@ background: linear-gradient(90deg, blue, red);
 ```
 
 There are four major ones: `calc()`, `min()`, `max()`, and `clamp()`.
+
+The full list of functions can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/Functions). 
 
 ### calc()
 
@@ -54,6 +60,11 @@ width: max(100px, 4em, 50%);
 ```
 
 In the example provided, the function compares the three values for the largest. *If `100px` is the larger than both `4em` and 50% of the parent container, the function will return `100px`*.
+
+
+> [!info] Differentiating min() and max() 
+> Interestingly, **min determines the largest dimension** (this dimension cannot exceed the largest min value). Conversely, **max determines the smallest dimension** (the dimension cannot be smaller than the smallest max value).
+
 
 ### clamp()
 
