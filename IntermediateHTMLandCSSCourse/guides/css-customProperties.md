@@ -1,3 +1,7 @@
+---
+doc-type: wiki-page
+sources: https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-custom-properties
+---
 
 *Otherwise known as CSS variables*.
 
@@ -67,7 +71,7 @@ Similar to global and local scope in Python, the scope of a variable *includes o
 
 ### Global scope selector
 
-When defining a variable that can be reused for multiple elements, *use the `:root{}` pseudo-class selector*; by default, class selector has higher specificity than element selecting alone (e.g., `html{}`). This is most often used for applying custom themes within CSS.
+When defining a variable that can be reused for multiple elements, *use the `:root{}` pseudo-class selector*; by default, class selector has higher specificity than element (type) selecting alone (e.g., `html{}`). This is most often used for applying custom themes within CSS.
 
 The standard way to name your global variables should be like this:
 
@@ -99,7 +103,7 @@ With these variables defined in `:root{}`, we can use additional JS to functiona
 
 With the universal custom properties defined in `:root()`, we have a universally scoped set of variable to work with. 
 
-Similar to how you could define a local variable in function definition or statements, we can also do it in CSS. *To differentiate them for clarity and debugging* down the line[^KP_usi], let's use this naming convention for local properties like this:
+Similar to how you could define a local variable in function definition or statements, we can also do it in CSS. *To differentiate them for clarity and debugging* down the line[^KP_usi], let's use this naming convention for local properties starting with an underscore:
 
 ```css
 /*Declaration*/

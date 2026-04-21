@@ -29,7 +29,14 @@ p { /* for single-column layout */
 ## Fluid typography
 
 From this [article](https://www.smashingmagazine.com/2016/05/fluid-typography/) by Mike Riethmueller on fluid typography. 
-~={yellow}:LiBookMarked: Revisit recommended.=~
+~={yellow}:LiBookmarkPlus: Revisit recommended.=~
+
+Fluid typography uses viewport units (more specifically `vw`). 
+Viewport units are percentage of the browser's viewport dimension. 
+
+There are several considerations for fluid typography.
+
+### Controlling viewport units to get min and max font size
 
 To enable fluid typography, clamp the font-size. Here's the snippet for that: 
 
@@ -40,6 +47,8 @@ p {
 ```
 
 
+### Controlling the rate of change of font size
+
 Mike recommended a mathematical function combining the use of `vw` with degree of invariance using a few specific knobs. Here's the snippet for that:
 
 ```css
@@ -47,5 +56,10 @@ calc(16px + (24-16)*(100vw - 400px)/(800 - 400));
 ```
 
 ![[Pasted image 20260419214919.png]]
+
+The article presents some very helpful insights for how to design to various screen sizes.
+
+The article also presents a demo for fluid vertical rhythm. Although some of the language surpasses my own understanding, it would be helpful to revisit in the future.
+~={yellow}:LiBookmarkPlus: Revisit recommended.=~
 
 
