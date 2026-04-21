@@ -67,3 +67,91 @@ I can declare its initial value.
 As such, given this following html structure, we know that the `--box-color` value declared inside `div.parent` will not cascade to its child. The child will always assume the `initial-value` if not otherwise stated.
 
 
+## Custom property fallback values
+
+Fallback values can be declared in `var()` or `initial-value` property via the `@property` at-rule.
+
+> [!info] Fallbacks are not workarounds for compatibility issues
+> Fallback values should only be used if the browser support CSS custom properties and is able to use a different value than the desired one if it is not yet defined or invalid.
+
+**Using `var()`**
+
+```css
+p {
+	color: var(--my-var, red);
+}
+```
+
+**Using `@property`**
+
+```css
+@property --box-color {
+  syntax: "<color>";
+  initial-value: teal;
+  inherits: false;
+}
+
+.one {
+  --box-color: pink;
+  background-color: var(--box-color);
+}
+
+.two {
+  --box-color: peenk;
+  background-color: var(--box-color);
+}
+```
+
+`initial-value` is automatically called if a redeclaration is invalid (as in class two), thus acting as a fallback.
+Just make sure that all fallbacks is spelled correctly, or using some egregious values to check for bugs...
+
+
+> [!info] `@property` is more robust than `var()`
+> The `@property` acts as a false default because `initial-value` is declared as initialization. While `var()` is evaluated by placement, if the most recent implementation of `var()` is invalid and there is no valid root-level fallback. Then `var()` will return null.
+> 
+
+Indeed, in this example, the last declared `var()` will fallback to the root-level declaration, which is invalid. It does not fallback to blue.
+
+```css
+:root {
+  --text-color: 16px;
+}
+
+p {
+  font-weight: bold;
+  color: blue;
+}
+
+p {
+  color: var(--text-color);
+}
+```
+
+However, a more robust approach is to use `@property` to declare initialized value. 
+In the case below, when the fallback at root fails, `@property` prevents the variable evaluation from falling back to black (which is the default style).
+
+```css
+@property --text-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: teal;
+}
+
+:root {
+  --text-color: 16px;
+}
+
+p {
+  font-weight: bold;
+  color: blue;
+}
+
+p {
+  color: var(--text-color);
+}
+```
+
+
+
+
+
