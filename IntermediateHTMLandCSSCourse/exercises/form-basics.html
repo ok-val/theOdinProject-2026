@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic form</title>
+    <style>
+        form.tutorial {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- The form element is a container element like a div
+     This element wraps all of the input elements users will interact with on a form -->
+
+    <!-- The form element accepts TWO essential attributes:
+     1. ACTION: tells which URL it should send the data to.
+     2. METHOD: tells which HTTP request method it should use to submit the form.  -->
+
+    <!-- The two mostly used HTTP request methods are GET and POST:
+         Use GET to get something from a server. Getting a search request from Google for example.
+         Use POST to change something on the server. Posting a user payment on a website for example. -->
+
+    <form class="tutorial" action="example.com/path" method="post">
+        <!-- Form control elements go in here. 
+         These elements include text boxes, dropdowns checkboxes and buttons -->
+        
+        <!-- Input is a void element. Its type attribute tells which input type -->
+        <input type="text" id="inp--first-name" name="first_name" placeholder="Nobi Nobita">
+        <!-- The placeholder attribute is for hinting the user how proper input is entered -->
+        <!-- The name attribute tells the backend what the input stands for.
+         Think of this as a variable name for the input. 
+         Therefore, use either snake_case or camelCase, both corresponding to JS etiquette. 
+         It is a MUST-HAVE for form inputs. -->
+
+        <!-- Label is the companion of input. Its for attribute tells which input it is for. -->
+        <label for="inp--first-name">First name:</label>
+        <!-- Labels could be either before or after the input placement. 
+         It will also activate the input selection when clicked on -->
+    </form>
+
+    <!-- Here's is a complete example. -->
+    
+    <form action="https://httpbin.org/post" method="post">
+        <div>
+            <label for="inp__first-name">First name:</label>
+            <input type="text" id="inp__first-name" name="firstName"> 
+            <!-- Notice that if the name attribute is omitted, the entire input will not be registered correctly. -->
+        </div>
+        <div>
+            <label for="inp__last-name">Last name:</label>
+            <input type="text" id="inp__last-name" name="lastName"> 
+        </div>
+        <div>
+            <label for="inp__age">Age:</label>
+            <input type="text" id="inp__age" name="age"> 
+        </div>
+
+        <button type="submit">Submit</button>
+        
+    </form>
+    
+</body>
+</html>
