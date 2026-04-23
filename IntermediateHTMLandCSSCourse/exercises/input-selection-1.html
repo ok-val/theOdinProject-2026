@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection element</title>
+</head>
+
+<body>
+    <h3>Select dropdown</h3>
+    <p>The select element renders a dropdown list where users can select an option. <br>
+        The construction is similar to an ul with nested li. <br>
+        Similar to an input element, select accepts the `name` and `id` attributes.
+        The option element nested inside select uses a value, which if empty will default to using the innerText.
+    </p>
+
+    <form action="https://httpbin.org/post" method="post">
+        <label for="sel--car">Select a car: </label>
+        <select name="car" id="sel--car">
+            <option value="mercedes">Mercedes</option>
+            <option value="volvo">Volvo</option>
+            <option value="bmw">BMW</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>Alternatively, I can also split the list of options into groups using the <strong>optgroup</strong> (option group) element. The optgroup element takes the label attribute to show which group the option belongs to. Note that the optgroup's label is only to help users compartmentalize options. It is not sent to the backend.</p>
+
+    <form action="https://httpbin.org/post" method="post">
+        <label for="sel--fashion">Select garments: </label>
+        <select name="garments" id="sel--fashion">
+            <optgroup label="clothing">
+                <option value="tshirt">T-shirt</option>
+                <option value="khakis">Khakis</option>
+                <option value="sweatpants">Sweatpants</option>
+            </optgroup>
+            <optgroup label="footwear">
+                <option value="sneakers">Sneakers</option>
+                <option value="boots">Boots</option>
+                <option value="highheels">High heels</option>
+                <option value="slippers">Slippers</option>
+            </optgroup>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
