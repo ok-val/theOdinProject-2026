@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing form elements</title>
+    <style>
+        fieldset {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Why organize your forms?</h3>
+    <p>Using the correct input types is the first step, but what if we have a larger form? <br>
+        This could get overwhelming quickly. Enter fieldset and legend elements. 
+    </p>
+
+    <h3>Fieldset element</h3>
+    <p>The fieldset element is a container for grouping related input forms. <br>
+        Use a fieldset for full name, another one for favorite food, and so on.
+        Fieldset uses a block display mode by default. 
+        In the default style, it uses a grey solid border around the block. 
+    </p>
+
+    <h3>Legend</h3>
+    <p>The legend element gives fieldsets a heading or caption. <br>
+        A legend should always come right after an opening fieldset tag. 
+    </p>
+
+    <fieldset>
+        <legend>Enter your full name:</legend>
+        <label for="name--first">First name:</label>
+        <input type="text" id="name--first" name="firstName">
+        <label for="name--last">Last name:</label>
+        <input type="text" id="name--last" name="lastName">
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Pick your favorite food:</legend>
+        <input type="checkbox" name="fav_food" id="pizza" value="pizza"></input>
+        <label for="pizza">Pizza</label>
+        <input type="checkbox" name="fav_food" id="banana" value="banana"></input>
+        <label for="banana">Banana</label>
+        <input type="checkbox" name="fav_food" id="lettuce" value="lettuce"></input>
+        <label for="lettuce">Lettuce</label>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>What would you like to order today?</legend>
+        <input type="radio" name="sel--drink" id="coffee" value="coffee">
+        <label for="coffee">Coffee</label>
+        <input type="radio" name="sel--drink" id="orange-juice" value="orange-juice">
+        <label for="orange-juice">Orange juice</label>
+        <input type="radio" name="sel--drink" id="milk" value="milk">
+        <label for="milk">Milk</label>
+    </fieldset>
+    
+    <h3>Styling forms</h3>
+    <p>Styling text-based input controls are quite straight-forward. <br>
+        However, styling radio buttons and checkboxes can be very tricky.
+        Here is the resource for <a href="https://moderncss.dev/pure-css-custom-checkbox-style">how to customize checkbox styling</a>. 
+    </p>
+</body>
+
+</html>
