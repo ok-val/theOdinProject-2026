@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkboxes</title>
+</head>
+
+<body>
+    <h3>Checkboxes</h3>
+    <p>Checkboxes are for giving user multiple choices. Again, similar to radio buttons, make sure to use the same value for associated checkboxes.</p>
+    
+    <p>I can use checkboxes for multiple choice inputs.</p>
+    <form action="https://httpbin.org/post" method="post">
+        <input type="checkbox" name="topping" id="sausage" value="sausage">
+        <label for="sausage">Sausage</label>
+        <!-- Similar to radio buttons, checkbox could also use the void attribute `checked` -->
+        <input type="checkbox" name="topping" id="cheese" value="cheese" checked>
+        <label for="cheese">Cheese</label>
+        <input type="checkbox" name="topping" id="onions" value="onions">
+        <label for="onions">Onions</label>
+        <br>
+        <button type="submit">Order now!</button>
+    </form>
+
+    <p>I can also use checkboxes as a true/false input. 
+        If I use it like this, I should leave out the value attribute.
+        If toggled, value of the key name would be 'on'. Otherwise, 'off'.
+    </p>
+    <form action="https://httpbin.org/post" method="post">
+        <input type="checkbox" name="toggle--subscribe" id="toggle-sub">
+        <label for="toggle-sub">Toggle to subscribe :)</label>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio buttons</title>
+</head>
+
+<body>
+    <h3>Radio buttons</h3>
+    <p>Radio buttons are preferred when the option list is short (>5). <br>
+    Radio buttons are often more user-friendly by showing all the cards on the table. </p>
+
+    <p>Radio button is an input type (specified by the type attribute of the input element). <br>
+    This is different than how the select and option elements are constructed.</p>
+
+    <p>Note that the radio input type uses a value attribute. It will result in a form object, comprising of [name]:[value] pair. <br>
+    Also note that radio checkboxes are toggled to ensure single single selection. These are connected using the name attribute. Just make sure that associated radios use the same value for their name.</p>
+
+    <form action="https://httpbin.org/post" method="post">
+        <input type="radio" id="ticket--child" name="ticket-type" value="child">
+        <label for="ticket--child">Child</label>
+        <!-- To ensure default selection, use the void attribute `check` -->
+        <input type="radio" id="ticket--adult" name="ticket-type" value="adult" checked>
+        <label for="ticket--adult">Adult</label>
+        <input type="radio" id="ticket--senior" name="ticket-type" value="senior">
+        <label for="ticket--senior">Senior</label>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
