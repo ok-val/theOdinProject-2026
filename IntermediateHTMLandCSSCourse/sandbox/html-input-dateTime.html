@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and time pickers</title>
+</head>
+
+<body>
+
+    <h3>Different types of date and time pickers</h3>
+    <p>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" />
+    </p>
+
+    <p>
+        <label for="datetime">Datetime:</label>
+        <input type="datetime-local" name="datetime" id="datetime" />
+    </p>
+
+    <p>
+        <label for="month">Month:</label>
+        <input type="month" name="month" id="month" />
+    </p>
+
+    <p>
+        <label for="time">Time:</label>
+        <input type="time" name="time" id="time" />
+    </p>
+
+    <p>
+        <label for="week">Week:</label>
+        <input type="week" name="week" id="week" />
+    </p>
+
+
+    <h3>Constraining date/time values</h3>
+    <p>I can also use a min/max (like sliders).</p>
+
+    <label for="myDate">When are you available this summer?</label><br />
+    <input type="date" name="myDate" min="2025-06-01" max="2025-08-31" step="7" id="myDate" />
+
+
+</body>
+
+</html>
