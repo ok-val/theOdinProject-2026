@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File picker</title>
+</head>
+
+<body>
+    <p><a
+            href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls">Link
+            to source</a></p>
+    <h3>File picker</h3>
+    <p>File picker is chosen when I choose the 'file' for my input type attribute.</p>
+    <p>Among the common additional attributes like name and id, file input control takes the attribute 'accept' to
+        constrain the file types.</p>
+    <p>Additionally, if I want to include multiple files, I use the 'multiple' toggle attribute.</p>
+
+    <input type="file" name="file" id="file" accept="image/*" multiple />
+
+    <p>Additionally, the file picker can also access capture methods on some mobile devices.</p>
+    <input type="file" accept="image/*;capture=camera" />
+    <input type="file" accept="video/*;capture=camcorder" />
+    <input type="file" accept="audio/*;capture=microphone" />
+</body>
+
+</html>

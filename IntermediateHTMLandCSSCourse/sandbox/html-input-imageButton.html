@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image button</title>
+    <style>
+        input[type="image"] {
+            height: 7rem;
+        }
+    </style>
+</head>
+
+<body>
+    <p><a
+            href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls">Link
+            to source</a></p>
+    <h3>Image button</h3>
+    <p>The image button control is rendered as an img, but when clicked, it submits like a button.</p>
+    <p>It does not submit any value, except for the <strong>coordinate</strong> where the user clicked on.</p>
+
+    <form action="https://httpbin.org/post" method="post">
+        <input type="image" alt="Click me!" src="../images/Interieur van Crystal Palace in Londen; Chrystal Palace.jfif"
+            width="80" height="30" />
+    </form>
+
+    <p>I wonder what this is used for... The MDN article says it's used for 'hot map'.</p>
+</body>
+
+</html>

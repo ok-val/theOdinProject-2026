@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute details of inputs</title>
+</head>
+
+<body>
+    <h2>Text input</h2>
+    <p>All basic text controls share some common behaviors:</p>
+    <ul>
+        <li>readonly: (bool) the input can't be modified but it sent to server.</li>
+        <li>disabled: (bool) the input can't be modified and not sent to server. </li>
+        <li>autofocus: (bool) the input automatically focus on page load. </li>
+        <li>size: sets the physical size of the box.</li>
+        <li>maxlength: sets the maximum number of chars that can be entered.</li>
+        <li>spellcheck: performs spellcheck for user input</li>
+    </ul>
+
+    <h3>Single-line text fields</h3>
+    <p>Input element using the type attribute of `text`, the default value.</p>
+    <p>See all of the single-line input types <a href="https://mdn.github.io/learning-area/html/forms/native-form-widgets/single-line-text-fields.html">here</a>.</p>
+    <p>The default style applies some colored outline for the focused and faded text for the disabled field.</p>
+
+    <h3>Hidden content text field</h3>
+    <p>There is the hidden input type. How mischievous. It's used to create an invisible form control (widget). For example, if I want wato submit a timestamp to the server stating when an order was placed, I can. This content field is not rendered nor picked up by the screen reader.</p>
+
+    <input type="hidden" id="timestamp" name="timestamp" value="1286705410" />
+
+    <h3>Toggle switches</h3>
+    <p>Here is the <a href="https://github.com/mdn/learning-area/blob/main/html/forms/toggle-switch-example/index.html">repo for toggle switches</a>... Do I want it? Yes.</p>
+
+
+
+</body>
+
+</html>
