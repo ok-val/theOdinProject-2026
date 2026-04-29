@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form structuring tutorial</title>
+    <style>
+        label {
+            display: inline-block;
+            min-width: 16ch;
+        }
+
+        input:invalid {
+            border: red solid 1px;
+            border-radius: 3px;
+        }
+
+        section+section {
+            margin-top: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <p>This exercise follows MDN tutorial. <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form">Link here.</a></p>
+    <form action="https://httpbin.org/post" method="post">
+        <h1>Payment form</h1>
+        <p>Please complete all required (*) fields.</p>
+        <section>
+            <h2>Contact information</h2>
+            <fieldset>
+                <legend>Title</legend>
+                <ul>
+                    <li><label for="title-1">Ace</label><input type="radio" id="title-1" name="title" value="A"></li>
+                    <li><label for="title-2">King</label><input type="radio" id="title-2" name="title" value="K"></li>
+                    <li><label for="title-3">Queen</label><input type="radio" id="title-3" name="title" value="Q"
+                            checked></li>
+                </ul>
+            </fieldset>
+            <p>
+                <label for="name">Name*:</label><input type="text" name="name" id="name" required>
+            </p>
+            <p>
+                <label for="email">Email*:</label><input type="text" name="email" id="email" required>
+            </p>
+            <p>
+                <label for="pass">Password*:</label><input type="password" name="password" id="pass" required>
+            </p>
+
+        </section>
+
+        <section>
+            <h2>Payment information</h2>
+
+            <p>
+                <label for="type-card">Card type:</label>
+                <select name="card_type" id="type-card">
+                    <option value="credit" selected>Credit card</option>
+                    <option value="debit">Debit card</option>
+                </select>
+            </p>
+            <p>
+                <label for="card-number">Card number:</label>
+                <input type="tel" id="card-number" name="card_number" required>
+            </p>
+            <p>
+                <label for="card-exp-date">Expiration date:</label>
+                <input type="text" name="expiration_date" id="card-exp-date" placeholder="MM/YYYY"
+                    pattern="^(0[1-9]|1[0-2])\/([0-9]{4})$" size="8" required>
+                <!-- Note that pattern and size attributes are new in HTML5
+                 Pattern uses a regex search  -->
+            </p>
+        </section>
+
+        <section>
+            <p>
+                <button type="submit">Validate the payment</button>
+            </p>
+        </section>
+    </form>
+</body>
+
+</html>

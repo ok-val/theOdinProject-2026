@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDN form intro</title>
+    <style>
+        .instructions {
+            display: none;
+        }
+
+        div+div {
+            margin-top: 1em;
+        }
+
+        fieldset>div {
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            /* justify-content: center; */
+        }
+
+        label {
+            display: inline-block;
+            min-width: 12ch;
+            text-align: left;
+        }
+
+        div+button {
+            width: 12ch;
+            margin-top: 1em;
+            padding: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="instructions">
+        <h3>Designing the form</h3>
+        <p>To review: A form's HTML is made up of one or more form control elements (sometimes called widgets).</p>
+        <p>When designing your form, it's important <strong>keep it simple</strong> when presenting them to users.
+            Otherwise, you'll lose the audience.</p>
+        <p>This exercise follows instructions from <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Your_first_form">this link from MDN</a>.</p>
+    </div>
+
+    <!-- Remember to use fieldset to clump widgets together -->
+    <form action="https://httpbin.org/post" method="post">
+        <fieldset>
+            <legend>Contact</legend>
+            <div>
+                <label for="user-name">Name:</label>
+                <input type="text" id="user-name" name="user_name">
+            </div>
+            <div>
+                <label for="user-name">E-mail:</label>
+                <input type="text" id="user-email" name="user_email">
+            </div>
+            <div>
+                <label for="user-message">Message:</label>
+                <textarea id="user-comment" name="user_comment" placeholder="Enter your message here" rows="20"
+                    cols="60"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+
+    </form>
+
+</body>
+
+</html>
