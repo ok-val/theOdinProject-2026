@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postcard MDN Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --border-radius: 5px;
+        }
+
+        form {
+            background-image: url('../images/postcard-background.jpg');
+            background-size: auto;
+            font-family: 'Roboto Mono';
+            position: relative;
+            width: 740px;
+            height: 498px;
+            margin: 0 auto;
+            padding: 1em;
+            box-sizing: border-box;
+
+            /* we create our grid */
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 13em 1.6em 1.9em 1.8em;
+        }
+
+        #from,
+        #reply {
+            display: flex;
+            margin-top: auto;
+            gap: 10px;
+            width: 100%;
+        }
+
+        #message {
+            grid-row: 1 / 5;
+        }
+
+        h1 {
+            font-size: 1.33rem;
+            align-self: end;
+        }
+
+        button,
+        input {
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            background-color: transparent;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            border: 1px solid black;
+            border-radius: var(--border-radius);
+            height: 2em;
+            padding: 0 2em;
+        }
+
+        button:hover {
+            background-color: rgb(203, 203, 203);
+        }
+
+        button::after {
+            content: " >>>";
+        }
+
+        textarea {
+            font-family: 'Gloria Hallelujah';
+            font-weight: 500;
+            font-size: 2rem;
+            line-height: 1.33;
+            padding: 10px;
+            margin: 10px auto;
+            background-color: transparent;
+            border: none;
+            width: 90%;
+            height: 80%;
+        }
+
+        textarea:focus,input:focus {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1>to: Mozilla</h1>
+
+        <div id="from">
+            <label for="name">from:</label>
+            <input type="text" id="name" name="user_name" />
+        </div>
+
+        <div id="reply">
+            <label for="mail">reply:</label>
+            <input type="email" id="mail" name="user_email" />
+        </div>
+
+        <div id="message">
+            <label for="msg">Your message:</label>
+            <textarea id="msg" name="user_message"></textarea>
+        </div>
+
+        <div class="button">
+            <button type="submit">Send</button>
+        </div>
+    </form>
+</body>
+
+</html>
