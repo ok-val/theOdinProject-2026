@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgets that cannot be controlled by CSS alone</title>
+</head>
+
+<body>
+    <p>To review, there are elements that are hard to control, and elements that just cannot be thoroughly controlled by
+        CSS alone. Many of these tricks just either hides the default style and fake a new one using various elements and pseudo-elements.</p>
+
+
+    <p>Review these tricks in <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling">this MDN guide</a>.</p>
+    <ul>
+        <li>select</li>
+        <li>option</li>
+        <li>optgroup</li>
+        <li>datalist</li>
+        <li>progress (what is this?)</li>
+        <li>meter (what is this?)</li>
+        <li>color picker (input color)</li>
+        <li>datetime-local (input datetime-local)</li>
+        <li>slider controls (input range)</li>
+        <li>file picker (input file)</li>
+    </ul>
+
+    <h3>Select</h3>
+    <p>The main issue with styling the select element is in targetting its dropdown menu arrow.</p>
+    <p>The solution would be to use our old friend appearance:none to remove this OS styling and generate our own.</p>
+    <p>However, this is not as straight-forward as it is for radios and checkboxes because ::before and ::after don't work here. We have to create a wrapper div. Set that to relative, the arrow to absolute TBLR (Top-Bottom-Left-Right) properties.</p>
+
+    <h3>Date input types</h3>
+    <p>Yes, the boxes are controllable but the pop-ups aren't.</p>
+    <p>The pop-ups cannot be overriden. So I can either create my own or use a library.</p>
+
+    <h3>Number</h3>
+    <p>For some mobile devices, number inputs usually prompt a wheel scroller. </p>
+    <p>If this is not desirable, use tel with pattern and maxlength validation instead.</p>
+
+    <p>Range input types</p>
+    <p>Another notoriously-difficult-to-style element. Prepare to use some advanced CSS tricks provided in <a href="https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/">this article</a>.</p>
+
+    <h3>File picker</h3>
+    <p>The problem with this one is that its associate button cannot be styled.</p>
+    <p>The workaround is to hide the input element entirely and take advantage of the label which also activates the element.</p>
+    
+
+    <h3>Meters and progress bars</h3>
+    <p>These are the worst offenders. Applying appearance:none to them apparently makes things worse.</p>
+    <p>MDN suggests using third-party solution such as progressbar.js. It essentially just builds one anew.</p>
+</body>
+
+</html>
