@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation basics</title>
+    <style>
+        /* Additionally, I could indicate which fields are invalid */
+        input:invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>What is form validation?</h3>
+    <p>Form validation is a group of techniques for setting input constraints or rules. It helps a user input the right thing in the right place.</p>
+    <p>These techniques essentiall communicate to the user whether they have broken any rules.</p>
+    <p>In terms of backend efficiency, validation protects backend systems from incorrect data.</p>
+    <p>In terms of user experience, it makes the input process less frustrating and simple to follow.</p>
+
+    <h3>Basic built-in HTML validations</h3>
+    <h4>Required validation</h4>
+    <p>This is an essential one. Use with the asterisk to indicate mandatory.</p>
+
+    <form action="https://httpbin.org/post" method="post">
+        <div>
+            <label for="email">Email (required):</label>
+            <input type="text" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="pw">Password (*):</label>
+            <input type="password" name="password" id="pw" required>
+        </div>
+    </form>
+
+    <h4>Min and max length</h4>
+    <p>The attributes minlength and maxlength will pop a modal that with a message informing the user of how their input is invalid.</p>
+    <p>Note: minlength is not the same as required. This constraint only applies once the user has entered some chars. In other words, minlength starts at 1.</p>
+    <p>Both validation attributes are most commonly used for textarea widget.</p>
+
+    <h4>Min/max for number range validation</h4>
+    <p>Simple. min=""; max=""</p>
+    <p>Going below min value would prompt a warning modal. Also limits the increment slider/buttons</p>
+    <p>Going above max value would also prompt a modal with limits on increments.</p>
+
+    <h4>Regex for pattern validation</h4>
+    <p>Implemented by the attributet 'pattern'. Regex expressions normally indiciate starting and ending using ^ and $, respectively. This syntax resembles how matching attribute selector works.</p>
+    <p>Don't try to remember regex patterns. Just use one that's widely available.</p>
+
+    <h4>Title attribute</h4>
+    <p>For an additional interface besides from pop-up modals, I could also use the title attribute. This allows a cursor modal to appear after hovering on the field for a couple seconds.</p>
+    <p>title attribute accept a string.</p>
+
+    <h4>:valid, :invalid, :user-valid, and :user-invalid</h4>
+    <p>These are pseudo-classes for validation.</p>
+    <p>The key different between :valid and :user-valid is the timing of evaluation. :valid will evaluate immediate on page load. :user-valid will only evaluate after the user has interacted with and left the field.</p>
+
+    <h3>Conclusion</h3>
+    <p>There are limitations to built-in validations. They won't be able to access information beyond its field. So matching password input and confirmation or validating username availability is not possible.</p>
+    <p>Additionally, client-side validation is not enough. To ensure integrity, server-side validation must also be in place.</p>
+    
+
+</body>
+</html>
