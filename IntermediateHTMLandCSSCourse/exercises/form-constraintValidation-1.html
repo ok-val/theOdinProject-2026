@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A more detailed example of the Constraint Validation API</title>
+    <style>
+        body {
+            font: 1em sans-serif;
+            width: 200px;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        p * {
+            display: block;
+        }
+
+        input[type="email"] {
+            appearance: none;
+
+            width: 100%;
+            border: 1px solid #333333;
+            margin: 0;
+
+            font-family: inherit;
+            font-size: 90%;
+
+            box-sizing: border-box;
+        }
+
+        /* invalid fields */
+        input:invalid {
+            border-color: #990000;
+            background-color: #ffdddd;
+        }
+
+        input:focus:invalid {
+            outline: none;
+        }
+
+        /* error message styles */
+        .error {
+            width: 100%;
+            padding: 0;
+
+            font-size: 80%;
+            color: white;
+            background-color: #990000;
+            border-radius: 0 0 5px 5px;
+
+            box-sizing: border-box;
+        }
+
+        .error.active {
+            padding: 0.3em;
+        }
+
+        div.annotation {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form novalidate>
+        <p>
+            <label for="email">
+                <span>Please enter an email address *:</span>
+                <input type="email" id="email" minlength="8" required />
+                <span class="error-msg" aria-live="polite"></span>
+                <button type="submit">Submit</button>
+            </label>
+        </p>
+    </form>
+
+    <div class="annotation">
+        <p>Look at the code of this form.</p>
+        <p>First, it uses a new attribute: novalidate, which I haven't seen before. <br>
+            What is does is simply disable the default modals, leaving default constraints validation and other native
+            browser behaviors intact. <strong>This attribute is used for when I want to create custom appearances for
+                error
+                message modals. </strong>Good to know!</p>
+        <p>The other attribute I haven't seen is <strong>aria-live</strong>. This basically indicates that the span will
+            be
+            updated and accessed not only by JS but also screen-reader users.</p>
+    </div>
+
+    <script>
+        const form = document.querySelector("form");
+        const email = document.getElementById("email");
+        const emailError = document.querySelector('#email+span.error-msg');
+
+        // The pattern here uses two event listeners that can both trigger a callback fn that switches different messages for the error using class toggling
+
+        email.addEventListener("input", (e) => {
+            // If the email is valid, the error msg will reset and remove the 'active' class
+            if (email.validity.valid) {
+                emailError.textContent = "";
+                emailError.className = "error-msg";
+                // Otherwise, call the showError fn
+            } else showError();
+        });
+
+        form.addEventListener("submit", (e) => {
+            // If the email is not valid, show the error and prevent the browser from submitting the form entirely. 
+            if (!email.validity.valid) {
+                showError();
+                e.preventDefault();
+            }
+        });
+
+        function showError() {
+            if (email.validity.valueMissing) {
+                // If empty
+                emailError.textContent = "You need to enter an email address.";
+            } else if (email.validity.typeMismatch) {
+                // If it's not an email address,
+                emailError.textContent = "Entered value needs to be an email address.";
+            } else if (email.validity.tooShort) {
+                // If the value is too short,
+                emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+            }
+            // Add the `active` class
+            emailError.className = "error active";
+        }
+    </script>
+
+    <div class="annotation">
+        <p>In this example, I use the novalidate attribute for the form. This precludes my ability to use the method .setCutomValiation() as seen in the previous part because this method targets the native browser error modals which I disabled with novalidate.</p>
+        <p>Instead, because novalidate wouldn't disable the default 'under-the-hood' behaviors of the Constraints Validation API, I can still check different properties of the ValidityState object to manipulate the behaviors of our custom message modal.</p>
+    </div>
+</body>
+
+</html>

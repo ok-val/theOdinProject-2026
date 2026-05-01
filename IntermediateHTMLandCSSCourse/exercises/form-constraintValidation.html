@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <p>Here is the basic pattern for setting a customized error message.</p>
     <form>
         <label for="email">Enter your email:</label>
         <input type="email" id="email" name="email" />
@@ -23,6 +24,40 @@
                 email.setCustomValidity("I am expecting an email address!");
             } else {
                 email.setCustomValidity("");
+            }
+        });
+    </script>
+
+    <p><strong>Next is a pattern for extending built-in form validation</strong></p>
+    <p>In the previous example, I caught a specific type of error (`validity.typeMismatch`). Then I set a new custom error message using `setCustomValidity`.</p>
+    <p>In this example, I will catch if the email does not contain an expected auth+tld extension: @example.com.</p>
+
+    <form action="">
+        <label for="email-2">Email address (@example.com):</label>
+        <input type="email" id="email-2" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const emailExample = document.querySelector("#email-2");
+
+        emailExample.addEventListener("input", (e) => {
+            // 1. Reset: clear any previous custom error so it doesn't get stuck
+            emailExample.setCustomValidity("");
+
+            // 2. Guard: if built-in validation already fails (e.g. typeMismatch),
+            //    bail out and let the native error show instead of masking it
+            //    Note: this pattern takes advantage of native error messages. 
+            //    That is, by default, for email type, typeMismatch fires when the field's empty or when the 
+            //    string does not include a @ followed by some chars.
+            //    Up to this point, we reset the custom messge to reveal the native message. 
+            if (!emailExample.validity.valid) {
+                return;
+            }
+
+            // 3. Custom check: only runs if built-in validation passed
+            if (!emailExample.value.endsWith("@example.com")) {
+                emailExample.setCustomValidity("Please enter an email address of @example.com");
             }
         });
     </script>
