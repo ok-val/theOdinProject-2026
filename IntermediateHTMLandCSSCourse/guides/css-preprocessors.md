@@ -8,7 +8,7 @@ Having a strong foundation will ease using framework and preprocessor in the fut
 
 ## Frameworks overview
 
-There are many frameworks.
+There are many frameworks. 
 Each has different goals. 
 
 
