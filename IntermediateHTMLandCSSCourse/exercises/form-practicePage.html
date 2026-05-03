@@ -12,6 +12,7 @@
         }
 
         :root {
+            font-family: 'Archivo', serif;
             font-size: 16px;
         }
 
@@ -26,14 +27,20 @@
             height: 100vh;
             background-image: url('./assets/background-image.jpg');
         }
-        
+
         .main {
             flex: 2 0 400px;
+            display: flex;
+            flex-flow: column nowrap;
+
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1.33em;
         }
 
-        
+
         /* hero banner */
-        .hero > div {
+        .hero>div {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,9 +56,9 @@
             max-width: 100px;
             flex: 1 1 0;
         }
-        
+
         /* ODIN text */
-        .hero img + p {
+        .hero img+p {
             flex: 0 1 0;
             text-align: center;
             font-size: 5rem;
@@ -59,11 +66,14 @@
             color: white;
         }
 
+        /* Hero image caption */
         .hero .caption {
             position: absolute;
             bottom: 10px;
             width: 100%;
-            box-sizing: content-box;
+            box-sizing: border-box;
+
+            font-size: 0.8em;
             color: white;
             text-align: center;
         }
@@ -71,7 +81,68 @@
         .caption :link {
             color: inherit;
         }
+
+        .description,
+        .signup {
+            background-color: #f9fafb;
+            padding: 2rem 3rem;
+            box-sizing: border-box;
+            align-content: end;
+            width: 100%;
+        }
+
+        .description {
+            background-color: #f0f0f4;
+            height: 25vh;
+        }
+
+        .signup {
+            background-color: white;
+        }
         
+        label {
+            color: rgb(88, 88, 88);
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.2ch;
+            
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        label input {
+            font-size: inherit;
+            font-family: inherit;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-bottom: 1rem;
+            flex: 1 1;
+            max-width: 500px;
+        }
+
+        label:last-of-type {
+            margin-bottom: 1rem;
+        }
+
+        button {
+            box-sizing: border-box;
+            padding: 0.7rem 1.5rem;
+
+            border-radius: 1ch;
+            border: none;
+
+            background-color: #457a61;
+            box-shadow: 0px 2px 10px rgba(128, 128, 128, 0.702);
+
+            font-family: inherit;
+            font-size: 1.5rem;
+            color: white;
+            
+        }
+
+        button[type="submit"]+p a:any-link {
+            color: #457a61;
+        }
     </style>
 </head>
 
@@ -81,15 +152,22 @@
             <img src="./assets/odin-lined.png" alt="" class="logo">
             <p>ODIN</p>
         </div>
-        <p class="caption">Photo by <a href="https://unsplash.com/@samuelwu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yue Wu</a> on <a href="https://unsplash.com/photos/curving-stone-path-through-lush-green-grass-with-tree-q0n4Ud0MOyg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+        <p class="caption">Photo by <a
+                href="https://unsplash.com/@samuelwu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yue
+                Wu</a> on <a
+                href="https://unsplash.com/photos/curving-stone-path-through-lush-green-grass-with-tree-q0n4Ud0MOyg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </p>
     </div>
     <div class="main">
-        <p class="description">
-            This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started. <br>
-            You <em>know</em> you want to.
-        </p>
+        <div class="description">
+            <p>
+                This is not a real online service! You know you need something like this in your life to help you
+                realize your deepest dreams. Sign up <em>now</em> to get started. <br> <br>
+                You <em>know</em> you want to.
+            </p>
+        </div>
         <div class="signup">
-            <form action="">
+            <form action="" novalidate>
                 <p>Let's do this!</p>
                 <label for="first-name">
                     <span>First name</span>
