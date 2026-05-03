@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice mockup page</title>
+    <style>
+        @font-face {
+            font-family: "Norse";
+            src: url('./assets/norse/Norsebold.otf') format('opentype');
+        }
+
+        :root {
+            font-size: 16px;
+        }
+
+        body {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .hero {
+            position: relative;
+            flex: 1 0 200px;
+            height: 100vh;
+            background-image: url('./assets/background-image.jpg');
+        }
+        
+        .main {
+            flex: 2 0 400px;
+        }
+
+        
+        /* hero banner */
+        .hero > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 25vh;
+            height: 12rem;
+            background-color: rgba(0, 0, 0, 0.268);
+        }
+
+        /* ODIN logo */
+        .hero img {
+            width: 40px;
+            max-width: 100px;
+            flex: 1 1 0;
+        }
+        
+        /* ODIN text */
+        .hero img + p {
+            flex: 0 1 0;
+            text-align: center;
+            font-size: 5rem;
+            font-family: "Norse", sans-serif;
+            color: white;
+        }
+
+        .hero .caption {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            box-sizing: content-box;
+            color: white;
+            text-align: center;
+        }
+
+        .caption :link {
+            color: inherit;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div>
+            <img src="./assets/odin-lined.png" alt="" class="logo">
+            <p>ODIN</p>
+        </div>
+        <p class="caption">Photo by <a href="https://unsplash.com/@samuelwu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yue Wu</a> on <a href="https://unsplash.com/photos/curving-stone-path-through-lush-green-grass-with-tree-q0n4Ud0MOyg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+    </div>
+    <div class="main">
+        <p class="description">
+            This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started. <br>
+            You <em>know</em> you want to.
+        </p>
+        <div class="signup">
+            <form action="">
+                <p>Let's do this!</p>
+                <label for="first-name">
+                    <span>First name</span>
+                    <input type="text" id="first-name" name="name_first" required>
+                    <span class="error"></span>
+                </label>
+                <label for="last-name">
+                    <span>Last name</span>
+                    <input type="text" id="last-name" name="name_last" required>
+                    <span class="error"></span>
+                </label>
+                <label for="email">
+                    <span>Email</span>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error"></span>
+                </label>
+                <label for="tel">
+                    <span>Phone number</span>
+                    <input type="tel" id="tel" name="tel" required>
+                    <span class="error"></span>
+                </label>
+                <label for="password">
+                    <span>Password</span>
+                    <input type="password" id="password" name="password" required>
+                    <span class="error"></span>
+                </label>
+                <label for="password--confirm">
+                    <span>Confirm password</span>
+                    <input type="password" id="password--confirm" required>
+                    <span class="error"></span>
+                </label>
+                <button type="submit">Create account</button>
+                <p>Already have an account? <a href="" id="log-in">Log in</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
