@@ -22,9 +22,12 @@
         }
 
         .hero {
-            position: relative;
-            flex: 1 0 200px;
+            position: sticky;
+            top: 0;
+            align-self: flex-start;
+
             height: 100vh;
+            flex: 1 0 200px;
             background-image: url('./assets/background-image.jpg');
         }
 
@@ -87,37 +90,81 @@
             background-color: #f9fafb;
             padding: 2rem 3rem;
             box-sizing: border-box;
-            align-content: end;
             width: 100%;
         }
 
         .description {
+            flex: 1 0 25vh;
+            align-content: end;
             background-color: #f0f0f4;
-            height: 25vh;
         }
 
         .signup {
+            flex: 3 0 75vh;
             background-color: white;
         }
-        
+
         label {
             color: rgb(88, 88, 88);
             text-transform: uppercase;
             font-size: 1rem;
             letter-spacing: 0.2ch;
-            
+
             display: flex;
             flex-flow: column wrap;
+
+            margin-top: 0.5rem;
         }
 
         label input {
+            appearance: none;
             font-size: inherit;
             font-family: inherit;
+
+            flex: 1 1;
             box-sizing: border-box;
             padding: 5px;
+            width: clamp(100px, 45vw, 450px);
+            
+            border-style: solid;
+            border-radius: 3px;
+        }
+
+        input:user-invalid {
+            border-color: red;
+        }
+
+        input:user-valid {
+            border: 2px solid #60ae8a;
+        }
+
+        input:valid+span {
+            color: #60ae8a;
+            font-weight: 600;
+
+        }
+
+        /* input:user-valid+span::before {
+            content: '✓ ';
+            color: #60ae8a;
+            font-weight: 600;
+        } */
+
+        /* input:user-invalid+span::before {
+            content: '⚠️ ';
+            color: #60ae8a;
+            font-weight: 600;
+        } */
+
+        /* Error messages */
+        input+span {
             margin-bottom: 1rem;
-            flex: 1 1;
-            max-width: 500px;
+            margin: 0px;
+
+            color: red;
+            font-size: 0.8em;
+            text-transform: initial;
+            letter-spacing: initial;
         }
 
         label:last-of-type {
@@ -126,6 +173,7 @@
 
         button {
             box-sizing: border-box;
+            margin-top: 1.5rem;
             padding: 0.7rem 1.5rem;
 
             border-radius: 1ch;
@@ -137,11 +185,21 @@
             font-family: inherit;
             font-size: 1.5rem;
             color: white;
-            
+
+        }
+
+        /* Login prompt */
+        button[type="submit"]+p {
+            font-size: 1rem;
         }
 
         button[type="submit"]+p a:any-link {
             color: #457a61;
+        }
+
+        /* Form starter text */
+        form p:first-child {
+            font-weight: 600;
         }
     </style>
 </head>
@@ -167,7 +225,7 @@
             </p>
         </div>
         <div class="signup">
-            <form action="" novalidate>
+            <form action="" id="form" novalidate>
                 <p>Let's do this!</p>
                 <label for="first-name">
                     <span>First name</span>
@@ -186,7 +244,7 @@
                 </label>
                 <label for="tel">
                     <span>Phone number</span>
-                    <input type="tel" id="tel" name="tel" required>
+                    <input type="tel" id="tel" name="tel" minlength="10" required>
                     <span class="error"></span>
                 </label>
                 <label for="password">
@@ -199,11 +257,60 @@
                     <input type="password" id="password--confirm" required>
                     <span class="error"></span>
                 </label>
-                <button type="submit">Create account</button>
-                <p>Already have an account? <a href="" id="log-in">Log in</a></p>
             </form>
+            <button type="submit" form="form">Create account</button>
+            <p>Already have an account? <a href="" id="log-in">Log in</a></p>
         </div>
     </div>
+
+    <script>
+        const validMessage = '✓ Valid';
+        const form = document.querySelector('form');
+
+        const elements = Array.from(form.elements);
+        elements.splice(elements.findIndex(item => item.tagName.toLowerCase() === 'button'), 1);
+
+
+        // Raise errors through each elements
+        elements.forEach(i => {
+            i.addEventListener('input', (e) => {
+                const error = i.nextElementSibling;
+                if (!i.checkValidity()) {
+                    error.textContent = '⚠️ ' + i.validationMessage;
+                    error.classList.add('show');
+                } else {
+                    error.textContent = validMessage;
+                    error.classList.remove('show');
+                }
+            })
+        })
+
+        // Raise errors via submit button
+        form.addEventListener('submit', (e) => {
+            const elements = Array.from(form.elements);
+            elements.splice(elements.findIndex(item => item.tagName.toLowerCase() === 'button'), 1);
+            // Remove button element using findIndex
+
+            if (form.checkValidity()) {
+                console.log('all good');
+            } else {
+                e.preventDefault();
+                elements.forEach(i => {
+                    const error = i.nextElementSibling;
+                    if (!i.checkValidity()) {
+                        error.textContent = '⚠️ ' + i.validationMessage;
+                        error.classList.add('show');
+                    } else {
+                        error.textContent = validMessage;
+                        error.classList.remove('show');
+                    }
+                });
+            }
+        });
+
+
+
+    </script>
 </body>
 
 </html>
