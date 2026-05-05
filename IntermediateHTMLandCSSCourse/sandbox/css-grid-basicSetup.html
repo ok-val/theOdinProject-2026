@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic grid set up</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-rows: 25px 25px;
+            grid-template-columns: 100px 100px;
+            /* grid-template: is the shorthand for these properties */
+            /* gap: 20px; */
+        }
+
+        .grid-container div {
+            border: 1px solid gray;
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+    <h3>Setting up a grid</h3>
+    <p>A grid layout requires a parent container's display mode to be set to either:</p>
+    <ul>
+        <li>grid</li>
+        <li>inline-grid</li>
+    </ul>
+    <p>When a container is set to grid, <strong>only the direct child elements will become grid items.</strong> Grand children will not become grid items.</p>
+
+    <div class="grid-container">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+        <div>Item 4</div>
+    </div>
+
+    <h3>Columns and rows</h3>
+    <p>To control column and row tracks, we use `grid-template-columns` and `grid-template-rows`.</p>
+    <p>These essential allows me to control the widths and heights of grid cells.</p>
+    <p>The number of values I set for these tracks corresponds with the number of columns or rows.</p>
+
+    
+</body>
+</html>
