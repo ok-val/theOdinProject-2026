@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto grid tracking</title>
+    <style>
+        .side-by-side {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: start;
+            gap: 10vh;
+        }
+
+        .grid-1 div,
+        .grid-2 div,
+        .grid-3 div {
+            border: 1px solid red;
+        }
+
+        .grid-1 {
+            display: grid;
+            grid-template-columns: 50px 50px;
+            grid-template-rows: 50px 50px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 50px 50px;
+            grid-template-rows: 50px 50px;
+            grid-auto-rows: 50px;
+            grid-auto-columns: 50px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 50px 50px;
+            grid-template-rows: 50px 50px;
+            grid-auto-flow: column;
+            grid-auto-rows: 50px;
+            grid-auto-columns: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Explicit vs. Implicit tracking</h3>
+    <p>What happens if I have more items than spec-ed in the tracks?</p>
+    <p>Presented here are two grids: First one contains open tracks, Second one uses auto-track, Third one uses auto-track for column instead of row (defaultly adds implicit rows).</p>
+    <div class="side-by-side">
+        <div class="grid-1">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+            <div>Item 7</div>
+            <div>Item 8</div>
+        </div>
+        <div class="grid-2">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+            <div>Item 7</div>
+            <div>Item 8</div>
+        </div>
+        <div class="grid-3">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+            <div>Item 7</div>
+            <div>Item 8</div>
+        </div>
+    </div>
+</body>
+
+</html>
