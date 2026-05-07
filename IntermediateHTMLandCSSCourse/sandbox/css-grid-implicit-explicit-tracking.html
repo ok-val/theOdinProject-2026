@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implicit and Explicit tracking</title>
+    <style>
+        .container {
+            display: grid;
+            gap: 20px; 
+            grid-template-columns: 200px 400px; 
+            /* Because the columns are defined, they are considered explicit */
+            /* The rows are thus implemented implicitly  */
+            grid-template-rows: 100px;
+            /* Now one of the rows is explicit, the other one remains implicit */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+
+</html>
