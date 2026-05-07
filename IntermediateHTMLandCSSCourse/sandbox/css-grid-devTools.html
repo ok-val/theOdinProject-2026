@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspect grid layouts in DevTools</title>
+    <style>
+        :root {
+            font-family: sans-serif;
+        }
+
+        body {
+            justify-items: center;
+        }
+
+        .apple {
+            grid-area: apple;
+            background-color: rgb(238, 111, 102);
+        }
+
+        .kiwi {
+            grid-area: kiwi;
+            background-color: rgb(175, 226, 98);
+        }
+
+        .mango {
+            grid-area: mango;
+            background-color: gold;
+        }
+
+        .orange {
+            grid-area: orange;
+            background-color: rgb(247, 184, 122);
+        }
+
+        .fruit-box {
+            padding: 5px;
+            border: 1px solid;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 80px);
+            grid-template-areas:
+                "apple kiwi mango"
+                "orange orange orange";
+            gap: 10px;
+            width: 80vw;
+        }
+
+        .fruit-box > div {
+            text-align: center;
+            align-content: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p>Fruit box</p>
+    <div class="fruit-box">
+        <div class="apple">Apple</div>
+        <div class="kiwi">Kiwi</div>
+        <div class="mango">Mango</div>
+        <div class="orange">Orange</div>
+    </div>
+</body>
+
+</html>
