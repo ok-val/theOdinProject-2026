@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning using grid-column and grid-row shorthand</title>
+    <style>
+        .floorplan {
+            background-color: lightblue;
+            font-size: 10px;
+
+            display: inline-grid;
+            grid-template: repeat(5, 40px) / repeat(5, 40px);
+        }
+
+        .floorplan>div {
+            border: 1px solid;
+            text-align: center;
+        }
+
+        .liv {
+            grid-column: 1 / -1;
+            grid-row: 1 / span 2;
+        }
+
+        .kit {
+            grid-column: 1 / 3;
+            grid-row: 3 / 5;
+        }
+
+        .bat {
+            grid-column: 4 / 6;
+            grid-row: 3 / 6;
+        }
+
+        .bed {
+            grid-column: 3;
+            grid-row: 3 / 5;
+        }
+
+        .clo {
+            grid-column: 1 / 4;
+            grid-row: 5;
+        }
+
+        .code {
+            padding: 2px 5px;
+            border-radius: 4px;
+            /* box-shadow: 2px 2px 4px gray; */
+
+            background-color: rgb(212, 210, 208);
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Another way is to use the grid-column and grid-row shorthands</p>
+    <p>With this method, it's also possible to count backwards. <br>
+        For example, see how .liv spans across all columns using <span class="code">grid-column: 1 / -1;</span></p>
+    <p>It's <em>also</em> possible to use the keyword `span` instead of defining an ending value. <br>
+        For example, see how .live spans over two rows using <span class="code">grid-row: 1 / span 2;</span></p>
+    <div class="floorplan">
+        <div class="liv">Living room</div>
+        <div class="kit">Kitchen</div>
+        <div class="bed">Bedroom</div>
+        <div class="bat">Bathroom</div>
+        <div class="clo">Closet</div>
+    </div>
+</body>
+
+</html>

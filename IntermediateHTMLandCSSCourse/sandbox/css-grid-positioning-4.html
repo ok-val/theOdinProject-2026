@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning elements in grid using grid-area only</title>
+    <style>
+        .floorplan {
+            background-color: lightblue;
+            font-size: 10px;
+
+            display: inline-grid;
+            grid-template: repeat(5, 40px) / repeat(5, 40px);
+        }
+
+        .floorplan>div {
+            border: 1px solid;
+            text-align: center;
+        }
+
+        .liv {
+            grid-area: 1 / 1 / 3 / 6;
+        }
+
+        .kit {
+            grid-area: 3 / 1 / 5 / 3;
+        }
+
+        .bed {
+            grid-area: 3 / 4 / 6 / 6;
+        }
+
+        .bat {
+            grid-area: 5 / 1 / 5 / 4;
+        }
+
+        .clo {
+            grid-area: 3 / 3 / 5 / 4;
+        }
+
+        .code {
+            padding: 1px 5px;
+            border-radius: 4px;
+            box-shadow: 2px 2px 4px gray;
+
+            background-color: rgb(212, 210, 208);
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Another placement method is to use grid-area for items</p>
+    <p>Syntax: <span class="code">row-start, column-start, row-end, column-end</span></p>
+    <div class="floorplan">
+        <div class="liv">Living room</div>
+        <div class="kit">Kitchen</div>
+        <div class="bed">Bedroom</div>
+        <div class="bat">Bathroom</div>
+        <div class="clo">Closet</div>
+    </div>
+</body>
+
+</html>
