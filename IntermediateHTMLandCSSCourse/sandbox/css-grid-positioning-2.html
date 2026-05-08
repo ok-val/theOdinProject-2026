@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .floorplan {
+            background-color: lightblue;
+            font-size: 10px;
+
+            display: inline-grid;
+            grid-template: repeat(5, 40px) / repeat(5, 40px);
+            grid-template-areas:
+                "liv liv liv liv liv"
+                "liv liv liv liv liv"
+                "kit kit kit kit kit"
+                "bat bat bed bed bed"
+                "clo clo bed bed bed";
+        }
+
+        .floorplan>div {
+            border: 1px solid;
+            /* box-sizing: border-box; */
+            text-align: center;
+        }
+
+        .bed {
+            grid-area: bed;
+        }
+
+        .liv {
+            grid-area: liv;
+        }
+
+        .kit {
+            grid-area: kit;
+        }
+
+        .clo {
+            grid-area: clo;
+        }
+
+        .bat {
+            grid-area: bat;
+        }
+    </style>
+</head>
+
+<body>
+    <p>The other way to position elements is to use grid-template-area</p>
+    
+    <div class="floorplan">
+        <div class="liv">Living room</div>
+        <div class="kit">Kitchen</div>
+        <div class="bed">Bedroom</div>
+        <div class="bat">Bathroom</div>
+        <div class="clo">Closet</div>
+    </div>
+</body>
+
+</html>

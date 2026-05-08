@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning items in grid with grid-row and grid-column</title>
+    <style>
+        .floorplan {
+            background-color: lightblue;
+            font-size: 10px;
+
+            display: inline-grid;
+            grid-template: repeat(5, 40px) / repeat(5, 40px);
+        }
+
+        .floorplan>div {
+            border: 1px solid;
+            text-align: center;
+        }
+
+        .living-room {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            grid-column-end: 6;
+            grid-row-end: 3;
+        }
+
+        .bathroom {
+            grid-column-start: 1;
+            grid-row-start: 3;
+            grid-column-end: 1;
+            grid-row-end: 6;
+        }
+
+        .bedroom {
+            grid-column-start: 2;
+            grid-row-start: 3;
+            grid-column-end: 4;
+            grid-row-end: 5;
+        }
+
+        .closet {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 5;
+            grid-row-end: 6;
+        }
+
+        .kitchen {
+            grid-column-start: 4;
+            grid-column-end: 6;
+            grid-row-start: 3;
+            grid-row-end: 6;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Positioning items in a grid</h3>
+    <p>Using grid-row-* and grid-column-* is one way we can position elements in grid.</p>
+
+    <div class="floorplan">
+        <div class="living-room">Living room</div>
+        <div class="kitchen">Kitchen</div>
+        <div class="bedroom">Bedroom</div>
+        <div class="bathroom">Bathroom</div>
+        <div class="closet">Closet</div>
+    </div>
+</body>
+
+</html>
