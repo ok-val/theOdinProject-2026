@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid repeat using auto-fill and auto-fit</title>
+    <style>
+        .grid-container {
+            resize: both;
+            overflow: auto;
+            
+            padding: 4px;
+            border: 1px solid grey;
+            background-color: skyblue;
+
+            display: grid;
+            gap: 4px;
+
+            /* Here we are using auto-fit */
+            /* auto-fit: returns the highest positive integer without overflowing the grid */
+            /* Instead of giving repeat an arbritrary number of column, we can have auto-fit decides the number of column based on the content box dimensions of the child elements */
+            /* To do this, it uses the minimum value in our minmax() (which yields the highest number of items) to calculate how many columns it can fill given the dimensions of the content box */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            /* auto-fill is slightly different than auto-fit in that when the grid is expanded but there aren't any grid item left, (where auto-fit will keep grid items at their MAX size) auto-fill will get grid items to snap back down to their min size if the space available is enough for another grid item rows or columns. */
+            grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .grid-item {
+            background-color: #444;
+            text-align: center;
+            color: #ddd;
+            font-family: sans-serif;
+            font-size: 1.5rem;
+            padding: 12px;
+        }
+
+        p {
+            margin: 12px auto 24px;
+        }
+
+        img {
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <p>Odin 1</p>
+            <img src="https://www.theodinproject.com/mstile-70x70.png" alt="top logo" />
+        </div>
+        <div class="grid-item">
+            <p>Odin 2</p>
+            <img src="https://www.theodinproject.com/mstile-70x70.png" alt="top logo" />
+        </div>
+        <div class="grid-item">
+            <p>Odin 3</p>
+            <img src="https://www.theodinproject.com/mstile-70x70.png" alt="top logo" />
+        </div>
+        <div class="grid-item">
+            <p>Odin 4</p>
+            <img src="https://www.theodinproject.com/mstile-70x70.png" alt="top logo" />
+        </div>
+        <div class="grid-item">
+            <p>Odin 5</p>
+            <img src="https://www.theodinproject.com/mstile-70x70.png" alt="top logo" />
+        </div>
+    </div>
+</body>
+
+</html>
