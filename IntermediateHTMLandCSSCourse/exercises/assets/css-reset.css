@@ -1,0 +1,231 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+    margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    /* 4. Increase line-height */
+    line-height: 1.5;
+    line-height: calc(1em + 0.5rem);
+    /* Treat this using some smart variable (em or %) and constants (rem) */
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+/* 10. Create a root stacking context */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+
+/* ----- */
+
+
+body {
+    --primary-padding: 1.5rem;
+    --border-thickness: 0.5em;
+    --description-text-color: #7b7b7b;
+    --gray-400: #e2e8f0;
+    font-size: 16px;
+    font-family: sans-serif;
+    background-color: var(--gray-400);
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 20ch 2fr 0.75fr;
+    grid-template-rows: 10rem 4fr;
+    grid-template-areas:
+        "dash head head"
+        "dash main secn";
+}
+
+.sidebar {
+    background-color: #1992d4;
+    padding: 1rem;
+    grid-area: dash;
+
+}
+
+/* Header */
+.header {
+    background-color: white;
+    grid-area: head;
+
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.utility,
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 var(--primary-padding);
+}
+
+.utility {
+    grid-row: 1;
+}
+
+.nav {
+    grid-row: 2;
+}
+
+input[type='search'] {
+    background-color: var(--gray-400);
+    border: none;
+    border-radius: 1rem;
+    padding: 0 1em;
+    width: clamp(50%, 75%, 400px);
+}
+
+
+/* Main */
+.main {
+    grid-area: main;
+}
+
+.secondary {
+    grid-area: secn;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+.secondary > div {
+    flex: 1 0;
+}
+
+.subtitle {
+    padding: var(--primary-padding) var(--primary-padding) 0.2rem var(--primary-padding);
+    color: #4c4c4c;
+    font-weight: 600;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40ch, 1fr));
+    grid-auto-rows: minmax(150px, 250px);
+}
+
+.announce-listings, .trend--name-cards {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.cards > div,
+.announce-listings,
+.trend--name-cards {
+    padding: var(--primary-padding);
+    margin: calc(var(--primary-padding)/2);
+
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(160, 160, 160);
+
+    border-radius: var(--border-thickness);
+}
+
+.cards > div {
+    border-left: var(--border-thickness) solid #f0b429;
+}
+
+.cards p:first-child,
+.announce-listings p:first-child {
+    font-size: 1rem;
+    font-weight: 600;
+    color: black;
+}
+
+/* Borders and spacing between announcement listings */
+.announce-listings > div:not(:last-child) {
+    border-bottom: 2px solid var(--gray-400);
+    padding-bottom: calc(var(--primary-padding)/2);
+}
+
+.announce-listings > div:not(:first-child) {
+    padding-top: calc(var(--primary-padding)/2);
+}
+
+/* Descriptive texts of announcements listings */
+.announce-listings p:last-child {
+    /* Required: use the WebKit flexbox model */
+    display: -webkit-box;
+    /* Required: sets the box orientation to vertical */
+    -webkit-box-orient: vertical;
+    /* The number of lines to show before truncating */
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+
+    color: var(--description-text-color);
+}
+
+.cards > div > p:last-child {
+    color: var(--description-text-color);
+    /* line-height: 1.2em; */
+}
+
+
+/* Spacing before sidebar components */
+.sidebar > div:not(:first-child) {
+    margin-top: 4rem;
+}
