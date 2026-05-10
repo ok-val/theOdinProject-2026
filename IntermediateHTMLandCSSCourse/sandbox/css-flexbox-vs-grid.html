@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox vs. Grid </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            font-family: "Averia Serif Libre", sans-serif;
+        }
+
+        p {
+            width: 60ch;
+        }
+
+        img {
+            width: 500px;
+        }
+
+        .takeaway {
+            color: green;
+            font-weight: 600;
+        }
+
+        .takeaway::before {
+            content: "✅";
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Content first vs layout first design</h3>
+    <p>A way to decide between Grid and Flexbox is to consider if your design starts from the content, or from the
+        layout.</p>
+
+    <p>In <em>content-first design</em>, use Flexbox.</p>
+    <p>Content-first design prioritizes content clarity, the layout follows. Flexbox gives us more control and intuition
+        to control the horizontal significance of the contents. For example, the first element on the second row would
+        be twice as long as the rest. </p>
+    <p>Because it controls content significance, it's considered content-first design</p>
+
+    <p>In <em>layout-first design</em>, use Grid.</p>
+    <p>Layout-first design prioritizes layout control. Grid would allow us more control over exact placements of items,
+        and the content will have to follow their cells.</p>
+
+    <p>Imagine a table and a list. <strong>Use grid if you want create layouts. Use flexbox when you want to list
+            something.</strong></p>
+
+    <p class="takeaway">This analogy is useful for thinking about how we control flexboxes and grids. While using flex
+        can give as a 2D-table layout and grid can give a list-like layout, it is more intuitive to control tables using
+        grid and to control lists using flex. Kevin Powell's advice is that we should choose the path of least
+        resistance.</p>
+
+    <h3>Nesting content-first in layout-first design</h3>
+    <p>When I have different lists of elements, each to be presented in a certain layout, nest flexboxes in grid. I will
+        have <strong>layout of lists</strong>.</p>
+    <img src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2017/03/both-grid-and-flex.png?ssl=1" alt="">
+
+    <h3>Nesting layout-first in content-first design</h3>
+    <p>When I have a different layouts to be presented as a list, nest grids in flexboxes. I will have a <strong>list of
+            layouts</strong>.</p>
+    <img src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2017/03/grid-sub.png?ssl=1" alt="">
+
+    <h4>Additional reading</h4>
+    <p><a href="https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-using-flexbox-and-grid">TOP's
+            guide</a> prefers the content-first vs layout-first approach.</p>
+    <p><a href="https://css-tricks.com/css-grid-replace-flexbox/">CSS Tricks view on the matter</a></p>
+    <p><a href="https://www.youtube.com/watch?v=3elGSZSWTbM">Kevin Powell's video</a> on this matter provides helpful
+        comparison with case examples.</p>
+</body>
+
+</html>
