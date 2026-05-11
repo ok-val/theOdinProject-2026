@@ -21,7 +21,6 @@ body {
     /* 4. Increase line-height */
     line-height: 1.5;
     line-height: calc(1em + 0.5rem);
-    /* Treat this using some smart variable (em or %) and constants (rem) */
     /* 5. Improve text rendering */
     -webkit-font-smoothing: antialiased;
 }
@@ -79,7 +78,9 @@ h6 {
 /* End of reset */
 /* Beginning of styling */
 
-body {
+/* Custom properties on :root so they're available globally,
+   not just within body and its descendants */
+:root {
     --high-impact-font-size: 1.5rem;
     --low-impact-font-size: 0.75rem;
     --primary-padding: 1.5rem;
@@ -87,6 +88,9 @@ body {
     --description-text-color: #7b7b7b;
     --gray-400: #e2e8f0;
     --shadow-color: #a0a0a0;
+}
+
+body {
     font-size: 16px;
     font-family: "Arimo", sans-serif;
     font-optical-sizing: auto;
@@ -127,6 +131,12 @@ svg {
 
 .sidebar--header {
     font-size: 1.5rem;
+}
+
+/* Reset browser default h1 size/weight so it inherits from .sidebar--header */
+.sidebar--header h1 {
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 /* All sidebar row-listed items use flex */
@@ -229,7 +239,7 @@ input[type='search'] {
     font-size: var(--low-impact-font-size);
     align-content: center;
     line-height: 1rem;
-    
+
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -270,15 +280,11 @@ button {
     justify-content: flex-start;
 }
 
-/* announcements and trending flex settings */
-.secondary > div {
-    /* flex: 1 0; */
-}
-
 .subtitle {
     padding: var(--primary-padding) var(--primary-padding) 0.2rem var(--primary-padding);
     color: #4c4c4c;
     font-weight: 600;
+    font-size: 1rem;
 }
 
 /* Cards */
@@ -301,7 +307,8 @@ button {
     gap: 1rem;
 }
 
-.cards > div,
+/* Updated from .cards > div to .cards > article */
+.cards > article,
 .announce-listings,
 .trend--name-cards {
     padding: var(--primary-padding);
@@ -313,53 +320,48 @@ button {
     border-radius: var(--border-thickness);
 }
 
-.cards > div {
+.cards > article {
     border-left: var(--border-thickness) solid #f0b429;
 }
 
-.cards p:first-child,
-.announce-listings p:first-child {
+/* Updated from p:first-child to h3 since card/announcement titles are now headings */
+.cards h3,
+.announce-listings h3 {
     font-size: 1rem;
     font-weight: 600;
     color: black;
 }
 
 /* Descriptive text of main's cards */
-.cards > div  p:not(:first-child) {
+.cards > article p {
     color: var(--description-text-color);
 }
 
 /* All cards' elements use flex */
-.cards > div {
+.cards > article {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .cards--button {
-    display: flex; 
+    display: flex;
     gap: 2rem;
     align-self: end;
     justify-self: flex-end;
 }
 
 /* Borders and spacing between announcement listings */
-.announce-listings > div:not(:last-child) {
-    /* padding-bottom: calc(var(--primary-padding)/3); */
-}
-
-.announce-listings > div:not(:first-child) {
+/* Updated from > div to > article */
+.announce-listings > article:not(:first-child) {
     border-top: 2px solid var(--gray-400);
     padding-top: calc(var(--primary-padding)/2);
 }
 
 /* Descriptive texts of announcements listings */
 .announce-listings p:last-child {
-    /* Required: use the WebKit flexbox model */
     display: -webkit-box;
-    /* Required: sets the box orientation to vertical */
     -webkit-box-orient: vertical;
-    /* The number of lines to show before truncating */
     -webkit-line-clamp: 3;
     overflow: hidden;
 

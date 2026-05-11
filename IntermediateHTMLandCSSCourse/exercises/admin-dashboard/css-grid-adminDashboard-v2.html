@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="css-reset.css">
+    <link rel="stylesheet" href="css-reset-v2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap"
@@ -13,12 +13,15 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <!-- aside: landmark for sidebar/complementary navigation -->
+    <aside class="sidebar">
         <div class="sidebar--header">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>view-dashboard</title><path d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" /></svg>
-            <p>Dashboard</p>
+            <!-- h1: the page's top-level heading -->
+            <h1>Dashboard</h1>
         </div>
-        <div class="sidebar--primary">
+        <!-- nav: landmark for site navigation links -->
+        <nav class="sidebar--primary">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>home</title><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" /></svg>
                 <p>Home</p>
@@ -43,8 +46,9 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>account-group</title><path d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" /></svg>
                 <p>Communities</p>
             </div>
-        </div>
-        <div class="sidebar--secondary">
+        </nav>
+        <!-- nav: second landmark for settings/support links -->
+        <nav class="sidebar--secondary">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>cog</title><path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" /></svg>
                 <p>Settings</p>
@@ -57,10 +61,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>shield-check</title><path d="M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z" /></svg>
                 <p>Privacy</p>
             </div>
-        </div>
-    </div>
+        </nav>
+    </aside>
 
-    <div class="header">
+    <!-- header: landmark for the page banner/top bar -->
+    <header class="header">
         <div class="utility">
             <div class="utility--search">
                 <label for="search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>magnify</title><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg></label>
@@ -72,7 +77,8 @@
                 <p>Morgan Oakley</p>
             </div>
         </div>
-        <div class="nav">
+        <!-- nav: landmark for in-page actions -->
+        <nav class="nav">
             <div class="nav--name-card">
                 <img src="cat-avatar.jpg" alt="" id="nav--user-avatar">
                 <div>
@@ -85,15 +91,18 @@
                 <button>Upload</button>
                 <button>Share</button>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <div class="main">
-        <p class="subtitle">Your projects</p>
+    <!-- main: landmark for the page's primary content -->
+    <main class="main">
+        <!-- h2: section heading for the projects area -->
+        <h2 class="subtitle">Your projects</h2>
         <div class="cards">
-            <div>
+            <!-- article: self-contained project card -->
+            <article>
                 <div>
-                    <p>Super cool projects</p>
+                    <h3>Super cool projects</h3>
                     <p>Sed tempus ut lacus ut scelerisque. Suspendisse sollicitudin nibh erat, id facilisis felis accumsan
                         nec.</p>
                 </div>
@@ -102,24 +111,22 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-plus-outline</title><path d="M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C12.36,19.5 12.72,19.5 13.08,19.45C13.03,19.13 13,18.82 13,18.5C13,18.14 13.04,17.78 13.1,17.42C12.74,17.46 12.37,17.5 12,17.5C8.24,17.5 4.83,15.36 3.18,12C4.83,8.64 8.24,6.5 12,6.5C15.76,6.5 19.17,8.64 20.82,12C20.7,12.24 20.56,12.45 20.43,12.68C21.09,12.84 21.72,13.11 22.29,13.5C22.56,13 22.8,12.5 23,12C21.27,7.61 17,4.5 12,4.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M18,14.5V17.5H15V19.5H18V22.5H20V19.5H23V17.5H20V14.5H18Z" /></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>share</title><path d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" /></svg>
                 </div>
-            </div>
-            <div>
+            </article>
+            <article>
                 <div>
-                    <div>
-                        <p>Less cool project</p>
-                        <p>Nullam condimentum ipsum ut lectus vehicula consectetur. Quisque sed dolor tincidunt, consectetur
-                            sapien et, facilisis dolor. Duis sem purus, dignissim ut sapien in, varius pellentesque lacus.</p>
-                    </div>
+                    <h3>Less cool project</h3>
+                    <p>Nullam condimentum ipsum ut lectus vehicula consectetur. Quisque sed dolor tincidunt, consectetur
+                        sapien et, facilisis dolor. Duis sem purus, dignissim ut sapien in, varius pellentesque lacus.</p>
                 </div>
                 <div class="cards--button">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>thumb-up</title><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-plus-outline</title><path d="M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C12.36,19.5 12.72,19.5 13.08,19.45C13.03,19.13 13,18.82 13,18.5C13,18.14 13.04,17.78 13.1,17.42C12.74,17.46 12.37,17.5 12,17.5C8.24,17.5 4.83,15.36 3.18,12C4.83,8.64 8.24,6.5 12,6.5C15.76,6.5 19.17,8.64 20.82,12C20.7,12.24 20.56,12.45 20.43,12.68C21.09,12.84 21.72,13.11 22.29,13.5C22.56,13 22.8,12.5 23,12C21.27,7.61 17,4.5 12,4.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M18,14.5V17.5H15V19.5H18V22.5H20V19.5H23V17.5H20V14.5H18Z" /></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>share</title><path d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" /></svg>
-                </div>                
-            </div>
-            <div>
+                </div>
+            </article>
+            <article>
                 <div>
-                    <p>Impossible app</p>
+                    <h3>Impossible app</h3>
                     <p>In hac habitasse platea dictumst. Vivamus dictum rutrum arcu, a placerat velit sagittis id.</p>
                 </div>
                 <div class="cards--button">
@@ -127,10 +134,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-plus-outline</title><path d="M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C12.36,19.5 12.72,19.5 13.08,19.45C13.03,19.13 13,18.82 13,18.5C13,18.14 13.04,17.78 13.1,17.42C12.74,17.46 12.37,17.5 12,17.5C8.24,17.5 4.83,15.36 3.18,12C4.83,8.64 8.24,6.5 12,6.5C15.76,6.5 19.17,8.64 20.82,12C20.7,12.24 20.56,12.45 20.43,12.68C21.09,12.84 21.72,13.11 22.29,13.5C22.56,13 22.8,12.5 23,12C21.27,7.61 17,4.5 12,4.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M18,14.5V17.5H15V19.5H18V22.5H20V19.5H23V17.5H20V14.5H18Z" /></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>share</title><path d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" /></svg>
                 </div>
-            </div>
-            <div>
+            </article>
+            <article>
                 <div>
-                    <p>Easy peasy app</p>
+                    <h3>Easy peasy app</h3>
                     <p>Etiam cursus eros ac efficitur fringilla. Vestibulum dignissim urna eget accumsan aliquam. Curabitur
                         dignissim nisi in tortor commodo, ac bibendum magna tincidunt.</p>
                 </div>
@@ -139,10 +146,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-plus-outline</title><path d="M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C12.36,19.5 12.72,19.5 13.08,19.45C13.03,19.13 13,18.82 13,18.5C13,18.14 13.04,17.78 13.1,17.42C12.74,17.46 12.37,17.5 12,17.5C8.24,17.5 4.83,15.36 3.18,12C4.83,8.64 8.24,6.5 12,6.5C15.76,6.5 19.17,8.64 20.82,12C20.7,12.24 20.56,12.45 20.43,12.68C21.09,12.84 21.72,13.11 22.29,13.5C22.56,13 22.8,12.5 23,12C21.27,7.61 17,4.5 12,4.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M18,14.5V17.5H15V19.5H18V22.5H20V19.5H23V17.5H20V14.5H18Z" /></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>share</title><path d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" /></svg>
                 </div>
-            </div>
-            <div>
+            </article>
+            <article>
                 <div>
-                    <p>Ad blocker</p>
+                    <h3>Ad blocker</h3>
                     <p>Quisque eget rutrum nisl. Nam augue justo, cursus vitae metus vel, pharetra hendrerit felis. Aliquam
                         sed malesuada eros.</p>
                 </div>
@@ -151,10 +158,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-plus-outline</title><path d="M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C12.36,19.5 12.72,19.5 13.08,19.45C13.03,19.13 13,18.82 13,18.5C13,18.14 13.04,17.78 13.1,17.42C12.74,17.46 12.37,17.5 12,17.5C8.24,17.5 4.83,15.36 3.18,12C4.83,8.64 8.24,6.5 12,6.5C15.76,6.5 19.17,8.64 20.82,12C20.7,12.24 20.56,12.45 20.43,12.68C21.09,12.84 21.72,13.11 22.29,13.5C22.56,13 22.8,12.5 23,12C21.27,7.61 17,4.5 12,4.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M18,14.5V17.5H15V19.5H18V22.5H20V19.5H23V17.5H20V14.5H18Z" /></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>share</title><path d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" /></svg>
                 </div>
-            </div>
-            <div>
+            </article>
+            <article>
                 <div>
-                    <p>Money maker</p>
+                    <h3>Money maker</h3>
                     <p>Praesent convallis, libero quis congue elementum, nunc ante faucibus sapien, ac scelerisque tortor
                         purus sit amet ex. Pellentesque mollis nec sem vel aliquam.</p>
                 </div>
@@ -163,40 +170,44 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>eye-plus-outline</title><path d="M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C12.36,19.5 12.72,19.5 13.08,19.45C13.03,19.13 13,18.82 13,18.5C13,18.14 13.04,17.78 13.1,17.42C12.74,17.46 12.37,17.5 12,17.5C8.24,17.5 4.83,15.36 3.18,12C4.83,8.64 8.24,6.5 12,6.5C15.76,6.5 19.17,8.64 20.82,12C20.7,12.24 20.56,12.45 20.43,12.68C21.09,12.84 21.72,13.11 22.29,13.5C22.56,13 22.8,12.5 23,12C21.27,7.61 17,4.5 12,4.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M18,14.5V17.5H15V19.5H18V22.5H20V19.5H23V17.5H20V14.5H18Z" /></svg>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>share</title><path d="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z" /></svg>
                 </div>
-            </div>
+            </article>
         </div>
-    </div>
+    </main>
 
-    <div class="secondary">
-        <div class="announcement">
-            <p class="subtitle">Announcements</p>
+    <!-- aside: landmark for supplementary sidebar content -->
+    <aside class="secondary">
+        <!-- section: thematically grouped announcements -->
+        <section class="announcement">
+            <h2 class="subtitle">Announcements</h2>
             <div class="announce-listings">
-                <div>
-                    <p>Site maintenance</p>
+                <!-- article: self-contained announcement item -->
+                <article>
+                    <h3>Site maintenance</h3>
                     <p>Vestibulum condimentum tellus lacus, in accumsan elit maximus ac. Donec hendrerit sodales congue.
                         Integer ac mauris id libero dictum tincidunt sed non urna. Sed vitae arcu eget justo aliquet
                         feugiat, et pulvinar lorem fermentum. Mauris non leo nec ipsum gravida porttitor at vitae sem.
                     </p>
-                </div>
-                <div>
-                    <p>Community share day</p>
+                </article>
+                <article>
+                    <h3>Community share day</h3>
                     <p>Nam vel lectus tincidunt, rutrum nulla eu, ornare libero. Aliquam dictum accumsan porttitor.
                         Curabitur a sapien nec justo gravida tincidunt non vitae lorem. Suspendisse potenti. Donec
                         euismod, velit id luctus feugiat, justo arcu interdum risus, vel ultricies libero magna non
                         ipsum. Vivamus sed erat sed nisl gravida aliquet.</p>
-                </div>
-                <div>
-                    <p>Updated privacy policy</p>
+                </article>
+                <article>
+                    <h3>Updated privacy policy</h3>
                     <p>Phasellus efficitur nisi eget elit consectetur, eget condimentum ante auctor. Cras fringilla
                         sagittis sem in mattis. Sed id lorem ac justo tincidunt vehicula. Pellentesque habitant morbi
                         tristique senectus et netus et malesuada fames ac turpis egestas. Integer vel lacus id velit
                         posuere ullamcorper vitae vel augue.</p>
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
 
-        <div class="trending">
-            <p class="subtitle">Trending</p>
+        <!-- section: thematically grouped trending users -->
+        <section class="trending">
+            <h2 class="subtitle">Trending</h2>
             <div class="trend--name-cards">
                 <div>
                     <img src="cat-pfp-1.jpg" alt="" class="user-avatar">
@@ -227,8 +238,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </aside>
 </body>
 
 </html>
