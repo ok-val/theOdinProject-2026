@@ -76,37 +76,88 @@ h6 {
 }
 
 
-/* ----- */
-
+/* End of reset */
+/* Beginning of styling */
 
 body {
+    --high-impact-font-size: 1.5rem;
+    --low-impact-font-size: 0.75rem;
     --primary-padding: 1.5rem;
     --border-thickness: 0.5em;
     --description-text-color: #7b7b7b;
     --gray-400: #e2e8f0;
+    --shadow-color: #a0a0a0;
     font-size: 16px;
-    font-family: sans-serif;
+    font-family: "Arimo", sans-serif;
+    font-optical-sizing: auto;
     background-color: var(--gray-400);
     height: 100vh;
 
     display: grid;
-    grid-template-columns: 20ch 2fr 0.75fr;
+    grid-template-columns: 24ch 2fr 0.75fr;
     grid-template-rows: 10rem 4fr;
     grid-template-areas:
         "dash head head"
         "dash main secn";
 }
 
+/* svg controls */
+svg {
+    fill: black;
+    width: 1.5rem;
+}
+
+.sidebar svg {
+    fill: white;
+}
+
+.sidebar--primary svg, .sidebar--secondary svg {
+    width: 1.25rem;
+}
+
+/* Sidebar menu control */
 .sidebar {
     background-color: #1992d4;
-    padding: 1rem;
+    padding: var(--primary-padding);
     grid-area: dash;
 
+    color: white;
+}
+
+.sidebar--header {
+    font-size: 1.5rem;
+}
+
+/* All sidebar row-listed items use flex */
+.sidebar--header,
+.sidebar--primary > div,
+.sidebar--secondary > div {
+    justify-content: start;
+    align-items: center;
+
+    display: flex;
+    gap: 1rem;
+}
+
+.sidebar--header {
+    gap: 0.75rem;
+}
+
+/* sidebar primary and secondary panels use column flex for listing menu items */
+.sidebar--primary,
+.sidebar--secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 3rem;
+
+    font-weight: 600;
 }
 
 /* Header */
 .header {
     background-color: white;
+    box-shadow: 1px 1px 10px var(--shadow-color);
     grid-area: head;
 
     display: grid;
@@ -122,12 +173,15 @@ body {
     padding: 0 var(--primary-padding);
 }
 
+/* utility search bar control */
 .utility {
     grid-row: 1;
 }
 
-.nav {
-    grid-row: 2;
+.utility--search {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
 
 input[type='search'] {
@@ -135,9 +189,43 @@ input[type='search'] {
     border: none;
     border-radius: 1rem;
     padding: 0 1em;
-    width: clamp(50%, 75%, 400px);
+    width: clamp(200px, 400px, 500px);
 }
 
+/* Nav bar control (underneath utility) */
+.nav {
+    grid-row: 2;
+}
+
+.nav--name-card {
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/* Hi there, sub */
+.nav--name-card p:last-of-type {
+    font-size: var(--high-impact-font-size);
+    line-height: 1.2em;
+}
+
+.nav--buttons {
+    display: flex;
+    gap: 1em;
+}
+
+button {
+    border-radius: 2rem;
+    border: none;
+    padding: 0.5em 3ch;
+
+    font-weight: 600;
+    color: white;
+    font-family: inherit;
+    background-color: #1992d4;
+}
 
 /* Main */
 .main {
@@ -151,8 +239,9 @@ input[type='search'] {
     justify-content: flex-start;
 }
 
+/* announcements and trending flex settings */
 .secondary > div {
-    flex: 1 0;
+    /* flex: 1 0; */
 }
 
 .subtitle {
@@ -168,7 +257,8 @@ input[type='search'] {
     grid-auto-rows: minmax(150px, 250px);
 }
 
-.announce-listings, .trend--name-cards {
+.announce-listings,
+.trend--name-cards {
     display: flex;
     flex-flow: column nowrap;
 }
@@ -180,7 +270,7 @@ input[type='search'] {
     margin: calc(var(--primary-padding)/2);
 
     background-color: white;
-    box-shadow: 0px 2px 5px rgb(160, 160, 160);
+    box-shadow: 0px 2px 5px var(--shadow-color);
 
     border-radius: var(--border-thickness);
 }
@@ -219,13 +309,13 @@ input[type='search'] {
     color: var(--description-text-color);
 }
 
+/* Descriptive text of main's cards */
 .cards > div > p:last-child {
     color: var(--description-text-color);
     /* line-height: 1.2em; */
 }
 
-
-/* Spacing before sidebar components */
-.sidebar > div:not(:first-child) {
-    margin-top: 4rem;
+/* Role aliases of trending (e.g., world peace builder, etc.) */
+.trend--name-cards p:last-child {
+    text-transform: capitalize;
 }
