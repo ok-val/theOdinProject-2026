@@ -54,10 +54,18 @@ This is because original objects contain this \[\[Prototype]] object implicitly
 > * Use the `Object.getPrototypeOf()` for accessing Prototype from the original object. Because the syntax makes it more readable like this. It would seem amateurish to use it for new function definitions. Use it in the DOM to get the \[\[Prototype]]'s name.
 > * Use the `.prototype` property to define new functions. The syntax uses the \[\[Prototype]]'s name explicitly. Making it more readable and intentional for this purpose.
 
+![](https://cdn.statically.io/gh/TheOdinProject/curriculum/cffc199a8cfbfcd61160b00c4cf61e1d6bb6ff2e/javascript/organizing_your_javascript_code/object_constructors/imgs/00.png)
+
+> [!warning] `.__proto__`
+> Before `Object.getPrototypeOf()` and `Object.setPrototypeOf()`, there was `.__proto__` to get or set prototypical behaviors. This is now deprecated. But do expect to see it older codebases (ergo to be refactored).
 
 
+## Why do we need this? 
+
+**What use is an object's \[\[Prototype]]?**
+
+1. **Memory efficiency:** Defining every property and function takes up a lot more memory! 
+2. **Prototypal inheritance:** More practically, this method allows us to batch property and function definitions so that all constructed objects would follow. 
 
 
-
- 
 
