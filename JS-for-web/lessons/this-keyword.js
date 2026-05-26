@@ -43,3 +43,35 @@ checkThisOut = function () {
 // Now, `this` is set to undefined.
 checkThisOut(); // true
 
+
+// 2. Method call with flexible `this`
+// This is how I normally use `this` in a function call
+
+let car = {
+    brand: "Honda",
+    getBrand: function () {
+        return this.brand;
+    },
+}
+
+console.log(car.getBrand()); // Honda
+
+// We can store this function in another variable
+let printBrand = car.getBrand;
+// printBrand now references car.getBrand directly
+console.log(printBrand === car.getBrand); // true
+
+// Here's what exists inside printBrand
+// printBrand = function () {
+//     return this.brand;
+// }
+
+// Since we are in strict mode, `this` is undefined
+console.log(printBrand()); // undefined
+
+// To make the `this` of printBrand refer to a specifc value,
+// I can use the method bind that function objects inherits from
+// Function.prototype
+
+printBrand = car.getBrand.bind(car);
+console.log(printBrand()); // Honda
