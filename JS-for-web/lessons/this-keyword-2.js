@@ -33,7 +33,7 @@ let chau = {
 // .call() is for using single arg functions
 sayHi.call(joe, "Hi");
 sayHi.call(chau, "Hello");
-// .call() doesn't work on multiple kwargs functions
+// .call() doesn't work on multiple args functions
 salute.call(chau, "Hello"); 
 
 // apply() is for multiple kwargs
