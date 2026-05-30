@@ -87,7 +87,8 @@ h6 {
     /* grid-auto-rows: ; */
 }
 
-.library-grid * {
+.library-grid .card {
     background: grey;
     padding: 5px 10px;
+    border-radius: 5px;
 }
