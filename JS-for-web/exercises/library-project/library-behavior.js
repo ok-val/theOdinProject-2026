@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+// Book function constructor
 function Book (title, author, pages, isRead) {
     this.title = title;
     this.fileName = title.toLowerCase().split(' ').slice(0, 2).join('_');
@@ -19,13 +20,12 @@ Book.prototype.info = function() {
 }
 
 
-addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false);
-addBookToLibrary("Harry Potter & the Philosopher's Stone", 'J.K. Rowling', 347, true);
-addBookToLibrary('Principles: Life & Work', 'Ray Dalio', 566, false);
-
-
 function displayBook () {
     const libraryGrid = document.querySelector('div.library-grid');
+    // [node].replaceChildren() is the API for clearing children nodes inside a parent [node].
+    libraryGrid.replaceChildren();
+
+    // for..of loop to display books
     for (let book of myLibrary) {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
@@ -43,20 +43,43 @@ function displayBook () {
         const cardIsRead = document.createElement('p');
         cardIsRead.textContent = book.isRead;
 
+        const cardRemoveBtn = document.createElement('button');
+        cardRemoveBtn.setAttribute('id', 'remove');
+        cardRemoveBtn.textContent = 'Remove';
+
         card.appendChild(cardTitle);
         card.appendChild(cardAuthor);
         card.appendChild(cardPages);
         card.appendChild(cardIsRead);
-        // console.log(card);
+        card.appendChild(cardRemoveBtn);
+
+        // Remove button function
+        cardRemoveBtn.addEventListener('click', removeButtonClick);    
     }
 }
 
-// Add button function
+// Remove button function
+function removeButtonClick (event) {
+    event.preventDefault();
+    const parentElement = this.parentElement;
+    const title = parentElement.children[0].innerText;
+    let searchRes = myLibrary.find((Book) => Book.title === title);
+    myLibrary.splice(myLibrary.indexOf(searchRes), 1);
+    displayBook();
+}
 
+// Refresh button function 
+const refreshButton = document.querySelector('button#refresh');
+refreshButton.addEventListener('click', displayBook);
+
+
+
+// Add button function
 const addButton = document.querySelector('button#add');
 addButton.addEventListener('click', addButtonClick);
 
 function addButtonClick (event) {
+    // const cancelButton = document.
     event.preventDefault();
     const title = document.getElementById('add-title');
     const author = document.getElementById('add-author');
@@ -72,10 +95,15 @@ function addButtonClick (event) {
             isRead = false;
             break;
     }
+
     addBookToLibrary(title.value, author.value, pages.value, isRead);
-    // console.log(myLibrary.at(-1));
+    displayBook();
 }
 
 
-displayBook();
+addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false);
+addBookToLibrary("Harry Potter & the Philosopher's Stone", 'J.K. Rowling', 347, true);
+addBookToLibrary('Principles: Life & Work', 'Ray Dalio', 566, false);
+
+
 
