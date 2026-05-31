@@ -41,7 +41,11 @@ function displayBook () {
         cardPages.textContent = book.pages;
 
         const cardIsRead = document.createElement('p');
-        cardIsRead.textContent = book.isRead;
+        cardIsRead.textContent = book.read.charAt(0).toUpperCase() + book.read.slice(1);
+
+        const cardId = document.createElement('p');
+        cardId.setAttribute('id','bookId');
+        cardId.textContent = book.id;
 
         const cardRemoveBtn = document.createElement('button');
         cardRemoveBtn.setAttribute('id', 'remove');
@@ -51,6 +55,7 @@ function displayBook () {
         card.appendChild(cardAuthor);
         card.appendChild(cardPages);
         card.appendChild(cardIsRead);
+        card.appendChild(cardId);
         card.appendChild(cardRemoveBtn);
 
         // Remove button function
@@ -62,16 +67,16 @@ function displayBook () {
 function removeButtonClick (event) {
     event.preventDefault();
     const parentElement = this.parentElement;
-    const title = parentElement.children[0].innerText;
-    let searchRes = myLibrary.find((Book) => Book.title === title);
+    const id = parentElement.children.bookId.innerText;
+    let searchRes = myLibrary.find((Book) => Book.id === id);
     myLibrary.splice(myLibrary.indexOf(searchRes), 1);
     displayBook();
 }
 
+
 // Refresh button function 
 const refreshButton = document.querySelector('button#refresh');
 refreshButton.addEventListener('click', displayBook);
-
 
 
 // Add button function
@@ -79,7 +84,7 @@ const addButton = document.querySelector('button#add');
 addButton.addEventListener('click', addButtonClick);
 
 function addButtonClick (event) {
-    // const cancelButton = document.
+    const cancelButton = document.querySelector('button#cancelAdd');
     event.preventDefault();
     const title = document.getElementById('add-title');
     const author = document.getElementById('add-author');
@@ -98,6 +103,7 @@ function addButtonClick (event) {
 
     addBookToLibrary(title.value, author.value, pages.value, isRead);
     displayBook();
+    cancelButton.click();
 }
 
 
