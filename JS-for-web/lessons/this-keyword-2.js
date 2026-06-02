@@ -38,3 +38,6 @@ salute.call(chau, "Hello");
 
 // apply() is for multiple kwargs
 salute.apply(chau, ["Mr", "thank you."]);
+
+// READ MORE: https://www.javascripttutorial.net/javascript-this/
+

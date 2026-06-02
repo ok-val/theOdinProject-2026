@@ -78,4 +78,4 @@ printBrand = car.getBrand.bind(car);
 console.log(printBrand === car.getBrand); // false
 console.log(printBrand()); // Honda
 
-
+// READ MORE: https://www.javascripttutorial.net/javascript-this/

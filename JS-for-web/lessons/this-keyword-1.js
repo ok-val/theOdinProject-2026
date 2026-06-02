@@ -29,3 +29,4 @@ let cake1 = new Cake('Caramel','Flan');
 console.log(cake1.getFlavor());
 console.log(cake1.getType());
 
+// READ MORE: https://www.javascripttutorial.net/javascript-this/
