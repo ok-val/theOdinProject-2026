@@ -54,3 +54,7 @@ console.log(`PlayerOne's currently at level ${playerOne.getLevel()}`);
 
 // Using Object.assign() to return the entire User object above, we could access every property of User
 console.log(`PlayerOne's username is ${playerOne.username}`);
+
+
+// This method is called COMPOSITION because it allows us to compose a new or altered factory functions\
+// from one or multiple sources.  
