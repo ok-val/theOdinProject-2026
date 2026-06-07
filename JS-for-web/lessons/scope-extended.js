@@ -77,7 +77,7 @@
 //     const thingC = '333'; 
 //     console.log(thingC);
 // }
-
+// console.log(thingC); // CCC
 // saySomething(); // 333
 // ---
 
