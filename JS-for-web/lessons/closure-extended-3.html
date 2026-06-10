@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Extended 3</title>
+    <style>
+        body {
+            font-family: "Helvetica", "Arial", sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="button12">12</button>
+    <button id="button24">24</button>
+    <p>Hello there! My name is Val. :D</p>
+    <script defer>
+        function makeFontSize(pixel) {
+            return () => {
+                document.body.style.fontSize = `${pixel}px`;
+            }
+        }
+
+        const makeFontSize12 = makeFontSize(12);
+        const makeFontSize24 = makeFontSize(24);
+
+        const button__FontSize12 = document.querySelector('#button12');
+        button__FontSize12.addEventListener('click', makeFontSize12);
+
+        // For adding simple event listening, just use .onclick with .getElementById 
+        document.getElementById('button24').onclick = makeFontSize24;
+    </script>
+</body>
+
+</html>
