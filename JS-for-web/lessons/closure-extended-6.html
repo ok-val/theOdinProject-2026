@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Extended 6</title>
+</head>
+
+<body>
+    <p>Creating Closures in Loops</p>
+    <p id="help">Helpful notes will appear here</p>
+    <p>Email: <input type="text" id="email" name="email" /></p>
+    <p>Name: <input type="text" id="name" name="name" /></p>
+    <p>Age: <input type="text" id="age" name="age" /></p>
+
+    <template>
+        <script>
+            function showHelp(help) {
+                document.getElementById("help").textContent = help;
+            }
+            function setupHelp() {
+                var helpText = [
+                    { id: "email", help: "Your email address" },
+                    { id: "name", help: "Your full name" },
+                    { id: "age", help: "Your age (you must be over 16)" },
+                ];
+                for (var i = 0; i < helpText.length; i++) {
+                    // Culprit is the use of `var` on this line
+                    // When item is declared with var, item is hoisted to function scope.
+                    // Since three functions with different bodies are created, they accidentally
+                    // share the same lexical environment.
+                    // And because item now points to the last entry in helpText,
+                    // the three functions assume the same help property of that last helpText object.
+                    var item = helpText[i];
+                    document.getElementById(item.id).onfocus = function () {
+                        showHelp(item.help);
+                    };
+                }
+            }
+            setupHelp();
+        </script>
+    </template>
+
+    <script>
+        function showHelp(help) {
+            document.getElementById("help").textContent = help;
+        }
+        function setupHelp() {
+            var helpText = [
+                { id: "email", help: "Your email address" },
+                { id: "name", help: "Your full name" },
+                { id: "age", help: "Your age (you must be over 16)" },
+            ];
+            for (var i = 0; i < helpText.length; i++) {
+                // The simplest way is just to use let or const to declare item.
+                // This prevents item from being hoisted to function scope
+                const item = helpText[i];
+                document.getElementById(item.id).onfocus = function () {
+                    showHelp(item.help);
+                };
+            }
+        }
+        setupHelp();
+    </script>
+
+</body>
+
+</html>
