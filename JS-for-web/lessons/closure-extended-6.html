@@ -42,24 +42,109 @@
         </script>
     </template>
 
+    <template>
+        <script>
+            function showHelp(help) {
+                document.getElementById("help").textContent = help;
+            }
+            function setupHelp() {
+                var helpText = [
+                    { id: "email", help: "Your email address" },
+                    { id: "name", help: "Your full name" },
+                    { id: "age", help: "Your age (you must be over 16)" },
+                ];
+                for (var i = 0; i < helpText.length; i++) {
+                    // The simplest way is just to use let or const to declare item.
+                    // This prevents item from being hoisted to function scope
+                    const item = helpText[i];
+                    document.getElementById(item.id).onfocus = function () {
+                        showHelp(item.help);
+                    };
+                }
+            }
+            setupHelp();
+        </script>
+    </template>
+
+    <template>
+        <script>
+            function showHelp(help) {
+                document.getElementById("help").textContent = help;
+            }
+            function makeHelpCallBack(help) {
+                // See that now each of the created function has their own lexical environment
+                // console.log(help);
+                return function () {
+                    showHelp(help);
+                }
+            }
+            function setupHelp() {
+                var helpText = [
+                    { id: "email", help: "Your email address" },
+                    { id: "name", help: "Your full name" },
+                    { id: "age", help: "Your age (you must be over 16)" },
+                ];
+                for (var i = 0; i < helpText.length; i++) {
+                    // If I want to keep using var for some reason,
+                    // I could avoid these loop-created function from sharing the same lexical environment
+                    // by isolating their declarations
+                    var item = helpText[i];
+                    document.getElementById(item.id).onfocus = makeHelpCallBack(item.help);
+                };
+            }
+            setupHelp();
+        </script>
+    </template>
+
+    <template>
+        <script>
+            function showHelp(help) {
+                document.getElementById("help").textContent = help;
+            }
+            function setupHelp() {
+                var helpText = [
+                    { id: "email", help: "Your email address" },
+                    { id: "name", help: "Your full name" },
+                    { id: "age", help: "Your age (you must be over 16)" },
+                ];
+                for (var i = 0; i < helpText.length; i++) {
+                    // Another way to isolate their lexical environment is to use IIFE
+                    // var declares are only hoisted upto the anonymous fn that is run for each loop
+                    (function () {
+                        var item = helpText[i];
+                        document.getElementById(item.id).onfocus = function () {
+                            showHelp(item.help);
+                        }
+                    })();
+                };
+            };
+            setupHelp();
+        </script>
+    </template>
+
     <script>
-        function showHelp(help) {
-            document.getElementById("help").textContent = help;
-        }
+        // Lastly I could just prevaricate all these closure bugs by using
+        // 1. For..of loop which by default isolates lexical environment (unlike for normal for loops)
+        // 2. forEach() which does the same 
         function setupHelp() {
             var helpText = [
                 { id: "email", help: "Your email address" },
                 { id: "name", help: "Your full name" },
                 { id: "age", help: "Your age (you must be over 16)" },
             ];
-            for (var i = 0; i < helpText.length; i++) {
-                // The simplest way is just to use let or const to declare item.
-                // This prevents item from being hoisted to function scope
-                const item = helpText[i];
-                document.getElementById(item.id).onfocus = function () {
-                    showHelp(item.help);
+
+            for (const item of helpText) {
+                document.getElementById(item.id).onfocus = () => {
+                    // console.log(item);
+                    document.getElementById("help").textContent = item.help;
                 };
             }
+
+            helpText.forEach((item) => {
+                document.getElementById(item.id).onfocus = () => {
+                    document.getElementById("help").textContent = item.help;
+                };
+            });
         }
         setupHelp();
     </script>
