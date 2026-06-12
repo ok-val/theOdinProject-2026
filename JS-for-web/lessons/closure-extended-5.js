@@ -47,11 +47,14 @@ function outer() {
 // CLOSURE OVER MODULES
 // (see closure-extended-5-module.js)
 
-import { getX, setX } from "./closure-extended-5-module.js";
+import { incrementX, setX } from "./closure-extended-5-module.js";
+import { getX } from "./closure-extended-5-module-1.js";
 // require this script to run as a module (type = "module")
 
 console.log(getX()); // 5
 setX(10);
 console.log(getX()); // 10
+incrementX();
+console.log(getX()); // 11
 
 
