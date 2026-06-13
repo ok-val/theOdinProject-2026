@@ -39,7 +39,6 @@ function markSqr(sel) {
         }
     }
 
-    // console.log(roundWinner);
     switch (roundWinner) {
         case 'p1':
             console.log('P1 wins');
@@ -68,6 +67,9 @@ markSqr(4);
 markSqr(3);
 markSqr(1);
 markSqr(8);
-markSqr(7);
+markSqr(8);
 // say if p2 selects the same square, nothing happens
+markSqr(7);
 
+console.log(p1Sqr);
+console.log(p2Sqr);
