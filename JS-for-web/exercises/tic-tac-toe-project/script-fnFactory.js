@@ -25,8 +25,8 @@ const game = (() => {
 
 
     function createPlayer(int) {
-        const name = `Player ${int}`;
-        const num = int;
+        const pName = `Player ${int}`;
+        const pNum = int;
         let score = 0;
         let sel = [];
 
@@ -38,7 +38,7 @@ const game = (() => {
                 case 'score':
                     return score;
                 case 'name':
-                    return name;
+                    return pName;
             }
         }
 
@@ -46,7 +46,7 @@ const game = (() => {
             if (turn > 3) {
                 for (let i = 0; i < winSqr.length; i++) {
                     const res = winSqr[i].every((sqr) => sel.includes(sqr));
-                    if (res) return `${name}`;
+                    if (res) return `${pName}`;
                 }
             }
         }
@@ -54,7 +54,7 @@ const game = (() => {
         function makeMove(sqr) {
             if (!winner) {
                 const currentPTurn = (turn % 2) + 1; // (log 2) : 1 | 2
-                if (currentPTurn == num && openSqr.includes(sqr)) {
+                if (currentPTurn == pNum && openSqr.includes(sqr)) {
                     const index = openSqr.indexOf(sqr);
                     openSqr.splice(index, 1);
                     sel.push(sqr);
@@ -84,4 +84,5 @@ p2.makeMove(2);
 p1.makeMove(9);
 p2.makeMove(4);
 p1.makeMove(5);
+p2.makeMove(8);
 
