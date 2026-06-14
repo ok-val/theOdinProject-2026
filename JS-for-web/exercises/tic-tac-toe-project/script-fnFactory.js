@@ -1,5 +1,7 @@
-const ticTacToe = (() => {
+const game = (() => {
     let openSqr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let turn = 0;
+    let winner = undefined;
     const winSqr = [
         [1, 2, 3],
         [3, 6, 9],
@@ -11,42 +13,75 @@ const ticTacToe = (() => {
         [4, 5, 6],
     ]
 
-    const displayOpenSqr = () => openSqr;
 
-    const createPlayer = (num) => {
-        const name = `Player ${num}`;
+    function showGame(prop = 'openSqr' | 'winner') {
+        switch (prop) {
+            case 'openSqr':
+                return openSqr;
+            case 'winner':
+                return winner;
+        }
+    }
+
+
+    function createPlayer(int) {
+        const name = `Player ${int}`;
+        const num = int;
+        let score = 0;
         let sel = [];
 
-        const addToSel = (sqr) => {
-            if (openSqr.includes(sqr)) {
-                // moveSqr(sqr);
-                const index = openSqr.indexOf(sqr);
-                const [sqrToMove] = openSqr.splice(index, 1);
-                sel.push(sqrToMove);
+
+        function showPlayer(prop = 'sel' | 'score' | 'name') {
+            switch (prop) {
+                case 'sel':
+                    return sel;
+                case 'score':
+                    return score;
+                case 'name':
+                    return name;
             }
         }
 
-        const displaySel = () => console.log(sel);
+        function checkWinner(sel) {
+            if (turn > 3) {
+                for (let i = 0; i < winSqr.length; i++) {
+                    const res = winSqr[i].every((sqr) => sel.includes(sqr));
+                    if (res) return `${name}`;
+                }
+            }
+        }
 
-        return { name, addToSel, displaySel };
+        function makeMove(sqr) {
+            if (!winner) {
+                const currentPTurn = (turn % 2) + 1; // (log 2) : 1 | 2
+                if (currentPTurn == num && openSqr.includes(sqr)) {
+                    const index = openSqr.indexOf(sqr);
+                    openSqr.splice(index, 1);
+                    sel.push(sqr);
+                    winner = checkWinner(sel);
+                    turn++;
+                }
+                if (winner) console.log(`${winner} wins!`);
+            } // if there's a winner, do nothing
+        }
+
+        return { makeMove, showPlayer };
     }
-
-    return { displayOpenSqr, createPlayer };
+    
+    return { createPlayer, showGame };
 })();
 
 
 // -------------------------------
-// ticTacToe.moveSqr(1);
 
-
-const p1 = ticTacToe.createPlayer(1);
-const p2 = ticTacToe.createPlayer(2);
-// const p2 = createPlayer(2);
+const p1 = game.createPlayer(1);
+const p2 = game.createPlayer(2);
 
 // Simulate gameplay
 
-p1.addToSel(1);
-console.log(ticTacToe.displayOpenSqr());
-p1.displaySel();
-// p1.addToSel(2);
-// p1.displaySel();
+p1.makeMove(1);
+p2.makeMove(2);
+p1.makeMove(9);
+p2.makeMove(4);
+p1.makeMove(5);
+
