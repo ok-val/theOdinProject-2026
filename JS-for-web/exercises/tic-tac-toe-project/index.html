@@ -6,22 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-tac-toe project</title>
     <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
         .container {
+            --sqr-size: 70px;
             display: grid;
-            grid-template-columns: repeat(3, 50px);
-            grid-template-rows: repeat(3, 50px);
-            gap: 0;
+            grid-template-columns: repeat(3, var(--sqr-size));
+            grid-template-rows: repeat(3, var(--sqr-size));
+            gap: 1px;
         }
 
         .container>div {
             outline: black 1px solid;
-            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container>div:not(.selected):hover {
+            background: cadetblue;
+        }
+
+        .container>div.selected::after {
+            content: 'x';
         }
     </style>
 </head>
 
 <body>
-    <!-- <script src="script-fnFactory.js"></script> -->
     <div class="container">
         <div id="1"></div>
         <div id="2"></div>
@@ -33,6 +50,60 @@
         <div id="8"></div>
         <div id="9"></div>
     </div>
+    <script src="script-fnFactory.js"></script>
+    <script>
+        // Handle DOM nodes
+
+        const handler = (() => {
+            // Create players
+            const p1 = game.createPlayer(1);
+            const p2 = game.createPlayer(2);
+
+
+            const sqrs = document.querySelectorAll('.container>div');
+
+            sqrs.forEach((sqr) => {
+                sqr.onclick = () => {
+                    // console.log(typeof game.showGame('turn'));
+                    if (game.showGame('turn') % 2 === 0) {
+                        // HTML-to-JS BUG:
+                        // vars passed from show HTML are mostly passed as string
+                        // This explains that p1.makeMove(sqr.id) does not work 
+                        // When diagnosing, if a function works with a type of input, 
+                        // but does not with a computed type, it's usually due to INPUT TYPE BUG.
+                        p1.makeMove(Number(sqr.id));
+                    }
+
+                    console.log(p1.showPlayer('sel'));
+
+                    // if (!sqr.classList.contains('selected')) {
+                    //     sqr.classList.add('selected');
+                    // }
+                    // console.log(game.showGame('turn'));
+                };
+            });
+
+            function markMove(id) {
+
+            }
+
+            // const sqr = 3;
+
+            // p1.makeMove(sqr);
+            // console.log(p1.showPlayer('sel'));
+
+            // p2.makeMove(2);
+            // p1.makeMove(9);
+            // p2.makeMove(4);
+            // p1.makeMove(5);
+            // p2.makeMove(8);
+        })();
+
+
+
+
+
+    </script>
 </body>
 
 </html>

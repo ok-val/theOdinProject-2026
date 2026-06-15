@@ -14,12 +14,14 @@ const game = (() => {
     ]
 
 
-    function showGame(prop = 'openSqr' | 'winner') {
+    function showGame(prop = 'openSqr' | 'winner' | 'turn') {
         switch (prop) {
             case 'openSqr':
                 return openSqr;
             case 'winner':
                 return winner;
+            case 'turn':
+                return turn;
         }
     }
 
@@ -74,15 +76,15 @@ const game = (() => {
 
 // -------------------------------
 
-const p1 = game.createPlayer(1);
-const p2 = game.createPlayer(2);
+// const p1 = game.createPlayer(1);
+// const p2 = game.createPlayer(2);
 
-// Simulate gameplay
+// // Simulate gameplay
 
-p1.makeMove(1);
-p2.makeMove(2);
-p1.makeMove(9);
-p2.makeMove(4);
-p1.makeMove(5);
-p2.makeMove(8);
+// p1.makeMove(1);
+// p2.makeMove(2);
+// p1.makeMove(9);
+// p2.makeMove(4);
+// p1.makeMove(5);
+// p2.makeMove(8);
 
