@@ -13,6 +13,10 @@
             height: 100vh;
             justify-content: center;
             align-items: center;
+            font-family: Helvetica, Arial, Sans-Serif;
+            font-weight: 600;
+            font-size: 18px;
+            background-color: #fdf0d5;
         }
 
         .container {
@@ -37,6 +41,41 @@
         .container>div svg {
             width: 50px;
             height: 50px;
+            fill: #003049;
+        }
+
+        button {
+            border-top: 1px solid #96d1f8;
+            /* background: #65a9d7; */
+            /* background: -webkit-gradient(linear, left top, left bottom, from(#00b4d8), to(#00b4d8)); */
+            background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+            /* background: -moz-linear-gradient(top, #3e779d, #65a9d7); */
+            /* background: -ms-linear-gradient(top, #3e779d, #65a9d7); */
+            /* background: -o-linear-gradient(top, #3e779d, #65a9d7); */
+            padding: 9px 18px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+            -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+            box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+            text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+            color: white;
+            font-size: inherit;
+            font-family: Helvetica, Arial, Sans-Serif;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        button:hover {
+            border-top-color: #28597a;
+            background: #28597a;
+            color: #ccc;
+        }
+
+        button:active {
+            border-top-color: #1b435e;
+            background: #1b435e;
         }
     </style>
 </head>
@@ -65,7 +104,7 @@
             const game = installLogic();
             const sqrs = document.querySelectorAll('.container>div');
             const winnerDisplay = document.getElementById('disp--winner');
-            
+
             winnerDisplay.textContent = '';
             sqrs.forEach((sqr) => {
                 sqr.innerHTML = '';
@@ -91,13 +130,13 @@
                             p2.makeMove(Number(sqr.id));
                             markSqr(sqr, isP1Turn);
                         }
-                    } 
+                    }
                     if (game.showGame('winner')) {
-                        winnerDisplay.textContent = `${game.showGame('winner')} wins!`; 
+                        winnerDisplay.textContent = `${game.showGame('winner')} wins!`;
                     }
                 };
             });
-            
+
 
             function markSqr(sqr, isP1Turn) {
                 if (sqr.classList.length == 0) {
