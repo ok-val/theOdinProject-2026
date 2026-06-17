@@ -8,6 +8,8 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
+            gap: 10px;
             height: 100vh;
             justify-content: center;
             align-items: center;
@@ -36,14 +38,6 @@
             width: 50px;
             height: 50px;
         }
-
-        .container>div.selP1::after {
-            /* content: url('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close-thick</title><path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>'); */
-        }
-
-        .container>div.selP2::after {
-            /* content: ''; */
-        }
     </style>
 </head>
 
@@ -59,32 +53,51 @@
         <div id="8"></div>
         <div id="9"></div>
     </div>
-    <script src="script-fnFactory.js"></script>
+    <p id="disp--winner"></p>
+    <button id="btn--reset">Reset</button>
+
+    <script src="game-logic.js"></script>
+
     <script>
         // Handle DOM nodes
+        const startGame = () => {
+            // Reset game
+            const game = installLogic();
+            const sqrs = document.querySelectorAll('.container>div');
+            const winnerDisplay = document.getElementById('disp--winner');
+            
+            winnerDisplay.textContent = '';
+            sqrs.forEach((sqr) => {
+                sqr.innerHTML = '';
+                sqr.removeAttribute('class');
+            });
 
-        const handler = (() => {
+
             // Create players
             const p1 = game.createPlayer(1);
             const p2 = game.createPlayer(2);
-            const sqrs = document.querySelectorAll('.container>div');
+
 
             sqrs.forEach((sqr) => {
                 sqr.onclick = () => {
                     const isP1Turn = game.showGame('turn') % 2 === 0;
-                    if (isP1Turn) {
-                        // HTML-to-JS BUG:
-                        // Read git log: Begin connecting game logic to DOM handler 
-                        p1.makeMove(Number(sqr.id));
-                        markSqr(sqr, isP1Turn);
-                    } else {
-                        p2.makeMove(Number(sqr.id));
-                        markSqr(sqr, isP1Turn);
+                    if (game.showGame('winner') === undefined) {
+                        if (isP1Turn) {
+                            // HTML-to-JS BUG:
+                            // Read git log: Begin connecting game logic to DOM handler 
+                            p1.makeMove(Number(sqr.id));
+                            markSqr(sqr, isP1Turn);
+                        } else {
+                            p2.makeMove(Number(sqr.id));
+                            markSqr(sqr, isP1Turn);
+                        }
+                    } 
+                    if (game.showGame('winner')) {
+                        winnerDisplay.textContent = `${game.showGame('winner')} wins!`; 
                     }
-
-
                 };
             });
+            
 
             function markSqr(sqr, isP1Turn) {
                 if (sqr.classList.length == 0) {
@@ -97,12 +110,14 @@
                     }
                 }
             }
-        })();
+        };
 
+        startGame();
+    </script>
 
-
-
-
+    <script>
+        const resetButton = document.getElementById('btn--reset');
+        resetButton.onclick = startGame;
     </script>
 </body>
 

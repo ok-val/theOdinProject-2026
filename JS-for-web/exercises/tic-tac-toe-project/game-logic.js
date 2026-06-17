@@ -1,4 +1,4 @@
-const game = (() => {
+const installLogic = () => {
     let openSqr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     let turn = 0;
     let winner = undefined;
@@ -71,7 +71,8 @@ const game = (() => {
     }
     
     return { createPlayer, showGame };
-})();
+};
+
 
 
 // -------------------------------
