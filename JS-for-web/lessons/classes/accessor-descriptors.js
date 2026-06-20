@@ -3,6 +3,8 @@
 let user = {
     name: 'Ori',
     surname: 'Orio',
+    // (Keep in mind that object literal cannot create their own execution scope for this)
+    // fullName: `${this.name} ${this.surname}`, 
 };
 
 // If I don't want to touch the user object above,

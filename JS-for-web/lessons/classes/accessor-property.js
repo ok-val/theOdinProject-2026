@@ -24,10 +24,10 @@ let user = {
     age: '131',
 
     // First, let's consider known alternatives that allow me to return fullName
-    // I could create another property that combines the two
+    // Since I cannot use object literals to create execution scopes for this,...
     // fullName = `${this.name} ${this.surname}`,
 
-    // Or I could create a new function that returns fullName
+    // I could create a new function that returns fullName
     getFullName() {
         return `${this.name} ${this.surname}`;
     },
