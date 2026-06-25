@@ -63,15 +63,15 @@ console.log(printBrand === car.getBrand); // true
 
 // Here's what exists inside printBrand
 // printBrand = function () {
-    //     return this.brand;
-    // }
-    
-    // Since we are in strict mode, `this` is undefined
-    console.log(printBrand()); // undefined
-    
-    // To make the `this` of printBrand refer to a specifc value,
-    // I can use the method bind that function objects inherits from
-    // Function.prototype. This method creates a new function that
+//     return this.brand;
+// }
+
+// Since we are in strict mode, `this` is undefined
+console.log(printBrand()); // undefined
+
+// To make the `this` of printBrand refer to a specifc value,
+// I can use the method bind that function objects inherits from
+// Function.prototype. This method creates a new function that
 // refers `this` to a specific object. 
 
 printBrand = car.getBrand.bind(car);
