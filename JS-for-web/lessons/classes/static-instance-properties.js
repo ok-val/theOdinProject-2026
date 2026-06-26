@@ -66,3 +66,13 @@ console.log(secretAgent.displaySecretCodeName()); // CRSO-1
 console.log(agentA.displaySecretCodeName()); // TypeError
 
 
+// Again, to reinforce understanding
+// Only static properties are accessible via the class
+// Instance properties will be stored for instantiation, but not accessible via the class
+
+console.log(secretAgent.company); // undefined
+console.log(secretAgent.displayCompany()); // Error
+console.log(secretAgent.secretCodeName); // CRSO-1
+console.log(secretAgent.displaySecretCodeName()); // CRSO-1
+
+
