@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Project</title>
+    <link rel="stylesheet" href="library-class-appearance.css">
+</head>
+<body>
+    <script defer src="library-class-behavior.js"></script>
+    <button id="newBook" command="show-modal" commandfor="newBook-dialog">New Book</button>
+    <button id="refresh">Refresh</button>
+
+    <div class="library-grid"></div>
+
+    <dialog id="newBook-dialog">
+        <h3>Add new book</h3>
+        <form action="" method="post">
+            <p>
+                <label for="add-title">Title:</label>
+                <input type="text" id="add-title" name="title">
+            </p>
+            <p>
+                <label for="add-author">Author:</label>
+                <input type="text" id="add-author" name="author">
+            </p>
+            <p>
+                <label for="add-pages">Pages:</label>
+                <input type="text" id="add-pages" name="pages">
+            </p>
+            <p>
+                <input type="checkbox" id="add-readStatus" name="isRead"></input>
+                <label for="add-readStatus"> I have read this book.</label>
+            </p>
+        </form>
+        <button id="add">Add</button>
+        <button id="cancelAdd" commandfor="newBook-dialog" command="close">Cancel</button>
+    </dialog>
+</body>
+</html>
