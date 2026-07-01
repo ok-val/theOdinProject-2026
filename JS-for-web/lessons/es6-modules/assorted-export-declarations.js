@@ -20,6 +20,8 @@ export { name1 as default };
 // default exports
 
 export default expression;
+// Note that expression can be anything, such as:
+export default 1 + 2; 
 export default function functionName() {};
 export default class ClassName {};
 export default function* generatorFunctionName() {};
@@ -30,6 +32,7 @@ export default function* () {};
 
 
 // aggregating modules
+// relaying for barrel modules 
 
 export * from "module-name.js"; // export all 
 export * as allInclusive from "module-name.js";
@@ -37,3 +40,6 @@ export { name1, name2 } from "module-name.js";
 export { import1 as name1, import2 as name2 } from "module-name";
 export { default, } from "module-name.js";
 export { default as name1 } from "module-name.js";
+
+
+// Note that functions are exported as function declarations, not expressions

@@ -34,3 +34,10 @@ import greeting123, { farewell1 } from "./appendix-module-default";
 
 console.log(greeting123); // Hi bear
 console.log(farewell1); // bur bur buu
+
+// The file that imports can also export.
+// Additionally, exports are not subject to the "temporal dead zones",
+// meaning that the module can export smth before it is declared.
+export { x };
+const x = 1;
+
