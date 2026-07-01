@@ -8,7 +8,7 @@
 // meaning that we are not importing an object with two properties here.
 
 // Here's how named exports are imported:
-import { greeting, farewell } from "./appendix-module-named";
+import { greeting, farewell } from "./appendix-module-named.js";
 
 console.log(greeting);
 console.log(farewell);
@@ -20,7 +20,7 @@ console.log(farewell);
 // Note that I don't need { curlies } to import/export default exports
 
 // default imports allow themselves to be named h/e we want to
-import helloHalla from "./appendix-module-default";
+import helloHalla from "./appendix-module-default.js";
 console.log(helloHalla);
 
 
