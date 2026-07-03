@@ -5,6 +5,7 @@
  * 
  * Static import declarations (i.e., using the import keyword) 
  * can only be present in modules at the TOP-level
+ * (i.e. TOP-level doesn't mean at the top of the document)
  * (i.e., not inside blocks or functions, etc.)
  * If an import is to be declared inside these non-module context,
  * I must use dynamic import instead (i.e., import()).
