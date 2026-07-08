@@ -31,3 +31,20 @@ Flag shortcut:
 
 8. Run Webpack from the root dir (webpack-practice)
 > npx webpack
+
+
+### Handling HTML
+There's a plugin to bundle HTML as well! That's `HtmlWebpackPlugin`.
+9. To install this tool:
+> npm install --save-dev html-webpack-plugin
+
+10. Create a new HTML file in the `src` folder with boilerplates.
+> touch src/template.html
+
+10. Config the `webpack.config.js` file to include the new package.
+
+11. Run Webpack again to see that `main.js` has integrated in 
+`index.html`.
+
+
+

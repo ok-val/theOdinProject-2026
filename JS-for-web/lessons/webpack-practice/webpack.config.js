@@ -1,4 +1,5 @@
 // webpack.config.js
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "node:path";
 
 export default {
@@ -14,4 +15,11 @@ export default {
         clean: true,
     },
     // This is one way to config webpack export
+
+    plugins: [
+        // Enable our new plugin for HTML bundling
+        new HtmlWebpackPlugin({
+            template: "./src/template.html",
+        })
+    ]
 }
