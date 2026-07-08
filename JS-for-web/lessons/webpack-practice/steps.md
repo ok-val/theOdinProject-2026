@@ -24,3 +24,10 @@ Flag shortcut:
 5. Create a new `src` folder and two new files in there:
 > mkdir src
 > touch src/index.js src/greeting.js
+
+6. Add code to index.js and greeting.js, creating a dependency chain
+
+7. Config output option via the `webpack.config.js` file
+
+8. Run Webpack from the root dir (webpack-practice)
+> npx webpack
