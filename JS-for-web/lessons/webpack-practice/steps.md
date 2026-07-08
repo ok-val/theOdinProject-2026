@@ -2,6 +2,7 @@
 > mkdir webpack-practice
 
 2. Enter the new subfolder using cd
+> cd ./webpack-practice
 
 3. Create a default `package.json` here:
 > npm init -y --init-type=module
@@ -19,3 +20,7 @@ things:
 
 Flag shortcut: 
 * --save-dev: -D
+
+5. Create a new `src` folder and two new files in there:
+> mkdir src
+> touch src/index.js src/greeting.js
