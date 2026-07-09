@@ -34,7 +34,7 @@ Flag shortcut:
 
 
 ### Handling HTML
-There's a plugin to bundle HTML as well! That's `HtmlWebpackPlugin`.
+There's a plugin to bundle HTML! That's `HtmlWebpackPlugin`.
 9. To install this tool:
 > npm install --save-dev html-webpack-plugin
 
@@ -47,4 +47,22 @@ There's a plugin to bundle HTML as well! That's `HtmlWebpackPlugin`.
 `index.html`.
 
 
+### Handling CSS
+To bundle CSS, we need two plugins. 
+12. Welcome `StyleLoader` and `CssLoader`!
+> npm install --save-dev style-loader css-loader
 
+These plugins do the following:
+* `css-loader` reads any CSS files we import in a JS file and store the
+result in a string. 
+* Then, `style-loader` takes that string and adds the JS code that will apply those styles to the page. 
+
+13. Create a new CSS file in `src`
+> touch src/style.css
+
+14. Reconfig the `webpack.config.js` to include the loaders
+Note that the loader order is important, so make sure these loaders are
+declared in the respective order.
+
+15. Once again, run Webpack:
+> npx webpack

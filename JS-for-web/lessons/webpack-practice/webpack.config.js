@@ -20,6 +20,23 @@ export default {
         // Enable our new plugin for HTML bundling
         new HtmlWebpackPlugin({
             template: "./src/template.html",
-        })
-    ]
+        }),
+    ],
+
+    // Enable the CSS loaders
+    // Which aren't plugins, so they go in a separate section:
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                /**
+                 * Note that the order of the loaders is important
+                 * since we want to read the CSS file into a string 
+                 * first, then use style-loader to inject the JS code 
+                 * onto our page.
+                 */
+                use: ["style-loader", "css-loader"],
+            },
+        ],
+    },
 }
