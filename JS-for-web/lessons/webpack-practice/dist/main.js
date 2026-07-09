@@ -110,6 +110,16 @@ eval("{\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleEle
 
 /***/ },
 
+/***/ "../../../../../../../../Pictures/Saved Pictures/cat-pfp-1.jpg"
+/*!*********************************************************************!*\
+  !*** ../../../../../../../../Pictures/Saved Pictures/cat-pfp-1.jpg ***!
+  \*********************************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+eval("{module.exports = __webpack_require__.p + \"9f865e223fad9d8c54d5.jpg\";\n\n//# sourceURL=webpack://webpack-practice/../../../../../../../../Pictures/Saved_Pictures/cat-pfp-1.jpg?\n}");
+
+/***/ },
+
 /***/ "./src/greeting.js"
 /*!*************************!*\
   !*** ./src/greeting.js ***!
@@ -126,7 +136,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
   \**********************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _greeting_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./greeting.js */ \"./src/greeting.js\");\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n// index.js\r\n\r\n/**\r\n * index.js (entry point) <---- greeting.js\r\n */\r\n\r\n\r\n\r\n// Now we also need the css to imported in here as well.\r\n\r\n\r\nconsole.log(_greeting_js__WEBPACK_IMPORTED_MODULE_0__.greeting);\r\n\n\n//# sourceURL=webpack://webpack-practice/./src/index.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _greeting_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./greeting.js */ \"./src/greeting.js\");\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var C_Users_Aorus_Pictures_Saved_Pictures_cat_pfp_1_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../Pictures/Saved Pictures/cat-pfp-1.jpg */ \"../../../../../../../../Pictures/Saved Pictures/cat-pfp-1.jpg\");\n// index.js\r\n\r\n/**\r\n * index.js (entry point) <---- greeting.js\r\n */\r\n\r\n\r\n\r\n// Now we also need the css to imported in here as well.\r\n\r\n\r\n\r\n\r\n\r\nconst newImage = document.createElement('img');\r\nnewImage.src = C_Users_Aorus_Pictures_Saved_Pictures_cat_pfp_1_jpg__WEBPACK_IMPORTED_MODULE_2__;\r\n\r\ndocument.body.appendChild(newImage);\r\n\r\nconsole.log(_greeting_js__WEBPACK_IMPORTED_MODULE_0__.greeting);\r\n\n\n//# sourceURL=webpack://webpack-practice/./src/index.js?\n}");
 
 /***/ }
 
@@ -202,6 +212,18 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gr
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -216,6 +238,29 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gr
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		let scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		const document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript?.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				const scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					let i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
