@@ -16,6 +16,22 @@ export default {
     },
     // This is one way to config webpack export
 
+    // Here are a few helpful tools for dev
+    /**
+     * setting `eval-source-map` as a devtool helps matching the correct
+     * files and line numbers from our dev code to our browser-based
+     * DevTool
+     */ 
+    devtool: "eval-source-map",
+    /**
+     * `webpack-dev-server` ignores our html template in its 
+     * auto-restart protocol. Adding the html template to the watch list
+     * resolves this issue.
+     */
+    devServer: {
+        watchFiles: ["./src/template.html"],
+    },
+
     plugins: [
         // Enable our new plugin for HTML bundling
         new HtmlWebpackPlugin({

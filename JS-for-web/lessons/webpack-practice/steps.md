@@ -66,3 +66,20 @@ declared in the respective order.
 
 15. Once again, run Webpack:
 > npx webpack
+
+16. For images implemented thru JS, CSS, or HTML, see 
+"./steps-for-images.md" for detailed instructions
+
+17. Finally, to improve our quality of life, I can use the 
+`webpack-dev-server` to automate rebundling for real-time changes.
+To install it: 
+> npm install --save-dev webpack-dev-server
+
+Along with the following changes in the `webpack.config.js` file:
+* The `devtool`, `eval-source-map`, matches up the correct files and 
+line numbers in the browser devtool, making debugger easier for us.
+* Add the `html template` to the `devServer watchFiles` to include our
+working html in `webpack-dev-server` auto-restart protocol.
+
+18. Lastly, run the *dev server*:
+> npx webpack serve
