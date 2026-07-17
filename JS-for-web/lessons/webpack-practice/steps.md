@@ -70,6 +70,9 @@ declared in the respective order.
 16. For images implemented thru JS, CSS, or HTML, see 
 "./steps-for-images.md" for detailed instructions
 
+
+### Webpack Dev Server 
+
 17. Finally, to improve our quality of life, I can use the 
 `webpack-dev-server` to automate rebundling for real-time changes.
 To install it: 
