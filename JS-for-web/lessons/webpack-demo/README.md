@@ -27,3 +27,15 @@ the repsective scripts
 
 3. Run `webpack` from the project root
 > npx webpack
+
+4. Simple projects might not need the `webpack.config.js`, but some 
+complex ones do
+> touch webpack.config.js
+
+4.1. To use a different config file, use the option `--config>`:
+> npx webpack --config webpack.config.js
+> npx webpack --config webpack.config-1.js
+
+5. Lastly, instead of calling `npx webpack` every time, I can spec the 
+build script in `scripts` object in `package.json`.
+
