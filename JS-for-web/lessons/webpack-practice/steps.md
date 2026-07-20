@@ -25,7 +25,7 @@ Flag shortcut:
 > mkdir src
 > touch src/index.js src/greeting.js
 
-6. Add code to index.js and greeting.js, creating a dependency chain
+6. Add code to `index.js` and `greeting.js`, creating a dependency chain
 
 7. Config output option via the `webpack.config.js` file
 
@@ -55,7 +55,10 @@ To bundle CSS, we need two plugins.
 These plugins do the following:
 * `css-loader` reads any CSS files we import in a JS file and store the
 result in a string. 
-* Then, `style-loader` takes that string and adds the JS code that will apply those styles to the page. 
+* Then, `style-loader` takes that string and adds the JS code that will 
+apply those styles to the page. 
+
+Note that a chain is executed in the reverse order (right to left)
 
 13. Create a new CSS file in `src`
 > touch src/style.css

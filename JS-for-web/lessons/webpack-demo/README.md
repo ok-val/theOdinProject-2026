@@ -39,3 +39,5 @@ complex ones do
 5. Lastly, instead of calling `npx webpack` every time, I can spec the 
 build script in `scripts` object in `package.json`.
 
+Check out https://webpack.js.org/guides/asset-management/
+They have all the instructions for different types of assets.
