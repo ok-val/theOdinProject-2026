@@ -51,7 +51,7 @@ header {
 }
 
 html {
-    /* background-image: url("/web/20221024061038im_/https://eckben.github.io/bearysBreakfastBar/img/643.png"); */
+    background-image: url("../resources/background--honeyComb.png");
     background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
