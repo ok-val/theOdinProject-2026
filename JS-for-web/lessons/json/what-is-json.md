@@ -32,3 +32,12 @@ placed after the final item in a list, array, or object).
 * Comments are not allowed.
 
 Any instance that fails to meet these rule can cause the JSON invalid. 
+Use this online JSON formatter to ensure correct formatting:
+https://jsonformatter.curiousconcept.com/
+
+## Loading JSON locally
+
+```js
+import superHeroes from "./superHeroes.json" with { type: 'json' };
+```
+

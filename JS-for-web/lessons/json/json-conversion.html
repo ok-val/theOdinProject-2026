@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON conversion</title>
+</head>
+
+<body>
+    <script>
+        let myObj = { name: "Chris", age: 38 };
+        // Loads the Object object
+        console.log(myObj);
+
+        // Stringify()
+        const myString = JSON.stringify(myObj);
+        // Converts the Object to string literal
+        console.log(myString);
+
+        // Parse()
+        const myObjAgain = JSON.parse(myString);
+        // Convert the string literal to object
+        console.log(myObjAgain);
+    </script>
+
+    <script>
+        const parseSpecial = async function () {
+            const requestURL =
+                "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+            const request = new Request(requestURL);
+
+            const response = await fetch(request);
+            // Because parse only accept strings, turn the Response into string first
+            const superHeroesText = await response.text();
+            console.log(`Response: ${typeof response} | ResponseToText: ${typeof superHeroesText}`);
+
+            const superHeroes = JSON.parse(superHeroesText);
+            console.log(superHeroes.homeTown);
+        }();
+    </script>
+</body>
+
+</html>
