@@ -19,8 +19,8 @@ JSON can only contain a select group of primitives and non-primitives.
 For the primitives, string literals, number literals, `true`, `false`, 
 and `null` are allowed.
 
-For non-primitives, object literals and arrays are allowed, but not
-any other object types such as functions or classes, dates and sets. 
+For non-primitives, object literals and arrays are allowed, *but not
+any other object types such as functions or classes, dates and sets*. 
 
 **Syntax rules:**
 * Strings must be encolsed in double quotes, not single quotes.
