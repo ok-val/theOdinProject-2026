@@ -117,7 +117,7 @@ function printQuiz2(...questions) {
     })
 }
 
-printQuiz2(booleanQuestion2, MultipleChoiceQuestion2, TextQuestion2, RangeQuestion2);
+// printQuiz2(booleanQuestion2, MultipleChoiceQuestion2, TextQuestion2, RangeQuestion2);
 
 
 

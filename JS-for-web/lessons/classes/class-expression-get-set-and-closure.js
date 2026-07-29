@@ -28,6 +28,7 @@ let Friend = class {
 }
 
 let moe = new Friend('Moe');
+console.log(moe._name); // Moe (_name)
 console.log(moe.name); // Moe (_name)
 moe.name = "Moer";
 console.log(moe.name); // Moer (_name)
