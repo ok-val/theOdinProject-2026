@@ -61,18 +61,77 @@
 // ]
 
 
-// My solution is not within OOP, but rather functional programming
+// Here's the solution using OOP
+
+class Question {
+    constructor (ques) {
+        this.question = ques;
+        this.answer = null;
+    };
+    
+    printAnswers() {
+        this.answer.forEach(ans => console.log(ans));
+    }
+}
+
+class BooleanQuestion extends Question {
+    constructor(ques) {
+        super(ques);
+        this.answer = [true, false]; 
+    }
+}
+
+class MultipleChoiceQuestion extends Question {
+    constructor(ques, ...ans) {
+        super(ques);
+        this.answer = ans;
+    }
+}
+
+class TextQuestion extends Question {
+    constructor(ques) {
+        super(ques);
+        this.answer = ['Answer: ______'];
+    }
+}
+
+class RangeQuestion extends Question {
+    constructor(ques) {
+        super(ques);
+        this.min = 'Min: ______';
+        this.max = 'Max: ______';
+        this.answer = [this.min, this.max];
+    }
+}
+
+const booleanQuestion2 = new BooleanQuestion('Are you mad?');
+const MultipleChoiceQuestion2 = new MultipleChoiceQuestion('How goes it?', 'Ok', 'Not bad');
+const TextQuestion2 = new TextQuestion('What did you eat today?');
+const RangeQuestion2 = new RangeQuestion('How tall are you?');
+
+
+function printQuiz2(...questions) {
+    questions.forEach(ques => {
+        console.log(ques.question);
+        ques.printAnswers();
+    })
+}
+
+printQuiz2(booleanQuestion2, MultipleChoiceQuestion2, TextQuestion2, RangeQuestion2);
+
+
+
+
+// My solution is not with OOP, but rather functional programming
 
 function printAnswerChoice(question) {
     question.answerChoice.forEach(ans => console.log(ans));
 }
 
-
 function makeBooleanQuestion(question) {
     const answerChoice = [true, false];
     return { answerChoice, question };
 }
-
 
 function makeMultipleChoiceQuestion(question, ...answers) {
     const answerChoice = answers;
@@ -80,20 +139,20 @@ function makeMultipleChoiceQuestion(question, ...answers) {
 }
 
 function makeTextQuestion(question) {
-    const answerChoice = '____________';
+    const answerChoice = ['____________'];
     return { answerChoice, question };
 }
 
 function makeRangeQuestion(question) {
     const minText = 'Min = ______';
-    const maxText = 'Max = ______'
+    const maxText = 'Max = ______';
     const answerChoice = [minText, maxText];
     return { answerChoice, question };
 }
 
-const booleanQuestion1 = makeBooleanQuestion('Do you like this cake?');
-const multipleChoiceQuestion1 = makeMultipleChoiceQuestion("How goes?", 'Good', 'OK');
-const rangeQuestion1 = makeRangeQuestion('How tall are you?'); 
+// const booleanQuestion1 = makeBooleanQuestion('Do you like this cake?');
+// const multipleChoiceQuestion1 = makeMultipleChoiceQuestion("How goes?", 'Good', 'OK');
+// const rangeQuestion1 = makeRangeQuestion('How tall are you?'); 
 
 // printAnswerChoice(rangeQuestion1);
 
@@ -102,7 +161,6 @@ function printQuiz(...questions) {
         console.log(q.question);
         q.answerChoice.forEach(ans => console.log(ans));
     });
-
 }
 
-printQuiz(booleanQuestion1, multipleChoiceQuestion1, rangeQuestion1);
+// printQuiz(booleanQuestion1, multipleChoiceQuestion1, rangeQuestion1);
