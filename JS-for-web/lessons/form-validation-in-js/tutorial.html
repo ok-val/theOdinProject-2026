@@ -1,0 +1,113 @@
+<!-- // Main source:
+//https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation#the_constraint_validation_api
+
+/**
+ * The Constraint Vlidation API address the following HTML elements:
+ * * Button
+ * * Field set
+ * * Input
+ * * Output
+ * * Select
+ * * Text area
+ */
+
+/**
+ * For the above elements, the API makes the following properties
+ * available:
+ * * validationMessage
+ * * validity: returns a ValidityState object that contains several
+ * properties
+ * * willValidate: true if the element will be validated upon submission
+ */
+
+/**
+ * For the same set of elements, the API makes the following methods
+ * available:
+ * * checkValidity()
+ * * reportValidity()
+ * * setCustomValidity(message)
+ */
+
+// ## Customizing error message
+
+/**
+ * In a past lesson, I've looked at how to use HTML to check pattern.
+ * However, that method is difficult to control and inherits of lot of
+ * unwanted settings from the browser locale.
+ *
+ * This is why we have the Constraint Validation API.
+ *
+ */ -->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form Validation API</title>
+        <script type="module">
+            const email = document.querySelector('#email');
+            const error = document.querySelector('#email + .error');
+            const button = document.querySelector('.fields + button');
+
+            function enableIfValid(bool) {
+                if (bool) {
+                    button.disabled = true;
+                    error.className = 'error';
+                } else {
+                    button.disabled = false;
+                    error.className = 'error hidden';
+                }
+            }
+
+            email.addEventListener('input', e => {
+                if (email.validity.typeMismatch || !email.value) {
+                    error.textContent = 'I am expecting an email address!';
+                    enableIfValid(false);
+                } else if (!email.value.endsWith('@example.com')) {
+                    error.textContent = 'Your email must end with @example.com';
+                    enableIfValid(false);
+                } else {
+                    enableIfValid(true);
+                }
+            });
+        </script>
+        <style>
+            .fields {
+                position: relative;
+                display: inline-block;
+            }
+
+            .fields .error {
+                position: absolute;
+                top: 110%;
+                right: 50%;
+                transform: translateX(50%);
+                text-align: center;
+
+                background-color: black;
+                color: white;
+                padding: 4px 8px;
+                border-radius: 8px;
+
+                max-width: 12ch;
+            }
+
+            .error.hidden {
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <label for="email">
+                I would like you to provide me with an email address:
+            </label>
+            <div class="fields">
+                <input type="email" id="email" name="email" />
+                <span class="error hidden"></span>
+            </div>
+            <button>Submit</button>
+        </form>
+    </body>
+</html>
