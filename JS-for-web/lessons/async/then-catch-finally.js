@@ -75,3 +75,10 @@ promise.finally(
  * It just takes no arguments 
  */  
 
+/**
+ * The premise with all these Promise is that to:
+ * Leave the Promise to do the fetching,
+ * .then(), .catch(), and .finally() reacts to the results of the
+ * fetch. Don't conflate these functionalities.
+ */
+

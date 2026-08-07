@@ -84,13 +84,26 @@ These are some combination of patterns that:
 Add callbacks to callbacks to callbacks, ad infintum
 
 ```js
-a(function() {
-    b(function() {
-        c(function() {
-            d()
-        })
+function task1(callback) {
+    setTimeout(() => {
+        console.log("Task One completed");
+        callback();
+    },);
+}
+
+function task2(callback) {
+    setTimeout(() => {
+        console.log("Task Two completed");
+        callback();
+    },);
+}
+
+task1(() => {
+    task2(() => {
+        console.log('Both tasks done');
     })
 })
+
 ```
 
 ### Promises
