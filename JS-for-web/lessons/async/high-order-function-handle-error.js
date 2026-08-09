@@ -14,7 +14,10 @@ async function yolo() {
 
 
 function handleError(fn) {
-    // handleError(fn) takes fn and returns a function that takes ...params
+    /**
+     * handleError(inputFn) creates a function(...params) that run the 
+     * inputFn (original shape) with some extended functionalities 
+     */    
     return function (...params) { // rest parameter 
         return fn(...params).catch((err) => console.error(err));
     }
