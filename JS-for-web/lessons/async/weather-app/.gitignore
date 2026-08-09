@@ -1,0 +1,6 @@
+.prettierignore
+node_modules
+.prettierrc
+eslint.config.js
+api-key.js
+

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather app practice</title>
+        <link rel="stylesheet" href="style.css" />
+        <script type="module">
+            import { apikey } from './api-key.js';
+
+            const button = document.querySelector('#btn--submit');
+            const input = document.querySelector('#input');
+
+            function formatQuery(input) {
+                const formatInput = input.trim().replaceAll(' ', '%20');
+                return `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formatInput}?unitGroup=us&key=${apikey}&contentType=json`;
+            }
+
+            async function getWeatherData(input) {
+                try {
+                    const response = await fetch(formatQuery(input));
+                    const promise = await response.json();
+                    return promise.days.slice(0, 3);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            function filterData(data) {
+                const targetKeys = ['datetime', 'temp', 'description'];
+                const res = Object.keys(data).reduce((acc, key) => {
+                    if (targetKeys.includes(key)) {
+                        acc[key] = data[key];
+                    }
+                    return acc;
+                }, {});
+                return res;
+            }
+
+            function displayWeatherData(data) {
+                const resultSec = document.querySelector('#result');
+                resultSec.replaceChildren();
+
+                const filteredData = data.map(d => filterData(d));
+
+                filteredData.forEach(d => {
+                    const card = document.createElement('div');
+                    Object.keys(d).forEach(key => {
+                        const p = document.createElement('p');
+                        p.textContent = d[key];
+                        card.append(p);
+                    });
+                    resultSec.appendChild(card);
+                });
+            }
+
+            // submission handlers
+            button.addEventListener('click', async e => {
+                const input = document.querySelector('#input');
+                if (input.checkValidity()) {
+                    e.preventDefault();
+                    let data = await getWeatherData(input.value);
+                    displayWeatherData(data);
+                }
+            });
+
+            input.addEventListener('input', e => {
+                if (input.valueMissing) {
+                    input.setCustomValidity('Please enter something!');
+                    button.disabled = true;
+                } else {
+                    button.disabled = false;
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <form method="get">
+            <label for="input">Location: </label>
+            <input
+                type="text"
+                id="input"
+                placeholder="Enter location"
+                required
+            />
+            <button type="submit" id="btn--submit">Find</button>
+        </form>
+        <section id="result"></section>
+    </body>
+</html>
