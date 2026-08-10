@@ -17,12 +17,24 @@
 > npm i -D jest
 
 2. ES6 (ESM) Compatibility Setup
-
-Jest natively uses CommonJS syntax (`require` / `module.exports`), which does not support ECMAScript Modules (`import` / `export`). To use modern ESM syntax, transpile your code using Babel:
+   Jest natively uses CommonJS syntax (`require` / `module.exports`), which does not support ECMAScript Modules (`import` / `export`). To use modern ESM syntax, transpile your code using Babel:
 
 > npm init jest@latest
 > npm install --save-dev babel-jest @babel/core @babel/preset-env
 
+Create a new `babel.config.js` file and add the configs using ESM syntax (congruent with `package.json` type config).
+
 _Note:_ Transpilation happens in memory and does not alter your source code files. Check for the latest compatible Babel version when setting up (currently `v7+`).
 
-3. Config test script in `package.json`
+3. Config test script in `package.json` to use `npm test` instead of manually calling `jest myfile.js`
+   This was handled by `npm init jest@latest`, but still good to check.
+   Additionally, I could also set up a live console to test on Save. In `package.json` file, add:
+
+    > watch: "jest --watch *.js"
+
+    Run this on a dedicated console:
+
+    > npm run watch
+
+4. Create new test files
+   Make sure they use the `filename.test.js` naming convention
