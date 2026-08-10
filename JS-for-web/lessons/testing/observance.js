@@ -57,3 +57,5 @@ if (calcTotal(userOrder1) !== 808) {
 } else {
     console.log('Test passed! Time for the next requirement.');
 }
+
+// This testing is refactored in ./tests to use Jest
