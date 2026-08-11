@@ -16,9 +16,9 @@ source: https://web.archive.org/web/20211123190134/http://godswillokwara.com/ind
 
 TDD **emphasizes** test-first or requirement-first development:
 
-1. Quickly write a test (for a requirement)
-2. Write just enough code to fail the test
-3. Refactor code later to pass the test
+1. Quickly write a test with some success/fail conditions (Start with Red)
+2. Write just enough code to pass the test (Dirty green)
+3. Refactor code later (Clean green)
 
 The goal is **specification** and not validation,
 meaning that TDD makes you think through your **requirements** before you

@@ -61,3 +61,9 @@ or
 Config Prettier guide: 
 https://prettier.io/docs/configuration
 
+
+
+## For Prettier ESLint VSCode extension
+Use the following npm install:
+> npm i -D prettier@latest eslint@latest prettier-eslint@latest
+

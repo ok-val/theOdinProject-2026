@@ -10,6 +10,7 @@
 
             const button = document.querySelector('#btn--submit');
             const input = document.querySelector('#input');
+            const resultSec = document.querySelector('#result');
 
             function formatQuery(input) {
                 const formatInput = input.trim().replaceAll(' ', '%20');
@@ -38,7 +39,6 @@
             }
 
             function displayWeatherData(data) {
-                const resultSec = document.querySelector('#result');
                 resultSec.replaceChildren();
 
                 const filteredData = data.map(d => filterData(d));
@@ -56,11 +56,16 @@
 
             // submission handlers
             button.addEventListener('click', async e => {
-                const input = document.querySelector('#input');
                 if (input.checkValidity()) {
                     e.preventDefault();
-                    let data = await getWeatherData(input.value);
-                    displayWeatherData(data);
+
+                    const waitingP = document.createElement('p');
+                    waitingP.textContent = 'Waiting';
+                    resultSec.appendChild(waitingP);
+
+                    const data = await getWeatherData(input.value);
+                    // simulate slow network speed
+                    setTimeout(() => displayWeatherData(data), 5000);
                 }
             });
 
