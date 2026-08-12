@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "watch": "jest --watch *.js"
+        "watch": "jest --watch"
     },
     "keywords": [],
     "author": "",
@@ -19,5 +19,8 @@
         "jest": "^30.4.2",
         "prettier": "^3.9.6",
         "prettier-eslint": "^17.1.1"
+    },
+    "dependencies": {
+        "axios": "^1.19.0"
     }
 }
