@@ -1,3 +1,5 @@
+// Source: https://jestjs.io/docs/mock-functions
+
 const asyncFetch = async () => {
     const response = await fetch(
         'https://jsonplaceholder.typicode.com/todos/1'
@@ -25,7 +27,8 @@ test('returns something', async () => {
 
 test('mock single callback pattern', () => {
     const mockFn = jest.fn();
-    // I could also script the return value of mockFn (even chaining)
+    // I could also mock the return value of mockFn (even chaining)
+    // See './async-jest-spyOn.test.js' for returning mock Promises
     mockFn.mockReturnValueOnce(true);
     mockFn.mockReturnValueOnce(false);
     mockFn.mockReturnValueOnce('3rd call');
@@ -41,7 +44,7 @@ test('mock recursive callback pattern', () => {
 
     testItems.forEach(item => mockFn(item));
 
-    // mockFns could be inspected
+    // mockFns could be inspected through the mock property
     console.log(mockFn.mock.results[0].value);
 
     // Now mockFn would have run twice and mockFn will now contains 2 calls

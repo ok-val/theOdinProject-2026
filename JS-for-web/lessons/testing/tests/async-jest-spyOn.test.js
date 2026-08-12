@@ -19,21 +19,44 @@ const fetchDataFetch = async () => {
  * shorthand for Promise-based mock tests: .spyOn()
  */
 
-test('mock axios', async () => {
-    // jest.spyOn(Object, "methodOfObject")
-    const mockFn = jest
-        .spyOn(axios, 'get')
-        /**
-         * It's important to get the mock returned value wrapped in a data object
-         * because the original function returns that value with that shape
-         */
-        .mockResolvedValue({ data: { userId: 1 } });
-    const res = await fetchDataAxios();
-    // Then we could just call the original async function directly
-    expect(res).toEqual({ userId: 1 });
+describe('mock axios tests', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
 
-    // the mockFn could also be examined per usual
-    console.log(mockFn.mock.calls);
+    test('mock axios method 1', async () => {
+        // Mock method 1: spyOn()
+        // SYNTAX: jest.spyOn(Object, 'methodOfObject');
+        const mockFn = jest
+            .spyOn(axios, 'get')
+            /**
+             * It's important to get the mock returned value wrapped in a data object
+             * because the original function returns that value with that shape
+             */
+            .mockResolvedValue({ data: { userId: 1 } });
+
+        // Then we could just call the original async function directly
+        expect(await fetchDataAxios()).toMatchObject({ userId: 1 });
+
+        // the mockFn could also be examined per usual
+        // console.log(mockFn.mock.calls);
+
+        // PRO: this method allows the original to co-exists
+    });
+
+    test('mock axios method 2', async () => {
+        // Mock method 2: mock();
+        // SYNTAX: jest.mock('object');
+        jest.mock('axios');
+        const mockFn = axios.get.mockResolvedValue({
+            data: { userId: 1 }
+        });
+        const res = await mockFn();
+        expect(await res.data).toMatchObject({ userId: 1 });
+        // console.log(mockFn.mock.calls);
+
+        // PRO: This method is more idiomatic of the original axios.get() call
+    });
 });
 
 test('mock fetch', async () => {
