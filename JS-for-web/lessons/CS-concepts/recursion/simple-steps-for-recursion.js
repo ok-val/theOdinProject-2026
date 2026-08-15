@@ -3,9 +3,9 @@
 // 1. Identify the base case
 
 function sumTo(n) {
-    // Here's the base / exit case
+    // Here's the base case / exit clause
     if (n <= 1) return n;
-    // And the continuation cases
+    // And the recursive case
     return n + sumTo(n - 1);
 }
 
