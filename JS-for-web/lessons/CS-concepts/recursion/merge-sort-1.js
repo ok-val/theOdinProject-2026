@@ -11,6 +11,9 @@
  * 3. Merge the two sorted halves;
  */
 
+// This merge sort implementation always splits between two lists:
+// Thus, it is considered Two-Way merging
+
 function merge(left, right, res = [], j = 0, k = 0, l = 0) {
     while (j < left.length && k < right.length) {
         if (left[j] < right[k]) res[l++] = left[j++];
