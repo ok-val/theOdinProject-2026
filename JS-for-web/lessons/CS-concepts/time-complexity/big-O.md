@@ -10,12 +10,12 @@ N scales with data:
 | ---- | ---------- | ----------- | --------------------- |
 | 1    | O(1)       | Constant    | 1                     |
 | 2    | O(log N)   | Log         | + 1 for N * 2         |
-| 3    | O(N)       | Linear      | + N for N + N         |
+| 3    | O(N)       | Linear      | + N for + N           |
 | 4    | O(N log N) | N log N     | + N * log N for N * 2 |
-| 5    | O(n**2)    | Quadratic   |
-| 6    | O(n**3)    | Cubic       |
-| 7    | O(2**n)    | Exponential |
-| 8    | O(N!)      | Factorial   |
+| 5    | O(n**2)    | Quadratic   | * N for N + 1         |
+| 6    | O(n**3)    | Cubic       | * N * N for N + 1     |
+| 7    | O(2**n)    | Exponential | ** 2 for N + 1        |
+| 8    | O(N!)      | Factorial   | !N for for N + 1      |
 
 Big O is something that requires you to measure how the number of steps
 change with the input data because N scales with the data.
@@ -85,3 +85,21 @@ Think of the two-way Merge Sort algo:
 
 While a two-way merge sort explicitly uses these O(N) and O(log N) parts
 some algos behaves this way without using them explicitly.
+
+### O(n**2) -- Quadratic complexity
+
+1 nested loop: For each element in arr of length N, do something
+Nth times (4 * 4).
+
+### O(n*3) -- Cubic complexity
+
+2 nested loop: For each element in arr of length N, do something Nth
+times for Nth times (4 * 4 * 4).
+
+### O(2**n) -- Exponential complexity
+
+For each additional data, the steps doubles.
+
+### O(N!) -- Factorial complexity
+
+For each data, the steps times the data position (starting at 1).
