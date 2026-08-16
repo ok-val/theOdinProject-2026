@@ -11,11 +11,28 @@
  * 3. Merge the two sorted halves;
  */
 
-function mergeSort(arr) {
-    if (arr.length <= 1) {
-        return [arr];
+function merge(left, right, res = [], j = 0, k = 0, l = 0) {
+    while (j < left.length && k < right.length) {
+        if (left[j] < right[k]) res[l++] = left[j++];
+        else res[l++] = right[k++];
     }
-    arr;
-    // const partition = divide(arr);
-    // partition;
+    return res.concat(left[j] ? left.slice(j) : right.slice(k));
 }
+
+function mergeSort(arr) {
+    for (const el of [arr]) {
+        if (el.length === 1) return el;
+        if (el.length >= 2) {
+            const div =
+                el.length % 2 === 0 ? el.length / 2 : (el.length + 1) / 2;
+            const left = mergeSort(el.slice(0, div));
+            const right = mergeSort(el.slice(div));
+            const mergedArr = merge(left, right);
+            return mergedArr;
+        }
+    }
+}
+
+const test = [5, 5, 4, 3, 5, 0];
+const out = mergeSort(test);
+out;

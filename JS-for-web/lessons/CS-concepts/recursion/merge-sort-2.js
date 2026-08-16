@@ -1,55 +1,68 @@
 function partition(arr) {
-    let res = [];
     for (const el of [arr]) {
+        // el;
         if (el.length === 1) {
-            el;
+            // el;
             // res = res.concat([el]);
             return el;
         }
         if (el.length >= 2) {
+            // el;
             const div =
                 el.length % 2 === 0 ? el.length / 2 : (el.length + 1) / 2;
             // div;
             const halves = [el.slice(0, div)].concat([el.slice(div)]);
-            halves;
+            // halves;
             // console.log(halves[0]);
             // console.log(halves[1]);
-            const left = partition(halves[0]);
-            const right = partition(halves[1]);
-            left;
-            right;
-            // for (const e of halves) {
-            //     res = res.concat([partition(e)]);
-            //     e;
-            // }
+            const left = partition(el.slice(0, div));
+            const right = partition(el.slice(div));
+            const mergedArr = merge(left, right);
+
+            // left;
+            // right;
+            // mergedArr;
+            return mergedArr;
         }
     }
-    // res;
     // list of lists
-    // return res;
 }
 
 function merge(left, right) {
-    let [m, n] = [0, 0];
-}
-merge();
+    let [j, k, l] = [0, 0, 0];
+    let mergedArr = [];
+    for (let i = 0; j < left.length && k < right.length; i++) {
+        // console.log(left[j]);
+        // console.log(right[k]);
+        if (left[j] < right[k]) {
+            mergedArr[l++] = left[j++];
+        } else {
+            mergedArr[l++] = right[k++];
+        }
+    }
+    // if (left[j]) {
+    //     // console.log(left[j]);
+    //     mergedArr = mergedArr.concat(left.slice(j));
+    // } else if (right[k]) {
+    //     // console.log(right[k]);
+    //     mergedArr = mergedArr.concat(right.slice(k));
+    // }
 
-const test1 = [1, 2, 3];
+    mergedArr = mergedArr.concat(left[j] ? left.slice(j) : right.slice(k));
+
+    // mergedArr;
+    // j;
+    // k;
+    // l;
+    return mergedArr;
+}
+
+const test1 = [5, 5, 4, 3, 5, 0];
 const out = partition(test1);
 out;
 
-console.log(out.length);
+// console.log(out.length);
 // console.log(out[0]);
 // console.log(out[1]);
 
-// const test2 = [[[1], [2]], [[3]]];
-// const redc = arr =>
-//     arr.reduce((acc, val) => {
-//         val;
-//         return Array.isArray(val) ? acc.concat(redc(val)) : acc.concat(val);
-//     }, []);
-// const out1 = redc(test2);
-// out1;
-
-const test2 = [[1, 2], 3];
-console.log(test2.length);
+console.log([1] > [2]);
