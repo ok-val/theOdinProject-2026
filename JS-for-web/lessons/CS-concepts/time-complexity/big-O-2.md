@@ -8,10 +8,10 @@ as the input to that function approaches INFINITY.
 
 ## What is space complexity and time complexity
 
-| Complexity | Meaning                                                             |
-| ---------- | ------------------------------------------------------------------- |
-| Time       | Analyzing how the runtime of an algo changes as the input increases |
-| Space      | The space in memory required by the algo to run (excluding inputs)  |
+| Complexity | Meaning                                                                  |
+| ---------- | ------------------------------------------------------------------------ |
+| Time       | Analyzing how the runtime of an algo changes as the input increases      |
+| Space      | The space in memory required by the algo to run (relative to input size) |
 
 > [!note] Usual trade-off between space and time complexity
 > To increase the speed of an algo, you'll likely need to store more
