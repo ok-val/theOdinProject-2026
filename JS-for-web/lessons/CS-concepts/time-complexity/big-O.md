@@ -1,6 +1,7 @@
 ## What is Big O?
 
-> Big O is one of the families of notations that contains complexity
+> Big O is one of the families of notations that is used to analyze the
+> performance of an algo. It is an umbrella that contains complexity
 > classes such as O(1), O(n), and so on.
 
 Here are those complexity classes, sorted from fastest to slowest, where
