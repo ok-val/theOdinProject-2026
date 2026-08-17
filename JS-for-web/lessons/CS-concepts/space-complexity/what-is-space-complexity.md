@@ -2,8 +2,8 @@
 
 ## What is space complexity?
 
-The total space in memory used by an algo relative to the size of the
-input, or the total amount of working memory the algo needs.
+The metric for total memory space used by an algo relative to the size
+of the input (to include or exclude the input).
 
 Here are the spaces considered for space complexity:
 
@@ -91,3 +91,15 @@ Cases involved:
 > - The first take O(1) (for storing i) and the original data just gets
 >   replaced by the new data.
 > - The second takes O(N) for returning new data for every return.
+
+## Lower level space complexity
+
+Space analysis differs at different computational levels because space
+allocation gets more procedural at lower level.
+
+The number of steps depends on what you are counting and what unit.
+Sometimes it's useful to count integers, sometimes bits.
+Sometimes, it's useful to count the times an algo accesses memory.
+Sometimes it's the times it modifies a memory.
+For auxilliary analysis, it counts only new memory that is allocated at
+running time.
