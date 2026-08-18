@@ -45,28 +45,35 @@ Data structures are generally built upon primitive data types
 
 - An **array** (DS) is set of elements in a specific order, typically
   all of the same type (DT).
+
 - A **linked list** is a linear collection data elements of any type.
   Each access point / level is called a node. Each node as a value and
   points to the next node. Since a linked list does not have indexing,
   random access (direct access) is slower on lists and on arrays.
+
 - A **record** (aka tuple or struct) is an aggregate DS, a value that
   contains other values, indexed by names. Record's element are called
   fields or members.
+
 - **Hash tables** (aka hash maps) are DS that provide fast retrieval of
   vals based on keys. They map keys to indexes in array. Hash table is
   often used in dictionaries, caches, and DB indexing.
-  **Graphs** are collections of nodes connected by edges, representing
+
+- **Graphs** are collections of nodes connected by edges, representing
   relationships between entities. Graphs can be used to model social
   networks, computer networks, transportation networks. They consist of
   vertices (nodes) and edges (connections between nodes). Connections
   may have vectors (directions), may cycle or be acyclic. Traversing a
   graph uses algos such as breadth-first or depth first search.
+
 - **Stacks & Queues** are more abstract DT that can be implemented as
   arrays or linked lists. A stack has two main operations: push and pop,
   working at the topmost element from the stack. A queue has two main
   operations: enqueue and dequeue (implemented as shift and pop).
+
 - **Tree** represents hierarchical organization of elements, involving
   nodes, edges (branches), and root.
+
 - **Trie** (aka prefix tree) is a special type of tree to efficiently
   retrieve strings. Each node represents a character of a string, and
   the edges represents the chars that connect them. Particularly useful
