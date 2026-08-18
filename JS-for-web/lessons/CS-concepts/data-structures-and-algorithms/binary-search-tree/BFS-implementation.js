@@ -44,48 +44,23 @@ const tree = {
     }
 };
 
-function dfsPreorder(tree) {
-    let res = [];
-    if (tree.value) {
-        res = res.concat(tree.value);
-    }
-    if (tree.left) {
-        res = res.concat(dfsPreorder(tree.left));
-    }
-    if (tree.right) {
-        res = res.concat(dfsPreorder(tree.right));
-    }
-    return res;
-}
-
-function dfsInorder(tree) {
-    let res = [];
-    if (tree.left) {
-        res = res.concat(dfsInorder(tree.left));
-    }
-    if (tree.value) {
-        res = res.concat(tree.value);
-    }
-    if (tree.right) {
-        res = res.concat(dfsInorder(tree.right));
+function bfs(tree) {
+    const res = [];
+    const que = [tree];
+    while (que.length > 0) {
+        // 1. dequeue
+        const cur = que.shift();
+        // 2. visit
+        res.push(cur.value);
+        // 3. enqueue
+        if (cur.left) {
+            que.push(cur.left);
+        }
+        if (cur.right) {
+            que.push(cur.right);
+        }
     }
     return res;
 }
-
-function dfsPostorder(tree) {
-    let res = [];
-    if (tree.left) {
-        res = res.concat(dfsPostorder(tree.left));
-    }
-    if (tree.right) {
-        res = res.concat(dfsPostorder(tree.right));
-    }
-    if (tree.value) {
-        res = res.concat(tree.value);
-    }
-    return res;
-}
-
-const res = dfsPostorder(tree);
+const res = bfs(tree);
 res;
-// console.log(tree.left);
