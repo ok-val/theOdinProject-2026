@@ -72,7 +72,7 @@ Data structures are generally built upon primitive data types
   operations: enqueue and dequeue (implemented as shift and pop).
 
 - **Tree** represents hierarchical organization of elements, involving
-  nodes, edges (branches), and root.
+  nodes, edges (branches), and root. A tree is sub-type of graph.
 
 - **Trie** (aka prefix tree) is a special type of tree to efficiently
   retrieve strings. Each node represents a character of a string, and
