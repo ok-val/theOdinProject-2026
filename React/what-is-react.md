@@ -14,7 +14,7 @@ everytime.
 
 ```js
 function getWords(str) {
-    return str.split(' ');
+  return str.split(' ');
 }
 ```
 
@@ -69,3 +69,12 @@ Source: https://www.geeksforgeeks.org/reactjs/what-are-the-advantages-of-react-j
 - Cross-platform mobidle development with React Native
   Allows devs to use React to build native mobile apps for iOS and
   Android with a single codebase.
+
+# React DevTools
+
+React DevTools is a browser extension for Chromium browsers.
+Generally, it provides the following features for React devs:
+
+1. Verify/visualize component's props and states
+2. Address performance issues / identify root causes
+3. Inspecting context values
