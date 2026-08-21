@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import heroImg from './assets/hero.png';
 import Greeting from './Greeting.jsx';
+import TodoList from './Practice.jsx';
 import './App.css';
 
 // function App() {
@@ -123,8 +124,7 @@ import './App.css';
 function App() {
   return (
     <>
-      <Greeting></Greeting>
-      <p>Hello World!</p>
+      <TodoList></TodoList>
     </>
   );
 }
