@@ -5,7 +5,8 @@ import heroImg from './assets/hero.png';
 // import Greeting from './greeting.jsx';
 // import Gallery from './extract-component.jsx';
 // import Profile from './dynamic-adjust-img-size';
-import Profile from './passing-children';
+// import Profile from './passing-children';
+import Zoo from './generating-components-from-list';
 
 import './App.css';
 
@@ -127,7 +128,8 @@ import './App.css';
 function App() {
   // return <Gallery />;
   // return <Greeting></Greeting>;
-  return <Profile></Profile>;
+  // return <Profile></Profile>;
+  return <Zoo></Zoo>;
   return;
 }
 
