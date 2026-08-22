@@ -5,10 +5,13 @@ Source: https://react.dev/learn/javascript-in-jsx-with-curly-braces
 The new extended part of JSX is that part that needs some syntactic
 attention.
 
-## How to pass string with quotes
+## How to declare string and numbers
+
+1. Declare strings with double quotes
+2. Declare number with curlies
 
 To pass a string attribute (as in HTML string attribute) in JSX, I have
-to use "double quote".
+to use "double quote". For numbers, use {single curlies}.
 
 ```jsx
 export default function Avatar() {

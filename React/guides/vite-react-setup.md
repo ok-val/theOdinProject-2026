@@ -8,11 +8,11 @@ CLI. This is one of the simplest path recommended by TOP.
 
 1. Install create-vite with the React template
 
-> npm create vite@latest my-first-react-app -- --template react
+> npm create vite@latest practice-folder -- --template react
 
 Here's what the command does automatically:
 
-1. Create a project folder called `my-first-react-app`;
+1. Create a project folder called `practice-folder`;
 2. Generate starter files with all the boilerplate codes that needed to
    get started immediately;
 3. Configure all the build tools, specifically making the environment

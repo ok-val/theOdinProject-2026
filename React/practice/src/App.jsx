@@ -2,8 +2,11 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import heroImg from './assets/hero.png';
-import Greeting from './Greeting.jsx';
-import TodoList from './Practice.jsx';
+// import Greeting from './greeting.jsx';
+// import Gallery from './extract-component.jsx';
+// import Profile from './dynamic-adjust-img-size';
+import Profile from './passing-children';
+
 import './App.css';
 
 // function App() {
@@ -122,11 +125,10 @@ import './App.css';
 // }
 
 function App() {
-  return (
-    <>
-      <TodoList></TodoList>
-    </>
-  );
+  // return <Gallery />;
+  // return <Greeting></Greeting>;
+  return <Profile></Profile>;
+  return;
 }
 
 export default App;
