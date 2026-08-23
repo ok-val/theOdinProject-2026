@@ -6,7 +6,10 @@ import heroImg from './assets/hero.png';
 // import Gallery from './extract-component.jsx';
 // import Profile from './dynamic-adjust-img-size';
 // import Profile from './passing-children';
-import Zoo from './generating-components-from-list';
+// import Zoo from './generating-components-from-list';
+// import List from './list-rendering';
+// import RecipeList from './nested-list';
+import Poem from './list-with-separator';
 
 import './App.css';
 
@@ -129,7 +132,10 @@ function App() {
   // return <Gallery />;
   // return <Greeting></Greeting>;
   // return <Profile></Profile>;
-  return <Zoo></Zoo>;
+  // return <Zoo></Zoo>;
+  // return <List></List>;
+  // return <RecipeList></RecipeList>;
+  return <Poem />;
   return;
 }
 
