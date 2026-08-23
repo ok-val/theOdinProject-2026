@@ -9,7 +9,8 @@ import heroImg from './assets/hero.png';
 // import Zoo from './generating-components-from-list';
 // import List from './list-rendering';
 // import RecipeList from './nested-list';
-import Poem from './list-with-separator';
+// import Poem from './list-with-separator';
+import ButtonFrenzy from './intro-to-state';
 
 import './App.css';
 
@@ -135,7 +136,8 @@ function App() {
   // return <Zoo></Zoo>;
   // return <List></List>;
   // return <RecipeList></RecipeList>;
-  return <Poem />;
+  // return <Poem />;
+  return <ButtonFrenzy />;
   return;
 }
 
