@@ -5,6 +5,10 @@ Source: https://react.dev/learn/render-and-commit
 This article contains comical illustrations that make the subject more
 digestible!
 
+Source: https://www.geeksforgeeks.org/reactjs/reactjs-reconciliation/
+
+This article leans a bit more into the algo side.
+
 Before the components are displayed on the screen, they are prerendered
 by React (virtual DOM).
 
@@ -31,8 +35,8 @@ the `useState()` function.
 
 ## Step 2: Render the component
 
-After a render is triggered, React calls the component (the factory
-function that returns a single parent markup).
+After a render is triggered, React calls the component (the functional
+component that returns a single parent markup).
 
 > > > Rendering is React calling the components to go to work. < < <
 
