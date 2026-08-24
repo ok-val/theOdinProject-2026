@@ -15,8 +15,13 @@ function ButtonFrenzy() {
    */
   const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
 
-  const onButtonClick = (color) => () => {
+  const [timesBgChanged, setTimesBgChanged] = useState(0);
+
+  const onButtonClick = (color) => (e) => {
     setBackgroundColor(color);
+    if (backgroundColor !== e.target.textContent) {
+      setTimesBgChanged(timesBgChanged + 1);
+    }
   };
 
   return (
@@ -36,6 +41,7 @@ function ButtonFrenzy() {
           {color}
         </button>
       ))}
+      <div>{timesBgChanged}</div>
     </div>
   );
 }

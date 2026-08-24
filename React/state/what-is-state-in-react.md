@@ -17,6 +17,10 @@ needs an memory about itself. **State is thus a component's memory.**
 > virtual DOM. The algo then diffs the two to return the minimal set of
 > changes needed to update the actual DOM.
 
+The convention is to name the `stateValue` and `setStateValue` as such:\
+`const [something, setSomething]` because the setting function literally
+a getter function.
+
 ## Rerendering under-the-hood
 
 See [['../practice/intro-to-states.jsx']] for the example:
@@ -27,3 +31,7 @@ is subscribed to by `useState()`, which triggers the rendering.
 
 `useState()` also provides the subsequent values for `backgroundColor`
 of subsequent calls by encapsulating that value under-the-hood.
+This closure isolates the state and allows instances of the same
+component to have private, dedicated states.
+
+Read more: https://react.dev/learn/state-a-components-memory
