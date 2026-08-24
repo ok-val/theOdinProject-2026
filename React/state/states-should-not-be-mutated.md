@@ -39,3 +39,7 @@ const handleIncreaseAge = () => {
 > guaranteed to re-render the page. This is because `setState` uses
 > `Object.is()` to determine of the previous state is the same. Thus,
 > providing a new object is always better.
+
+> > > Rule 3: Use Updater Functions
+
+See [[state-updater-function.md]] for more details about this one.
