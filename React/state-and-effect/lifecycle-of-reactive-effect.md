@@ -36,10 +36,18 @@ thinking do not deal with external systems.
 > component with a subscription to something else outside of the entire
 > system itself.
 
+In short, effects does not have the same lifecycle as a component. If
+the component updates with the new state vars while the effect is set to
+sync once at mount (with a provided empty dependency array), the effect
+does not update with the component.
+
 ## Effects do not behave like events
 
 Event handlers run once per interaction, Effects run whenver
 synchronization is needed.
+
+Effects may add or remove events for components that do not have native
+event handlers.
 
 ## The sequence of execution
 
