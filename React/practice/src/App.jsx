@@ -10,7 +10,8 @@ import heroImg from './assets/hero.png';
 // import List from './list-rendering';
 // import RecipeList from './nested-list';
 // import Poem from './list-with-separator';
-import ButtonFrenzy from './intro-to-state';
+// import ButtonFrenzy from './intro-to-state';
+import ClassInput from '../../class-based-components/class-based-component-example';
 
 import './App.css';
 
@@ -137,7 +138,8 @@ function App() {
   // return <List></List>;
   // return <RecipeList></RecipeList>;
   // return <Poem />;
-  return <ButtonFrenzy />;
+  // return <ButtonFrenzy />;
+  return <ClassInput />;
   return;
 }
 
