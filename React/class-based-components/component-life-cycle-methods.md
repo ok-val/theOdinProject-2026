@@ -50,6 +50,36 @@ This is the clean up function and should be used to negate/invalidate
 stale requests that run in the WebAPI when they return by using an
 `ignore` flag. See more in [[you-might-not-need-an-effect.md]].
 
+## Example of lifecycle methods working together
+
+```jsx
+class ChatRoom extends Component {
+  state = {
+    serverUrl: 'https://localhost:1234'
+  };
+
+  componentDidMount() {
+    this.setupConnection();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.roomId !== prevProps.roomId ||
+      this.state.serverUrl !== prevState.serverUrl
+    ) {
+      this.destroyConnection();
+      this.setupConnection();
+    }
+  }
+
+  componentWillUnmount() {
+    this.destroyConnection();
+  }
+
+  // ...
+}
+```
+
 ## Lifecycle methods and useEffect equivalence
 
 Essentially, each different use cases of `useEffect` is a combination of
@@ -64,3 +94,6 @@ one or more of these lifecycle methods. Here's how they map:
 
 See this table for a killer visualization of lifecycle methods:
 https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+Reference how these methods are implemented here:
+https://react.dev/reference/react/Component
