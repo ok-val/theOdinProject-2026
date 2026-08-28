@@ -1,11 +1,22 @@
 import { useState } from 'react';
-import heroImg from './assets/hero.png';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
 import './App.css';
 
 function App() {
-  return <h1>Testing render function</h1>;
+  const [heading, setHeading] = useState('Magnificent Monkeys');
+
+  const clickHandler = () => {
+    setHeading('Radical Rhinos');
+  };
+
+  return (
+    <>
+      {/* <h1>Testing render function</h1> */}
+      <button type="button" onClick={clickHandler}>
+        Click Me
+      </button>
+      <h1>{heading}</h1>
+    </>
+  );
 }
 
 export default App;
