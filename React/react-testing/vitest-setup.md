@@ -25,6 +25,10 @@ Source: https://www.robinwieruch.de/vitest-react-testing-library/
 
 > npm run test
 
+Or test specific files:
+
+> npm test <dir>
+
 Vitest automatically enters watch mode. Good stuff!
 
 ## Vitest basic test suites
@@ -51,6 +55,13 @@ external library to enable that compatibility: `jsdom` is our go-to.
 
 > npm install @testing-library/react @testing-library/jest-dom
 > @testing-library/user-event --save-dev
+
+In which:
+
+- `@testing-library/react` provides test functions like `render()`
+- `@testing-library/jest-dom` includes custom matchers (aka
+  assertions/assertive functions). Find all matchers on jest-dom github.
+- `@testing-library/user-event` simulates user interactions
 
 3. Add a **TEST SETUP FILE** (optional but useful)
 
