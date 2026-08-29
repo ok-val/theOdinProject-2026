@@ -4,8 +4,9 @@ import App from '../src/App';
 
 describe('Main App component', () => {
   it('render correct heading', () => {
+    // render() returns a component to be appended to the vdom document.body
     render(<App />);
-    //
+
     expect(screen.getByRole('heading').textContent).toMatch(
       // use the i regex flag for case-insensitive comparison
       /Testing render function/i
