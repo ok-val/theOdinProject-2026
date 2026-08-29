@@ -1,6 +1,9 @@
 # Queries
 
-Source: https://testing-library.com/docs/queries/about/
+Source:
+
+- https://testing-library.com/docs/queries/about/
+- https://testing-library.com/docs/dom-testing-library/cheatsheet/
 
 > Queries and methods that Testing Library (a project for building test-
 > driven development tools) gives to find elements on a page.
