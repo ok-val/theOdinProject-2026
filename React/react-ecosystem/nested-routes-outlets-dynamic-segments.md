@@ -22,3 +22,31 @@ different experiences. For instance, use dynamic segments to display
 different products will have the same page layout and structure and then
 use nested routes + outlet to show different subtabs for that specific
 product.
+
+## Nested routes use outlet and outlet context
+
+Nested routes get laid out outside the tree in the `main.jsx` component.
+The parent component would contain an `Outlet` object to render its
+child components.
+
+Outlets inherently has a `context` prop build in. To extract from this
+`context`, call `useOutletContext()`.
+
+```jsx
+// Parent route
+function Parent() {
+  const [count, setCount] = React.useState(0);
+  return <Outlet context={[count, setCount]} />;
+}
+```
+
+```jsx
+// Child route
+import { useOutletContext } from 'react-router';
+
+function Child() {
+  const [count, setCount] = useOutletContext();
+  const increment = () => setCount((c) => c + 1);
+  return <button onClick={increment}>{count}</button>;
+}
+```

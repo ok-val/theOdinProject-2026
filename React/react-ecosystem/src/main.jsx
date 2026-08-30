@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import App from './App.jsx';
 import Profile from './profile-home.jsx';
 
-// import components to be nested for the static segment
+// import components to be nested for the nested routes
 import { Spinach, Popeye } from './nested-routes.jsx';
 import DefaultProfile from './profile-default.jsx';
 
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    // Method 1: Static segment
+    // Method 1: Nested routes
     path: 'profile',
     element: <Profile />,
     // the child paths are routed towards an Outlet object managed by the head profile component itself

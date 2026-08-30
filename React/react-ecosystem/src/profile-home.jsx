@@ -15,7 +15,7 @@ const Profile = () => {
       <p>Howdy!</p>
       <hr />
       <h2>The profile visited is here:</h2>
-      {/* For static segment method, use an Outlet */}
+      {/* For nested routes method, use an Outlet */}
       <Outlet />
       {/* Use conditional rendering along with the destructured segment */}
       {/* {name === 'popeye' ? (
