@@ -1,0 +1,8 @@
+.classExt {
+  background-color: blue;
+}
+
+.className {
+  composes: classExt;
+  color: green;
+}
