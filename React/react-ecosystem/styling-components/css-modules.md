@@ -1,5 +1,7 @@
 # CSS modules
 
+Source: https://blog.logrocket.com/css-vs-css-in-js/
+
 ## Intro
 
 While regular CSS is the simplest way to style, its global scope makes
@@ -8,8 +10,7 @@ it difficult to apply and track style locally or across larger projects.
 With CSS modules, CSS styles declarations are scoped locally,
 eliminating the worry of conflicting class names.
 
-Writing CSS modules requires CSS to be written inside JS. CSS-in-JS is a
-paradigm for styling front-end projects.
+Writing CSS modules requires CSS to be written inside JS.
 
 > [!definition] A CSS module is a CSS file where all class names and
 > animation names are scoped locally be default. CSS modules compile to
@@ -36,6 +37,13 @@ However, these come with setbacks:
 
 1. The CSS file must have the `.module.css` suffix
 2. Import the CSS file as `styles`
+
+```css
+/* styles.module.css */
+.className {
+  color: green;
+}
+```
 
 ```jsx
 import styles from './styles.module.css';
