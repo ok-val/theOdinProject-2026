@@ -15,7 +15,17 @@ specific elements in the DOM. Refs' values are persistant throughout the
 component's lifecycle, meaning that they will not be destroyed everytime
 a component re-renders.
 
+## Rules of using refs
+
+1. Don't write/read `ref.current` during rendering (b/c the components
+   become impure for having side-effects).
+2. Do write/read `ref.current` in event handlers or effects
+
 ## DOM manipulation use case
+
+Source:
+
+- https://react.dev/learn/manipulating-the-dom-with-refs
 
 Consider having to focus on a button every time a page loads. Here's how
 `useRef` would be implemented for that:
