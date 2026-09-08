@@ -45,4 +45,4 @@ SELECT name FROM groceries;
 ## SQL Syntax
 
 - No trailing commas
-- Semi-colons required for every command
+- Semi-colons required for every statement

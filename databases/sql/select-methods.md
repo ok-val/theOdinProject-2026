@@ -3,6 +3,7 @@
 - **Select all:**
 
 ```sql
+-- FROM keyword must immediately follow select declaration
 SELECT * FROM table_name;
 ```
 
