@@ -26,4 +26,6 @@ SELECT name FROM table_name ORDER BY quantity;
 ```sql
 SELECT * FROM table_name WHERE quantity > 4;
 SELECT * FROM table_name WHERE quantity > 4 AND quantity < 20;
+SELECT * FROM table_name WHERE quantity > 4 OR price < 10;
+-- You can have as many AND/OR as needed
 ```

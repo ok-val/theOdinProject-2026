@@ -22,3 +22,21 @@ Aggregate by condition:
 ```sql
 SELECT COUNT(price) FROM bike_store WHERE color = "yellow";
 ```
+
+Aggregate and rename:
+
+```sql
+SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY
+type;
+```
+
+Aggregate filter clauses: `HAVING`:
+
+```sql
+SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY
+type HAVING total_calories > 150;
+
+-- Not to be confused with using WHERE which only applies for records
+SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY
+type HAVING total_calories > 150;
+```

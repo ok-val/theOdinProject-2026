@@ -1,5 +1,9 @@
 # Basic Relational database construction
 
+Source:
+
+- https://www.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql
+
 Let's create a table called Groceries:
 
 1. Create the header rows
@@ -15,7 +19,7 @@ CREATE TABLE groceries (
 2. Fill in the values (by row)
 
 ```sql
--- Every
+-- Every records needs an INSERT statement
 INSERT INTO groceries VALUES (
   1,
   "Banana",
