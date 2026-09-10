@@ -3,6 +3,7 @@
 Source:
 
 - https://www.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql
+- https://www.khanacademy.org/computing/computer-programming/sql/further-learning-in-sql/a/further-learning-in-sql-what-to-learn-next
 
 Let's create a table called Groceries:
 
