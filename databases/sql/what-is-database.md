@@ -35,10 +35,12 @@ A common way of storing structured data is via a relational database.
 > [!definition] Relational Database
 >
 > A relational database is a type of database that organizes data into
-> sets of interrelated tables, considered as Relations. These relations
-> dictate how data across different tables can _interact and overlap_,
-> which minimizes duplicated info and create neatly structured, highly
-> efficient storage and retrieval of nested data.
+> sets of interrelated tables.
+>
+> These tables are considered as Relations, which dictate how data
+> across different tables can _interact and overlap_, which minimizes
+> duplicated info and create neatly structured, highly efficient storage
+> and retrieval of nested data.
 
 A relational DB is organized according to the relational model of data.
 The _relational model_ of data defines a set of relations and describes

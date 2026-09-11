@@ -9,7 +9,7 @@ SELECT MAX(quantity) FROM table_name;
 SELECT MIN(quantity) FROM table_name;
 ```
 
-Aggregate by group:
+Aggregate by group collapse:
 
 ```sql
 -- Total quantity by aisle
@@ -31,7 +31,7 @@ SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY
 type;
 ```
 
-Aggregate filter clauses: `HAVING`:
+Aggregate filter clauses for aliases using `HAVING`:
 
 ```sql
 SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY
@@ -40,4 +40,14 @@ type HAVING total_calories > 150;
 -- Not to be confused with using WHERE which only applies for records
 SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY
 type HAVING total_calories > 150;
+```
+
+Aggregate by unique values:
+
+```sql
+SELECT DISTINCT name FROM users;
+
+-- Alternatively, this would also achieve the same results
+-- But it's more idiomatic to use this with other AGGREGATE functions
+SELECT name FROM users GROUP BY name;
 ```
