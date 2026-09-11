@@ -31,6 +31,19 @@ SELECT type, SUM(calories) AS total_calories FROM exercise_logs GROUP BY
 type;
 ```
 
+## Group conditions with HAVING
+
+> The clause HAVING is used specifically with the GROUP BY clause to
+> filter grouped rows from the result set.
+
+```sql
+SELECT group_by_column, AGG_FUNC(column_expression) AS aggregate_result_alias, …
+  FROM mytable
+  WHERE condition
+  GROUP BY column
+  HAVING group_condition;
+```
+
 Aggregate filter clauses for aliases using `HAVING`:
 
 ```sql
