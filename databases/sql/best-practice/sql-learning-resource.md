@@ -1,0 +1,3 @@
+- SQLBolt
+- SQLZoo
+- Khan Academy
