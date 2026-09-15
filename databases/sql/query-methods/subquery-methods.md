@@ -31,3 +31,21 @@ SELECT * FROM exercise_logs WHERE type IN (
   SELECT type FROM drs_favorites WHERE reason LIKE "%cardiovascular%"
 );
 ```
+
+## Create boolean column with IN
+
+```sql
+SELECT winner IN ('Physics', 'Chemistry')
+  -- returns 1 if winner is either 'Physics' or 'Chemistry'
+  FROM nobel
+```
+
+## Comparing values against subqueried results
+
+```sql
+SELECT name
+  FROM world
+  WHERE gdp > ALL(
+    SELECT gdp FROM world WHERE continent = 'Europe' AND gdp > 0)
+    -- Note that if gdp contains a Null, a non-null filter (e.g., gdp > 0) is needed
+```
