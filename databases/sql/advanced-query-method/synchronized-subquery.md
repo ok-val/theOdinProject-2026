@@ -29,7 +29,7 @@ SELECT continent, name
 ```
 
 ```sql
---
+-- Outer and inner values cannot compare if they are the same
 SELECT name, continent FROM world AS a
   WHERE a.population >= ALL (
     SELECT population * 3 FROM world AS b

@@ -15,3 +15,11 @@ SELECT name,
   COALESCE (dinner, lunch, breakfast) AS latest_meal
   FROM name_meals;
 ```
+
+It could also be used to substitutes NULLs with a specified string:
+
+```sql
+SELECT name,
+  COALESCE(mobile, '07986 444 2266')
+  FROM teacher;
+```
