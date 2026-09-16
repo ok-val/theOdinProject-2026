@@ -4,6 +4,16 @@ Source:
 
 - https://www.codecademy.com/article/what-is-rest-api
 
+## What is a Web API?
+
+An API (Application Programming Interface) is a collection of structured
+methods of communication between different components of softwares.
+
+> Web API is the interface created by the back-end: the collection of
+> endpopints and the resources these endpoints expose.
+
+## What is REST API?
+
 A REST API (an Application Programming Interface that conforms to the
 Representational State Transfer principles), also known as RESTful API,
 
