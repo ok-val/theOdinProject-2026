@@ -12,6 +12,10 @@ methods of communication between different components of softwares.
 > Web API is the interface created by the back-end: the collection of
 > endpopints and the resources these endpoints expose.
 
+> In this context, endpoint is a specific digital location or access
+> point within an API. It's basically a URL pointing to a specific web
+> server to facilitate request processing.
+
 ## What is REST API?
 
 A REST API (an Application Programming Interface that conforms to the
