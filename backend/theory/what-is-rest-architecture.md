@@ -1,5 +1,9 @@
 # REST Principles
 
+Source:
+
+- https://www.codecademy.com/article/what-is-rest-api
+
 **REST --- Representational State Transfer** is a well-known
 _architectural style_ used for _providing standards_ between computer
 systems.

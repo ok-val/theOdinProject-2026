@@ -1,23 +1,33 @@
 # What is Back-end Architecture?
 
+Source:
+
+- https://www.theodinproject.com/lessons/nodejs-introduction-what-is-nodejs
+- https://www.codecademy.com/article/what-is-back-end-architecture
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction
+
 > Backend architecture is the structuring of the code, tech stack, and
 > client relationship that involve in the server.
 
-## What are clients?
+## Meet the two agents: Client and Server
+
+### What are clients?
 
 The clients are anything that send request to the back-end.
 
 Clients are often desktop/mobile browsers, mobile app, another server,
 or even smart gadgets/appliances.
 
-## What is a server?
+### What is a server?
 
 > A server is simply a computer that listens for incoming requests.
 
 Any computer that's connected within a network can act as a server. When
 developing apps, one should just use their own computer as a server.
 
-## What is a Web API?
+## Backend components: Server, App, Database
+
+### What is a Web API?
 
 An API (Application Programming Interface) is a collection of structured
 methods of communication between different components of softwares.
@@ -25,7 +35,7 @@ methods of communication between different components of softwares.
 > Web API is the interface created by the back-end: the collection of
 > endpopints and the resources these endpoints expose.
 
-## What is the back-end?
+### What is the back-end?
 
 The back-end is all the tech that processes incoming requests from
 client for which it generates and sends responses back to the client.
@@ -38,7 +48,7 @@ client for which it generates and sends responses back to the client.
 > - App: Server-side applications that listen to and process requests
 > - Database: Where server organizes and stores data
 
-## Server-side app
+### Server-side app
 
 The server runs two types of apps:
 
