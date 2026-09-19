@@ -1,0 +1,1 @@
+My first content written into a file using node:fs. This content was appended to the beginning using the w+ flag.

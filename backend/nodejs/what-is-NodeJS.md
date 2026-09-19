@@ -4,6 +4,7 @@ Source:
 
 - https://www.theodinproject.com/lessons/nodejs-introduction-what-is-nodejs
 - https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction
+- https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU
 
 > NodeJS, or simply Node, is an JS runtime that is driven by
 > asynchronous event, following a non-blocking I/O model.
@@ -23,6 +24,16 @@ or blocking the stack.
 Some of these functionalities are not native to vanilla JS, such as
 reading and writing local files, creating HTTP connections an listening
 to network requests.
+
+## Architecture
+
+When JS runs in the browser, Chrome's V8 engine compiles JS into machine
+code. Normally, without the browser, JS wouldn't run since the computer
+does not natively understand JS.
+
+NodeJS is written in C++, compiling JS into machine code. Because of
+this direct access to the machine. NodeJS has a different set of
+functionality than JS in V8 does (e.g., read-write file).
 
 ## What does being event driven mean?
 
