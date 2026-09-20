@@ -6,7 +6,13 @@
 > engine. A buffer handles binary data (e.g., images, video, or data
 > packets), created because JS historically work well with text strings.
 
-A buffer is accessible globally.
+- A chunk is a piece of data in the a stream sent in the stream.
+- A buffer where the chunks are temporarily stored and collected.
+
+A buffer is accessible globally. When streaming data (like receiving an
+HTTP request or reading a file in Node), multiple chunks arrive over
+time and are written into a buffer until the application is ready to
+process and assemble the complete payload.
 
 ```js
 const buf1 = Buffer.alloc(10);
