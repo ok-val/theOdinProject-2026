@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./nodejs/client-and-server/server-routing.js",
   "scripts": {
     "test": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
-    "test-with-npm": "node ./nodejs/tutorial-scripts/run-test-with-node.js"
+    "test-with-npm": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
+    "dev": "nodemon server-routing.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
   "type": "module",
   "devDependencies": {
     "eslint": "^10.10.0",
+    "nodemon": "^3.1.14",
     "prettier": "^3.9.6",
     "prettier-eslint": "^17.1.2"
   }
