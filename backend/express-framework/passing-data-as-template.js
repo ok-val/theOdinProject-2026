@@ -10,7 +10,7 @@ app.listen(3000, () => {
 });
 
 app.get('/home', (req, res) => {
-  res.render('home');
+  res.render('home', { title: 'Home' });
 });
 
 app.get('/', (req, res) => {
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about', { title: 'About' });
 });
 
 app.get('/about-us', (req, res) => {
