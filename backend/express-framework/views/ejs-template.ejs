@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- or passed dynamically via the route handler -->
+  <title>EJS template | <%= title %></title>
+</head>
+<body>
+  <!-- A new template could be created internally -->
+  <% const greeting = 'hello where' %>
+
+  <h1>EJS template</h1>
+  <!-- or passed dynamically via the route handler -->
+  <p><%= greeting %> from <%= title %></p>
+
+  <!-- Additional logic could be implemented in place using EJS tags -->
+  <% if (movies.length > 0) { %>
+    <% movies.forEach(mov => { %>
+      <h3 class="movie-title"> <%= mov.title %></h3>
+      <p class="movie-year"> <%= mov.year %></p>
+    <% }) %>
+  <% } else { %>
+    <p>There is no movies to display...</p>
+  <% } %>
+</body>
+</html>
