@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./nodejs/client-and-server/server-routing.js",
+  "main": "./express-framework/add-various-middleware.js",
   "scripts": {
     "test": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
     "test-with-npm": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
-    "dev": "nodemon server-routing.js"
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "ejs": "^6.0.1",
     "eslint": "^10.10.0",
     "express": "^5.2.1",
+    "morgan": "^1.12.1",
     "nodemon": "^3.1.14",
     "prettier": "^3.9.6",
     "prettier-eslint": "^17.1.2"
