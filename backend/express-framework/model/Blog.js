@@ -23,9 +23,21 @@ const blogSchema = new Schema(
   },
   // OPTIONS: timestamps manage `createAt`/`updatedAt` fields
   {
+    // collection?: 'blogs',
     timestamps: true
   }
 );
 
-const Blog = model('Blog', blogSchema);
+const Blog = model(
+  'Blog',
+  blogSchema
+  // collection?:
+  // 'blogs',
+);
+/**
+ * By default,Mongoose builds Collection names out of the model's names
+ * and pluralizes it, such that `Blog` becomes `blogs`.
+ */
+
+// export for use in the server.js
 export default Blog;
