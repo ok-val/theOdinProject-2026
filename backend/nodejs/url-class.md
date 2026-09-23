@@ -39,6 +39,10 @@ myURL.href = 'https://example.com/bar';
 console.log(myURL.href); // .../bar
 ```
 
+## Components
+
+See URL components in './tutorial-scripts/url-class-usage.js'
+
 ## Characteristics
 
 The URL constructor is accessible as a property on the global object.
