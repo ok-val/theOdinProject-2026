@@ -9,10 +9,10 @@ and NoSQL is actually... not ONLY SQL.
 organized into rows and columns. The definitions of tables and rows are
 called `schema`. These are considered robust.
 
-**NoSQL databases**, or non-relational DBs, are used as document stores,
-graph databases, key-value stores, or wide-column data stores. These are
-less robust to gain speed and scalability, good for handling large
-volumes of unstructured data.
+**NoSQL databases**, or not only relational DBs, are used as document
+stores, graph databases, key-value stores, or wide-column data stores.
+These are less robust to gain speed and scalability, good for handling
+large volumes of unstructured data.
 
 SQL is language with the **American Standards Institute (ANSI)**. It has
 some dialects such as T-SQL, PL/SQL. Popular SQL DBMS includes
