@@ -29,7 +29,7 @@ try {
 app.set('view engine', 'ejs');
 app.set('views', './express-framework/views');
 app.use(express.static('./express-framework/public'));
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 /**
  * This piece of Middleware is mandotory for parsing the req body the
  * submitted data from OTHER routes
@@ -54,7 +54,6 @@ app.get('/blogs/create', (req, res) => {
 });
 
 app.post('/blogs/create', async (req, res) => {
-  // console.log(req.body.title);
   try {
     await Blog.create({
       title: req.body.title,
@@ -65,6 +64,43 @@ app.post('/blogs/create', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.redirect('/404');
+  }
+});
+
+app.get('/blogs/:id', async (req, res) => {
+  const id = req.params.id;
+  // console.log(id);
+  const foundDoc = await Blog.findById(id);
+  res.render('single-blog', { title: 'Blog', data: foundDoc });
+});
+
+// Routed to be a fetch() with DELETE method from `single-blog.ejs`
+app.delete('/blogs/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    await Blog.findByIdAndDelete(id);
+    // await Blog.findById(id);
+    res.json({ redirect: '/blogs' });
+  } catch (error) {
+    console.error(error);
+    res.status(404).json({ redirect: '/404' });
+  } finally {
+    /**
+     * Note that `single-blog.ejs` calls an AJAX request (wrapped as the
+     * modern fetch API). When an AJAX request is sent, the browser
+     * expects the server to send back data. THIS very `app.delete`
+     * handler needs to send back data to the fetch req, such that:
+     *
+     * When the redirect code fires:
+     * res.redirect('/blogs');
+     *
+     * Fetch, listening for server response, intercepts the redirect,
+     * returns the resolved HTML to the original event listener. So
+     * nothing is actually redirected.
+     *
+     * Therefore, all responses in this handler needs to return data via
+     * `res.json()` method.
+     */
   }
 });
 

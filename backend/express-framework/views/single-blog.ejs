@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <h1><%= title %></h1>
+  <h3><%= data.title %></h3>
+  <p style="font-weight: bold;"><%= data.author %></p>
+  <p><%= data.content %></p>
+
+  <!-- This is a much more manual version of DELETE, I wonder if there 
+   is a more declarative way -->
+  <a class="anchor-button" data-postid="<%= data._id %>" id="btn--delete">Delete</a>
+
+  <script>
+    const deleteButton = document.getElementById('btn--delete');
+    deleteButton.addEventListener('click', async (e) => {
+      const id = e.target.dataset.postid;
+      const endpoint = `/blogs/${id}`;
+
+      try {
+        /** 
+         * Client-side fetch() expects the server to return some data. 
+         * In this instance, express returns a {redirect: ""} object to 
+         * fetch(), which is then used to manually set the current 
+         * window's href to the redirect URL.
+        */
+        const res = await fetch(endpoint, { method: 'DELETE' });
+        const data = await res.json();
+        if (data.redirect) {
+          window.location.href = data.redirect;
+        }
+      } catch (error) {
+        console.error(error);
+        if (data.redirect) {
+          window.location.href = data.redirect;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

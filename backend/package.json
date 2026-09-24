@@ -13,6 +13,7 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@html-eslint/eslint-plugin": "^0.66.1",
     "ejs": "^6.0.1",
     "eslint": "^10.10.0",
     "express": "^5.2.1",

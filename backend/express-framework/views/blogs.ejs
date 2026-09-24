@@ -8,9 +8,11 @@
 
   <% if (blogs.length > 0) { %>
     <% blogs.forEach(blog => { %>
-      <h3> <%= blog.title %></h3>
-      <p> <%= blog.author %></p>
-      <p> <%= blog.content %></p>
+      <a href="/blogs/<%= blog._id %>">
+        <h3> <%= blog.title %></h3>
+      </a>
+      <!-- <p> <%= blog.author %></p>
+      <p> <%= blog.content %></p> -->
     <% }) %>
   <% } else { %>
     <p>There are no blogs to display...</p>
