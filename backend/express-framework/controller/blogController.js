@@ -33,7 +33,7 @@ const blog_index = async (req, res) => {
   try {
     // This find has a sort attached to it
     const blogs = await Blog.find().sort({ createdAt: -1 }).exec();
-    res.render('blogs', { title: 'Blogs', blogs: blogs });
+    res.render('blogs/blogs', { title: 'Blogs', blogs: blogs });
   } catch (err) {
     console.error(err);
     res.redirect('404');
@@ -41,7 +41,7 @@ const blog_index = async (req, res) => {
 };
 
 const blog_create_get = (req, res) => {
-  res.render('create', { title: 'Create a blog' });
+  res.render('blogs/create', { title: 'Create a blog' });
 };
 
 const blog_create_post = async (req, res) => {
@@ -61,7 +61,7 @@ const blog_create_post = async (req, res) => {
 const blog_details = async (req, res) => {
   const id = req.params.id;
   const foundDoc = await Blog.findById(id);
-  res.render('single-blog', { title: 'Blog', data: foundDoc });
+  res.render('blogs/single-blog', { title: 'Blog', data: foundDoc });
 };
 
 const blog_delete = async (req, res) => {
@@ -69,7 +69,7 @@ const blog_delete = async (req, res) => {
   try {
     await Blog.findByIdAndDelete(id);
     // await Blog.findById(id);
-    res.json({ redirect: '/blogs' });
+    res.json({ redirect: 'blogs//blogs' });
   } catch (error) {
     console.error(error);
     res.status(404).json({ redirect: '/404' });

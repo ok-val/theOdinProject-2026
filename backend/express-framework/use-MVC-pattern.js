@@ -19,6 +19,11 @@
  * the callback
  */
 
+/**
+ * With all the implementations from views, model, and controller, we
+ * now have a complete MVC refactor.
+ */
+
 import express from 'express';
 import morgan from 'morgan';
 
