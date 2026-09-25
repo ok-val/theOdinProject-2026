@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./express-framework/use-MVC-pattern.js",
+  "main": "projects/infoSite/infoSite-main.js",
   "scripts": {
     "test": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
     "test-with-npm": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
