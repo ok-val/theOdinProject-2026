@@ -3,6 +3,7 @@
 Source:
 
 - https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks
 
 Both client and server-side code use frameworks to speed up developments
 and tackle known problems. As their domains, challenges, and scope of
@@ -21,6 +22,37 @@ functionality.
 This is mainly because most backend funtionalities such as
 authentication or HTTP server creation are much harder to implement from
 scratch than frontend interact features.
+
+> To sum, Web frameworks provide tools and libraries to simplify common
+> web development operations so that you don't have to create everything
+> from scratch every time. So what are some common web developement
+> operations?
+
+- Simplifiy the syntax that allows working directly with HTTP requests
+  and responses as well as their embedded data
+- Route requests to the appropriate handler, improving maintainability
+- Streamline database access by providing a Object-Relational Mapper
+  (ORM) layer for SQL or Object Data Mapper (ODM) layer for NoSQL
+- Render pages dynamically
+
+## Criteria for selecting a web framework
+
+Read more:
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks
+
+- Primary purpose
+- Degree of control
+  - opinionated vs unopinionated
+  - plugins
+- Learning curve
+- Effectiveness (amplify effort)
+- Efficiency (streamline effort)
+- Security
+- Speed
+- Caching/Memoization support
+- Scalibility
+- Baggage (size)
+- Strength good practice
 
 ## Simplifying server-side programming with frameworks
 
