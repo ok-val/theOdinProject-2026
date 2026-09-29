@@ -14,6 +14,22 @@ app.listen(local_endpoint, () => {
 
 app.use(base_router);
 
-app.use((req, res) => {
-  res.send('404');
+// app.use((req, res) => {
+//   res.render('404');
+// });
+
+app
+  .route('/book')
+  .get((req, res) => {
+    res.send('Get a random book');
+  })
+  .post((req, res) => {
+    res.send('Add a book');
+  })
+  .put((req, res) => {
+    res.send('Update the book');
+  });
+
+app.get('/{*splat}', (req, res) => {
+  res.status(404).render('404');
 });

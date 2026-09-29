@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
     "test-with-npm": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
-    "dev": "nodemon"
+    "dev-nodemon": "nodemon",
+    "dev": "node --watch projects/infoSite/infoSite-main.js",
+    "comment": "cat package-comment.md | grep -i 'Node native watch mode'"
   },
   "keywords": [],
   "author": "",
