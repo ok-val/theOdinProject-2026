@@ -1,5 +1,6 @@
 import express from 'express';
 import base_router from './routes/base.routes.js';
+import users_router from './routes/users.routes.js';
 
 const app = express();
 const local_endpoint = 3000;
@@ -17,6 +18,8 @@ app.use(base_router);
 // app.use((req, res) => {
 //   res.render('404');
 // });
+
+app.use('/user{s}', users_router);
 
 app
   .route('/book')

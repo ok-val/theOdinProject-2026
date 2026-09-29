@@ -22,6 +22,12 @@ In this pattern, the parts have the following functions:
 2. **View:** handles layout and display
 3. **Controller:** routes commands to the model and view parts
 
+| Part       | Description                     | What it knows                           |
+| ---------- | ------------------------------- | --------------------------------------- |
+| Model      | Manages data & business logic   | Data structure and access               |
+| View       | Handles layout & display        | The information in each View            |
+| Controller | Routes commands to Model & View | The View to render or data to send back |
+
 ![image of the MVC flowchart](./img/image.png)
 
 ## Handling user changes

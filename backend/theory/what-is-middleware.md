@@ -36,12 +36,36 @@ app.use((req, res, next) => {
 });
 ```
 
+```js
+app.use((req, res, next) => {
+  // Middleware can be used to modify the req object
+
+  next();
+});
+```
+
+## Error: Multiple responses in a single route handler
+
+```js
+app.use((req, res, next) => {
+  // This method ends the req-res cycle.
+  // This function, however, keeps running
+  res.send('Hi');
+
+  // This one logs
+  console.log('Middle');
+
+  // This one throws an Error since a response has been made
+  res.send('Bye');
+});
+```
+
 ## Different types of middleware
 
-| **Type**       | **How it's loaded**                  | **Primary use case**                         |
-| -------------- | ------------------------------------ | -------------------------------------------- |
-| App-level      | app.use(myMiddleware)                | Runs globally on every req                   |
-| Router-level   | router.use(middleware)               | Bound locally to a express.Router() instance |
-| Built-in       | express.json(), express.static()     | Express wares that parses static payload     |
-| Third-party    | app.use(thirdpartyMw)                | Various                                      |
-| Error-handling | app.use((err, req, res, next) => {}) | Process errors globally                      |
+| **Type**       | **How it's loaded**                  | **Primary use case**                       |
+| -------------- | ------------------------------------ | ------------------------------------------ |
+| App-level      | app.use(myMiddleware)                | Runs globally on every req                 |
+| Router-level   | router.use(middleware)               | Bound locally to express.Router() instance |
+| Built-in       | express.json(), express.static()     | Express wares that parses static payload   |
+| Third-party    | app.use(thirdpartyMw)                | Various                                    |
+| Error-handling | app.use((err, req, res, next) => {}) | Process errors globally                    |

@@ -19,6 +19,25 @@ Source:
   URL is matched with an endpoint. There can be one or multiple
   callbacks.
 
+- **Middleware:** is ANY handler functions that execute between the
+  receipt of the request and the final dispatch of the response (back to
+  the web server).
+
+- Controllers vs Middleware: While both controllers and middlewares are
+  both handler functions, Middleware is lexical in the req-res cycle,
+  while Controller is lexical in backend architecture design pattern.
+
+  Middleware subsumes Controllers, meaning that all Controllers are
+  Middleware but not all Middlewares are Controllers. This is because if
+  my backend architecture could choose not to use Controllers as part of
+  the MVC methodology, my implementation must still use Middlewares to
+  process and complete the req-res cycle. If I decide to use
+  Controllers, they are called back inside route handlers and become a
+  subpart of my Middleware implemetation.
+
+  Put simply, Controllers are specific implemetation of Middleware that
+  uses the MVC methodology.
+
   ```js
   app.get(
     '/example/b',
