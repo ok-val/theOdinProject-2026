@@ -58,6 +58,10 @@ app.use('/blogs', blogRouter);
  * Note that 404 handling should not be in the mini-apps because it will
  * return early
  */
-app.use((req, res) => {
+// app.use((req, res) => {
+//   res.status(404).render('404', { title: '404 error' });
+// });
+
+app.get('/{*splat}', (req, res) => {
   res.status(404).render('404', { title: '404 error' });
 });
