@@ -2,12 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "projects/infoSite/infoSite-main.js",
+  "main": "projects/miniMessageBoard/miniMessageServer.js",
   "scripts": {
     "test": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
     "test-with-npm": "node ./nodejs/tutorial-scripts/run-test-with-node.js",
     "dev-nodemon": "nodemon",
-    "dev": "node --watch projects/infoSite/infoSite-main.js",
+    "dev": "node --watch projects/miniMessageBoard/miniMessageServer.js",
     "comment": "cat package-comment.md | grep -i 'Node native watch mode'"
   },
   "keywords": [],
