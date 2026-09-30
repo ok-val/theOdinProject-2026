@@ -1,11 +1,18 @@
 # Handling errors
 
+Source:
+
+- https://medium.com/@viral_shah/express-middlewares-demystified-f0c2c37ea6a1
+- https://www.theodinproject.com/lessons/nodejs-controllers
+
 Always:
 
 1. Wrap your APIs (inside router handlers) inside a `try/catch` block
    for ESM or the `then().catch()` for CJS.
 
-2. Use an error handling middlware at the end:
+2. Include an errors folder to handle custom Errors
+
+3. Use an error handling middlware at the end:
 
 ```js
 app.get('/{*splat}', (req, res) => {
