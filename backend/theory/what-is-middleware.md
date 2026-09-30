@@ -1,5 +1,11 @@
 # Server-side Middleware
 
+Source:
+
+- https://expressjs.com/en/guide/using-middleware/
+- https://medium.com/@viral_shah/express-middlewares-demystified-f0c2c37ea6a1
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks
+
 Middleware is ANY handler functions that execute between the receipt of
 the request and the final dispatch of the response (back to the web
 server).
@@ -14,6 +20,13 @@ app.get('/', func);
 // if .get handler fires, sends a response, the rest of code don't run
 app.use(func);
 ```
+
+# Middleware functions
+
+- Execute any code
+- Modify the req and res objects
+- End the req-res cycle
+- Pass control to the next middleware
 
 ## Examples of middleware
 
@@ -39,7 +52,7 @@ app.use((req, res, next) => {
 ```js
 app.use((req, res, next) => {
   // Middleware can be used to modify the req object
-
+  req.customMessage = 'custom greetings';
   next();
 });
 ```
@@ -69,3 +82,7 @@ app.use((req, res, next) => {
 | Built-in       | express.json(), express.static()     | Express wares that parses static payload   |
 | Third-party    | app.use(thirdpartyMw)                | Various                                    |
 | Error-handling | app.use((err, req, res, next) => {}) | Process errors globally                    |
+
+## Third-party middleware
+
+- https://expressjs.com/en/resources/middleware/

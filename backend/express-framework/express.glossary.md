@@ -3,10 +3,18 @@
 Source:
 
 - https://expressjs.com/en/guide/routing/
+- https://expressjs.com/en/guide/using-middleware/
 
-- Construction of a route:
+- **Express app**: Express is a routing and middleware web framework for
+  Node. An express app is a series of middleware function calls executed
+  during the req-res cycle.
+
+- Construction of a Router Layer:
 
   > app['method']('<path>', ...callbacks);
+
+- **Route layer:** Individual employment of either a middleware, request
+  router (`.get()`/`.post()`), error handler, or another Router.
 
 - **Route method:** Corresponds to HTTP methods. Can be attached to
   `express` class instance
