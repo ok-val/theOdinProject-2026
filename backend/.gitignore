@@ -1,8 +1,8 @@
 node_modules
 
-.prettierignore
-.prettierrc
-eslint.config.js
+# .prettierignore
+# .prettierrc
+# eslint.config.js
 
 .test/
 
