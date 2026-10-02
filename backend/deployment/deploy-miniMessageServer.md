@@ -1,5 +1,8 @@
 # How to deploy with Railway from GitHub
 
+https://docs.railway.com/quick-start
+https://www.theodinproject.com/lessons/node-path-nodejs-deployment#debugging-and-troubleshooting-deployments
+
 There are multiple ways to deploy to Railway using: GitHub connect, CLI,
 and Docker image.
 
@@ -14,3 +17,7 @@ I chose the GitHub connection method.
    needed.
 
 3. Generate a random domain: _Settings > Networking > Generate domain_
+
+## Debugging and Troubleshooting Deployment
+
+See the TOP URL for a quick refresher.
