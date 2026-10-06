@@ -96,3 +96,68 @@ Source:
       res.send('Update the book');
     });
   ```
+
+## Express Validator
+
+Source:
+
+- https://blog.presidentbeef.com/blog/2020/01/14/injection-prevention-sanitizing-vs-escaping/
+
+Refresher:
+
+- https://youtu.be/SccSCuHhOw0?si=2dZ5Y4dvxyh7jpcy
+
+- **Sanitizing:** Cleaning the data or render it "safe". Consider the
+  sanitization context because different input values present different
+  vulnerabilities in different context. See more in
+  [[validate-and-sanitize.md]].
+
+  > Sanitizing involves removing characters entirely in order to make
+  > the value safe.
+
+  > Sanitization is both vulnerability-prone and error-prone. It is very
+  > difficult to implement robustly.
+
+  Unlike encoding, sanitization is irreversible. Data is lost when the
+  data is sanitized. One may not retrive the original data once it has
+  been sanitized.
+
+  Thus, one of the common practice is to implement sanitization at the
+  boundary of output or at the time of use.
+
+  When possible, use encoding _routines_ provided by libraries or
+  frameworks.
+
+- **Escaping:** Change the interpreted mode of an input value. Text
+  input is always being interpreted in some mode and for security, we
+  need to change that mode.
+
+  For example, ANSI escape codes tell the terminal to switch from text
+  mode to interpreting a sequence of control characters.
+
+  While the term "escape" is more dialectic of OS, "encoding" is more
+  dialectic in web security.
+
+- **Encoding:** involves replacing special chars with a different
+  representation.
+
+  For example, HTML encoding uses HTML entities. CSS encoding uses CSS
+  entities. SQL encoding uses SQL entities.
+
+  For HTML encoding dialect, the `<` is interpreted by default as the
+  start of an HTML tag. Because of this behavior, a character sequence
+  such as `&lt;` encodes the `<` char.
+
+  > Think of Escaping as Escaping interpretation: To avoid the
+  > interpreter interpreting the `<` as the start of a tag, we escape
+  > char by using the literal representation of that symbol `&lt;` so
+  > that the interpreter would read this as a literal symbol instead of
+  > the default interpretation mode.
+
+  For URLs, `/` is interpreted as path separator and the literal `/`
+  symbol is encoded by the sequence `%2F`.
+
+  Encoding dialects could borrow from other dialects. For example, URL
+  encoding for the literal char `%` uses ACSCII code.
+
+  Encoding (as opposed to hashing) is entirely reversible.
