@@ -34,4 +34,23 @@ async function insertUsername(username) {
      */
   ]);
 }
-export { getAllUsernames, insertUsername };
+
+async function findUsername(q) {
+  const qPattern = `%${q.toLowerCase()}%`;
+  const res = await pool.query(
+    `SELECT * FROM usernames WHERE LOWER(username) LIKE ($1)`,
+    [qPattern]
+  );
+  return res;
+}
+
+async function deleteAllUsernames() {
+  return await pool.query('TRUNCATE TABLE usernames');
+}
+
+export {
+  getAllUsernames,
+  insertUsername,
+  findUsername,
+  deleteAllUsernames
+};

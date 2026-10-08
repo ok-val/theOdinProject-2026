@@ -8,5 +8,17 @@
       <li><%= user %></li>
     <% }) %>
   </ul>
+  <button id="btn--delete">Delete all users</button>
 </body>
+<script>
+  document.getElementById('btn--delete').addEventListener("click", function(e) {
+    e.preventDefault();
+    let userConfirm = confirm("Are you sure you want to delete all usernames from db?");
+    if (userConfirm) {
+      console.log('here');
+      // Note that 'localhost:3000/delete-all' would not resolve correctly  
+      window.location.href = '/delete-all';
+    }
+  })
+</script>
 </html>

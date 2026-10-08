@@ -16,8 +16,27 @@ const saveUsernameFormInput = async (req, res) => {
   res.render('confirmAddedUsername', { title: 'Success', username });
 };
 
+const searchUsernames = async (req, res, next) => {
+  const q = req.query.search;
+  if (!q) {
+    return next('route');
+  }
+  // console.log(`Client searches for ${q}. Searching...`);
+  const { rows } = await db.findUsername(q);
+  // console.log(rows.length ? rows : undefined);
+  const resultData = rows.length ? rows : null;
+  res.render('searchRes', { title: 'Search Results', resultData, q });
+};
+
+const deleteAllUsers = async (req, res) => {
+  await db.deleteAllUsernames();
+  res.redirect('/');
+};
+
 export {
   logAvailableUsernames,
   renderUsernameForm,
-  saveUsernameFormInput
+  saveUsernameFormInput,
+  searchUsernames,
+  deleteAllUsers
 };

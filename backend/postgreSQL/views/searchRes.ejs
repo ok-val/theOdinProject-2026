@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <% if (resultData) {%>
+    <ul>
+      <% resultData.forEach((res) => { %>
+        <li><%= res.username %></li>
+      <% }) %>
+    </ul>
+    <% } else {%>
+      <p><%= q%> was not found in db</p>
+    <% } %>
+</body>
+</html>
