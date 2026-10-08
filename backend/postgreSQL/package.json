@@ -5,7 +5,8 @@
   "main": "postgresql-app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch postgresql-app.js"
+    "dev": "node --watch postgresql-app.js",
+    "seed": "node ./scripts/create-usernames-tb.js"
   },
   "keywords": [],
   "author": "",

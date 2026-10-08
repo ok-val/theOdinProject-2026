@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <ul>
+    <% usernames.forEach((user) => { %>
+      <li><%= user %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
