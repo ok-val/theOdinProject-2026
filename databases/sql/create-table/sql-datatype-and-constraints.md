@@ -26,7 +26,11 @@ ones:
 - BOOLEAN: 0 or 1 (else error)
 - FLOAT (/DOUBLE/REAL): floating points
 - TEXT: strings
-- CHARACTER(max_chars)/VARCHAR(max_chars): string truncated at max_chars
+- CHARACTER(max_chars): characters allocated to fixed-length malloc;
+  good for values with consistent lengths (e.g., country codes, phone
+  numbers)
+- VARCHAR(max_chars): characters allocated to varying-length malloc;
+  good for values with fluctuating lengths (e.g., messages, )
 - DATE/DATETIME: date formats
 - BLOB: binary data blobs
 
