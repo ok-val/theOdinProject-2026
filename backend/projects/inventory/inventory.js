@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'node:path';
+import indexRouter from './routers/index.router.js';
 
 const app = express();
 const localport = 3000;
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Add routers
+app.use(indexRouter);
 
 // Error handling
 // This middleware should use a proper controller for handling errors
