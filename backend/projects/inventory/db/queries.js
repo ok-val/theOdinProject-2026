@@ -5,6 +5,12 @@ const findAllRecords = async () => {
   return rows;
 };
 
+const findAllArtists = async (q) => {
+  const qPattern = `%${q}%`;
+  const { rows } = await pool.query('SELECT * FROM artist;');
+  return rows;
+};
+
 const queryRecord = async (q) => {
   const qPattern = `%${q}%`;
   const { rows } = await pool.query(
@@ -13,4 +19,23 @@ const queryRecord = async (q) => {
   );
   return rows;
 };
-export { findAllRecords, queryRecord };
+
+const queryYear = async (q) => {
+  const qPattern = `%${q}%`;
+  const { rows } = await pool.query(
+    'SELECT * FROM record WHERE year = $1',
+    [qPattern]
+  );
+  return rows;
+};
+
+const queryInstrument = async (q) => {
+  const qPattern = `%${q}%`;
+  const { rows } = await pool.query(
+    'SELECT * FROM record WHERE LOWER(instrument) LIKE $1',
+    [qPattern]
+  );
+  return rows;
+};
+
+export { findAllRecords, queryRecord, queryYear, findAllArtists };
