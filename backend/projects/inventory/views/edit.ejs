@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs')%>
+
+<body>
+
+  <ul id="currentData">
+  <% for (const d in currentData) {%>
+    <li><%= currentData[d]%></li>
+  <%}%>
+  </ul>
+
+  <form action="/edit?record=<%= currentData.record%>&year=<%= currentData.year%>&artist=<%= currentData.artist%>&instrument=<%= currentData.instrument%>&leader=<%= currentData.leader%>" method="post">
+    <label for="eRecord" hidden>Record name</label>
+    <input type="text" name="eRecord" placeholder="Record name"/>
+    
+    <label for="eArtist" hidden>Artist name</label>
+    <input type="text" name="eArtist" placeholder="Artist name"/>
+
+    <label for="eYear" hidden>Artist name</label>
+    <input type="text" name="eYear" placeholder="Year"/>
+
+    <label for="eInstrument" hidden>Artist name</label>
+    <input type="text" name="eInstrument" placeholder="Instrument"/>
+
+    <label for="eLeader" >Leader?</label>
+    <select name="eLeader">
+      <option value="">Unchanged</option>
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+
+    <button type="submit">Search</button>
+  </form>
+
+</body>
+</html>

@@ -2,14 +2,18 @@
   <caption>
     Query result
   </caption>
+
   <thead> 
     <tr>
       <th scope="col">Record</th>
       <th scope="col">Year</th>
       <th scope="col">Artist</th>
       <th scope="col">Instrument</th>
+      <th scope="col">Leader</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
+  
   <tbody>
     <% qRes.forEach((res) => {%>
       <tr>
@@ -17,13 +21,16 @@
         <td><%= res.year%></td>
         <td><%= res.artist%></td>
         <td><%= res.instrument%></td>
+        <td><%= res.leader%></td>
+        <td><a href="/edit?record=<%= res.record%>&year=<%= res.year%>&artist=<%= res.artist%>&instrument=<%= res.instrument%>&leader=<%= res.leader%>">Edit</a></td>
       </tr>
     <%})%>
   </tbody>
+
   <tfoot>
     <tr>
       <th scope="row" colspan="1">Result count</th>
-      <td colspan="3"><%= qRes.length%></td>
+      <td colspan="5"><%= qRes.length%></td>
     </tr>
   </tfoot>
 </table>
