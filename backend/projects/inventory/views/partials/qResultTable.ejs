@@ -1,0 +1,29 @@
+<table>
+  <caption>
+    Query result
+  </caption>
+  <thead> 
+    <tr>
+      <th scope="col">Record</th>
+      <th scope="col">Year</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Instrument</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% qRes.forEach((res) => {%>
+      <tr>
+        <th scope="row"><%= res.record%></th>
+        <td><%= res.year%></td>
+        <td><%= res.artist%></td>
+        <td><%= res.instrument%></td>
+      </tr>
+    <%})%>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th scope="row" colspan="1">Result count</th>
+      <td colspan="3"><%= qRes.length%></td>
+    </tr>
+  </tfoot>
+</table>

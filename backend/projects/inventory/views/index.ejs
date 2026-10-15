@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-</head>
+  <%- include('./partials/head.ejs')%>
 <body>
   <h1>Jazz records inventory</h1>
   <form action="/" method="get">
@@ -24,7 +20,7 @@
   </form>
 
   <% if (qRes) {%>
-    <%- include('./partials/qResult.ejs')%> 
+    <%- include('./partials/qResultTable.ejs')%> 
   <% } %> 
 </body>
 </html>
