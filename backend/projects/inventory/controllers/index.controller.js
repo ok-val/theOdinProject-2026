@@ -5,15 +5,16 @@ const getIndex = async (req, res) => {
   const qArtist = req.query.qArtist;
   const qYear = req.query.qYear;
   const qInstrument = req.query.qInstrument;
+  const tLeader = req.query.tLeader;
 
   let qRes;
   qRes = await db.queryRecordByAll(
     qRecord,
     qArtist,
     qYear,
-    qInstrument
+    qInstrument,
+    tLeader
   );
-  console.log(qRes);
   res.render('index', { qRes });
 };
 

@@ -15,16 +15,22 @@ const queryRecordByAll = async (
   qRecord,
   qArtist,
   qYear,
-  qInstrument
+  qInstrument,
+  tLeader
 ) => {
-  const qRecordPattern = `%${qRecord.toLowerCase()}%`;
-  const qArtistPattern = `%${qArtist.toLowerCase()}%`;
-  const qYearPattern = `%${qYear.toLowerCase()}%`;
-  const qInstrumentPattern = `%${qInstrument.toLowerCase()}%`;
+  const qRecordPattern = `%${qRecord?.toLowerCase()}%`;
+  const qArtistPattern = `%${qArtist?.toLowerCase()}%`;
+  const qYearPattern = `%${qYear?.toLowerCase()}%`;
+  const qInstrumentPattern = `%${qInstrument?.toLowerCase()}%`;
+
+  // const tLeaderPattern = tLeader.length ? tLeader : '(true, false)';
+  const qLeaderQuery = !tLeader.length
+    ? 'IN (true, false)'
+    : `= CAST (${tLeader} AS BOOLEAN)`;
 
   const { rows } = await pool.query(
     `
-    SELECT r.name AS record, r.year, a.name AS artist, c.instrument
+    SELECT r.name AS record, r.year, a.name AS artist, c.instrument, c.leader
       FROM contribution AS c
       LEFT OUTER JOIN record AS r
       ON c.record_id = r.id
@@ -33,7 +39,8 @@ const queryRecordByAll = async (
       WHERE LOWER(r.name) LIKE $1
         AND CAST(r.year AS VARCHAR(20)) LIKE $2
         AND LOWER(a.name) LIKE $3
-        AND LOWER(c.instrument) LIKE $4;
+        AND LOWER(c.instrument) LIKE $4
+        AND c.leader ${qLeaderQuery}
     `,
     [qRecordPattern, qYearPattern, qArtistPattern, qInstrumentPattern]
   );
