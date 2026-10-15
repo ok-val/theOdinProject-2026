@@ -8,29 +8,23 @@
 <body>
   <h1>Jazz records inventory</h1>
   <form action="/" method="get">
-    <label for="q" hidden>Query</label>
-    <input type="text" name="q" placeholder="Search empty to display all"/>
+    <label for="qRecord" hidden>Record name</label>
+    <input type="text" name="qRecord" placeholder="Record name"/>
     
-    <label for="qType">Search query type:</label>
-    <select name="qType" id="qType">
-      <option value="byName">Record name</option>
-      <option value="byYear">Year</option>
-      <option value="byArtist">Artist</option>
-      <option value="byInstrument">Instrument</option>
-    </select>
+    <label for="qArtist" hidden>Artist name</label>
+    <input type="text" name="qArtist" placeholder="Artist name"/>
+
+    <label for="qYear" hidden>Artist name</label>
+    <input type="text" name="qYear" placeholder="Year"/>
+
+    <label for="qInstrument" hidden>Artist name</label>
+    <input type="text" name="qInstrument" placeholder="Instrument"/>
 
     <button type="submit">Search</button>
   </form>
 
   <% if (qRes) {%>
-    <% switch (qType) {
-      case "byName":%>
-        <%- include('./partials/qName.ejs')%> 
-        <% break
-      case "byArtist":%>
-        <%- include('./partials/qArtist.ejs')%> 
-        <% break
-      } %>
+    <%- include('./partials/qResult.ejs')%> 
   <% } %> 
 </body>
 </html>

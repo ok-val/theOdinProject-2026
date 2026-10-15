@@ -1,23 +1,20 @@
 import * as db from '../db/queries.js';
 
 const getIndex = async (req, res) => {
-  const q = req.query.q;
-  const qType = req.query.qType;
+  const qRecord = req.query.qRecord;
+  const qArtist = req.query.qArtist;
+  const qYear = req.query.qYear;
+  const qInstrument = req.query.qInstrument;
+
   let qRes;
-  if (!q.length) {
-    switch (qType) {
-      case 'byName':
-        qRes = await db.findAllRecords();
-        break;
-      case 'byArtist':
-        qRes = await db.findAllArtists();
-        break;
-    }
-  } else {
-    qRes = await db.queryRecord(q);
-  }
-  // console.log(qRes);
-  res.render('index', { qRes, qType });
+  qRes = await db.queryRecordByAll(
+    qRecord,
+    qArtist,
+    qYear,
+    qInstrument
+  );
+  console.log(qRes);
+  res.render('index', { qRes });
 };
 
 export { getIndex };
