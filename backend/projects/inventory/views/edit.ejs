@@ -3,12 +3,7 @@
 <%- include('./partials/head.ejs')%>
 
 <body>
-
-  <ul id="currentData">
-  <% for (const d in currentData) {%>
-    <li><%= currentData[d]%></li>
-  <%}%>
-  </ul>
+  <h1>Jazz Records Inventory</h1>
 
   <form action="/edit?record=<%= currentData.record%>&year=<%= currentData.year%>&artist=<%= currentData.artist%>&instrument=<%= currentData.instrument%>&leader=<%= currentData.leader%>" method="post">
     <label for="eRecord" hidden>Record name</label>
@@ -30,8 +25,14 @@
       <option value="false">No</option>
     </select>
 
-    <button type="submit">Search</button>
+    <button type="submit">Submit</button>
   </form>
+
+  <ul id="currentData">
+  <% for (const d in currentData) {%>
+    <li><%= currentData[d]%></li>
+  <%}%>
+  </ul>
 
 </body>
 </html>

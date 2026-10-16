@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'node:path';
 import indexRouter from './routers/index.router.js';
 import editRouter from './routers/edit.router.js';
+import addRouter from './routers/add.router.js';
 
 const app = express();
 const localport = 3000;
@@ -26,6 +27,7 @@ app.use(express.static('public'));
 
 // Add routers
 app.use('/edit', editRouter);
+app.use('/add', addRouter);
 app.use(indexRouter);
 
 // Error handling

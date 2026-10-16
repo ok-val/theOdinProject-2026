@@ -1,5 +1,6 @@
 import * as db from '../db/queries.js';
 
+// TODO: add sanitzation and validation
 const getEdit = (req, res) => {
   const currentData = req.query;
   // console.log(currentData);
@@ -28,6 +29,7 @@ const postEdit = async (req, res) => {
     eInstrument,
     eLeader
   );
+  // TODO: render edit confirmation page
   res.send('post data');
 };
 

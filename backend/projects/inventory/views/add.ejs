@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs')%>
+
+<body>
+  <h1>Jazz Records Inventory</h1>
+
+  <form action='/add' method="post">
+    <label for="aRecord" hidden>Record name</label>
+    <input type="text" name="aRecord" placeholder="Record name"/>
+    
+    <label for="aArtist" hidden>Artist name</label>
+    <input type="text" name="aArtist" placeholder="Artist name"/>
+
+    <label for="aYear" hidden>Artist name</label>
+    <input type="text" name="aYear" placeholder="Year"/>
+
+    <label for="aInstrument" hidden>Artist name</label>
+    <input type="text" name="aInstrument" placeholder="Instrument"/>
+
+    <label for="aLeader" >Leader?</label>
+    <select name="aLeader">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+
+    <button type="submit">Add</button>
+  </form>
+
+</body>

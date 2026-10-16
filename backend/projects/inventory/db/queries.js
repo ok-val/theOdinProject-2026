@@ -1,16 +1,5 @@
 import pool from './pool.js';
 
-// const findAllRecords = async () => {
-//   const { rows } = await pool.query('SELECT * FROM record;');
-//   return rows;
-// };
-
-// const findAllArtists = async (q) => {
-//   const qPattern = `%${q}%`;
-//   const { rows } = await pool.query('SELECT * FROM artist;');
-//   return rows;
-// };
-
 const queryRecordByAll = async (
   qRecord,
   qArtist,
@@ -140,38 +129,62 @@ const updateDataByAllFields = async (
   }
 };
 
-// const queryRecord = async (q) => {
-//   const qPattern = `%${q}%`;
-//   const { rows } = await pool.query(
-//     'SELECT * FROM record WHERE LOWER(name) LIKE $1',
-//     [qPattern]
-//   );
-//   return rows;
-// };
+const createRecordByAllFields = async (
+  aRecord,
+  aYear,
+  aArtist,
+  aInstrument,
+  aLeader
+) => {
+  const aRecordCapitalized = aRecord
+    .trim()
+    .split(' ')
+    .map((w) => w[0].toUpperCase() + w.slice(1))
+    .join(' ');
 
-// const queryYear = async (q) => {
-//   const qPattern = `%${q}%`;
-//   const { rows } = await pool.query(
-//     'SELECT * FROM record WHERE year = $1',
-//     [qPattern]
-//   );
-//   return rows;
-// };
+  const aArtistCapitalized = aArtist
+    .trim()
+    .split(' ')
+    .map((w) => w[0].toUpperCase() + w.slice(1))
+    .join(' ');
+  console.log(aArtistCapitalized);
 
-// const queryInstrument = async (q) => {
-//   const qPattern = `%${q}%`;
-//   const { rows } = await pool.query(
-//     'SELECT * FROM record WHERE LOWER(instrument) LIKE $1',
-//     [qPattern]
-//   );
-//   return rows;
-// };
+  const aInstrumentLowered = aInstrument.trim().toLowerCase();
+
+  await pool.query(
+    /** Suggested by Claude:
+     * Instead of doing consecutive pool.query() calls, I could use
+     * WITH to create a new table while INSERTing and RETURNING the
+     * newly created id from the creation.
+     *
+     * For a refresher on INSERT ... SELECT.. vs INSERT .. VALUE, see
+     *
+     */
+
+    `
+    WITH new_record AS (
+      INSERT INTO record (name, year) VALUES ($1, $2)
+      ON CONFLICT (name) DO NOTHING RETURNING id
+    ), new_artist AS (
+      INSERT INTO artist (name) VALUES ($3)
+      ON CONFLICT (name) DO NOTHING RETURNING id 
+    )
+    INSERT INTO contribution (record_id, artist_id, instrument, leader)
+    SELECT new_record.id, new_artist.id, $4, $5
+    FROM new_record, new_artist;
+  `,
+    [
+      aRecordCapitalized,
+      aYear,
+      aArtistCapitalized,
+      aInstrumentLowered,
+      aLeader
+    ]
+  );
+};
 
 export {
-  // findAllRecords,
-  // queryRecord,
-  // queryYear,
-  // findAllArtists,
   queryRecordByAll,
-  updateDataByAllFields
+  updateDataByAllFields,
+  createRecordByAllFields
 };
