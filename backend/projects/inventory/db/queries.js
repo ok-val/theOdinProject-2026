@@ -192,7 +192,7 @@ const queryDataByRecordArtistInstrument = async (
 ) => {
   const { rows } = await pool.query(
     `
-    SELECT r.name AS record_name, a.name AS artist_name, c.instrument FROM contribution AS c
+    SELECT r.name AS record, r.year, a.name AS artist, c.instrument, c.leader FROM contribution AS c
     JOIN record AS r ON r.id = c.record_id
     JOIN artist AS a ON a.id = c.artist_id
     WHERE r.name = $1

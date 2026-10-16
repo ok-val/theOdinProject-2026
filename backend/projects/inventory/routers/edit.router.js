@@ -5,6 +5,6 @@ const editRouter = express.Router();
 
 editRouter.get('/', editController.getEdit);
 
-editRouter.post('/', editController.postEdit);
+editRouter.post('/', editController.postValidatedEdit);
 
 export default editRouter;

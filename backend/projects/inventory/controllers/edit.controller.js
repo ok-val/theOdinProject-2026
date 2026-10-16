@@ -1,6 +1,6 @@
 import * as db from '../db/queries.js';
+import validateEditInput from '../validators/edit.validator.js';
 
-// TODO: add sanitzation and validation
 const getEdit = (req, res) => {
   const currentData = req.query;
   // console.log(currentData);
@@ -15,7 +15,7 @@ const postEdit = async (req, res) => {
     instrument: cInstrument,
     leader: cLeader
   } = req.query;
-  // console.log(req.body);
+
   const { eRecord, eArtist, eYear, eInstrument, eLeader } = req.body;
   await db.updateDataByAllFields(
     cRecord,
@@ -29,8 +29,19 @@ const postEdit = async (req, res) => {
     eInstrument,
     eLeader
   );
-  // TODO: render edit confirmation page
-  res.send('post data');
+
+  const currentData = await db.queryDataByRecordArtistInstrument(
+    eRecord.length ? eRecord : cRecord,
+    eArtist.length ? eArtist : cArtist,
+    eInstrument.length ? eInstrument : cInstrument
+  );
+
+  res.render('edit', {
+    editSuccess: true,
+    currentData: currentData[0]
+  });
 };
 
-export { getEdit, postEdit };
+const postValidatedEdit = [validateEditInput, postEdit];
+
+export { getEdit, postValidatedEdit };

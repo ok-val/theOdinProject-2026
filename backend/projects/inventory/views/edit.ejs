@@ -29,10 +29,13 @@
   </form>
 
   <ul id="currentData">
-  <% for (const d in currentData) {%>
-    <li><%= currentData[d]%></li>
-  <%}%>
+    <% for (const d in currentData) {%>
+      <li><%= currentData[d]%></li>
+    <%}%>
   </ul>
+
+  <%- include('./partials/errors.ejs')%>
+  <%- include('./partials/editSuccess.ejs')%>
 
 </body>
 </html>
