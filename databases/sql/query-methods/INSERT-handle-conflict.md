@@ -22,3 +22,7 @@ DO UPDATE SET
   name = EXCLUDED.name;
   -- Addition conditions could be added here for this DO UPDATE
 ```
+
+See
+[[C:/Users/Aorus/Desktop/Work/tutorials/TheOdinProject-2026/backend/projects/inventory/db/queries.js]]
+for an implementation of this.

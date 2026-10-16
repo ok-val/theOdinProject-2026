@@ -60,3 +60,7 @@ SELECT 'Hades', (SELECT id FROM genres WHERE name = 'Nonexistent');
 SELECT 'Hades', id FROM genres WHERE name = 'Nonexistent';
 -- 0 rows                  ← the row source is empty
 ```
+
+See
+[[C:/Users/Aorus/Desktop/Work/tutorials/TheOdinProject-2026/backend/projects/inventory/db/queries.js]]
+for an implementation of this.

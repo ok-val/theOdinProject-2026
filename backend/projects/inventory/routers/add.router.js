@@ -5,6 +5,6 @@ const addRouter = express.Router();
 
 addRouter.get('/', addController.getAdd);
 
-addRouter.post('/', addController.postAdd);
+addRouter.post('/', addController.postValidatedAdd);
 
 export default addRouter;

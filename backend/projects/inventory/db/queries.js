@@ -147,7 +147,6 @@ const createRecordByAllFields = async (
     .split(' ')
     .map((w) => w[0].toUpperCase() + w.slice(1))
     .join(' ');
-  console.log(aArtistCapitalized);
 
   const aInstrumentLowered = aInstrument.trim().toLowerCase();
 
@@ -158,7 +157,10 @@ const createRecordByAllFields = async (
      * newly created id from the creation.
      *
      * For a refresher on INSERT ... SELECT.. vs INSERT .. VALUE, see
+     * [[C:/Users/Aorus/Desktop/Work/tutorials/TheOdinProject-2026/databases/sql/query-methods/INSERT-SELECT-vs-INSERT-VALUE.md]]
      *
+     * For refresher on ON CONFLICT, see
+     * C:/Users/Aorus/Desktop/Work/tutorials/TheOdinProject-2026/databases/sql/query-methods/INSERT-handle-conflict.md
      */
 
     `
@@ -183,8 +185,28 @@ const createRecordByAllFields = async (
   );
 };
 
+const queryDataByRecordArtistInstrument = async (
+  qRecord,
+  qArtist,
+  qInstrument
+) => {
+  const { rows } = await pool.query(
+    `
+    SELECT r.name AS record_name, a.name AS artist_name, c.instrument FROM contribution AS c
+    JOIN record AS r ON r.id = c.record_id
+    JOIN artist AS a ON a.id = c.artist_id
+    WHERE r.name = $1
+      AND a.name = $2
+      AND c.instrument = $3
+    `,
+    [qRecord, qArtist, qInstrument]
+  );
+  return rows;
+};
+
 export {
   queryRecordByAll,
   updateDataByAllFields,
-  createRecordByAllFields
+  createRecordByAllFields,
+  queryDataByRecordArtistInstrument
 };

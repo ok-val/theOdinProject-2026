@@ -1,8 +1,9 @@
 import * as db from '../db/queries.js';
+import validateAddInput from '../validators/add.validator.js';
 
 // TODO: add sanitzation and validation
 const getAdd = (req, res) => {
-  res.render('add');
+  res.render('add', { errors: null });
 };
 
 const postAdd = async (req, res) => {
@@ -15,7 +16,8 @@ const postAdd = async (req, res) => {
     aLeader
   );
   // TODO: render add confirmation page
-  res.send('');
+  res.send('addConfirmation');
 };
+const postValidatedAdd = [validateAddInput, postAdd];
 
-export { getAdd, postAdd };
+export { getAdd, postValidatedAdd };
