@@ -16,7 +16,7 @@ const postAdd = async (req, res) => {
     aLeader
   );
   // TODO: render add confirmation page
-  res.send('addConfirmation');
+  res.redirect('/');
 };
 const postValidatedAdd = [validateAddInput, postAdd];
 

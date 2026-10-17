@@ -7,13 +7,12 @@ const queryRecordByAll = async (
   qInstrument,
   tLeader
 ) => {
-  const qRecordPattern = `%${qRecord?.toLowerCase()}%`;
-  const qArtistPattern = `%${qArtist?.toLowerCase()}%`;
-  const qYearPattern = `%${qYear?.toLowerCase()}%`;
-  const qInstrumentPattern = `%${qInstrument?.toLowerCase()}%`;
+  const qRecordPattern = `%${qRecord == undefined ? '' : qRecord?.toLowerCase()}%`;
+  const qArtistPattern = `%${qArtist == undefined ? '' : qArtist?.toLowerCase()}%`;
+  const qYearPattern = `%${qYear == undefined ? '' : qYear?.toLowerCase()}%`;
+  const qInstrumentPattern = `%${qInstrument == undefined ? '' : qInstrument?.toLowerCase()}%`;
 
-  // const tLeaderPattern = tLeader.length ? tLeader : '(true, false)';
-  const qLeaderQuery = !tLeader.length
+  const qLeaderQuery = !tLeader?.length
     ? 'IN (true, false)'
     : `= CAST (${tLeader} AS BOOLEAN)`;
 
@@ -151,11 +150,23 @@ const createRecordByAllFields = async (
   const aInstrumentLowered = aInstrument.trim().toLowerCase();
 
   await pool.query(
-    /** Suggested by Claude:
-     * Instead of doing consecutive pool.query() calls, I could use
-     * WITH to create a new table while INSERTing and RETURNING the
-     * newly created id from the creation.
-     *
+    `
+    INSERT INTO record (name, year) VALUES ($1, $2)
+    ON CONFLICT (name) DO NOTHING;
+    `,
+    [aRecordCapitalized, aYear]
+  );
+
+  await pool.query(
+    `
+    INSERT INTO artist (name) VALUES ($1)
+    ON CONFLICT (name) DO NOTHING;
+    `,
+    [aArtistCapitalized]
+  );
+
+  await pool.query(
+    /**
      * For a refresher on INSERT ... SELECT.. vs INSERT .. VALUE, see
      * [[C:/Users/Aorus/Desktop/Work/tutorials/TheOdinProject-2026/databases/sql/query-methods/INSERT-SELECT-vs-INSERT-VALUE.md]]
      *
@@ -164,20 +175,13 @@ const createRecordByAllFields = async (
      */
 
     `
-    WITH new_record AS (
-      INSERT INTO record (name, year) VALUES ($1, $2)
-      ON CONFLICT (name) DO NOTHING RETURNING id
-    ), new_artist AS (
-      INSERT INTO artist (name) VALUES ($3)
-      ON CONFLICT (name) DO NOTHING RETURNING id 
-    )
     INSERT INTO contribution (record_id, artist_id, instrument, leader)
-    SELECT new_record.id, new_artist.id, $4, $5
-    FROM new_record, new_artist;
+    SELECT (SELECT id FROM record WHERE name = $1), 
+           (SELECT id FROM artist WHERE name = $2),
+            $3, $4
   `,
     [
       aRecordCapitalized,
-      aYear,
       aArtistCapitalized,
       aInstrumentLowered,
       aLeader
@@ -204,9 +208,23 @@ const queryDataByRecordArtistInstrument = async (
   return rows;
 };
 
+const deleteDataByAll = async (reqBody) => {
+  const { record, artist, instrument } = reqBody;
+  return await pool.query(
+    `
+    DELETE FROM contribution
+    WHERE record_id = (SELECT id FROM record WHERE name = $1)
+      AND artist_id = (SELECT id FROM artist WHERE name = $2)
+      AND instrument = $3;
+    `,
+    [record, artist, instrument]
+  );
+};
+
 export {
   queryRecordByAll,
   updateDataByAllFields,
   createRecordByAllFields,
-  queryDataByRecordArtistInstrument
+  queryDataByRecordArtistInstrument,
+  deleteDataByAll
 };

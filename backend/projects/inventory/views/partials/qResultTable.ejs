@@ -10,7 +10,7 @@
       <th scope="col">Artist</th>
       <th scope="col">Instrument</th>
       <th scope="col">Leader</th>
-      <th scope="col">Options</th>
+      <th scope="col" colspan="2">Options</th>
     </tr>
   </thead>
   
@@ -23,6 +23,10 @@
         <td><%= res.instrument%></td>
         <td><%= res.leader%></td>
         <td><a href="/edit?record=<%= res.record%>&year=<%= res.year%>&artist=<%= res.artist%>&instrument=<%= res.instrument%>&leader=<%= res.leader%>">Edit</a></td>
+        <!-- <td><a href="/delete?record=<%= res.record%>&year=<%= res.year%>&artist=<%= res.artist%>&instrument=<%= res.instrument%>&leader=<%= res.leader%>">Delete</a></td> -->
+        <td><a class="btn--delete" data-record="<%= res.record%>" data-year="<%= res.year%>" data-artist="<%= res.artist%>" data-instrument="<%= res.instrument%>" data-leader="<%= res.leader%>">Delete</a></td>
+        <!-- <td><a class="btn--delete">Delete</a></td> -->
+
       </tr>
     <%})%>
   </tbody>
@@ -31,7 +35,29 @@
     <tr>
       <th scope="row" colspan="1">Result count</th>
       <td colspan="4"><%= qRes.length%></td>
-      <td><a href="/add">Add</a></td>
+      <td colspan="2"><a href="/add">Add</a></td>
     </tr>
   </tfoot>
 </table>
+
+<script>
+  const deleteButtons = document.querySelectorAll('.btn--delete');
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      const { record, year, artist, instrument, leader } = e.target.dataset;
+      const endpoint = `/delete?record=${record.replaceAll(" ", "+")}&year=${year.replaceAll(" ", "+")}&artist=${artist.replaceAll(" ", "+")}&instrument=${instrument.replaceAll(" ", "+")}&leader=${leader}`;
+      // console.log(endpoint);
+
+      try {
+       const res = await fetch(endpoint, { method: "DELETE" });
+       const resData = await res.json();
+       if (resData.redirect) {
+        window.location.href = resData.redirect;
+       }
+      } catch (error) {
+        console.error(error);
+        window.location.href = '/';
+      }
+    });
+  });
+</script>
