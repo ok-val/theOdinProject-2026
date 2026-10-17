@@ -34,3 +34,4 @@ Enter the password as prompted
 > \q
 
 6. Add `DATABASE_PASSWORD="<your_password>"` into `~/.bashrc`
+   JnbzMpEjjaFuMkezYgpYawVgrlnbsOsX
