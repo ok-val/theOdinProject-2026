@@ -10,3 +10,16 @@ th,
 td {
   border: 1px solid rgb(160 160 160);
 }
+
+.btn--delete {
+  color: blue;
+  text-decoration: underline;
+}
+
+.btn--delete:hover {
+  cursor: pointer;
+}
+
+.btn--delete:visited {
+  color: purple;
+}
