@@ -119,3 +119,13 @@ passport.deserializeUser(async (id, done) => {
     done(error);
   }
 });
+
+// Finally, tell app to use my Passport middleware as I've set it up
+app.post(
+  '/log-in',
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/',
+    failureMessage: true
+  })
+);
