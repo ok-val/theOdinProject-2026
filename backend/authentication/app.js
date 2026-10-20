@@ -4,6 +4,7 @@ import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
 import passportLocal from 'passport-local';
+import bcrypt from 'bcrypt';
 
 const { Pool } = pg;
 const pool = new Pool({
@@ -42,11 +43,19 @@ app.get('/', (req, res) => {
 
 app.get('/sign-up', (req, res) => res.render('sign-up-form'));
 
+// bcrypt.hash() user password when storing inside DB
 app.post('/sign-up', async (req, res, next) => {
   try {
+    // Technique 2: Auto-gen and salt a hash
+    // Salting involves addings extra random chars in the mix. See more in docs.
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     await pool.query(
       `INSERT INTO users (username, password) VALUES ($1, $2)`,
-      [req.body.username, req.body.password]
+      [
+        req.body.username,
+        // req.body.password,
+        hashedPassword
+      ]
     );
     res.redirect('/');
   } catch (error) {
@@ -76,9 +85,17 @@ passport.use(
           message: 'Incorrect username/Username not found'
         });
       }
-      if (user.password != password) {
+      // Post bcrypt implementation, I cannot compare literal strings anymore
+      // if (user.password != password) {
+      //   return done(null, false, { message: 'Incorrect password' });
+      // }
+
+      // Instead, I must compare passwords with bcrypt:
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
         return done(null, false, { message: 'Incorrect password' });
       }
+
       // Send the `user` object to serializeUser ONCE, if login is successful.
       // This callback `done` is the one that ATTACHES info onto `req.user` and thus the session cookie
       return done(null, user);
