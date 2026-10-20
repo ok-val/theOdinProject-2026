@@ -37,7 +37,7 @@ app.use(passport.session());
 // Route
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { user: req.user });
 });
 
 app.get('/sign-up', (req, res) => res.render('sign-up-form'));
@@ -129,3 +129,20 @@ app.post(
     failureMessage: true
   })
 );
+
+// To sum, `passport.authenticate()` does the following:
+// 1. Runs `LocalStrategy` function to match `username` and `password`
+// 2. Creates a session cookie that gets stored in the Client's browser
+// 3. For all future requests, rechecks the auth details and updates the cookie
+// 4. Redirects based on auth status (success or failure)
+
+// Finally, I must add a log out option for the user as well.
+// Conveniently, Passport adds a .logout method for the `req` object as well
+app.get('/log-out', (req, res, next) => {
+  req.logout((error) => {
+    if (error) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
