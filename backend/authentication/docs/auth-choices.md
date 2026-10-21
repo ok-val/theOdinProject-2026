@@ -1,5 +1,9 @@
 # Which Auth Strat should I use?
 
+Source:
+
+- https://www.youtube.com/watch?v=z7872Nki5FY&list=PLYQSCk-qyTW2ewJ05f_GKHtTIzjynDgjK&index=1
+
 ## Authentication vs Authorization
 
 > Authentication is about WHO the user is.

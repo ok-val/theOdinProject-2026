@@ -1,5 +1,9 @@
 # Passport Overview
 
+Source:
+
+- https://www.youtube.com/watch?v=z7872Nki5FY&list=PLYQSCk-qyTW2ewJ05f_GKHtTIzjynDgjK&index=1
+
 Passport is JS-based framework that provides different Auth strategies
 such as Local, Session, and other auth-related methods such as
 `.authenticate()`, `.serializeUser`, or `.deserializeUser`.
