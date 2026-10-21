@@ -5,13 +5,12 @@ import session from 'express-session';
 import passport from 'passport';
 import passportLocal from 'passport-local';
 import bcrypt from 'bcrypt';
+import pgSimple from 'connect-pg-simple';
 
 const { Pool } = pg;
 const pool = new Pool({
   connectionString: process.env['DATABASE_URL']
 });
-
-const LocalStrategy = passportLocal.Strategy;
 
 const app = express();
 const localport = 3000;
@@ -25,22 +24,35 @@ app.listen(localport, (error) => {
 // App view engine setting
 app.set('view engine', 'ejs');
 app.set('views', path.join(import.meta.dirname, 'views'));
-
 app.use(express.static(path.join(import.meta.dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
+// Create pgSession from connect-pg-simple
+
+const pgSession = pgSimple(session);
+
 // Passport middleware
+const LocalStrategy = passportLocal.Strategy;
 app.use(
-  session({ secret: 'cats', resave: false, saveUninitialized: false })
+  session({
+    store: new pgSession({
+      pool: pool
+      // Other custom options could be set after this
+    }),
+    secret: 'cats',
+    resave: false,
+    saveUninitialized: false,
+    // This cookie is going to attached in the res.headers as the set-cookies header
+    // Set a cookie maxAge of 2 days
+    cookie: { maxAge: 2 * 60 * 60 * 1000 }
+  })
 );
 app.use(passport.session());
 
 // Route
-
 app.get('/', (req, res) => {
   res.render('index', { user: req.user });
 });
-
 app.get('/sign-up', (req, res) => res.render('sign-up-form'));
 
 // bcrypt.hash() user password when storing inside DB
@@ -130,7 +142,7 @@ passport.deserializeUser(async (id, done) => {
     );
     const user = rows[0];
 
-    // Reattaches fresh user data to cookie (req.user)
+    // Rebuilds fresh user data to (req.user)
     done(null, user);
   } catch (error) {
     done(error);
