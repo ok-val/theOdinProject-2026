@@ -8,6 +8,12 @@ https://www.theodinproject.com/lessons/node-path-nodejs-authentication-basics
 npm install bcryptjs
 ```
 
+# NEVER STORE RAW PASSWORDS INSIDE DATABASES
+
+# NEVER STORE RAW PASSWORDS INSIDE DATABASES
+
+# NEVER STORE RAW PASSWORDS INSIDE DATABASES
+
 **Note:** The implementation of `bcrypt` in C++, which is a faster and
 more widely used in production. `bcryptjs` is good enough for now.
 

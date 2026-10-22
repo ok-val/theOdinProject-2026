@@ -56,6 +56,12 @@ to allow them to certain things."
 Cookie is what makes persistent log-in possible. Without it, Client
 would have to login on every req.
 
+## What can the cookie store?
+
+Besides from the `connect.sid` cookie, there are also other types of
+cookies, such as cookies for ads (set by Third-Party cookies, used to
+track user activities across different websites).
+
 ## Setting custom document.cookies
 
 Yes, I can set my own custom cookie via JS:

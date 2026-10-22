@@ -4,6 +4,7 @@ import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
 import passportLocal from 'passport-local';
+// Prefer bcrypt for every thing password-related: Modern standard
 import bcrypt from 'bcrypt';
 import pgSimple from 'connect-pg-simple';
 
@@ -28,7 +29,6 @@ app.use(express.static(path.join(import.meta.dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
 // Create pgSession from connect-pg-simple
-
 const pgSession = pgSimple(session);
 
 // Passport middleware
@@ -41,19 +41,34 @@ app.use(
     }),
     secret: 'cats',
     resave: false,
+    // Important: Do not save uninitialized sessions
     saveUninitialized: false,
     // This cookie is going to attached in the res.headers as the set-cookies header
     // Set a cookie maxAge of 2 days
     cookie: { maxAge: 2 * 60 * 60 * 1000 }
   })
 );
+
 app.use(passport.session());
+// From here on, the session will inspectable via `req.session`.
+// The `req.user` will also be the same.
+// Additional methods such as `isAuthenticated()` are also available.
+// See the next immediate route.
 
 // Route
 app.get('/', (req, res) => {
+  // the `req.session` could contain any object as we want
+  console.log(req.session);
+  // the `req.user` is available now
   res.render('index', { user: req.user });
 });
-app.get('/sign-up', (req, res) => res.render('sign-up-form'));
+app.get('/sign-up', (req, res) => {
+  if (req.isAuthenticated()) {
+    // Funny Bug: So I forgot to add return here once and saw that res.send() was already sending back part of the string right before the next res handler throws an error.
+    return res.send('You are already logged-in');
+  }
+  res.render('sign-up-form');
+});
 
 // bcrypt.hash() user password when storing inside DB
 app.post('/sign-up', async (req, res, next) => {
@@ -82,7 +97,12 @@ app.post('/sign-up', async (req, res, next) => {
 // ---- This middleware is NOT handled by the current Router, and thus is the `done` cb to be handled by `passport` later when runs the `passport.authenticate()` method
 
 passport.use(
+  // The anon fn passed into LocalStrategy is called the Verify Callback
   new LocalStrategy(async (username, password, done) => {
+    // Within the Verify Callback, we define the auth logics here:
+    // 1. Query DB for userID using username, Extract it
+    // 2. If not found, the exit strat is to return `done` with user?: false
+    // 3. Proceed with `done` with user?: user. Yes, the whole object.
     try {
       // `users.username` must always be UNIQUE and NOT NULL
       const { rows } = await pool.query(
@@ -131,6 +151,7 @@ passport.use(
 
 passport.serializeUser((user, done) => {
   // Extract the data from the cookie (`req.user`) and sends it to `passport.deserializeUser()`
+  // serialization will block the stack :)
   done(null, user.id);
 });
 
@@ -152,6 +173,8 @@ passport.deserializeUser(async (id, done) => {
 // Finally, tell app to use my Passport middleware as I've set it up
 app.post(
   '/log-in',
+  // Use Passport like another middleware
+  // For custom actions, simply leave the options out to add custom redirects or whatnot
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/',
@@ -167,11 +190,15 @@ app.post(
 
 // Finally, I must add a log out option for the user as well.
 // Conveniently, Passport adds a .logout method for the `req` object as well
+// Other QoL req methods also attached by Passport is `req.isAuthenticated()`
+// See the file `request.js` in the official git repo to see how this was implemented.
 app.get('/log-out', (req, res, next) => {
+  console.log(req.isAuthenticated()); // true
   req.logout((error) => {
     if (error) {
       return next(err);
     }
+    console.log(req.isAuthenticated()); // false
     res.redirect('/');
   });
 });
