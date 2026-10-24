@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+	<h1>Sign Up</h1>
+	<form action="/auth/sign-up" method="POST">
+		<label for="firstName">First name</label>
+		<input type="text" id="firstName" name="firstName" required>
+		<label for="lastName">Last name</label>
+		<input type="text" id="lastName" name="lastName" required>
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username" required>
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password" required>
+		<label for="confirmPassword">Confirm password</label>
+		<input type="password" id="confirmPassword" name="confirmPassword" required>
+		<button type="submit">Sign Up</button>
+	</form>
+	<p>Already have an account? <a href="/auth/log-in">Log in</a></p>
+</body>
+</html>

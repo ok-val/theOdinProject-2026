@@ -170,10 +170,10 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-// Finally, tell app to use my Passport middleware as I've set it up
 app.post(
   '/log-in',
-  // Use Passport like another middleware
+  // Use Passport like another middleware. Note that passport operates as a singleton:
+  // Side-effects are applied globally
   // For custom actions, simply leave the options out to add custom redirects or whatnot
   passport.authenticate('local', {
     successRedirect: '/',

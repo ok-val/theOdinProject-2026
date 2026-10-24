@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+	<h1>Messages</h1>
+	<a href="/messages/new">New message</a>
+	<ul>
+		<% (locals.messages || []).forEach((message) => { %>
+			<li>
+				<h2><%= message.title %></h2>
+				<p><%= message.text %></p>
+				<% if (locals.isAuthenticated) { %>
+					<p><%= message.author %></p>
+				<% } %>
+			</li>
+		<% }) %>
+	</ul>
+</body>
+</html>
