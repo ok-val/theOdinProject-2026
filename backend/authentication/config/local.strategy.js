@@ -23,6 +23,7 @@ passport.use(
       if (!isPasswordMatched) {
         return done(null, false, { message: 'Incorrect password' });
       }
+      console.log(user);
       return done(null, user);
     } catch (error) {
       return done(error);
@@ -45,3 +46,4 @@ passport.deserializeUser(async (id, done) => {
 });
 
 // Passport is already a singleton: The configs in here already have side-effects on the passport object so these configs apply wherever passport is imported to. No need to export! How convenient!
+// via app.js, import the whole file

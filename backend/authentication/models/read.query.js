@@ -20,4 +20,29 @@ const readUserById = async (id) => {
   return rows;
 };
 
-export { readUserByUsername, readUserById };
+const readMessages = async () => {
+  const { rows } = await pool.query(
+    `
+		SELECT u.username, m.title, m.message FROM messages AS m
+		INNER JOIN users AS u
+		ON u.id = m.user_id;
+		`
+  );
+  return rows;
+};
+
+const readMessagesAtTitleMessage = async () => {
+  const { rows } = await pool.query(
+    `
+		SELECT title, message FROM messages;
+		`
+  );
+  return rows;
+};
+
+export {
+  readUserByUsername,
+  readUserById,
+  readMessagesAtTitleMessage,
+  readMessages
+};

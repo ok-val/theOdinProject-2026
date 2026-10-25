@@ -16,4 +16,15 @@ const insertUserByAllFields = async (
   return;
 };
 
-export { insertUserByAllFields };
+const insertMessageByAllFields = async (userId, title, message) => {
+  await pool.query(
+    `
+	INSERT INTO messages (user_id, title, message)
+	VALUES ($1, $2, $3);
+	`,
+    [userId, title, message]
+  );
+  return;
+};
+
+export { insertUserByAllFields, insertMessageByAllFields };

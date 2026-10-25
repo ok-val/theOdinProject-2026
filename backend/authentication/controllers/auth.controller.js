@@ -28,7 +28,7 @@ const handleSignUp = async (req, res, next) => {
 
 const handleLogIn = passport.authenticate('local', {
   successRedirect: '/',
-  failureRedirect: '/auth/log-in',
+  failureRedirect: '/auth/log-in-failed',
   failureMessage: true
 });
 

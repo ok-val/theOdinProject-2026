@@ -5,6 +5,7 @@ import passport from 'passport';
 // If passport config is offshored, import the entire file
 import './config/local.strategy.js';
 import authRouter from './routers/auth.router.js';
+import messageRouter from './routers/message.router.js';
 
 const app = express();
 const localport = 3000;
@@ -28,6 +29,7 @@ app.use(passport.session());
 
 // Routes
 app.use('/auth', authRouter);
+app.use('/message', messageRouter);
 
 app.get('/', (req, res) => {
   res.render('index');
