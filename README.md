@@ -4,5 +4,6 @@
 - [x] Finish intermediate HTML - 05112026 
 - [x] Finish React course - 09032026 
 - [x] Finish Database course - 09152026 
-- [] Finish JS foundation 
+- [] Finish JS foundation - postponing some projects
+- [] Finish backend 
 
