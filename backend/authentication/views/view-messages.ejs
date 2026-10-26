@@ -1,21 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<%- include('./partials/head.ejs') %>
-<body>
-	<%- include('./partials/nav.ejs') %>
-	<h1>Messages</h1>
-	<a href="/message/new">New message</a>
-	<ul>
-		<% (locals.messages || []).forEach((message) => { %>
-			<li>
-				<h2><%= message.title %></h2>
-				<p><%= message.message %></p>
-				<% if (message.username) { %>
-					<p><%= message.username %></p>
-				<% } %>
-				<a href="/message/delete">Delete</a>
-			</li>
-		<% }) %>
-	</ul>
-</body>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <h1>Messages</h1>
+    <a href="/message/create">New message</a>
+    <ul>
+      <% (locals.messages || []).forEach((message) => { %>
+      <li>
+        <h2><%= message.title %></h2>
+        <p><%= message.message %></p>
+        <% if (message.username) { %>
+        <p><%= message.username %></p>
+        <% } %>
+	<% if (locals.currentUser && locals.currentUser.is_admin) { %>
+		<a class="btn--delete" data-messageid="<%= message.id %>">Delete</a>
+	<% } %>
+      </li>
+      <% }) %>
+    </ul>
+    <script>
+      const deleteButtons = document.querySelectorAll('.btn--delete');
+      deleteButtons.forEach((btn) => {
+	      btn.addEventListener('click', async (e) => {
+		      const { messageid } = e.target.dataset;
+		      const endpoint = `/message/delete/${messageid}`;
+		        try {
+		              const res = await fetch(endpoint, { method: "DELETE" });
+			  if (!res.ok) throw new Error(`Delete failed: ${res.status}`);
+		              const resData = await res.json();
+		            if (resData.redirect) {
+		        	window.location.href = resData.redirect;
+		      }
+		        } catch (error) {
+		               	 console.error(error);
+		        	 window.location.href = '/failed--delete';
+		        }
+		 });
+      });
+    </script>
+  </body>
 </html>

@@ -5,10 +5,12 @@
 	<%- include('./partials/nav.ejs') %>
 	<h1>Welcome gang!</h1>
 	<p>Hello gang</p>
-	<% if (locals.currentUser.is_admin) { %>
+	<% if (locals.currentUser && locals.currentUser.is_admin) { %>
 		<p>You are an admin!</p>
+	<% } else if (locals.currentUser && !locals.currentUser.is_admin) { %>
+		<p>You are an authenticated user!</p>
 	<% } else { %>
-		<p>You are an authenticated user.</p>
+		<p>You are an unauthenticated user.</p>
 	<% } %>
 </body>
 </html>

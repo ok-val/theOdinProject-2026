@@ -38,6 +38,6 @@ app.use('/auth', authRouter);
 app.use('/message', messageRouter);
 
 app.get('/', (req, res) => {
-  console.log(req.user);
+  console.log(res.locals.currentUser);
   res.render('index');
 });
