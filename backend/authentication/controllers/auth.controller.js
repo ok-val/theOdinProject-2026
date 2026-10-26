@@ -32,4 +32,19 @@ const handleLogIn = passport.authenticate('local', {
   failureMessage: true
 });
 
-export { renderLogIn, renderSignUp, handleSignUp, handleLogIn };
+const handleLogOut = (req, res, next) => {
+  req.logout((error) => {
+    if (error) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+};
+
+export {
+  renderLogIn,
+  renderSignUp,
+  handleSignUp,
+  handleLogIn,
+  handleLogOut
+};

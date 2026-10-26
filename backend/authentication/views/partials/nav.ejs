@@ -1,0 +1,13 @@
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/message/view">Messages</a></li>
+		<% if (locals.currentUser) { %>
+			<li><a href="/message/create">New Message</a></li>
+			<li><a href="/auth/log-out/">Log Out</a></li>
+		<% } else { %>
+			<li><a href="/auth/sign-up">Sign Up</a></li>
+			<li><a href="/auth/log-in">Log In</a></li>
+		<% } %>
+	</ul>
+</nav>

@@ -7,6 +7,7 @@ import './config/local.strategy.js';
 import authRouter from './routers/auth.router.js';
 import messageRouter from './routers/message.router.js';
 
+// TODO: Add admin Delete
 const app = express();
 const localport = 3000;
 app.listen(localport, (error) => {
@@ -25,6 +26,11 @@ app.use(express.urlencoded({ extended: false }));
 // Passport middleware
 app.use(pgSessionReqHandler);
 app.use(passport.session());
+// Attach currentUser for all views. See './docs/res-locals-vars.md' for more info.
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 // Don't forget to create a session relation using connect-pg-simple method
 
 // Routes
@@ -32,5 +38,6 @@ app.use('/auth', authRouter);
 app.use('/message', messageRouter);
 
 app.get('/', (req, res) => {
+  console.log(req.user);
   res.render('index');
 });

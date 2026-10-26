@@ -2,8 +2,9 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %>
 <body>
+	<%- include('./partials/nav.ejs') %>
 	<h1>Messages</h1>
-	<a href="/messages/new">New message</a>
+	<a href="/message/new">New message</a>
 	<ul>
 		<% (locals.messages || []).forEach((message) => { %>
 			<li>
@@ -12,6 +13,7 @@
 				<% if (message.username) { %>
 					<p><%= message.username %></p>
 				<% } %>
+				<a href="/message/delete">Delete</a>
 			</li>
 		<% }) %>
 	</ul>

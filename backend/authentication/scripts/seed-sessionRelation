@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+psql odin_members -f node_modules/connect-pg-simple/table.sql
