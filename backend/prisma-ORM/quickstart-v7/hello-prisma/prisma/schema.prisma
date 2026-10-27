@@ -2,16 +2,18 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 // Get a free hosted Postgres database in seconds: `npx create-db`
-
+// A Generator for the Prisma Client
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
+// A Data Source
 datasource db {
   provider = "postgresql"
 }
 
+// A Model Definition with one model (with one relation)
 model User {
   id      Int     @id @default(autoincrement())
   email   String  @unique

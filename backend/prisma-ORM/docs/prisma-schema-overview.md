@@ -41,6 +41,7 @@ datasource db {
 // A Generator for the Prisma Client
 generator client {
   provider = "prisma-client"
+  // Generated Client should be in the './generated' dir
   output   = "./generated"
   // ... and the Client generator
   url      = env("DATABASE_URL")
