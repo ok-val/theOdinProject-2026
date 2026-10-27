@@ -25,7 +25,7 @@ npx prisma init --datasource-provider postgresql --output ../generated/prisma --
 mv prisma7.config.ts prisma7.config.js
 ```
 
-4. Define the schema (as seen in '../prisma/schema.prisma')
+4. Define the Prisma Schema (as seen in '../prisma/schema.prisma')
 
 5. Create the DB relations based on the defined schema
 

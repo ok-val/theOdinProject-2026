@@ -1,5 +1,11 @@
 # Model Definition
 
+Source:
+
+- https://www.prisma.io/docs/orm/v7/prisma-schema/data-model/models
+
+---
+
 The Model Definition part of the Schema defines the application Models.
 These Models are Prisma-specific, not native to PQSL or MongoDB.
 
