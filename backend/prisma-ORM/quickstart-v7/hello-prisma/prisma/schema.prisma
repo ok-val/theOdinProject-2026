@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id      Int     @id @default(autoincrement())
+  email   String  @unique
+  name    String?
+  posts   Post[]
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+ // Native PostgreSQL equivalent:
+ //
+ // CREATE TABLE "User" (
+ //   "id"    SERIAL PRIMARY KEY,
+ //   "email" TEXT NOT NULL UNIQUE,
+ //   "name"  TEXT
+ // );
+ //
+ // CREATE TABLE "Post" (
+ //   "id"        SERIAL PRIMARY KEY,
+ //   "title"     TEXT NOT NULL,
+ //   "content"   TEXT,
+ //   "published" BOOLEAN NOT NULL DEFAULT false,
+ //   "authorId"  INTEGER NOT NULL,
+ //   CONSTRAINT "Post_authorId_fkey" FOREIGN KEY ("authorId")
+ //     REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE
+ // );
+ //
+ // Note: `posts Post[]` has no column; it's the virtual side of the relation.
