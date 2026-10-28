@@ -95,6 +95,10 @@ to DBs at scale.
 
 ### Some noticable differences from PSQL
 
+Source:
+
+- https://stackoverflow.com/questions/55300370/postgresql-serial-vs-identity/55300741#55300741
+
 - Prisma doesn't use the IDENTITY column (as in GENERATED ALWAYS AS
   IDENTITY). Instead, it uses a Serial Types. Here's the basic
   breakdown:

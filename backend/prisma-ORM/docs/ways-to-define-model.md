@@ -52,7 +52,7 @@ model User {
   id       Int /*required*/ @id      @default(autoincrement())  // scalar
   email    String                                               // scalar
   emailAlt String                                               // scalar
-  name     String? //make optional                              // scalar
+  name     String? // make optional                             // scalar
   isCool   Boolean          @default(true)                      // scalar
   role     Role             @default(USER)                      // relation: Enum
   posts    Post[]  // make list                                 // relation: 1-n
