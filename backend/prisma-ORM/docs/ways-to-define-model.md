@@ -29,36 +29,3 @@ Prisma provides a way to reconcile these two naming conventions:
 > @map (for column name to Prisma Field/Enum value); defined in-fields
 >
 > @@map (for SQL relation name to Prisma Model name); defined in footer
-
-## Anatomy of Prisma Fields
-
-The properties of a Model are called Fields (== PSQL column):
-
-- Field name (camelCase)
-- Field type (PascalCase, inline with Model name)
-- Type Modifier (Opt.)
-- Attributes (Opt.; lowercase, PascalCase if native)
-
-A field type could be one of the two categories:
-
-- **Scalar type:** Maps to PSQL columns' values or MongoDB fields'
-  values. Scalar types make Scalar Fields.
-- **Model type:** Maps to other Models. Model types make Relation Field.
-
-```prisma
-model User {
-  // Field definition
-  //name   //type+modifier  // attribute(s)                     // field type
-  id       Int /*required*/ @id      @default(autoincrement())  // scalar
-  email    String                                               // scalar
-  emailAlt String                                               // scalar
-  name     String? // make optional                             // scalar
-  isCool   Boolean          @default(true)                      // scalar
-  role     Role             @default(USER)                      // relation: Enum
-  posts    Post[]  // make list                                 // relation: 1-n
-  profile  Profile? //make optional                             // relation: 1-1
-
-  // bulk attribute definition
-  @@unique([email, emailAlt])
-}
-```

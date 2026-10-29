@@ -13,6 +13,8 @@ Every Prisma Model must have at least one unique identifer:
 - `@id` or `@@id` block for PK
 - `@unique` or `@@unique` block for unique constraints
 
+## Defining a ID field
+
 > An ID identifies individual records of a model for being a unique
 > value. Any Model could have only one ID field; Any Instance (record)
 > has a unique ID.
@@ -27,7 +29,7 @@ For relational Dbs, the ID Field contains a single value being either:
 > You CAN have a Model without an ID, for which it must have a @unique
 > field or @@unique block instead.
 
-## Autoincrement ID
+### Autoincrement ID
 
 This is the equivalence of PSQL's `GENERATED ALWAYS AS IDENTITY`.
 
@@ -44,7 +46,7 @@ model User {
 }
 ```
 
-## Composite ID
+### Composite ID
 
 Or you can compose an ID from two different values:
 

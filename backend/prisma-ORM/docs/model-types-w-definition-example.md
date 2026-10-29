@@ -13,7 +13,7 @@ These Models are Prisma-specific, not native to PQSL or MongoDB.
 >
 > - Represent the entities of application domain
 > - Map to PSQL relations or MongoDB's collections (not to be confused
->   with Prisma Relation)
+>   with Prisma Relation---see Prisma Relation)
 > - Form queries for Prisma Client
 > - Combined with TS, provides `type definitions` for Models to ensure
 >   _type safety_.
