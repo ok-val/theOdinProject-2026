@@ -35,7 +35,7 @@ matter.
 ## Baseline Migration
 
 The _baseline migration_ creates an initial history of the DB before
-migrating to Prisma. This init migration is different then that for
+migrating to Prisma. This init migration is different than that for
 Migration (start afresh):
 
 - Baseline migration tells the Client that this is the checkpoint: you
@@ -49,7 +49,7 @@ Migration (start afresh):
    elsewhere)
 2. Create a new `prisma/migrations/migration_name` dir (feel free to
    name this using the `creationDatetime_name` convention, but must
-   match step 3-4).
+   match step 3-4)
 3. Generate the Migration
 
 ```terminal
@@ -59,7 +59,7 @@ npx prisma migrate diff \
   --script > prisma/migrations/0_init/migration.sql
 ```
 
-4. Mark the baseline migration as already applied
+4. Add the custom migration to the migration_table
 
 ```terminal
 # We created the init migration from scratch, now to add it to the

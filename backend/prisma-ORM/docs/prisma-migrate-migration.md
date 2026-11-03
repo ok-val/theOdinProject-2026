@@ -35,6 +35,9 @@ model Post {
 npx prisma migrate dev --name init
 ```
 
+This command adds the migration to the migration_table, marking it as
+the initial migration.
+
 The migration code is generated @
 `prisma/migrations/migration_name/migration.sql`:
 
@@ -63,7 +66,7 @@ CREATE TABLE "Post" (
 );
 -- AddForeignKey
 ALTER TABLE
-  "Pos
+  "Post"
 ADD
   FOREIGN KEY("authorId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 ```
