@@ -1,10 +1,9 @@
 import path from 'node:path';
 import express from 'express';
-import pgSessionReqHandler from './config/pg.session.js';
+import prismaSession from './lib/prisma.js';
 import passport from 'passport';
-import './config/local.strategy.js';
-import authRouter from './routers/auth.router.js';
-import messageRouter from './routers/message.router.js';
+import './authentication/local.strategy.js';
+// import authRouter from './routers/auth.router.js';
 
 // Set up http server
 const app = express();
@@ -25,9 +24,15 @@ app.use(express.static(path.join(import.meta.dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
 // Set up Passport middleware
-app.use(pgSessionReqHandler);
+app.use(prismaSession);
 app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
+});
+
+// Add routes
+app.get('/', (req, res) => {
+  console.log(res.locals.currentUser);
+  res.send('Home');
 });
