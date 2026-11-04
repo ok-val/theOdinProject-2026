@@ -33,5 +33,9 @@ Enter the password as prompted
 
 > \q
 
-6. Add `DATABASE_PASSWORD="<your_password>"` into `~/.bashrc`
-   JnbzMpEjjaFuMkezYgpYawVgrlnbsOsX
+6. Add `DATABASE_PASSWORD="<your_password>"` into `~/.bashrc` or the
+   entire `DATABASE_URL`
+
+```terminal
+export DATABASE_URL='postgresql://<username>:<password>@localhost:5432/<database_name>'
+```
