@@ -1,6 +1,6 @@
 import path from 'node:path';
 import express from 'express';
-import prismaSession from './lib/prisma.js';
+import { prismaSession } from './lib/prisma.js';
 import passport from 'passport';
 import './authentication/local.strategy.js';
 // import authRouter from './routers/auth.router.js';
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Add routes
+// Add
 app.get('/', (req, res) => {
   console.log(res.locals.currentUser);
   res.send('Home');

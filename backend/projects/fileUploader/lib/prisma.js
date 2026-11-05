@@ -8,17 +8,17 @@ const adapter = new PrismaPg({ connectionString });
 const prisma = new PrismaClient({ adapter });
 
 const prismaSession = session({
-  cookie: {
-    maxAge: 2 * 60 * 60 * 1000 // ms
-  },
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
   store: new PrismaSessionStore(prisma, {
     checkPeriod: 2 * 60 * 1000, //ms
     dbRecordIdIsSessionId: true,
     dbRecordIdFunction: undefined
-  })
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 2 * 60 * 60 * 1000 // ms
+  }
 });
 
 export { prismaSession };
