@@ -3,7 +3,7 @@ import express from 'express';
 import { prismaSession } from './lib/prisma.js';
 import passport from 'passport';
 import './authentication/local.strategy.js';
-// import authRouter from './routers/auth.router.js';
+import authRouter from './routers/auth.router.js';
 
 // Set up http server
 const app = express();
@@ -31,8 +31,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// Add
+// Add routes & routers
+app.use('/auth', authRouter);
+
 app.get('/', (req, res) => {
-  console.log(res.locals.currentUser);
-  res.send('Home');
+  // console.log(res.locals.currentUser);
+  res.render('index', { title: 'Home' });
 });

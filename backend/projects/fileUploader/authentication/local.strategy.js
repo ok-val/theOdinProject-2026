@@ -10,8 +10,7 @@ const LocalStrategy = passportLocal.Strategy;
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
-      const rows = await readQueries.readUserByUsername(username);
-      const user = rows[0];
+      const user = await readQueries.readUserByUsername(username);
       if (!user) {
         return done(null, false, {
           message: 'Incorrect username'
@@ -42,8 +41,7 @@ passport.serializeUser((user, done) => {
 // Add passport deserialize function
 passport.deserializeUser(async (id, done) => {
   try {
-    const rows = await readQueries.readUserById(id);
-    const user = rows[0];
+    const user = await readQueries.readUserById(id);
     done(null, user);
   } catch (error) {
     done(error);

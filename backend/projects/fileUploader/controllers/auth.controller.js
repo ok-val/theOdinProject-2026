@@ -16,13 +16,14 @@ const handleSignUp = async (req, res, next) => {
       lastName,
       saltHashedPasswd
     );
+    res.redirect('/auth/log-in');
   } catch (error) {
     return next(error);
   }
 };
 
 const renderLogIn = (req, res) => {
-  res.render('sign-up', { title: 'Sign up' });
+  res.render('log-in', { title: 'Log in' });
 };
 
 const handleLogIn = passport.authenticate('local', {

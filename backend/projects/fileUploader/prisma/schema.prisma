@@ -12,9 +12,21 @@ datasource db {
   provider = "postgresql"
 }
 
+model User {
+  id          Int     @id @default(autoincrement())
+  username    String  @unique
+  firstName   String
+  lastName    String
+  password    String
+}
+
 model Session {
   id          String    @id
   sid         String    @unique
   data        String
   expiresAt   DateTime
 }
+
+// Migration Workflow:
+// npx prisma migrate dev --name <commit_name>
+// npx prisma generate
