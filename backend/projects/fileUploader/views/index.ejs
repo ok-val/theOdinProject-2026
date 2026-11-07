@@ -3,10 +3,10 @@
 <%- include('./partials/head.ejs') %>
 <body>
 	<%- include('./partials/nav.ejs') %>
-	<h1>Welcome gang!</h1>
+	<h1>File Uploader</h1>
 
 	<% if (locals.currentUser) { %>
-    <p>Hello <%= locals.currentUser.firstName || 'gang' %></p>
+    <p>Hello <%= locals.currentUser.firstName %></p>
 		<p>You are an authenticated user!</p>
 	<% } else { %>
     <p>Hello gang %></p>

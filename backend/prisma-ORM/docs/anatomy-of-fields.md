@@ -2,7 +2,7 @@
 
 The properties of a Model are called Fields (== PSQL column):
 
-- Field name (camelCase)
+- Field name (CamelCase) / Use plural for 1-n
 - Field type (PascalCase, inline with Model name)
 - Type Modifier (Opt.)
 - Attributes (Opt.; lowercase, PascalCase if native)

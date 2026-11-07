@@ -18,6 +18,17 @@ model User {
   firstName   String
   lastName    String
   password    String
+  files       File[]
+}
+
+model File {
+  id          Int       @id @default(autoincrement())
+  name        String
+  path        String    // cloud URL
+  size        Int       // bytes
+  uploadedAt  DateTime  @default(now())  
+  owner       User      @relation(fields: [ownerId], references: [id])
+  ownerId     Int
 }
 
 model Session {

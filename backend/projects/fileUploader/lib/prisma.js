@@ -1,3 +1,6 @@
+// Prisma Client and Session are created and exported from this module
+// based on this guide: https://github.com/kleydon/prisma-session-store#readme
+
 import session from 'express-session';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '../generated/prisma/client.js';

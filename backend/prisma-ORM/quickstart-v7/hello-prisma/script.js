@@ -29,6 +29,8 @@ async function main() {
   console.log('All users:', JSON.stringify(allUsers, null, 2));
 }
 
+// prisma.$disconnect method is used for one-off scripts such as for seeding.
+// When used routers, there's no need to call them.
 main()
   .then(async () => {
     await prisma.$disconnect();
