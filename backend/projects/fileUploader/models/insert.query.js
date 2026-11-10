@@ -16,13 +16,15 @@ const insertUserByAllFields = async (
   });
 };
 
-// TODO: point Client to the correct Model
-const insertFile = async (file) => {
-  await prisma.user.create({
+const insertFileByAllFields = async (name, path, size, ownerId) => {
+  await prisma.file.create({
     data: {
-      file
+      name,
+      path,
+      size,
+      ownerId
     }
   });
 };
 
-export { insertUserByAllFields };
+export { insertUserByAllFields, insertFileByAllFields };

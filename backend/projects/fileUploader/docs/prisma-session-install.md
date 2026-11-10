@@ -22,3 +22,6 @@ model Session {
   expiresAt   DateTime
 }
 ```
+
+3. Create the session using the Client (see '../lib/prisma.js') for
+   implementation
