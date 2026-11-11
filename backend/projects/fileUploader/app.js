@@ -38,6 +38,5 @@ app.use('/file', fileRouter);
 
 app.get('/', (req, res) => {
   // console.log(res.locals.currentUser);
-  console.log('hello');
   res.render('index', { title: 'Home' });
 });
