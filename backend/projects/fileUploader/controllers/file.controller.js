@@ -19,12 +19,20 @@ const renderFileUpload = [
 ];
 
 const handleFileUpload = [
+  isUserAuthenticated,
   upload.single('file'),
   async (req, res, next) => {
     const { originalname: name, path, size } = req.file;
     const ownerId = req.user.id;
+    // TODO: Figure out a way to get into a folder
     // try {
-    //   await insertQuery.insertFile(name, path, size, ownerId);
+    //   await insertQuery.insertFileByNamePathSizeOwneridFolderid(
+    //     name,
+    //     path,
+    //     size,
+    //     ownerId,
+    //     folderId
+    //   );
     //   res.redirect('/');
     // } catch (error) {
     //   return next(error);

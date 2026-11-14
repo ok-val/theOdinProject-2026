@@ -16,15 +16,39 @@ const insertUserByAllFields = async (
   });
 };
 
-const insertFileByAllFields = async (name, path, size, ownerId) => {
+const insertFileByNamePathSizeOwneridFolderid = async (
+  name,
+  path,
+  size,
+  ownerId
+) => {
   await prisma.file.create({
     data: {
       name,
       path,
       size,
-      ownerId
+      ownerId,
+      folderId
     }
   });
 };
 
-export { insertUserByAllFields, insertFileByAllFields };
+const insertFolderByNameOwneridParentid = async (
+  name,
+  ownerId,
+  parentId
+) => {
+  await prisma.folder.create({
+    data: {
+      name,
+      ownerId,
+      parentId
+    }
+  });
+};
+
+export {
+  insertFileByNamePathSizeOwneridFolderid,
+  insertUserByAllFields,
+  insertFolderByNameOwneridParentid
+};

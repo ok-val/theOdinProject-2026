@@ -5,6 +5,7 @@ import passport from 'passport';
 import './authentication/local.strategy.js';
 import authRouter from './routers/auth.router.js';
 import fileRouter from './routers/file.router.js';
+import folderRouter from './routers/folder.router.js';
 
 // Set up http server
 const app = express();
@@ -35,6 +36,7 @@ app.use((req, res, next) => {
 // Add routes & routers
 app.use('/auth', authRouter);
 app.use('/file', fileRouter);
+app.use('/folder', folderRouter);
 
 app.get('/', (req, res) => {
   // console.log(res.locals.currentUser);
