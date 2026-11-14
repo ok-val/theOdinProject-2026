@@ -14,6 +14,7 @@ const isUserAuthenticated = (req, res, next) => {
 const renderFileUpload = [
   isUserAuthenticated,
   (req, res) => {
+    // TODO: File upload view should provide a list of folder as location
     res.render('file-upload', { title: 'File Upload' });
   }
 ];
@@ -22,6 +23,7 @@ const handleFileUpload = [
   isUserAuthenticated,
   upload.single('file'),
   async (req, res, next) => {
+    // multer parses info about the file in req.file
     const { originalname: name, path, size } = req.file;
     const ownerId = req.user.id;
     // TODO: Figure out a way to get into a folder
@@ -40,4 +42,15 @@ const handleFileUpload = [
   }
 ];
 
-export { renderFileUpload, handleFileUpload };
+const renderFs = [
+  isUserAuthenticated,
+  (req, res) => {
+    // A render folder needs to know which folder is being called.
+    const dir = req.params.dir;
+    // The wildcard path segment will return a list
+    // TODO: Create form for inserting folders
+    res.render('fs', { title: 'File System' });
+  }
+];
+
+export { renderFileUpload, handleFileUpload, renderFs };

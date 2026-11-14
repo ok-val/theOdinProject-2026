@@ -33,7 +33,7 @@ const insertFileByNamePathSizeOwneridFolderid = async (
   });
 };
 
-const insertFolderByNameOwneridParentid = async (
+const insertFolderByNameOwneridParentidPath = async (
   name,
   ownerId,
   parentId
@@ -42,7 +42,8 @@ const insertFolderByNameOwneridParentid = async (
     data: {
       name,
       ownerId,
-      parentId
+      parentId,
+      path
     }
   });
 };
@@ -50,5 +51,5 @@ const insertFolderByNameOwneridParentid = async (
 export {
   insertFileByNamePathSizeOwneridFolderid,
   insertUserByAllFields,
-  insertFolderByNameOwneridParentid
+  insertFolderByNameOwneridParentidPath
 };
