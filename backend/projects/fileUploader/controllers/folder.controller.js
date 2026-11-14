@@ -1,8 +1,5 @@
 import * as insertQuery from '../models/insert.query.js';
 
-// folderRouter.get('/', folderController.renderUserFolders);
-// folderRouter.post('/', folderController.handleFolderCreate);
-
 const renderUserFolders = (req, res) => {
   res.render('folders', { title: 'Folders' });
 };
@@ -22,3 +19,5 @@ const handleFolderCreate = async (req, res, next) => {
     next(error);
   }
 };
+
+export { renderUserFolders, handleFolderCreate };
