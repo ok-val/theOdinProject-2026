@@ -6,7 +6,7 @@ const insertUserByAllFields = async (
   lastName,
   password
 ) => {
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       username,
       firstName,
@@ -14,13 +14,15 @@ const insertUserByAllFields = async (
       password
     }
   });
+  return user;
 };
 
 const insertFileByNamePathSizeOwneridFolderid = async (
   name,
   path,
   size,
-  ownerId
+  ownerId,
+  folderId
 ) => {
   await prisma.file.create({
     data: {
@@ -36,7 +38,8 @@ const insertFileByNamePathSizeOwneridFolderid = async (
 const insertFolderByNameOwneridParentidPath = async (
   name,
   ownerId,
-  parentId
+  parentId,
+  path
 ) => {
   await prisma.folder.create({
     data: {

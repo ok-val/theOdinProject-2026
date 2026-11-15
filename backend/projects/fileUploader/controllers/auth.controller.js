@@ -10,11 +10,15 @@ const handleSignUp = async (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
   try {
     const saltHashedPasswd = await bcrypt.hash(password, 10);
-    await insertQuery.insertUserByAllFields(
+    const user = await insertQuery.insertUserByAllFields(
       username,
       firstName,
       lastName,
       saltHashedPasswd
+    );
+    await insertQuery.insertFolderByNameOwneridParentidPath(
+      'root',
+      user.id
     );
     res.redirect('/auth/log-in');
   } catch (error) {
