@@ -19,6 +19,13 @@ const renderFileUpload = [
   }
 ];
 
+const renderCreateFolder = [
+  isUserAuthenticated,
+  (req, res) => {
+    res.render('create-folder', { title: 'Create Folder' });
+  }
+];
+
 const handleFileUpload = [
   isUserAuthenticated,
   upload.single('file'),
@@ -42,15 +49,29 @@ const handleFileUpload = [
   }
 ];
 
+const handleCreateFolder = [
+  isUserAuthenticated,
+  async (req, res, next) => {
+    const { name } = req.body;
+    res.redirect('/fs');
+  }
+];
+
 const renderFs = [
   isUserAuthenticated,
   (req, res) => {
     // A render folder needs to know which folder is being called.
     const dir = req.params.dir;
     // The wildcard path segment will return a list
-    // TODO: Create form for inserting folders
+    // TODO: Find a way to list out the files with their paths
     res.render('fs', { title: 'File System' });
   }
 ];
 
-export { renderFileUpload, handleFileUpload, renderFs };
+export {
+  renderFileUpload,
+  handleFileUpload,
+  renderFs,
+  renderCreateFolder,
+  handleCreateFolder
+};

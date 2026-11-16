@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <h1>Create Folder</h1>
+  <form action="/fs/create-folder" method="POST">
+    <label for="name">Folder name</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
+
