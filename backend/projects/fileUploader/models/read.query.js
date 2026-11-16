@@ -14,4 +14,16 @@ const readUserById = async (id) => {
   return user;
 };
 
-export { readUserByUsername, readUserById };
+const readFolderIdByNameOwnerId = async (name, ownerId) => {
+  const folder = await prisma.folder.findFirst({
+    where: {
+      id,
+      name,
+      ownerId,
+      parentId
+    }
+  });
+  return folder?.id ?? null;
+};
+
+export { readUserByUsername, readUserById, readFolderIdByNameOwnerId };

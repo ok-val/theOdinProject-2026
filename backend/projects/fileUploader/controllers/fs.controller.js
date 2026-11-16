@@ -1,5 +1,7 @@
 import * as insertQuery from '../models/insert.query.js';
+import * as readQuery from '../models/read.query.js';
 import multer from 'multer';
+import { readFolderIdByNameOwnerId } from '../models/read.query.js';
 
 const upload = multer({ dest: 'uploads' });
 
@@ -53,7 +55,28 @@ const handleCreateFolder = [
   isUserAuthenticated,
   async (req, res, next) => {
     const { name } = req.body;
-    res.redirect('/fs');
+    const parentName = req.body.parentName
+      ? req.body.parentName != ''
+      : 'root';
+    const ownerId = req.user.id;
+    // TODO: Read parentId based on id, parentName and ownerId;
+    try {
+      const parentId = await readQuery.readFolderIdByNameOwnerId(
+        id,
+        parentName,
+        ownerId,
+        parentId
+      );
+      // await insertQuery.insertFolderByNameOwneridParentidPath(
+      //   name,
+      //   req.user.id,
+      //   parentId,
+      //   path
+      // );
+      res.redirect('/fs');
+    } catch (error) {
+      next(error);
+    }
   }
 ];
 
