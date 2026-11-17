@@ -7,9 +7,10 @@
   <form action="/fs/create-folder" method="POST">
     <label for="name">Folder name</label>
     <input type="text" id="name" name="name" required>
-    <label for="parentName">Folder location</label>
-    <select name="parentName" id="parentName">
+    <label for="parentId">Folder location</label>
+    <select name="parentId" id="parentId">
       <option value="">--Please choose an location--</option>
+      <!-- Each folder option shows name but sends id --> 
       <% folders.forEach((folder) => { %>
         <option value="<%= folder.id %>"><%= folder.name %></option>
       <% }); %>
