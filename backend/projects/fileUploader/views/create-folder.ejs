@@ -8,8 +8,15 @@
     <label for="name">Folder name</label>
     <input type="text" id="name" name="name" required>
     <label for="parentName">Folder location</label>
-    <input type="text" id="parentName" name="parentName">
+    <select name="parentName" id="parentName">
+      <option value="">--Please choose an location--</option>
+      <% folders.forEach((folder) => { %>
+        <option value="<%= folder.id %>"><%= folder.name %></option>
+      <% }); %>
+    </select>
+
     <button type="submit">Submit</button>
+
   </form>
 </body>
 </html>

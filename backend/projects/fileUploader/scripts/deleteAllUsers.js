@@ -16,6 +16,7 @@ async function deleteAllUsers() {
 
 try {
   await deleteAllUsers();
+  console.log('Delete complete');
 } catch (error) {
   console.error(error);
 } finally {

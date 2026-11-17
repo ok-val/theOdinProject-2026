@@ -23,8 +23,9 @@ const renderFileUpload = [
 
 const renderCreateFolder = [
   isUserAuthenticated,
-  (req, res) => {
-    res.render('create-folder', { title: 'Create Folder' });
+  async (req, res) => {
+    const folders = await readQuery.readFoldersByOwnerId(req.user.id);
+    res.render('create-folder', { title: 'Create Folder', folders });
   }
 ];
 

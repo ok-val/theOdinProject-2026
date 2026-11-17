@@ -26,4 +26,19 @@ const readFolderIdByNameOwnerId = async (name, ownerId) => {
   return folder?.id ?? null;
 };
 
-export { readUserByUsername, readUserById, readFolderIdByNameOwnerId };
+const readFoldersByOwnerId = async (ownerId) => {
+  const folders = await prisma.folder.findMany({
+    where: {
+      ownerId
+    }
+  });
+  // all users should have at least one root folder
+  return folders;
+};
+
+export {
+  readUserByUsername,
+  readUserById,
+  readFolderIdByNameOwnerId,
+  readFoldersByOwnerId
+};
