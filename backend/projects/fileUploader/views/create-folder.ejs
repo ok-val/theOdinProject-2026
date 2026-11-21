@@ -12,7 +12,7 @@
       <option value="">--Please choose an location--</option>
       <!-- Each folder option shows name but sends id --> 
       <% folders.forEach((folder) => { %>
-        <option value="<%= folder.id %>"><%= folder.name %></option>
+        <option value="<%= folder.id %>"><%= folder.path %></option>
       <% }); %>
     </select>
 

@@ -1,7 +1,6 @@
 import * as insertQuery from '../models/insert.query.js';
 import * as readQuery from '../models/read.query.js';
 import multer from 'multer';
-import { readFolderIdByNameOwnerId } from '../models/read.query.js';
 
 const upload = multer({ dest: 'uploads' });
 
@@ -54,23 +53,17 @@ const handleFileUpload = [
 
 const handleCreateFolder = [
   isUserAuthenticated,
-  // TODO: Input validation for folder name to not be 'root'
   async (req, res, next) => {
     const { name, parentId } = req.body;
-    const ownerId = req.user.id;
-    // Path is a string joined from separate parentId recursively towards root, separated by '/'
-    // We know the parentId of each folder, from that folder's id we may find additional parents
-    // until we reach a folder named root (not identifiable by id)
-    const parentPath = await readQuery.createPathFromParentId(parentId);
+    const path = await readQuery.createPathFromParentId(parentId, name);
     try {
-      // await insertQuery.insertFolderByNameOwneridParentidPath(
-      //   name,
-      //   req.user.id,
-      //   parentId,
-      //   path
-      // );
-      // TODO: Figure out how to combine parentPath with the id of a folder
-      res.redirect('/fs');
+      await insertQuery.insertFolderByNameOwneridParentidPath(
+        name,
+        req.user.id,
+        Number(parentId),
+        path
+      );
+      res.redirect('/fs/create-folder');
     } catch (error) {
       next(error);
     }

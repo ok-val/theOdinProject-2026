@@ -17,8 +17,11 @@ const handleSignUp = async (req, res, next) => {
       saltHashedPasswd
     );
     await insertQuery.insertFolderByNameOwneridParentidPath(
+      // All user root folder is enforced the name root.
+      // Dont't let user rename root
       'root',
-      user.id
+      user.id,
+      'root'
     );
     res.redirect('/auth/log-in');
   } catch (error) {

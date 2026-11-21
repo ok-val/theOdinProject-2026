@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 app.use('/auth', authRouter);
 app.use('/fs', fsRouter);
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   // console.log(res.locals.currentUser);
   res.render('index', { title: 'Home' });
 });
