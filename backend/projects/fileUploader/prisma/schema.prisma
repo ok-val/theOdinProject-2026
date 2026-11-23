@@ -38,7 +38,7 @@ model Folder {
   id          Int       @id @default(autoincrement())
   files       File[]
   name        String
-  path        String?    // parentId/id
+  path        String   
   createdAt   DateTime  @default(now())
   ownerId     Int
   parentId    Int?       
@@ -47,6 +47,7 @@ model Folder {
   children    Folder[]  @relation("FolderRelation")
 
   @@unique([ownerId, parentId, name])
+  @@unique([ownerId, path])
 }
 
 model Session {

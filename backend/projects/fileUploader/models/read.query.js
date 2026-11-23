@@ -24,6 +24,18 @@ const readFoldersByOwnerId = async (ownerId) => {
   return folders;
 };
 
+const readFolderIdByOwnerIdPath = async (ownerId, path) => {
+  const folder = await prisma.folder.findUnique({
+    where: {
+      ownerId_path: {
+        ownerId,
+        path
+      }
+    }
+  });
+  return folder.id;
+};
+
 const createPathFromParentId = async (parentId, name) => {
   /*
    * Path is a string joined from separate folder.name recursively towards root, separated by '/'
@@ -64,5 +76,6 @@ export {
   readUserByUsername,
   readUserById,
   readFoldersByOwnerId,
+  readFolderIdByOwnerIdPath,
   createPathFromParentId
 };

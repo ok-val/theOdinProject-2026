@@ -72,12 +72,22 @@ const handleCreateFolder = [
 
 const renderFs = [
   isUserAuthenticated,
-  (req, res) => {
+  async (req, res, next) => {
     // A render folder needs to know which folder is being called.
-    const dir = req.params.dir;
     // The wildcard path segment will return a list
-    // TODO: Find a way to list out the files with their paths
-    res.render('fs', { title: 'File System' });
+    // const dirs = req.params.dir;
+    const path = req.path.slice(1);
+    try {
+      const folderId = await readQuery.readFolderIdByOwnerIdPath(
+        req.user.id,
+        path
+      );
+      console.log(folderId);
+      // TODO: Find a way to list out the folders-then-files with their paths
+      res.render('fs', { title: 'File System' });
+    } catch (error) {
+      next(error);
+    }
   }
 ];
 

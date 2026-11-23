@@ -9,6 +9,9 @@ fsRouter.post('/upload', fsController.handleFileUpload);
 fsRouter.get('/create-folder', fsController.renderCreateFolder);
 fsRouter.post('/create-folder', fsController.handleCreateFolder);
 
-fsRouter.get('/*dir', fsController.renderFs);
+// The wildcard path segment will return a list
+// fsRouter.get('/*dir', fsController.renderFs);
+// The splat catch-all will return any path, whole
+fsRouter.get('/{*splat}', fsController.renderFs);
 
 export default fsRouter;
